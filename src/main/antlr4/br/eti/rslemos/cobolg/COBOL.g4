@@ -21,6 +21,92 @@
  ******************************************************************************/
 grammar COBOL;
 
-program:;
+program :
+		identificationDivision
+		procedureDivision
+	;
 
-TOKEN: '.';
+/* divisions */
+
+identificationDivision :
+		'IDENTIFICATION' 'DIVISION' '.'
+		'PROGRAM-ID' '.' programName '.'
+	;
+
+procedureDivision :
+		'PROCEDURE' 'DIVISION' '.'
+		userDefinedProcedureSection*
+	;
+
+/* sections */
+
+userDefinedProcedureSection :
+		( sectionName 'SECTION' '.' )?
+		( paragraphName '.' )?
+		proceduralStatement+
+	;
+
+/* statements */
+
+proceduralStatement :
+		'DISPLAY' literal '.'
+	|	'STOP' 'RUN' '.'
+	;
+
+/* other elements */
+
+programName :
+		ID
+	;
+
+sectionName :
+		ID
+	;
+
+paragraphName :
+		ID
+	;
+
+literal :
+		numericLiteral
+	|	alphanumericLiteral
+	;
+
+numericLiteral :
+		INTEGER
+	|	FIXEDPOINT
+	|	HEXINTEGER
+	;
+
+alphanumericLiteral :
+		QUOTEDSTRING
+	|	HEXSTRING
+	;
+
+WS	: [ \n] -> channel(HIDDEN);
+
+ID	:
+		[A-Z0-9]+
+	|	[A-Z0-9][-A-Z0-9]*[A-Z0-9]
+	;
+
+INTEGER : '-'? [0-9]+
+	;
+
+FIXEDPOINT : [0-9]+ '.' [0-9]+
+	;
+
+HEXINTEGER :
+		'H' '"' [0-9A-F]+ '"'
+	|	'H' '\'' [0-9A-F]+ '\''
+	;
+
+QUOTEDSTRING :
+		'"' .*? '"'			// TODO: ""
+	|	'\'' .*? '\''		// TODO: ''
+	;
+
+HEXSTRING :
+		'X' '"' ([0-9A-F][0-9A-F])+ '"'
+	|	'X' '\'' ([0-9A-F][0-9A-F])+ '\''
+	;

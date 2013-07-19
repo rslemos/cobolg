@@ -69,7 +69,7 @@ public class FreeFormatUnitTest {
 		lexer.addErrorListener(new BailOutErrorListener());
 		
 		parser.addErrorListener(new DiagnosticErrorListener());
-		parser.addErrorListener(new BailOutErrorListener());
+		//parser.addErrorListener(new BailOutErrorListener());
 		parser.setErrorHandler(new BailErrorStrategy());
 		
 		ParseTree tree = parser.program();
