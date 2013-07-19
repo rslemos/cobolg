@@ -21,6 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -39,7 +40,7 @@ public class FreeFormatAcceptanceTest extends TestCase {
 	
 	@Override
 	protected void runTest() throws Throwable {
-		fail("I don't know how to parse " + file);
+		FreeFormatUnitTest.compile(new InputStreamReader(new BufferedInputStream(file.openStream())));
 	}
 
 	public static TestSuite suite() throws Exception {
@@ -48,7 +49,7 @@ public class FreeFormatAcceptanceTest extends TestCase {
 		TestSuite suite = new TestSuite(clazz.getName());
 		
 		// probably this will never work inside jar files; no problem as we are just a test
-		URL base = clazz.getResource("/private/samples/freeFormat");
+		URL base = clazz.getResource("/private/samples/freeFormat/");
 		BufferedReader list = new BufferedReader(new InputStreamReader((InputStream) base.getContent()));
 		
 		String line;
