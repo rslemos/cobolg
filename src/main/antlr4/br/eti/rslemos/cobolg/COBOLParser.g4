@@ -19,7 +19,9 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-grammar COBOL;
+parser grammar COBOLParser;
+
+options { tokenVocab = COBOLLexer; }
 
 program :
 		identificationDivision
@@ -29,28 +31,28 @@ program :
 /* divisions */
 
 identificationDivision :
-		'IDENTIFICATION' 'DIVISION' '.'
-		'PROGRAM-ID' '.' programName '.'
+		IDENTIFICATION DIVISION PERIOD
+		PROGRAM_ID PERIOD programName PERIOD
 	;
 
 procedureDivision :
-		'PROCEDURE' 'DIVISION' '.'
+		PROCEDURE DIVISION PERIOD
 		userDefinedProcedureSection*
 	;
 
 /* sections */
 
 userDefinedProcedureSection :
-		( sectionName 'SECTION' '.' )?
-		( paragraphName '.' )?
+		( sectionName SECTION PERIOD )?
+		( paragraphName PERIOD )?
 		proceduralStatement+
 	;
 
 /* statements */
 
 proceduralStatement :
-		'DISPLAY' literal '.'
-	|	'STOP' 'RUN' '.'
+		DISPLAY literal PERIOD
+	|	STOP RUN PERIOD
 	;
 
 /* other elements */
@@ -81,32 +83,4 @@ numericLiteral :
 alphanumericLiteral :
 		QUOTEDSTRING
 	|	HEXSTRING
-	;
-
-WS	: [ \n] -> channel(HIDDEN);
-
-ID	:
-		[A-Z0-9]+
-	|	[A-Z0-9][-A-Z0-9]*[A-Z0-9]
-	;
-
-INTEGER : '-'? [0-9]+
-	;
-
-FIXEDPOINT : [0-9]+ '.' [0-9]+
-	;
-
-HEXINTEGER :
-		'H' '"' [0-9A-F]+ '"'
-	|	'H' '\'' [0-9A-F]+ '\''
-	;
-
-QUOTEDSTRING :
-		'"' .*? '"'			// TODO: ""
-	|	'\'' .*? '\''		// TODO: ''
-	;
-
-HEXSTRING :
-		'X' '"' ([0-9A-F][0-9A-F])+ '"'
-	|	'X' '\'' ([0-9A-F][0-9A-F])+ '\''
 	;
