@@ -21,6 +21,8 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.CompilerHelper.compile;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -40,7 +42,7 @@ public class FreeFormatAcceptanceTest extends TestCase {
 	
 	@Override
 	protected void runTest() throws Throwable {
-		FreeFormatUnitTest.compile(new InputStreamReader(new BufferedInputStream(file.openStream())));
+		compile(new InputStreamReader(new BufferedInputStream(file.openStream())));
 	}
 
 	public static TestSuite suite() throws Exception {
