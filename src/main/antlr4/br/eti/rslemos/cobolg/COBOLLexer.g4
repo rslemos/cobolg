@@ -38,8 +38,8 @@ RUN				: 'RUN';
 WS	: [ \n] -> channel(HIDDEN);
 
 ID	:
-		[A-Z0-9]+
-	|	[A-Z0-9][-A-Z0-9]*[A-Z0-9]
+		[A-Za-z0-9]+
+	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
 	;
 
 INTEGER : '-'? [0-9]+
