@@ -15,20 +15,21 @@ import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
-import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.atn.PredictionMode;
+
+import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
 public class CompilerHelper {
 	
-	public static ParseTree compile(String contents) throws IOException {
+	public static ProgramContext compile(String contents) throws IOException {
 		return compile(new StringReader(contents));
 	}
 
-	public static ParseTree compile(Reader reader) throws IOException {
+	public static ProgramContext compile(Reader reader) throws IOException {
 		return compile(null, reader);
 	}
 	
-	public static ParseTree compile(String fileName, Reader reader) throws IOException {
+	public static ProgramContext compile(String fileName, Reader reader) throws IOException {
 		CollectErrorListener custom = new CollectErrorListener(fileName);
 		
 		COBOLLexer lexer = new COBOLLexer(new ANTLRInputStream(reader));
@@ -40,7 +41,7 @@ public class CompilerHelper {
 		parser.addErrorListener(custom);
 		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
 		
-		ParseTree tree = parser.program();
+		ProgramContext tree = parser.program();
 		
 		custom.verify();
 		
