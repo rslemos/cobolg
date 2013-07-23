@@ -46,22 +46,26 @@ public abstract class Compiler {
 		return tree;
 	}
 
-	protected abstract COBOLParser buildParser(Lexer lexer);
+	protected COBOLParser buildParser(Lexer lexer) {
+		return new COBOLParser(new CommonTokenStream(lexer));
+	}
 
 	protected abstract Lexer buildLexer(Reader reader) throws IOException;
 	
 	public static class FreeFormatCompiler extends Compiler {
 
 		@Override
-		protected COBOLParser buildParser(Lexer lexer) {
-			return new COBOLParser(new CommonTokenStream(lexer));
-		}
-
-		@Override
 		protected Lexer buildLexer(Reader reader) throws IOException {
 			return new COBOLFreeFormatLexer(new ANTLRInputStream(reader));
 		}
-		
+	}
+
+	public static class FixedFormatCompiler extends Compiler {
+
+		@Override
+		protected Lexer buildLexer(Reader reader) throws IOException {
+			throw new UnsupportedOperationException("How do I do it?");
+		}
 	}
 }
 

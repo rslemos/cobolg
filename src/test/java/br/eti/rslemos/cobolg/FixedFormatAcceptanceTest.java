@@ -24,19 +24,18 @@ package br.eti.rslemos.cobolg;
 import java.net.URL;
 
 import junit.framework.TestSuite;
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
-public class FreeFormatAcceptanceTest extends AbstractAcceptanceTest {
-	
-	public FreeFormatAcceptanceTest(URL file) {
+public class FixedFormatAcceptanceTest extends AbstractAcceptanceTest {
+
+	public FixedFormatAcceptanceTest(URL file) {
 		super(file);
 	}
 	
 	public static TestSuite suite() throws Exception {
-		return suite(FreeFormatAcceptanceTest.class, "freeFormat/", "/private/samples/freeFormat/");
+		return suite(FixedFormatAcceptanceTest.class, "fixedFormat/", "/private/samples/fixedFormat/");
 	}
 	
 	protected Compiler getCompiler() {
-		return new Compiler.FreeFormatCompiler();
+		return new Compiler.FixedFormatCompiler();
 	}
 }
