@@ -42,7 +42,7 @@ public class FreeFormatAcceptanceTest extends TestCase {
 	
 	@Override
 	protected void runTest() throws Throwable {
-		compile(new InputStreamReader(new BufferedInputStream(file.openStream())));
+		compile(basename(file), new InputStreamReader(new BufferedInputStream(file.openStream())));
 	}
 
 	public static TestSuite suite() throws Exception {
