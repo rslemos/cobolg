@@ -50,8 +50,17 @@ public class FreeFormatAcceptanceTest extends TestCase {
 		
 		TestSuite suite = new TestSuite(clazz.getName());
 		
+		addFiles(suite, clazz.getResource("freeFormat/"));
+		addFiles(suite, clazz.getResource("/private/samples/freeFormat/"));
+		
+		return suite;
+	}
+
+	private static void addFiles(TestSuite suite, URL base) throws Exception {
+		if (base == null)
+			return;
+
 		// probably this will never work inside jar files; no problem as we are just a test
-		URL base = clazz.getResource("/private/samples/freeFormat/");
 		BufferedReader list = new BufferedReader(new InputStreamReader((InputStream) base.getContent()));
 		
 		String line;
@@ -59,8 +68,6 @@ public class FreeFormatAcceptanceTest extends TestCase {
 			URL file = new URL(base, line);
 			suite.addTest(new FreeFormatAcceptanceTest(file));
 		}
-		
-		return suite;
 	}
 	
 	private static String basename(URL file) {
