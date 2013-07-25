@@ -59,7 +59,7 @@ public abstract class Compiler {
 
 		@Override
 		protected Lexer buildLexer(Reader reader) throws IOException {
-			return new COBOLLexer(new ANTLRInputStream(reader));
+			return new COBOLFreeFormatLexer(new ANTLRInputStream(reader));
 		}
 		
 	}

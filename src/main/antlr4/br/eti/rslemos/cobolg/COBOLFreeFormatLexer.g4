@@ -19,7 +19,7 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-lexer grammar COBOLLexer;
+lexer grammar COBOLFreeFormatLexer;
 
 PERIOD			: '.';
 
