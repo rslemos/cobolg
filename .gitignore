@@ -20,3 +20,9 @@
 
 # maven
 target/
+
+# eclipse
+.project
+.classpath
+.settings/
+
