@@ -21,7 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.CompilerHelper.compile;
+import static br.eti.rslemos.cobolg.Compiler.compile;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;

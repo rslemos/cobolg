@@ -1,7 +1,5 @@
 package br.eti.rslemos.cobolg;
 
-import static org.junit.Assert.fail;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -19,7 +17,7 @@ import org.antlr.v4.runtime.atn.PredictionMode;
 
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
-public class CompilerHelper {
+public class Compiler {
 	
 	public static ProgramContext compile(String contents) throws IOException {
 		return compile(new StringReader(contents));
@@ -91,8 +89,29 @@ class CollectErrorListener extends BaseErrorListener {
 			}
 			
 			message.setLength(message.length() - 1);
-			
-			fail(message.toString());
+
+			throw new CompilationError(message.toString());
 		}
+	}
+}
+
+class CompilationError extends Error {
+
+	private static final long serialVersionUID = 1355307576009905119L;
+
+	public CompilationError() {
+		super();
+	}
+
+	public CompilationError(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public CompilationError(String message) {
+		super(message);
+	}
+
+	public CompilationError(Throwable cause) {
+		super(cause);
 	}
 }
