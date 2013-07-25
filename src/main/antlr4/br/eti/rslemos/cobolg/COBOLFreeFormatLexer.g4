@@ -19,24 +19,46 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-package br.eti.rslemos.cobolg;
+lexer grammar COBOLFreeFormatLexer;
 
-import java.net.URL;
+PERIOD			: '.';
 
-import junit.framework.TestSuite;
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
+DIVISION 		: 'DIVISION';
+SECTION			: 'SECTION';
 
-public class FreeFormatAcceptanceTest extends AbstractAcceptanceTest {
-	
-	public FreeFormatAcceptanceTest(URL file) {
-		super(file);
-	}
-	
-	public static TestSuite suite() throws Exception {
-		return suite(FreeFormatAcceptanceTest.class, "freeFormat/", "/private/samples/freeFormat/");
-	}
-	
-	protected Compiler getCompiler() {
-		return new Compiler.FreeFormatCompiler();
-	}
-}
+IDENTIFICATION	: 'ID' ('ENTIFICATION')?;
+PROCEDURE		: 'PROCEDURE';
+
+PROGRAM_ID		: 'PROGRAM-ID';
+
+DISPLAY			: 'DISPLAY';
+STOP			: 'STOP';
+RUN				: 'RUN';
+
+WS	: [ \n] -> channel(HIDDEN);
+
+ID	:
+		[A-Za-z0-9]+
+	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
+	;
+
+INTEGER : '-'? [0-9]+
+	;
+
+FIXEDPOINT : [0-9]+ '.' [0-9]+
+	;
+
+HEXINTEGER :
+		'H' '"' [0-9A-F]+ '"'
+	|	'H' '\'' [0-9A-F]+ '\''
+	;
+
+QUOTEDSTRING :
+		'"' .*? '"'			// TODO: ""
+	|	'\'' .*? '\''		// TODO: ''
+	;
+
+HEXSTRING :
+		'X' '"' ([0-9A-F][0-9A-F])+ '"'
+	|	'X' '\'' ([0-9A-F][0-9A-F])+ '\''
+	;

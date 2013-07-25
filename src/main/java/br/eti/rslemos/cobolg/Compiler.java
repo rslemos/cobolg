@@ -1,7 +1,5 @@
 package br.eti.rslemos.cobolg;
 
-import static org.junit.Assert.fail;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
@@ -19,24 +17,24 @@ import org.antlr.v4.runtime.atn.PredictionMode;
 
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
-public class CompilerHelper {
+public abstract class Compiler {
 	
-	public static ProgramContext compile(String contents) throws IOException {
+	public ProgramContext compile(String contents) throws IOException {
 		return compile(new StringReader(contents));
 	}
 
-	public static ProgramContext compile(Reader reader) throws IOException {
+	public ProgramContext compile(Reader reader) throws IOException {
 		return compile(null, reader);
 	}
 	
-	public static ProgramContext compile(String fileName, Reader reader) throws IOException {
+	public ProgramContext compile(String fileName, Reader reader) throws IOException {
 		CollectErrorListener custom = new CollectErrorListener(fileName);
 		
-		COBOLLexer lexer = new COBOLLexer(new ANTLRInputStream(reader));
+		Lexer lexer = buildLexer(reader);
 		lexer.removeErrorListeners();
 		lexer.addErrorListener(custom);
 		
-		COBOLParser parser = new COBOLParser(new CommonTokenStream(lexer));
+		COBOLParser parser = buildParser(lexer);
 		parser.removeErrorListeners();
 		parser.addErrorListener(custom);
 		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
@@ -46,6 +44,28 @@ public class CompilerHelper {
 		custom.verify();
 		
 		return tree;
+	}
+
+	protected COBOLParser buildParser(Lexer lexer) {
+		return new COBOLParser(new CommonTokenStream(lexer));
+	}
+
+	protected abstract Lexer buildLexer(Reader reader) throws IOException;
+	
+	public static class FreeFormatCompiler extends Compiler {
+
+		@Override
+		protected Lexer buildLexer(Reader reader) throws IOException {
+			return new COBOLFreeFormatLexer(new ANTLRInputStream(reader));
+		}
+	}
+
+	public static class FixedFormatCompiler extends Compiler {
+
+		@Override
+		protected Lexer buildLexer(Reader reader) throws IOException {
+			throw new UnsupportedOperationException("How do I do it?");
+		}
 	}
 }
 
@@ -91,8 +111,29 @@ class CollectErrorListener extends BaseErrorListener {
 			}
 			
 			message.setLength(message.length() - 1);
-			
-			fail(message.toString());
+
+			throw new CompilationError(message.toString());
 		}
+	}
+}
+
+class CompilationError extends Error {
+
+	private static final long serialVersionUID = 1355307576009905119L;
+
+	public CompilationError() {
+		super();
+	}
+
+	public CompilationError(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public CompilationError(String message) {
+		super(message);
+	}
+
+	public CompilationError(Throwable cause) {
+		super(cause);
 	}
 }

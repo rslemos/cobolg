@@ -19,46 +19,23 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-lexer grammar COBOLLexer;
+package br.eti.rslemos.cobolg;
 
-PERIOD			: '.';
+import java.net.URL;
 
-DIVISION 		: 'DIVISION';
-SECTION			: 'SECTION';
+import junit.framework.TestSuite;
 
-IDENTIFICATION	: 'ID' ('ENTIFICATION')?;
-PROCEDURE		: 'PROCEDURE';
+public class FixedFormatAcceptanceTest extends AbstractAcceptanceTest {
 
-PROGRAM_ID		: 'PROGRAM-ID';
-
-DISPLAY			: 'DISPLAY';
-STOP			: 'STOP';
-RUN				: 'RUN';
-
-WS	: [ \n] -> channel(HIDDEN);
-
-ID	:
-		[A-Za-z0-9]+
-	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
-	;
-
-INTEGER : '-'? [0-9]+
-	;
-
-FIXEDPOINT : [0-9]+ '.' [0-9]+
-	;
-
-HEXINTEGER :
-		'H' '"' [0-9A-F]+ '"'
-	|	'H' '\'' [0-9A-F]+ '\''
-	;
-
-QUOTEDSTRING :
-		'"' .*? '"'			// TODO: ""
-	|	'\'' .*? '\''		// TODO: ''
-	;
-
-HEXSTRING :
-		'X' '"' ([0-9A-F][0-9A-F])+ '"'
-	|	'X' '\'' ([0-9A-F][0-9A-F])+ '\''
-	;
+	public FixedFormatAcceptanceTest(URL file) {
+		super(file);
+	}
+	
+	public static TestSuite suite() throws Exception {
+		return suite(FixedFormatAcceptanceTest.class, "fixedFormat/", "/private/samples/fixedFormat/");
+	}
+	
+	protected Compiler getCompiler() {
+		return new Compiler.FixedFormatCompiler();
+	}
+}

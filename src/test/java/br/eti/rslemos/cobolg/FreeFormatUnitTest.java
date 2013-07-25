@@ -21,7 +21,6 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.CompilerHelper.compile;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -39,6 +38,7 @@ import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
+import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatUnitTest {
 	private static final String SOURCE = join(
@@ -53,7 +53,7 @@ public class FreeFormatUnitTest {
 	
 	@Before
 	public void setup() throws Exception {
-		tree = compile(SOURCE);
+		tree = new FreeFormatCompiler().compile(SOURCE);
 		assertThat(tree, is(not(nullValue(ProgramContext.class))));
 	}
 	
