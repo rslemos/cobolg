@@ -17,24 +17,24 @@ import org.antlr.v4.runtime.atn.PredictionMode;
 
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
-public class Compiler {
+public abstract class Compiler {
 	
-	public static ProgramContext compile(String contents) throws IOException {
+	public ProgramContext compile(String contents) throws IOException {
 		return compile(new StringReader(contents));
 	}
 
-	public static ProgramContext compile(Reader reader) throws IOException {
+	public ProgramContext compile(Reader reader) throws IOException {
 		return compile(null, reader);
 	}
 	
-	public static ProgramContext compile(String fileName, Reader reader) throws IOException {
+	public ProgramContext compile(String fileName, Reader reader) throws IOException {
 		CollectErrorListener custom = new CollectErrorListener(fileName);
 		
-		COBOLLexer lexer = new COBOLLexer(new ANTLRInputStream(reader));
+		Lexer lexer = buildLexer(reader);
 		lexer.removeErrorListeners();
 		lexer.addErrorListener(custom);
 		
-		COBOLParser parser = new COBOLParser(new CommonTokenStream(lexer));
+		COBOLParser parser = buildParser(lexer);
 		parser.removeErrorListeners();
 		parser.addErrorListener(custom);
 		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
@@ -44,6 +44,24 @@ public class Compiler {
 		custom.verify();
 		
 		return tree;
+	}
+
+	protected abstract COBOLParser buildParser(Lexer lexer);
+
+	protected abstract Lexer buildLexer(Reader reader) throws IOException;
+	
+	public static class FreeFormatCompiler extends Compiler {
+
+		@Override
+		protected COBOLParser buildParser(Lexer lexer) {
+			return new COBOLParser(new CommonTokenStream(lexer));
+		}
+
+		@Override
+		protected Lexer buildLexer(Reader reader) throws IOException {
+			return new COBOLLexer(new ANTLRInputStream(reader));
+		}
+		
 	}
 }
 

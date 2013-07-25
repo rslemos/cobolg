@@ -21,8 +21,6 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.Compiler.compile;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -31,6 +29,7 @@ import java.net.URL;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatAcceptanceTest extends TestCase {
 	private final URL file;
@@ -42,7 +41,7 @@ public class FreeFormatAcceptanceTest extends TestCase {
 	
 	@Override
 	protected void runTest() throws Throwable {
-		compile(basename(file), new InputStreamReader(new BufferedInputStream(file.openStream())));
+		new FreeFormatCompiler().compile(basename(file), new InputStreamReader(new BufferedInputStream(file.openStream())));
 	}
 
 	public static TestSuite suite() throws Exception {
