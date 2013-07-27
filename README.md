@@ -3,6 +3,13 @@ cobolg
 
 COBOL grammar.
 
+This project is permanently under development using this [successful branching
+model](http://nvie.com/posts/a-successful-git-branching-model/).
+
+The master branch contains only released versions (currently none).
+
+All development occurs in the develop branch.
+
 --------------------------------------------------------------------------------
   BEGIN COPYRIGHT NOTICE
   
