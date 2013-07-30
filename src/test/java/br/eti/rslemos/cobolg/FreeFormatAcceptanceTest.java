@@ -24,7 +24,6 @@ package br.eti.rslemos.cobolg;
 import java.net.URL;
 
 import junit.framework.TestSuite;
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatAcceptanceTest extends AbstractAcceptanceTest {
 	
