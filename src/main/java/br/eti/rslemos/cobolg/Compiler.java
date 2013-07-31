@@ -34,12 +34,17 @@ import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
+import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.atn.PredictionMode;
 
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
 public abstract class Compiler {
 	
+	public TokenSource decompose(String contents) throws IOException {
+		return buildLexer(new StringReader(contents));
+	}
+
 	public ProgramContext compile(String contents) throws IOException {
 		return compile(new StringReader(contents));
 	}
