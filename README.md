@@ -6,9 +6,14 @@ COBOL grammar.
 This project is permanently under development using this [successful branching
 model](http://nvie.com/posts/a-successful-git-branching-model/).
 
-The master branch contains only released versions (currently none).
+The "master" branch contains only released versions (currently none).
 
-All development occurs in the develop branch.
+All development occurs in the "develop" branch.
+
+Features are developed on "feature/\*" branches. On these branches the ["Only
+the Gods" kōan](http://stevelosh.com/blog/2013/04/git-koans/#only-the-gods)
+maybe regularly violated, as pushed commits can be rebased at will (these
+branches should be temporary anyway).
 
 --------------------------------------------------------------------------------
   BEGIN COPYRIGHT NOTICE
