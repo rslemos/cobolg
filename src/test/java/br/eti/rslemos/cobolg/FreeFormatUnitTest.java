@@ -44,6 +44,7 @@ public class FreeFormatUnitTest {
 	private static final String SOURCE = join(
 			"IDENTIFICATION DIVISION.",
 			"PROGRAM-ID. HELLO-WORLD.",
+			"*COMMENT LINE",
 			"PROCEDURE DIVISION.",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN."

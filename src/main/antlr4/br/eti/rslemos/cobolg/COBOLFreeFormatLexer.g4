@@ -21,6 +21,9 @@
  ******************************************************************************/
 lexer grammar COBOLFreeFormatLexer;
 
+COMMENT			: ('*' | '/') ~'\n'* '\n'? { _tokenStartCharPositionInLine == 0 }? 
+														-> channel(HIDDEN);
+
 PERIOD			: '.';
 
 DIVISION 		: 'DIVISION';
@@ -35,7 +38,7 @@ DISPLAY			: 'DISPLAY';
 STOP			: 'STOP';
 RUN				: 'RUN';
 
-WS	: [ \n] -> channel(HIDDEN);
+WS	: [ \n]												-> channel(HIDDEN);
 
 ID	:
 		[A-Za-z0-9]+
