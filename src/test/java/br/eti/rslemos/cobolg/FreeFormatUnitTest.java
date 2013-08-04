@@ -32,6 +32,8 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
@@ -45,6 +47,10 @@ public class FreeFormatUnitTest {
 			"IDENTIFICATION DIVISION.",
 			"PROGRAM-ID. HELLO-WORLD.",
 			"*COMMENT LINE\r",
+			"ENVIRONMENT DIVISION.",
+			"CONFIGURATION SECTION.",
+			"SPECIAL-NAMES.",
+			"    C02 IS LCP-CH2.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -69,6 +75,18 @@ public class FreeFormatUnitTest {
 		assertThat(idDivision.programName().getText(), is(equalTo("HELLO-WORLD")));
 	}
 
+	@Test
+	public void testEnvironmentDivisionPresence() {
+		assertThat(tree.environmentDivision(), is(not(nullValue(EnvironmentDivisionContext.class))));
+	}
+
+	@Test
+	public void testEnvironemntDivision() {
+		EnvironmentDivisionContext envDivision = tree.environmentDivision();
+		assertThat(envDivision.configurationSection(), is(not(nullValue(ConfigurationSectionContext.class))));
+		
+	}
+	
 	@Test
 	public void testProcedureDivisionPresence() {
 		assertThat(tree.procedureDivision(), is(not(nullValue(ProcedureDivisionContext.class))));
