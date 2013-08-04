@@ -50,6 +50,7 @@ procedureDivision :
 
 configurationSection :
 		CONFIGURATION SECTION PERIOD
+		objectComputerParagraph?
 		specialNamesParagraph?
 	;
 
@@ -60,6 +61,12 @@ userDefinedProcedureSection :
 	;
 
 /* paragraphs */
+objectComputerParagraph :
+		OBJECT_COMPUTER PERIOD
+		ID
+		PERIOD
+	;
+
 specialNamesParagraph :
 		SPECIAL_NAMES PERIOD
 		specialNamesSentence+

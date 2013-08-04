@@ -35,6 +35,7 @@ import org.junit.Test;
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
@@ -51,6 +52,7 @@ public class FreeFormatUnitTest {
 			"*COMMENT LINE\r",
 			"ENVIRONMENT DIVISION.",
 			"CONFIGURATION SECTION.",
+			"OBJECT-COMPUTER. IBM-370-148.",
 			"SPECIAL-NAMES.",
 			"    C02 IS LCP-CH2.",
 			"PROCEDURE DIVISION.\r",
@@ -85,6 +87,18 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testConfigurationSectionPresence() {
 		assertThat(tree.environmentDivision().configurationSection(), is(not(nullValue(ConfigurationSectionContext.class))));
+	}
+
+	@Test
+	public void testObjectComputerParagraphPresence() {
+		assertThat(tree.environmentDivision().configurationSection().objectComputerParagraph(), is(not(nullValue(ObjectComputerParagraphContext.class))));
+	}
+	
+	@Test
+	public void testObjectComputerParagraph() {
+		ObjectComputerParagraphContext objCompParagraph = tree.environmentDivision().configurationSection().objectComputerParagraph();
+		
+		assertThat(objCompParagraph.ID().getText(), is(equalTo("IBM-370-148")));
 	}
 	
 	@Test
