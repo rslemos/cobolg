@@ -49,10 +49,17 @@ PROGRAM_ID		: 'PROGRAM-ID';
 SELECT			: 'SELECT';
 OPTIONAL		: 'OPTIONAL';
 ASSIGN			: 'ASSIGN';
+ORGANIZATION	: 'ORGANIZATION';
+INDEXED			: 'INDEXED';
+ACCESS			: 'ACCESS';
+SEQUENTIAL		: 'SEQUENTIAL';
+RECORD			: 'RECORD';
 
 // syntatic sugar
 IS				: 'IS';
 TO				: 'TO';
+KEY				: 'KEY';
+MODE			: 'MODE';
 
 // statements
 DISPLAY			: 'DISPLAY';

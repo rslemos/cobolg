@@ -35,6 +35,7 @@ import org.junit.Test;
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
@@ -62,6 +63,10 @@ public class FreeFormatUnitTest {
 			"FILE-CONTROL.",
 			"    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
 			"    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
+			"    SELECT  PROJEN-I    ASSIGN TO D433131",
+			"                        RECORD KEY CHAVE",
+			"                        ACCESS SEQUENTIAL",
+			"                        ORGANIZATION INDEXED.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -138,7 +143,7 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testFileControlParagraph() {
 		FileControlParagraphContext fileCtlParagraph = tree.environmentDivision().inputOutputSection().fileControlParagraph();
-		assertThat(fileCtlParagraph.selectFileSentence().size(), is(equalTo(2)));
+		assertThat(fileCtlParagraph.selectFileSentence().size(), is(equalTo(3)));
 		
 		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
 		SelectFileSentenceContext selectFileSentence_0 = fileCtlParagraph.selectFileSentence(0);
@@ -149,6 +154,22 @@ public class FreeFormatUnitTest {
 		assertThat(selectFileSentence_1.ID(0).getText(), is(equalTo("PRAMFIXO")));
 		assertThat(selectFileSentence_1.ID(1).getText(), is(equalTo("UT-S-D433135")));
 		
+	}
+
+	@Test
+	public void test3rdSelectFileSentence() {
+		// "    SELECT  PROJEN-I    ASSIGN TO D433131",
+		// "                        RECORD KEY CHAVE",
+		// "                        ACCESS SEQUENTIAL",
+		// "                        ORGANIZATION INDEXED.",
+		SelectFileSentenceContext selectFileSentence_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectFileSentence(2);
+		assertThat(selectFileSentence_2.ID(0).getText(), is(equalTo("PROJEN-I")));
+		assertThat(selectFileSentence_2.ID(1).getText(), is(equalTo("D433131")));
+		
+		FileOrganizationIndexedContext fileOrganization = selectFileSentence_2.fileOrganizationIndexed();
+		assertThat(fileOrganization, is(not(nullValue(FileOrganizationIndexedContext.class))));
+		
+		assertThat(fileOrganization.ID().getText(), is(equalTo("CHAVE")));
 	}
 
 	@Test

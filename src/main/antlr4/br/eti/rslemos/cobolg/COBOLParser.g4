@@ -90,7 +90,17 @@ specialNamesSentence :
 	;
 
 selectFileSentence :
-		SELECT OPTIONAL? ID ASSIGN TO? ID PERIOD
+		SELECT OPTIONAL? ID ASSIGN TO? ID
+		(fileOrganizationIndexed)?
+		PERIOD
+	;
+
+// TODO: may appear in any order, but at most once
+// (though this may be not a syntatic concern, but rather semantic one)
+fileOrganizationIndexed :
+		RECORD KEY? IS? ID
+		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
+		ORGANIZATION IS? INDEXED
 	;
 
 /* statements */
