@@ -44,10 +44,10 @@ public class FreeFormatUnitTest {
 	private static final String SOURCE = join(
 			"IDENTIFICATION DIVISION.",
 			"PROGRAM-ID. HELLO-WORLD.",
-			"*COMMENT LINE",
-			"PROCEDURE DIVISION.",
+			"*COMMENT LINE\r",
+			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
-			"    STOP RUN."
+			"    STOP RUN.\r"
 		);
 	
 	private ProgramContext tree;

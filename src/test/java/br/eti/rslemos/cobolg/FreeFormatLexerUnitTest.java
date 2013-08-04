@@ -86,4 +86,32 @@ public class FreeFormatLexerUnitTest {
 		assertThat(token2.getType(), is(not(equalTo(COBOLFreeFormatLexer.COMMENT))));
 		
 	}
+	
+	@Test
+	public void testCommentLineWithCRLF() throws Exception {
+		TokenSource stream = new FreeFormatCompiler().decompose("*COMMENT LINE\r\n");
+		
+		Token token0 = stream.nextToken();
+		Token token1 = stream.nextToken();
+		
+		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.COMMENT)));
+		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.HIDDEN)));
+		assertThat(token0.getText(), is(equalTo("*COMMENT LINE\r\n")));
+		
+		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+	}
+
+	@Test
+	public void testCommentLineWithCR() throws Exception {
+		TokenSource stream = new FreeFormatCompiler().decompose("*COMMENT LINE\r");
+		
+		Token token0 = stream.nextToken();
+		Token token1 = stream.nextToken();
+		
+		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.COMMENT)));
+		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.HIDDEN)));
+		assertThat(token0.getText(), is(equalTo("*COMMENT LINE\r")));
+		
+		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+	}
 }
