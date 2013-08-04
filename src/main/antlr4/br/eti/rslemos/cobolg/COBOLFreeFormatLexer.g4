@@ -46,7 +46,13 @@ FILE_CONTROL	: 'FILE-CONTROL';
 
 // sentences
 PROGRAM_ID		: 'PROGRAM-ID';
+SELECT			: 'SELECT';
+OPTIONAL		: 'OPTIONAL';
+ASSIGN			: 'ASSIGN';
+
+// syntatic sugar
 IS				: 'IS';
+TO				: 'TO';
 
 // statements
 DISPLAY			: 'DISPLAY';

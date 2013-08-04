@@ -29,7 +29,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
@@ -42,6 +42,7 @@ import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.SelectFileSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
@@ -59,15 +60,17 @@ public class FreeFormatUnitTest {
 			"    C02 IS LCP-CH2.",
 			"INPUT-OUTPUT SECTION.",
 			"FILE-CONTROL.",
+			"    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
+			"    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
 		);
 	
-	private ProgramContext tree;
+	private static ProgramContext tree;
 	
-	@Before
-	public void setup() throws Exception {
+	@BeforeClass
+	public static void compile() throws Exception {
 		tree = new FreeFormatCompiler().compile(SOURCE);
 		assertThat(tree, is(not(nullValue(ProgramContext.class))));
 	}
@@ -130,6 +133,22 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testFileControlParagraphPresence() {
 		assertThat(tree.environmentDivision().inputOutputSection().fileControlParagraph(), is(not(nullValue(FileControlParagraphContext.class))));
+	}
+
+	@Test
+	public void testFileControlParagraph() {
+		FileControlParagraphContext fileCtlParagraph = tree.environmentDivision().inputOutputSection().fileControlParagraph();
+		assertThat(fileCtlParagraph.selectFileSentence().size(), is(equalTo(2)));
+		
+		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
+		SelectFileSentenceContext selectFileSentence_0 = fileCtlParagraph.selectFileSentence(0);
+		assertThat(selectFileSentence_0.ID(0).getText(), is(equalTo("IMPRES")));
+		assertThat(selectFileSentence_0.ID(1).getText(), is(equalTo("UT-S-L439161")));
+		// "    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
+		SelectFileSentenceContext selectFileSentence_1 = fileCtlParagraph.selectFileSentence(1);
+		assertThat(selectFileSentence_1.ID(0).getText(), is(equalTo("PRAMFIXO")));
+		assertThat(selectFileSentence_1.ID(1).getText(), is(equalTo("UT-S-D433135")));
+		
 	}
 
 	@Test

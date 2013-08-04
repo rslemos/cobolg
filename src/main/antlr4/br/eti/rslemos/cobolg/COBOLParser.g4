@@ -81,11 +81,16 @@ specialNamesParagraph :
 
 fileControlParagraph :
 		FILE_CONTROL PERIOD
+		selectFileSentence+
 	;
 
 /* sentences */
 specialNamesSentence :
-		ID IS ID
+		ID IS? ID
+	;
+
+selectFileSentence :
+		SELECT OPTIONAL? ID ASSIGN TO? ID PERIOD
 	;
 
 /* statements */
