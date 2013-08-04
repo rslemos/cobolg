@@ -26,14 +26,27 @@ COMMENT			: ('*' | '/') ~('\n' | '\r')* '\r'? '\n'?
 
 PERIOD			: '.';
 
+// headers
 DIVISION 		: 'DIVISION';
 SECTION			: 'SECTION';
 
+// divisions
 IDENTIFICATION	: 'ID' ('ENTIFICATION')?;
+ENVIRONMENT		: 'ENVIRONMENT';
 PROCEDURE		: 'PROCEDURE';
 
-PROGRAM_ID		: 'PROGRAM-ID';
+// sections
+CONFIGURATION	: 'CONFIGURATION';
 
+// paragraphs
+OBJECT_COMPUTER	: 'OBJECT-COMPUTER';
+SPECIAL_NAMES	: 'SPECIAL-NAMES';
+
+// sentences
+PROGRAM_ID		: 'PROGRAM-ID';
+IS				: 'IS';
+
+// statements
 DISPLAY			: 'DISPLAY';
 STOP			: 'STOP';
 RUN				: 'RUN';

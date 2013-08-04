@@ -32,11 +32,16 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
@@ -45,6 +50,11 @@ public class FreeFormatUnitTest {
 			"IDENTIFICATION DIVISION.",
 			"PROGRAM-ID. HELLO-WORLD.",
 			"*COMMENT LINE\r",
+			"ENVIRONMENT DIVISION.",
+			"CONFIGURATION SECTION.",
+			"OBJECT-COMPUTER. IBM-370-148.",
+			"SPECIAL-NAMES.",
+			"    C02 IS LCP-CH2.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -69,6 +79,45 @@ public class FreeFormatUnitTest {
 		assertThat(idDivision.programName().getText(), is(equalTo("HELLO-WORLD")));
 	}
 
+	@Test
+	public void testEnvironmentDivisionPresence() {
+		assertThat(tree.environmentDivision(), is(not(nullValue(EnvironmentDivisionContext.class))));
+	}
+
+	@Test
+	public void testConfigurationSectionPresence() {
+		assertThat(tree.environmentDivision().configurationSection(), is(not(nullValue(ConfigurationSectionContext.class))));
+	}
+
+	@Test
+	public void testObjectComputerParagraphPresence() {
+		assertThat(tree.environmentDivision().configurationSection().objectComputerParagraph(), is(not(nullValue(ObjectComputerParagraphContext.class))));
+	}
+	
+	@Test
+	public void testObjectComputerParagraph() {
+		ObjectComputerParagraphContext objCompParagraph = tree.environmentDivision().configurationSection().objectComputerParagraph();
+		
+		assertThat(objCompParagraph.ID().getText(), is(equalTo("IBM-370-148")));
+	}
+	
+	@Test
+	public void testSpecialNamesParagraphPresence() {
+		assertThat(tree.environmentDivision().configurationSection().specialNamesParagraph(), is(not(nullValue(SpecialNamesParagraphContext.class))));
+	}
+	
+	@Test
+	public void testSpecialNamesParagraph() {
+		SpecialNamesParagraphContext specNamesParagraph = tree.environmentDivision().configurationSection().specialNamesParagraph();
+		assertThat(specNamesParagraph.specialNamesSentence().size(), is(equalTo(1)));
+		
+		SpecialNamesSentenceContext specNamesSentence_0 = specNamesParagraph.specialNamesSentence(0);
+		assertThat(specNamesSentence_0.ID(0).getText(), is(equalTo("C02")));
+		assertThat(specNamesSentence_0.IS(), is(not(nullValue(TerminalNode.class))));
+		assertThat(specNamesSentence_0.ID(1).getText(), is(equalTo("LCP-CH2")));
+		
+	}
+	
 	@Test
 	public void testProcedureDivisionPresence() {
 		assertThat(tree.procedureDivision(), is(not(nullValue(ProcedureDivisionContext.class))));

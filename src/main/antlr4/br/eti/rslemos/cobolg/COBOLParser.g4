@@ -25,6 +25,7 @@ options { tokenVocab = COBOLFreeFormatLexer; }
 
 program :
 		identificationDivision
+		environmentDivision?
 		procedureDivision
 	;
 
@@ -35,6 +36,11 @@ identificationDivision :
 		PROGRAM_ID PERIOD programName PERIOD
 	;
 
+environmentDivision :
+		ENVIRONMENT DIVISION PERIOD
+		configurationSection?
+	;
+	
 procedureDivision :
 		PROCEDURE DIVISION PERIOD
 		userDefinedProcedureSection*
@@ -42,10 +48,34 @@ procedureDivision :
 
 /* sections */
 
+configurationSection :
+		CONFIGURATION SECTION PERIOD
+		objectComputerParagraph?
+		specialNamesParagraph?
+	;
+
 userDefinedProcedureSection :
 		( sectionName SECTION PERIOD )?
 		( paragraphName PERIOD )?
 		proceduralStatement+
+	;
+
+/* paragraphs */
+objectComputerParagraph :
+		OBJECT_COMPUTER PERIOD
+		ID
+		PERIOD
+	;
+
+specialNamesParagraph :
+		SPECIAL_NAMES PERIOD
+		specialNamesSentence+
+		PERIOD
+	;
+
+/* sentences */
+specialNamesSentence :
+		ID IS ID
 	;
 
 /* statements */
