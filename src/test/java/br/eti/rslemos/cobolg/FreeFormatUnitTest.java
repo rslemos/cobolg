@@ -33,6 +33,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
@@ -68,6 +69,7 @@ public class FreeFormatUnitTest {
 			"                        ACCESS SEQUENTIAL",
 			"                        STATUS IS PROJ-STATUS",
 			"                        ORGANIZATION INDEXED.",
+			"DATA DIVISION.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -173,6 +175,11 @@ public class FreeFormatUnitTest {
 
 		assertThat(fileOrganization.ID(0).getText(), is(equalTo("CHAVE")));
 		assertThat(fileOrganization.ID(1).getText(), is(equalTo("PROJ-STATUS")));
+	}
+
+	@Test
+	public void testDataDivisionPresence() {
+		assertThat(tree.dataDivision(), is(not(nullValue(DataDivisionContext.class))));
 	}
 
 	@Test

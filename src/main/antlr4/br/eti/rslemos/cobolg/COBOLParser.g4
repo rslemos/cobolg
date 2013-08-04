@@ -26,6 +26,7 @@ options { tokenVocab = COBOLFreeFormatLexer; }
 program :
 		identificationDivision
 		environmentDivision?
+		dataDivision?
 		procedureDivision
 	;
 
@@ -41,7 +42,11 @@ environmentDivision :
 		configurationSection?
 		inputOutputSection?
 	;
-	
+
+dataDivision :
+		DATA DIVISION PERIOD
+	;
+
 procedureDivision :
 		PROCEDURE DIVISION PERIOD
 		userDefinedProcedureSection*
