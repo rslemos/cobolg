@@ -35,6 +35,7 @@ import org.junit.Test;
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
@@ -55,6 +56,7 @@ public class FreeFormatUnitTest {
 			"OBJECT-COMPUTER. IBM-370-148.",
 			"SPECIAL-NAMES.",
 			"    C02 IS LCP-CH2.",
+			"INPUT-OUTPUT SECTION.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -118,6 +120,11 @@ public class FreeFormatUnitTest {
 		
 	}
 	
+	@Test
+	public void testInputOutputSectionPresence() {
+		assertThat(tree.environmentDivision().inputOutputSection(), is(not(nullValue(InputOutputSectionContext.class))));
+	}
+
 	@Test
 	public void testProcedureDivisionPresence() {
 		assertThat(tree.procedureDivision(), is(not(nullValue(ProcedureDivisionContext.class))));

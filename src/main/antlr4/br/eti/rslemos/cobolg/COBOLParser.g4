@@ -39,6 +39,7 @@ identificationDivision :
 environmentDivision :
 		ENVIRONMENT DIVISION PERIOD
 		configurationSection?
+		inputOutputSection?
 	;
 	
 procedureDivision :
@@ -52,6 +53,10 @@ configurationSection :
 		CONFIGURATION SECTION PERIOD
 		objectComputerParagraph?
 		specialNamesParagraph?
+	;
+
+inputOutputSection :
+		INPUT_OUTPUT SECTION PERIOD
 	;
 
 userDefinedProcedureSection :
