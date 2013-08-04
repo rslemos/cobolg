@@ -100,6 +100,7 @@ selectFileSentence :
 fileOrganizationIndexed :
 		RECORD KEY? IS? ID
 		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
+		(STATUS IS? ID)?				// this clause belongs to general selectFileSentence
 		ORGANIZATION IS? INDEXED
 	;
 

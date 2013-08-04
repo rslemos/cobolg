@@ -66,6 +66,7 @@ public class FreeFormatUnitTest {
 			"    SELECT  PROJEN-I    ASSIGN TO D433131",
 			"                        RECORD KEY CHAVE",
 			"                        ACCESS SEQUENTIAL",
+			"                        STATUS IS PROJ-STATUS",
 			"                        ORGANIZATION INDEXED.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
@@ -161,6 +162,7 @@ public class FreeFormatUnitTest {
 		// "    SELECT  PROJEN-I    ASSIGN TO D433131",
 		// "                        RECORD KEY CHAVE",
 		// "                        ACCESS SEQUENTIAL",
+		// "                        STATUS IS PROJ-STATUS",
 		// "                        ORGANIZATION INDEXED.",
 		SelectFileSentenceContext selectFileSentence_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectFileSentence(2);
 		assertThat(selectFileSentence_2.ID(0).getText(), is(equalTo("PROJEN-I")));
@@ -168,8 +170,9 @@ public class FreeFormatUnitTest {
 		
 		FileOrganizationIndexedContext fileOrganization = selectFileSentence_2.fileOrganizationIndexed();
 		assertThat(fileOrganization, is(not(nullValue(FileOrganizationIndexedContext.class))));
-		
-		assertThat(fileOrganization.ID().getText(), is(equalTo("CHAVE")));
+
+		assertThat(fileOrganization.ID(0).getText(), is(equalTo("CHAVE")));
+		assertThat(fileOrganization.ID(1).getText(), is(equalTo("PROJ-STATUS")));
 	}
 
 	@Test

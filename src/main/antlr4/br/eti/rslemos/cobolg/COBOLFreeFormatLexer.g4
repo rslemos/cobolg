@@ -54,6 +54,7 @@ INDEXED			: 'INDEXED';
 ACCESS			: 'ACCESS';
 SEQUENTIAL		: 'SEQUENTIAL';
 RECORD			: 'RECORD';
+STATUS			: 'STATUS';
 
 // syntatic sugar
 IS				: 'IS';
