@@ -29,17 +29,21 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.SelectFileSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
@@ -55,15 +59,24 @@ public class FreeFormatUnitTest {
 			"OBJECT-COMPUTER. IBM-370-148.",
 			"SPECIAL-NAMES.",
 			"    C02 IS LCP-CH2.",
+			"INPUT-OUTPUT SECTION.",
+			"FILE-CONTROL.",
+			"    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
+			"    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
+			"    SELECT  PROJEN-I    ASSIGN TO D433131",
+			"                        RECORD KEY CHAVE",
+			"                        ACCESS SEQUENTIAL",
+			"                        STATUS IS PROJ-STATUS",
+			"                        ORGANIZATION INDEXED.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
 		);
 	
-	private ProgramContext tree;
+	private static ProgramContext tree;
 	
-	@Before
-	public void setup() throws Exception {
+	@BeforeClass
+	public static void compile() throws Exception {
 		tree = new FreeFormatCompiler().compile(SOURCE);
 		assertThat(tree, is(not(nullValue(ProgramContext.class))));
 	}
@@ -118,6 +131,50 @@ public class FreeFormatUnitTest {
 		
 	}
 	
+	@Test
+	public void testInputOutputSectionPresence() {
+		assertThat(tree.environmentDivision().inputOutputSection(), is(not(nullValue(InputOutputSectionContext.class))));
+	}
+
+	@Test
+	public void testFileControlParagraphPresence() {
+		assertThat(tree.environmentDivision().inputOutputSection().fileControlParagraph(), is(not(nullValue(FileControlParagraphContext.class))));
+	}
+
+	@Test
+	public void testFileControlParagraph() {
+		FileControlParagraphContext fileCtlParagraph = tree.environmentDivision().inputOutputSection().fileControlParagraph();
+		assertThat(fileCtlParagraph.selectFileSentence().size(), is(equalTo(3)));
+		
+		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
+		SelectFileSentenceContext selectFileSentence_0 = fileCtlParagraph.selectFileSentence(0);
+		assertThat(selectFileSentence_0.ID(0).getText(), is(equalTo("IMPRES")));
+		assertThat(selectFileSentence_0.ID(1).getText(), is(equalTo("UT-S-L439161")));
+		// "    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
+		SelectFileSentenceContext selectFileSentence_1 = fileCtlParagraph.selectFileSentence(1);
+		assertThat(selectFileSentence_1.ID(0).getText(), is(equalTo("PRAMFIXO")));
+		assertThat(selectFileSentence_1.ID(1).getText(), is(equalTo("UT-S-D433135")));
+		
+	}
+
+	@Test
+	public void test3rdSelectFileSentence() {
+		// "    SELECT  PROJEN-I    ASSIGN TO D433131",
+		// "                        RECORD KEY CHAVE",
+		// "                        ACCESS SEQUENTIAL",
+		// "                        STATUS IS PROJ-STATUS",
+		// "                        ORGANIZATION INDEXED.",
+		SelectFileSentenceContext selectFileSentence_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectFileSentence(2);
+		assertThat(selectFileSentence_2.ID(0).getText(), is(equalTo("PROJEN-I")));
+		assertThat(selectFileSentence_2.ID(1).getText(), is(equalTo("D433131")));
+		
+		FileOrganizationIndexedContext fileOrganization = selectFileSentence_2.fileOrganizationIndexed();
+		assertThat(fileOrganization, is(not(nullValue(FileOrganizationIndexedContext.class))));
+
+		assertThat(fileOrganization.ID(0).getText(), is(equalTo("CHAVE")));
+		assertThat(fileOrganization.ID(1).getText(), is(equalTo("PROJ-STATUS")));
+	}
+
 	@Test
 	public void testProcedureDivisionPresence() {
 		assertThat(tree.procedureDivision(), is(not(nullValue(ProcedureDivisionContext.class))));

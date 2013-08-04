@@ -39,6 +39,7 @@ identificationDivision :
 environmentDivision :
 		ENVIRONMENT DIVISION PERIOD
 		configurationSection?
+		inputOutputSection?
 	;
 	
 procedureDivision :
@@ -52,6 +53,11 @@ configurationSection :
 		CONFIGURATION SECTION PERIOD
 		objectComputerParagraph?
 		specialNamesParagraph?
+	;
+
+inputOutputSection :
+		INPUT_OUTPUT SECTION PERIOD
+		fileControlParagraph?
 	;
 
 userDefinedProcedureSection :
@@ -73,9 +79,29 @@ specialNamesParagraph :
 		PERIOD
 	;
 
+fileControlParagraph :
+		FILE_CONTROL PERIOD
+		selectFileSentence+
+	;
+
 /* sentences */
 specialNamesSentence :
-		ID IS ID
+		ID IS? ID
+	;
+
+selectFileSentence :
+		SELECT OPTIONAL? ID ASSIGN TO? ID
+		(fileOrganizationIndexed)?
+		PERIOD
+	;
+
+// TODO: may appear in any order, but at most once
+// (though this may be not a syntatic concern, but rather semantic one)
+fileOrganizationIndexed :
+		RECORD KEY? IS? ID
+		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
+		(STATUS IS? ID)?				// this clause belongs to general selectFileSentence
+		ORGANIZATION IS? INDEXED
 	;
 
 /* statements */
