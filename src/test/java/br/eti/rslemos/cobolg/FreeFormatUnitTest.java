@@ -39,6 +39,8 @@ import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
@@ -81,9 +83,24 @@ public class FreeFormatUnitTest {
 	}
 
 	@Test
-	public void testEnvironemntDivision() {
-		EnvironmentDivisionContext envDivision = tree.environmentDivision();
-		assertThat(envDivision.configurationSection(), is(not(nullValue(ConfigurationSectionContext.class))));
+	public void testConfigurationSectionPresence() {
+		assertThat(tree.environmentDivision().configurationSection(), is(not(nullValue(ConfigurationSectionContext.class))));
+	}
+	
+	@Test
+	public void testSpecialNamesParagraphPresence() {
+		assertThat(tree.environmentDivision().configurationSection().specialNamesParagraph(), is(not(nullValue(SpecialNamesParagraphContext.class))));
+	}
+	
+	@Test
+	public void testSpecialNamesParagraph() {
+		SpecialNamesParagraphContext specNamesParagraph = tree.environmentDivision().configurationSection().specialNamesParagraph();
+		assertThat(specNamesParagraph.specialNamesSentence().size(), is(equalTo(1)));
+		
+		SpecialNamesSentenceContext specNamesSentence_0 = specNamesParagraph.specialNamesSentence(0);
+		assertThat(specNamesSentence_0.ID(0).getText(), is(equalTo("C02")));
+		assertThat(specNamesSentence_0.IS(), is(not(nullValue(TerminalNode.class))));
+		assertThat(specNamesSentence_0.ID(1).getText(), is(equalTo("LCP-CH2")));
 		
 	}
 	
