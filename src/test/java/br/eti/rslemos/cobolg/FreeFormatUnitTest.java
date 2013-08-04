@@ -34,6 +34,7 @@ import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
@@ -57,6 +58,7 @@ public class FreeFormatUnitTest {
 			"SPECIAL-NAMES.",
 			"    C02 IS LCP-CH2.",
 			"INPUT-OUTPUT SECTION.",
+			"FILE-CONTROL.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -123,6 +125,11 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testInputOutputSectionPresence() {
 		assertThat(tree.environmentDivision().inputOutputSection(), is(not(nullValue(InputOutputSectionContext.class))));
+	}
+
+	@Test
+	public void testFileControlParagraphPresence() {
+		assertThat(tree.environmentDivision().inputOutputSection().fileControlParagraph(), is(not(nullValue(FileControlParagraphContext.class))));
 	}
 
 	@Test

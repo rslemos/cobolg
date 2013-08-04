@@ -57,6 +57,7 @@ configurationSection :
 
 inputOutputSection :
 		INPUT_OUTPUT SECTION PERIOD
+		fileControlParagraph?
 	;
 
 userDefinedProcedureSection :
@@ -76,6 +77,10 @@ specialNamesParagraph :
 		SPECIAL_NAMES PERIOD
 		specialNamesSentence+
 		PERIOD
+	;
+
+fileControlParagraph :
+		FILE_CONTROL PERIOD
 	;
 
 /* sentences */
