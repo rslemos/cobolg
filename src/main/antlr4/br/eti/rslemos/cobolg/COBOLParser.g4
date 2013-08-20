@@ -89,6 +89,11 @@ fileControlParagraph :
 		selectFileSentence+
 	;
 
+dataDescriptionParagraph :
+		levelNumber dataName
+		PERIOD
+	;
+
 /* sentences */
 specialNamesSentence :
 		ID IS? ID
@@ -130,6 +135,10 @@ paragraphName :
 		ID
 	;
 
+dataName :
+		ID
+	;
+
 literal :
 		numericLiteral
 	|	alphanumericLiteral
@@ -151,4 +160,8 @@ quotedString :
 	|	SINGLEQUOTEDSTRING
 	|	DOUBLEQUOTEDSTRING_START DOUBLEQUOTEDSTRING_MID* DOUBLEQUOTEDSTRING_END
 	|	SINGLEQUOTEDSTRING_START SINGLEQUOTEDSTRING_MID* SINGLEQUOTEDSTRING_END
+	;
+	
+levelNumber :
+		INTEGER { $INTEGER.text.matches("^[0-9][0-9]$") }?
 	;
