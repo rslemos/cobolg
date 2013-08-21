@@ -57,7 +57,7 @@ HEXSTRING :
 	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
 	;
 
-fragment PICTURECHAR : [9]
+fragment PICTURECHAR : [9X]
 	;
 
 fragment PICTURESTRING :
