@@ -35,8 +35,10 @@ FIXEDPOINT : [0-9]+ '.' [0-9]+
 	;
 
 ID	:
-		[A-Za-z0-9]+
-	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
+		[A-Za-z]
+	|	[A-Za-z][-A-Za-z0-9]*[A-Za-z0-9]
+	|	[A-Za-z0-9]*[A-Za-z][-A-Za-z0-9]*[A-Za-z0-9]
+	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z]
 	;
 
 HEXINTEGER :
@@ -59,7 +61,7 @@ fragment PICTURECHAR : [9]
 	;
 
 fragment PICTURESTRING :
-		PICTURECHAR+
+		PICTURECHAR+ '(' [0-9]+ ')'
 	;
 
 PICTURECLAUSE : PICTURE WS (IS WS)? PICTURESTRING
