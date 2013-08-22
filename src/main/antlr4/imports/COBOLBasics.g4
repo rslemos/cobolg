@@ -61,7 +61,8 @@ fragment PICTURECHAR : [9AX]
 	;
 
 fragment PICTURESTRING :
-		PICTURECHAR+ '(' [0-9]+ ')'
+		PICTURECHAR+ ('(' [0-9]+ ')')?
+		( 'V' PICTURECHAR+ ('(' [0-9]+ ')')? )?
 	;
 
 PICTURECLAUSE : PICTURE WS (IS WS)? PICTURESTRING
