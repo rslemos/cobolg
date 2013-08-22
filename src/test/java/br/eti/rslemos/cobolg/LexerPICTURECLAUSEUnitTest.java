@@ -20,6 +20,7 @@ public class LexerPICTURECLAUSEUnitTest extends TestCase {
 			"PIC S9(8)",
 			"PIC S9(12)V9(5)",
 			"PIC 9(3)9(6)",
+			"PIC 9(3)P(6)",
 		};
 
 	public LexerPICTURECLAUSEUnitTest(String name) {
