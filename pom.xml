@@ -69,10 +69,29 @@
 				<groupId>org.antlr</groupId>
 				<artifactId>antlr4-maven-plugin</artifactId>
 				<version>4.0</version>
+				<configuration>
+					<atn>true</atn>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
 							<goal>antlr4</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>us.bryon</groupId>
+				<artifactId>graphviz-maven-plugin</artifactId>
+				<version>1.0</version>
+				<configuration>
+					<basedir>target/generated-sources/antlr4</basedir>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>dot</goal>
 						</goals>
 					</execution>
 				</executions>
