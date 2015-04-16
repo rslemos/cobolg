@@ -24,9 +24,7 @@ package br.eti.rslemos.cobolg;
 import java.net.URL;
 
 import junit.framework.TestSuite;
-import org.junit.Ignore;
 
-@Ignore
 public class FixedFormatAcceptanceTest extends AbstractAcceptanceTest {
 
 	public FixedFormatAcceptanceTest(URL file) {
