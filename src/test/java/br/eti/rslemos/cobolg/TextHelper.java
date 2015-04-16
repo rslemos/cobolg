@@ -23,14 +23,18 @@ package br.eti.rslemos.cobolg;
 
 public class TextHelper {
 	public static String join(String... lines) {
+		return join0("\n", lines);
+	}
+
+	public static String join0(String eol, String... lines) {
 		StringBuilder builder = new StringBuilder();
 
 		for (String line : lines) {
-			builder.append(line).append('\n');
+			builder.append(line).append(eol);
 		}
 
 		if (lines.length > 0)
-			builder.setLength(builder.length() - 1);
+			builder.setLength(builder.length() - eol.length());
 
 		return builder.toString();
 	}
