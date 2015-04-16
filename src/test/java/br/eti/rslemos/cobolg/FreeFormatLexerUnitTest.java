@@ -21,45 +21,45 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.COBOLFreeFormatLexer.*;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
-import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenSource;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
-public class FreeFormatLexerUnitTest {
+public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
+	
+	public FreeFormatLexerUnitTest() {
+		super(new FreeFormatCompiler());
+	}
+
 	@Test
 	public void testCommentLine() throws Exception {
-		TokenSource stream = new FreeFormatCompiler().decompose("*COMMENT LINE\n");
+		setSource("*COMMENT LINE\n");
 		
-		Token token0 = stream.nextToken();
-		Token token1 = stream.nextToken();
+		matchToken(COMMENT, "*COMMENT LINE\n", HIDDEN);
 		
-		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.COMMENT)));
-		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.HIDDEN)));
-		assertThat(token0.getText(), is(equalTo("*COMMENT LINE\n")));
-		
-		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+		matchEOF();
 	}
 
 	@Test
 	public void testMisplacedCommentLine() throws Exception {
-		TokenSource stream = new FreeFormatCompiler().decompose(" *COMMENT LINE\n");
+		setSource(" *COMMENT LINE\n");
 		
-		Token token0 = stream.nextToken();
-		Token token1 = stream.nextToken();
+		Token token;
 		
-		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.WS)));
-		assertThat(token0.getCharPositionInLine(), is(equalTo(0)));
+		token = stream.nextToken();
+		assertThat(token.getType(), is(equalTo(WS)));
+		assertThat(token.getCharPositionInLine(), is(equalTo(0)));
 		
-		assertThat(token1.getType(), is(not(equalTo(COBOLFreeFormatLexer.COMMENT))));
+		token = stream.nextToken();
+		assertThat(token.getType(), is(not(equalTo(COMMENT))));
 	}
 
 
@@ -70,76 +70,53 @@ public class FreeFormatLexerUnitTest {
 				" *COMMENT LINE"
 			);
 		
-		TokenSource stream = new FreeFormatCompiler().decompose(SOURCE);
+		setSource(SOURCE);
 		
-		Token token0 = stream.nextToken();
-		Token token1 = stream.nextToken();
-		Token token2 = stream.nextToken();
+		matchToken(COMMENT, "*COMMENT LINE\n", HIDDEN);
 		
-		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.COMMENT)));
-		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.HIDDEN)));
-		assertThat(token0.getText(), is(equalTo("*COMMENT LINE\n")));
+		Token token;
 		
-		assertThat(token1.getType(), is(equalTo(COBOLFreeFormatLexer.WS)));
-		assertThat(token1.getCharPositionInLine(), is(equalTo(0)));
+		token = stream.nextToken();		
+		assertThat(token.getType(), is(equalTo(WS)));
+		assertThat(token.getCharPositionInLine(), is(equalTo(0)));
 		
-		assertThat(token2.getType(), is(not(equalTo(COBOLFreeFormatLexer.COMMENT))));
-		
+		token = stream.nextToken();
+		assertThat(token.getType(), is(not(equalTo(COMMENT))));
 	}
 	
 	@Test
 	public void testCommentLineWithCRLF() throws Exception {
-		TokenSource stream = new FreeFormatCompiler().decompose("*COMMENT LINE\r\n");
+		setSource("*COMMENT LINE\r\n");
 		
-		Token token0 = stream.nextToken();
-		Token token1 = stream.nextToken();
+		matchToken(COMMENT, "*COMMENT LINE\r\n", HIDDEN);
 		
-		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.COMMENT)));
-		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.HIDDEN)));
-		assertThat(token0.getText(), is(equalTo("*COMMENT LINE\r\n")));
-		
-		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+		matchEOF();
 	}
 
 	@Test
 	public void testCommentLineWithCR() throws Exception {
-		TokenSource stream = new FreeFormatCompiler().decompose("*COMMENT LINE\r");
+		setSource("*COMMENT LINE\r");
 		
-		Token token0 = stream.nextToken();
-		Token token1 = stream.nextToken();
+		matchToken(COMMENT, "*COMMENT LINE\r", HIDDEN);
 		
-		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.COMMENT)));
-		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.HIDDEN)));
-		assertThat(token0.getText(), is(equalTo("*COMMENT LINE\r")));
-		
-		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+		matchEOF();
 	}
 
 	@Test
 	public void testDoubleQuotedString() throws Exception {
-		TokenSource stream = new FreeFormatCompiler().decompose("\"DOUBLE QUOTED STRING\"");
+		setSource("\"DOUBLE QUOTED STRING\"");
 		
-		Token token0 = stream.nextToken();
-		Token token1 = stream.nextToken();
-
-		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.QUOTEDSTRING)));
-		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.DEFAULT_TOKEN_CHANNEL)));
-		assertThat(token0.getText(), is(equalTo("\"DOUBLE QUOTED STRING\"")));
-
-		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+		matchToken(QUOTEDSTRING, "\"DOUBLE QUOTED STRING\"");
+		
+		matchEOF();
 	}
 
 	@Test
 	public void testDoubleQuotedWithDoubleQuotesString() throws Exception {
-		TokenSource stream = new FreeFormatCompiler().decompose("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
+		setSource("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
 		
-		Token token0 = stream.nextToken();
-		Token token1 = stream.nextToken();
-
-		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.QUOTEDSTRING)));
-		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.DEFAULT_TOKEN_CHANNEL)));
-		assertThat(token0.getText(), is(equalTo("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"")));
-
-		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+		matchToken(QUOTEDSTRING, "\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
+		
+		matchEOF();
 	}
 }
