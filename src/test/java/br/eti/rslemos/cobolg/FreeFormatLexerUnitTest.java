@@ -114,4 +114,32 @@ public class FreeFormatLexerUnitTest {
 		
 		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
 	}
+
+	@Test
+	public void testDoubleQuotedString() throws Exception {
+		TokenSource stream = new FreeFormatCompiler().decompose("\"DOUBLE QUOTED STRING\"");
+		
+		Token token0 = stream.nextToken();
+		Token token1 = stream.nextToken();
+
+		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.QUOTEDSTRING)));
+		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.DEFAULT_TOKEN_CHANNEL)));
+		assertThat(token0.getText(), is(equalTo("\"DOUBLE QUOTED STRING\"")));
+
+		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+	}
+
+	@Test
+	public void testDoubleQuotedWithDoubleQuotesString() throws Exception {
+		TokenSource stream = new FreeFormatCompiler().decompose("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
+		
+		Token token0 = stream.nextToken();
+		Token token1 = stream.nextToken();
+
+		assertThat(token0.getType(), is(equalTo(COBOLFreeFormatLexer.QUOTEDSTRING)));
+		assertThat(token0.getChannel(), is(equalTo(COBOLFreeFormatLexer.DEFAULT_TOKEN_CHANNEL)));
+		assertThat(token0.getText(), is(equalTo("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"")));
+
+		assertThat(token1.getType(), is(equalTo(Lexer.EOF)));
+	}
 }

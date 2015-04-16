@@ -41,8 +41,8 @@ HEXINTEGER :
 	;
 
 QUOTEDSTRING :
-		'"' .*? '"'			// TODO: ""
-	|	'\'' .*? '\''		// TODO: ''
+		'"' ( ~["\n\r] | '""' )* '"'
+	|	'\'' ( ~['\n\r] | '\'\'' )* '\''
 	;
 
 HEXSTRING :
