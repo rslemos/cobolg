@@ -21,7 +21,7 @@
  ******************************************************************************/
 parser grammar COBOLParser;
 
-options { tokenVocab = COBOLFreeFormatLexer; }
+options { tokenVocab = COBOLFixedFormatLexer; }
 
 program :
 		identificationDivision
