@@ -36,7 +36,10 @@ fragment MARK1	: '\uEBA1';
 fragment MARK2	: '\uEBA2';
 fragment MARK3	: '\uEBA3';
 
-TO_SEQUENCE_MODE	: MARK0 -> channel(MARK);
-TO_INDICATOR_MODE	: MARK1 -> channel(MARK);
+TO_SEQUENCE_MODE	: MARK0 -> channel(MARK), mode(SEQUENCE_MODE);
 TO_DEFAULT_MODE	: MARK2 -> channel(MARK);
 TO_SKIPTOEOL_MODE	: MARK3 -> channel(MARK);
+ 
+mode SEQUENCE_MODE;
+SEQUENCE_NUMBER		: ~[\n\r\uEBA1]+ -> channel(HIDDEN);
+TO_INDICATOR_MODE	: MARK1 -> channel(MARK), mode(DEFAULT_MODE);
