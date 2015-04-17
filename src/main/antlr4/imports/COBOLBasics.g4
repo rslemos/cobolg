@@ -2,7 +2,7 @@
  * BEGIN COPYRIGHT NOTICE
  * 
  * This file is part of program "cobolg"
- * Copyright 2013  Rodrigo Lemos
+ * Copyright 2015  Rodrigo Lemos
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,10 +19,33 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-lexer grammar COBOLFreeFormatLexer;
-import COBOLKeywords, COBOLBasics;
+lexer grammar COBOLBasics;
 
+WS : [ \n\r]
+	-> channel(HIDDEN);
 
-COMMENT			: ('*' | '/') ~('\n' | '\r')* '\r'? '\n'? 
-				{ _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
+INTEGER : '-'? [0-9]+
+	;
 
+FIXEDPOINT : [0-9]+ '.' [0-9]+
+	;
+
+ID	:
+		[A-Za-z0-9]+
+	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
+	;
+
+HEXINTEGER :
+		'H' '"' [0-9A-F]+ '"'
+	|	'H' '\'' [0-9A-F]+ '\''
+	;
+
+QUOTEDSTRING :
+		'"' .*? '"'			// TODO: ""
+	|	'\'' .*? '\''		// TODO: ''
+	;
+
+HEXSTRING :
+		'X' '"' ([0-9A-F][0-9A-F])+ '"'
+	|	'X' '\'' ([0-9A-F][0-9A-F])+ '\''
+	;
