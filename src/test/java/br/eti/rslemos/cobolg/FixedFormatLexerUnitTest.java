@@ -22,7 +22,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
 		matchToken(                  WS,                        "                                                                 ", HIDDEN);
 		matchToken(                  TO_SKIPTOEOL_MODE,         "\uEBA3",   MARK  );
-		matchToken(                  WS,                        "        ", HIDDEN);
+		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "        ", HIDDEN);
 		
 		matchEOF();
 	}
@@ -38,7 +38,23 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
 		matchToken(                  WS,                        "                                                                 ", HIDDEN);
 		matchToken(                  TO_SKIPTOEOL_MODE,         "\uEBA3",   MARK  );
-		matchToken(                  WS,                        "        ", HIDDEN);
+		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "        ", HIDDEN);
+		
+		matchEOF();
+	}
+
+	@Test
+	public void testSkipToEolLine() throws Exception {
+		setSource("                                                                        IGNORED+");
+		
+		matchToken(                  TO_SEQUENCE_MODE,          "\uEBA0",   MARK  );
+		matchToken(SEQUENCE_MODE,    SEQUENCE_NUMBER,           "      ",   HIDDEN);
+		matchToken(SEQUENCE_MODE,    TO_INDICATOR_MODE,         "\uEBA1",   MARK  );
+		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
+		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
+		matchToken(                  WS,                        "                                                                 ", HIDDEN);
+		matchToken(                  TO_SKIPTOEOL_MODE,         "\uEBA3",   MARK  );
+		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		
 		matchEOF();
 	}
