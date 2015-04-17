@@ -38,7 +38,7 @@ fragment MARK3	: '\uEBA3';
 
 
 TO_SEQUENCE_MODE	: MARK0 -> channel(MARK), mode(SEQUENCE_MODE);
-TO_SKIPTOEOL_MODE	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
+TO_SKIPTOEOL_MODE_DEFAULT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
  
 mode SEQUENCE_MODE;
 SEQUENCE_NUMBER		: ~[\n\r\uEBA1]+ -> channel(HIDDEN);
@@ -46,9 +46,17 @@ TO_INDICATOR_MODE	: MARK1 -> channel(MARK), mode(INDICATOR_MODE);
 
 mode INDICATOR_MODE;
 INDICATOR_BLANK				: ' ' -> channel(HIDDEN), mode(PRE_DEFAULT_MODE);
+INDICATOR_COMMENT			: '*' -> channel(HIDDEN), mode(PRE_COMMENT_MODE); 
 
 mode PRE_DEFAULT_MODE;
 TO_DEFAULT_MODE				: MARK2 -> channel(MARK), mode(DEFAULT_MODE);
+
+mode PRE_COMMENT_MODE;
+TO_COMMENT_MODE				: MARK2 -> channel(MARK), mode(COMMENT_MODE);
+
+mode COMMENT_MODE;
+FIXEDCOMMENT			    : ~[\n\r\uEBA3]+ -> channel(HIDDEN);
+TO_SKIPTOEOL_MODE_COMMENT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
 												
 mode SKIPTOEOL_MODE;
 SKIPTOEOL_MODE_NL	: [\n\r]	-> channel(HIDDEN), mode(DEFAULT_MODE);

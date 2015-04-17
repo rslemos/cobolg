@@ -21,7 +21,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
 		matchToken(                  WS,                        "                                                                 ", HIDDEN);
-		matchToken(                  TO_SKIPTOEOL_MODE,         "\uEBA3",   MARK  );
+		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "        ", HIDDEN);
 		
 		matchEOF();
@@ -37,7 +37,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
 		matchToken(                  WS,                        "                                                                 ", HIDDEN);
-		matchToken(                  TO_SKIPTOEOL_MODE,         "\uEBA3",   MARK  );
+		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "        ", HIDDEN);
 		
 		matchEOF();
@@ -53,7 +53,23 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
 		matchToken(                  WS,                        "                                                                 ", HIDDEN);
-		matchToken(                  TO_SKIPTOEOL_MODE,         "\uEBA3",   MARK  );
+		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
+		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
+		
+		matchEOF();
+	}
+
+	@Test
+	public void testCommentLine() throws Exception {
+		setSource("000001*THIS IS A COMMENT LINE                                           IGNORED+");
+		
+		matchToken(                  TO_SEQUENCE_MODE,          "\uEBA0",   MARK  );
+		matchToken(SEQUENCE_MODE,    SEQUENCE_NUMBER,           "000001",   HIDDEN);
+		matchToken(SEQUENCE_MODE,    TO_INDICATOR_MODE,         "\uEBA1",   MARK  );
+		matchToken(INDICATOR_MODE,   INDICATOR_COMMENT,         "*",        HIDDEN);
+		matchToken(PRE_COMMENT_MODE, TO_COMMENT_MODE,           "\uEBA2",   MARK  );
+		matchToken(COMMENT_MODE,     FIXEDCOMMENT,              "THIS IS A COMMENT LINE                                           ", HIDDEN);
+		matchToken(COMMENT_MODE,     TO_SKIPTOEOL_MODE_COMMENT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		
 		matchEOF();
