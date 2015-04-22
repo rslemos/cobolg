@@ -36,6 +36,8 @@ fragment MARK1	: '\uEBA1';
 fragment MARK2	: '\uEBA2';
 fragment MARK3	: '\uEBA3';
 
+DOUBLEQUOTEDSTRING_START	:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ;
+SINGLEQUOTEDSTRING_START	:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ;
 
 TO_SEQUENCE_MODE	: MARK0 -> channel(MARK), mode(SEQUENCE_MODE);
 TO_SKIPTOEOL_MODE_DEFAULT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
@@ -46,6 +48,7 @@ TO_INDICATOR_MODE	: MARK1 -> channel(MARK), mode(INDICATOR_MODE);
 
 mode INDICATOR_MODE;
 INDICATOR_BLANK				: ' ' -> channel(HIDDEN), mode(PRE_DEFAULT_MODE);
+INDICATOR_CONTINUATION		: '-' -> channel(HIDDEN), mode(PRE_CONTINUATION_MODE);
 INDICATOR_COMMENT			: '*' -> channel(HIDDEN), mode(PRE_COMMENT_MODE); 
 
 mode PRE_DEFAULT_MODE;
@@ -57,6 +60,20 @@ TO_COMMENT_MODE				: MARK2 -> channel(MARK), mode(COMMENT_MODE);
 mode COMMENT_MODE;
 FIXEDCOMMENT			    : ~[\n\r\uEBA3]+ -> channel(HIDDEN);
 TO_SKIPTOEOL_MODE_COMMENT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
+
+mode PRE_CONTINUATION_MODE;
+TO_CONTINUATION_MODE		: MARK2 -> channel(MARK), mode(CONTINUATION_MODE);
+
+mode CONTINUATION_MODE;
+WS_CONT						: ' '+ -> channel(HIDDEN);
+
+DOUBLEQUOTEDSTRING_MID		:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ;
+DOUBLEQUOTEDSTRING_END		:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ["] -> mode(DEFAULT_MODE);
+
+SINGLEQUOTEDSTRING_MID		:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ;
+SINGLEQUOTEDSTRING_END		:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ['] -> mode(DEFAULT_MODE);
+
+TO_SKIPTOEOL_MODE_CONTINUATION : MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
 												
 mode SKIPTOEOL_MODE;
 SKIPTOEOL_MODE_NL	: [\n\r]	-> channel(HIDDEN), mode(DEFAULT_MODE);
