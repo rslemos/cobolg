@@ -106,7 +106,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	public void testDoubleQuotedString() throws Exception {
 		setSource("\"DOUBLE QUOTED STRING\"");
 		
-		matchToken(QUOTEDSTRING, "\"DOUBLE QUOTED STRING\"");
+		matchToken(DOUBLEQUOTEDSTRING, "\"DOUBLE QUOTED STRING\"");
 		
 		matchEOF();
 	}
@@ -115,7 +115,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	public void testDoubleQuotedWithDoubleQuotesString() throws Exception {
 		setSource("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
 		
-		matchToken(QUOTEDSTRING, "\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
+		matchToken(DOUBLEQUOTEDSTRING, "\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
 		
 		matchEOF();
 	}
@@ -284,7 +284,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(DISPLAY, "DISPLAY");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(QUOTEDSTRING, "'Hello, world'");
+		matchToken(SINGLEQUOTEDSTRING, "'Hello, world'");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		

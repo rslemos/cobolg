@@ -43,9 +43,10 @@ HEXINTEGER :
 	|	'H' ['] [0-9A-F]+ [']
 	;
 
-QUOTEDSTRING :
-		'"' ( ~["\n\r] | '""' )* '"'
-	|	'\'' ( ~['\n\r] | '\'\'' )* '\''
+DOUBLEQUOTEDSTRING : ["] ( ~["\n\r] | ["] ["] )* ["]
+	;
+
+SINGLEQUOTEDSTRING : ['] ( ~['\n\r] | ['] ['] )* [']
 	;
 
 HEXSTRING :
