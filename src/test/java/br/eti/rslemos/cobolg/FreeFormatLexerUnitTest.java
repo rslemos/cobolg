@@ -129,7 +129,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(DIVISION, "DIVISION");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//PROGRAM-ID. HELLO-WORLD.
 		matchToken(PROGRAM_ID, "PROGRAM-ID");
@@ -137,25 +137,25 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "HELLO-WORLD");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//*COMMENT LINE\r
 		matchToken(COMMENT, "*COMMENT LINE\r\n", HIDDEN);
-		//matchToken(WS, "\r\n", HIDDEN);
+		//matchToken(NEWLINE, "\r\n", HIDDEN);
 		
 		//ENVIRONMENT DIVISION.
 		matchToken(ENVIRONMENT, "ENVIRONMENT");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(DIVISION, "DIVISION");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//CONFIGURATION SECTION.
 		matchToken(CONFIGURATION, "CONFIGURATION");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(SECTION, "SECTION");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//OBJECT-COMPUTER. IBM-370-148.
 		matchToken(OBJECT_COMPUTER, "OBJECT-COMPUTER");
@@ -163,175 +163,138 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "IBM-370-148");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//SPECIAL-NAMES.
 		matchToken(SPECIAL_NAMES, "SPECIAL-NAMES");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//    C02 IS LCP-CH2.
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(ID, "C02");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "LCP-CH2");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//INPUT-OUTPUT SECTION.
 		matchToken(INPUT_OUTPUT, "INPUT-OUTPUT");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(SECTION, "SECTION");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//FILE-CONTROL.
 		matchToken(FILE_CONTROL, "FILE-CONTROL");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//    SELECT  IMPRES      ASSIGN TO UT-S-L439161.
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(SELECT, "SELECT");
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "  ", HIDDEN);
 		matchToken(ID, "IMPRES");
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "      ", HIDDEN);
 		matchToken(ASSIGN, "ASSIGN");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(TO, "TO");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "UT-S-L439161");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(SELECT, "SELECT");
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "  ", HIDDEN);
 		matchToken(ID, "PRAMFIXO");
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(ASSIGN, "ASSIGN");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(TO, "TO");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "UT-S-D433135");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//    SELECT  PROJEN-I    ASSIGN TO D433131
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(SELECT, "SELECT");
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "  ", HIDDEN);
 		matchToken(ID, "PROJEN-I");
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(ASSIGN, "ASSIGN");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(TO, "TO");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "D433131");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//                        RECORD KEY CHAVE
-		for(int i=0; i<24; i++)
-			matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "                        ", HIDDEN);
 		matchToken(RECORD, "RECORD");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(KEY, "KEY");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "CHAVE");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//                        ACCESS SEQUENTIAL
-		for(int i=0; i<24; i++)
-			matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "                        ", HIDDEN);
 		matchToken(ACCESS, "ACCESS");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(SEQUENTIAL, "SEQUENTIAL");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//                        STATUS IS PROJ-STATUS
-		for(int i=0; i<24; i++)
-			matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "                        ", HIDDEN);
 		matchToken(STATUS, "STATUS");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "PROJ-STATUS");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//                        ORGANIZATION INDEXED.
-		for(int i=0; i<24; i++)
-			matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "                        ", HIDDEN);
 		matchToken(ORGANIZATION, "ORGANIZATION");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(INDEXED, "INDEXED");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//DATA DIVISION.
 		matchToken(DATA, "DATA");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(DIVISION, "DIVISION");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//PROCEDURE DIVISION.\r
 		matchToken(PROCEDURE, "PROCEDURE");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(DIVISION, "DIVISION");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\r", HIDDEN);
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\r\n", HIDDEN);
 		
 		//    DISPLAY 'Hello, world'.
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(DISPLAY, "DISPLAY");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(QUOTEDSTRING, "'Hello, world'");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\n", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//    STOP RUN.\r
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
-		matchToken(WS, " ", HIDDEN);
+		matchToken(WS, "    ", HIDDEN);
 		matchToken(STOP, "STOP");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(RUN, "RUN");
 		matchToken(PERIOD, ".");
-		matchToken(WS, "\r", HIDDEN);
+		matchToken(NEWLINE, "\r", HIDDEN);
 
 		matchEOF();
 	}

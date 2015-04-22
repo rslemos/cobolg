@@ -21,7 +21,10 @@
  ******************************************************************************/
 lexer grammar COBOLBasics;
 
-WS : [ \n\r]
+WS : ' '+
+	-> channel(HIDDEN);
+
+NEWLINE : ('\n' '\r'? | '\r' '\n'?)
 	-> channel(HIDDEN);
 
 INTEGER : '-'? [0-9]+

@@ -22,7 +22,6 @@
 lexer grammar COBOLFreeFormatLexer;
 import COBOLKeywords, COBOLBasics;
 
-
-COMMENT			: ('*' | '/') ~('\n' | '\r')* '\r'? '\n'? 
+COMMENT			: ('*' | '/') .*? NEWLINE 
 				{ _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
 
