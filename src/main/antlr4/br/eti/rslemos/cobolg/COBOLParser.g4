@@ -90,7 +90,7 @@ fileControlParagraph :
 	;
 
 dataDescriptionParagraph :
-		levelNumber dataName
+		levelNumber (dataName | FILLER)
 		PERIOD
 	;
 

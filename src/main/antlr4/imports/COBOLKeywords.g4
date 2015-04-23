@@ -53,6 +53,7 @@ ACCESS			: 'ACCESS';
 SEQUENTIAL		: 'SEQUENTIAL';
 RECORD			: 'RECORD';
 STATUS			: 'STATUS';
+FILLER			: 'FILLER';
 
 // syntatic sugar
 IS				: 'IS';

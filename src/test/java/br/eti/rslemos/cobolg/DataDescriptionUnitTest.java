@@ -42,6 +42,13 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("EMPTY-DECLARATION")));
 	}
 
+	@Test
+	public void testFillerDeclaration () {
+		DataDescriptionParagraphContext dataDescription = compile("01  FILLER.");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.FILLER().getText(), is(equalTo("FILLER")));
+	}
+
 	private static DataDescriptionParagraphContext compile(String source) {
 		FreeFormatCompiler compiler = new FreeFormatCompiler();
 		compiler.setFilename(null);
