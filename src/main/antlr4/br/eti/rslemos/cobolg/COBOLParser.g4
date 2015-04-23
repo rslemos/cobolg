@@ -21,7 +21,7 @@
  ******************************************************************************/
 parser grammar COBOLParser;
 
-options { tokenVocab = COBOLFreeFormatLexer; }
+options { tokenVocab = COBOLFixedFormatLexer; }
 
 program :
 		identificationDivision
@@ -149,4 +149,6 @@ alphanumericLiteral :
 quotedString :
 		DOUBLEQUOTEDSTRING
 	|	SINGLEQUOTEDSTRING
+	|	DOUBLEQUOTEDSTRING_START DOUBLEQUOTEDSTRING_MID* DOUBLEQUOTEDSTRING_END
+	|	SINGLEQUOTEDSTRING_START SINGLEQUOTEDSTRING_MID* SINGLEQUOTEDSTRING_END
 	;

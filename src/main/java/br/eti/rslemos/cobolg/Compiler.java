@@ -90,7 +90,9 @@ public abstract class Compiler {
 
 		@Override
 		protected Lexer buildLexer(Reader reader) throws IOException {
-			throw new UnsupportedOperationException("How do I do it?");
+			reader = new StuffingReader(reader, 0, '\uEBA0', 6, '\uEBA1', 7, '\uEBA2', 72, '\uEBA3'/*, 80, '\uEBA4'*/);
+			
+			return new COBOLFixedFormatLexer(new ANTLRInputStream(reader));
 		}
 	}
 }
@@ -113,17 +115,20 @@ class CollectErrorListener extends BaseErrorListener {
 							RecognitionException e) {
 		
 		char type;
+		int mode = -1;
+		
 		if (recognizer instanceof Parser)
 			type = 'P';
-		else if (recognizer instanceof Lexer)
+		else if (recognizer instanceof Lexer) {
 			type = 'L';
-		else
+			mode = ((Lexer)recognizer)._mode;
+		} else
 			type = '?';
 		
 		if (fileName != null)
-			errors.add(String.format("[%c] %s (%s:%d,%d)", type, msg, fileName, line, charPositionInLine));
+			errors.add(String.format("[%c:%d] %s (%s:%d,%d)", type, mode, msg, fileName, line, charPositionInLine));
 		else
-			errors.add(String.format("[%c] %s (%d,%d)", type, msg, line, charPositionInLine));
+			errors.add(String.format("[%c:%d] %s (%d,%d)", type, mode, msg, line, charPositionInLine));
 	}
 	
 	void verify() {
