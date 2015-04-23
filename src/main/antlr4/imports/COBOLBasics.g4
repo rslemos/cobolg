@@ -57,13 +57,15 @@ HEXSTRING :
 	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
 	;
 
-fragment PICTURECHAR : [9AXP]
+fragment PICTURECHAR : [9AXP0B,/]
 	;
 
 fragment PICTURESTRING :
-		'S'?
+		('S' | '-'+ | '+'+ )?
+		( '$'+ | '*'+ | 'Z'+ )?
 		( PICTURECHAR ('(' [0-9]+ ')')? )+
 		( 'V' ( PICTURECHAR ('(' [0-9]+ ')')? )+ )?
+		( '-' | '+' | 'CR' | 'DB' )?
 	;
 
 PICTURECLAUSE : PICTURE WS (IS WS)? PICTURESTRING
