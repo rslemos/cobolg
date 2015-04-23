@@ -23,7 +23,7 @@ public class LexerPICTURECLAUSEUnitTest extends TestCase {
 			"PIC 9(3)P(6)",
 		};
 
-	public LexerPICTURECLAUSEUnitTest(String name) {
+	protected LexerPICTURECLAUSEUnitTest(String name) {
 		super(xlateForEclipse(name));
 	}
 
@@ -38,6 +38,7 @@ public class LexerPICTURECLAUSEUnitTest extends TestCase {
 	}
 	
 	private Compiler compiler;
+	protected Token token;
 	
 	@Override
 	protected void setUp() throws Exception {
@@ -48,7 +49,7 @@ public class LexerPICTURECLAUSEUnitTest extends TestCase {
 	protected void runTest() throws Throwable {
 		String pic = unxlateForEclipse(getName());
 		
-		Token token = compiler.decompose(pic).nextToken();
+		token = compiler.decompose(pic).nextToken();
 		
 		assertThat(token.getType(), is(equalTo(COBOLFreeFormatLexer.PICTURECLAUSE)));
 		assertThat(token.getText(), is(equalTo(pic)));
