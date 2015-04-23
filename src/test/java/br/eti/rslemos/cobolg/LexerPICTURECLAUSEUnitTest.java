@@ -12,6 +12,7 @@ import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class LexerPICTURECLAUSEUnitTest extends TestCase {
 	private static final String[] PICS = {
+			"PIC 9999",
 		};
 
 	public LexerPICTURECLAUSEUnitTest(String name) {
