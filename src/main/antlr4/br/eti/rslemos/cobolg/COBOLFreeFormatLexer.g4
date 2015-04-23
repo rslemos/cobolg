@@ -68,17 +68,18 @@ DISPLAY			: 'DISPLAY';
 STOP			: 'STOP';
 RUN				: 'RUN';
 
-WS	: [ \n\r]											-> channel(HIDDEN);
-
-ID	:
-		[A-Za-z0-9]+
-	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
-	;
+WS : [ \n\r]
+	-> channel(HIDDEN);
 
 INTEGER : '-'? [0-9]+
 	;
 
 FIXEDPOINT : [0-9]+ '.' [0-9]+
+	;
+
+ID	:
+		[A-Za-z0-9]+
+	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
 	;
 
 HEXINTEGER :
