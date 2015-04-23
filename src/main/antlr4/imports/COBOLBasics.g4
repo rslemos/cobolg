@@ -20,6 +20,7 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 lexer grammar COBOLBasics;
+import COBOLKeywords;
 
 WS : ' '+
 	-> channel(HIDDEN);
@@ -52,4 +53,14 @@ SINGLEQUOTEDSTRING : ['] ( ~['\n\r] | ['] ['] )* [']
 HEXSTRING :
 		'X' ["] ([0-9A-F][0-9A-F])+ ["]
 	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
+	;
+
+fragment PICTURECHAR :
+	;
+
+fragment PICTURESTRING :
+		PICTURECHAR+
+	;
+
+PICTURECLAUSE : PICTURE WS (IS WS)? PICTURESTRING
 	;
