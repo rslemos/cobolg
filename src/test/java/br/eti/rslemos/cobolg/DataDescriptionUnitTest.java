@@ -29,9 +29,11 @@ import static org.junit.Assert.assertThat;
 
 import java.io.StringReader;
 
+import org.antlr.v4.runtime.tree.TerminalNode;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.DataNameContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class DataDescriptionUnitTest {
@@ -47,6 +49,14 @@ public class DataDescriptionUnitTest {
 		DataDescriptionParagraphContext dataDescription = compile("01  FILLER.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.FILLER().getText(), is(equalTo("FILLER")));
+	}
+
+	@Test
+	public void testAnonymousDeclaration () {
+		DataDescriptionParagraphContext dataDescription = compile("01  .");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.dataName(), is(nullValue(DataNameContext.class)));
+		assertThat(dataDescription.FILLER(), is(nullValue(TerminalNode.class)));
 	}
 
 	private static DataDescriptionParagraphContext compile(String source) {
