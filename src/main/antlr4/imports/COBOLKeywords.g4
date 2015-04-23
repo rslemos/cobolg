@@ -2,7 +2,7 @@
  * BEGIN COPYRIGHT NOTICE
  * 
  * This file is part of program "cobolg"
- * Copyright 2013  Rodrigo Lemos
+ * Copyright 2015  Rodrigo Lemos
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,9 +19,50 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-lexer grammar COBOLFreeFormatLexer;
-import COBOLKeywords, COBOLBasics;
+lexer grammar COBOLKeywords;
 
-COMMENT			: ('*' | '/') .*? NEWLINE 
-				{ _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
+PERIOD			: '.';
+
+// headers
+DIVISION 		: 'DIVISION';
+SECTION			: 'SECTION';
+
+// divisions
+IDENTIFICATION	: 'ID' ('ENTIFICATION')?;
+ENVIRONMENT		: 'ENVIRONMENT';
+DATA			: 'DATA';
+PROCEDURE		: 'PROCEDURE';
+
+// sections
+CONFIGURATION	: 'CONFIGURATION';
+INPUT_OUTPUT	: 'INPUT-OUTPUT';
+
+// paragraphs
+OBJECT_COMPUTER	: 'OBJECT-COMPUTER';
+SPECIAL_NAMES	: 'SPECIAL-NAMES';
+FILE_CONTROL	: 'FILE-CONTROL';
+
+// sentences
+PROGRAM_ID		: 'PROGRAM-ID';
+SELECT			: 'SELECT';
+OPTIONAL		: 'OPTIONAL';
+ASSIGN			: 'ASSIGN';
+ORGANIZATION	: 'ORGANIZATION';
+INDEXED			: 'INDEXED';
+ACCESS			: 'ACCESS';
+SEQUENTIAL		: 'SEQUENTIAL';
+RECORD			: 'RECORD';
+STATUS			: 'STATUS';
+
+// syntatic sugar
+IS				: 'IS';
+TO				: 'TO';
+KEY				: 'KEY';
+MODE			: 'MODE';
+
+// statements
+DISPLAY			: 'DISPLAY';
+STOP			: 'STOP';
+RUN				: 'RUN';
+
 

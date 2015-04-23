@@ -142,6 +142,11 @@ numericLiteral :
 	;
 
 alphanumericLiteral :
-		QUOTEDSTRING
+		quotedString
 	|	HEXSTRING
+	;
+
+quotedString :
+		DOUBLEQUOTEDSTRING
+	|	SINGLEQUOTEDSTRING
 	;

@@ -51,7 +51,7 @@ import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatUnitTest {
-	private static final String SOURCE = join(
+	public static final String SOURCE = join(
 			"IDENTIFICATION DIVISION.",
 			"PROGRAM-ID. HELLO-WORLD.",
 			"*COMMENT LINE\r",
