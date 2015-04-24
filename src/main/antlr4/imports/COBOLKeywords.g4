@@ -84,6 +84,7 @@ TIMES			: 'TIMES';
 REDEFINES		: 'REDEFINES';
 USING			: 'USING';
 REFERENCE		: 'REFERENCE';
+PICTURE			: 'PIC' ('TURE')?;
 
 // syntatic sugar
 BY				: 'BY';
