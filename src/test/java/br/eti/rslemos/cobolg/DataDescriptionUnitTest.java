@@ -86,6 +86,14 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.valueClause().literal().numericLiteral().INTEGER().getText(), is(equalTo("0")));
 	}
 
+	@Test
+	public void testValueClauseWithFigurativeConstant () {
+		DataDescriptionParagraphContext dataDescription = compile("01  VALUE-DECLARATION VALUE IS ZERO.");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("VALUE-DECLARATION")));
+		assertThat(dataDescription.valueClause().literal().figurativeConstant().getText(), is(equalTo("ZERO")));
+	}
+
 	private static DataDescriptionParagraphContext compile(String source) {
 		FreeFormatCompiler compiler = new FreeFormatCompiler();
 		compiler.setFilename(null);

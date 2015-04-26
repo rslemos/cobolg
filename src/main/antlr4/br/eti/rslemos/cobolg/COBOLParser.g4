@@ -176,6 +176,7 @@ valueClause :
 literal :
 		numericLiteral
 	|	alphanumericLiteral
+	|	figurativeConstant
 	;
 
 numericLiteral :
@@ -187,6 +188,17 @@ numericLiteral :
 alphanumericLiteral :
 		quotedString
 	|	HEXSTRING
+	;
+
+figurativeConstant :
+		ZERO
+	|	SPACE
+	|	HIGH_VALUE
+	|	LOW_VALUE
+	|	QUOTE
+	|	ALL literal
+	|	NULL
+//	|	symbolicCharacter
 	;
 
 quotedString :

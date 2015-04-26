@@ -83,6 +83,15 @@ POINTER			: 'POINTER';
 PROCEDURE_POINTER : 'PROCEDURE-POINTER';
 FUNCTION_POINTER  : 'FUNCTION-POINTER';
 
+// figurative constants
+ZERO			: 'ZEROES' | 'ZEROS' | 'ZERO';
+SPACE			: 'SPACES' | 'SPACE';
+HIGH_VALUE		: 'HIGH-VALUES' | 'HIGH-VALUE';
+LOW_VALUE		: 'LOW-VALUES' | 'LOW-VALUE';
+QUOTE			: 'QUOTES' | 'QUOTE';
+ALL				: 'ALL';
+NULL			: 'NULLS' | 'NULL';
+
 // statements
 // DISPLAY			: 'DISPLAY';  (also a usage mode)
 STOP			: 'STOP';
