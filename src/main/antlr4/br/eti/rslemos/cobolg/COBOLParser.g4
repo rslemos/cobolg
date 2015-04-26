@@ -92,6 +92,7 @@ fileControlParagraph :
 dataDescriptionParagraph :
 		levelNumber (dataName | FILLER)? 
 		pictureClause?
+		usageClause?
 		PERIOD
 	;
 
@@ -142,6 +143,29 @@ dataName :
 
 pictureClause :
 		PICTURE IS? PICTURESTRING
+	;
+
+usageClause :
+		(USAGE IS?)? usage
+	;
+
+usage :
+		BINARY NATIVE?
+	|	COMPUTATIONAL NATIVE?
+	|	COMPUTATIONAL_1 NATIVE?
+	|	COMPUTATIONAL_2 NATIVE?
+	|	COMPUTATIONAL_3 NATIVE?
+	|	COMPUTATIONAL_4 NATIVE?
+	|	COMPUTATIONAL_5 NATIVE?
+	|	DISPLAY NATIVE?
+	|	DISPLAY_1 NATIVE?
+	|	INDEX
+	|	NATIONAL NATIVE?
+//	|	OBJECT REFERENCE className
+	|	PACKED_DECIMAL NATIVE?
+	|	POINTER
+	|	PROCEDURE_POINTER
+	|	FUNCTION_POINTER
 	;
 
 literal :

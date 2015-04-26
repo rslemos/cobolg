@@ -69,6 +69,14 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("PIC-DECLARATION")));
 		assertThat(dataDescription.pictureClause().PICTURESTRING().getText(), is(equalTo("Z$ABX09PPAAAVS,.,,")));
 	}
+	
+	@Test
+	public void testUsageClause () {
+		DataDescriptionParagraphContext dataDescription = compile("01  USAGE-DECLARATION USAGE IS BINARY.");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("USAGE-DECLARATION")));
+		assertThat(dataDescription.usageClause().usage().getText(), is(equalTo("BINARY")));
+	}
 
 	private static DataDescriptionParagraphContext compile(String source) {
 		FreeFormatCompiler compiler = new FreeFormatCompiler();
