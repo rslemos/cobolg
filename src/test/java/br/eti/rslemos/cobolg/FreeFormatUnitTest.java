@@ -28,16 +28,20 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import java.util.Iterator;
+
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.IndexNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
@@ -48,6 +52,7 @@ import br.eti.rslemos.cobolg.COBOLParser.SelectFileSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatUnitTest {
@@ -70,6 +75,15 @@ public class FreeFormatUnitTest {
 			"                        STATUS IS PROJ-STATUS",
 			"                        ORGANIZATION INDEXED.",
 			"DATA DIVISION.",
+			"WORKING-STORAGE SECTION.",
+			"77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.",
+			"77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.",
+			"01  WS-TAB-F-PRICE.",
+			"    03  WS-TB-F-PRICE OCCURS 1000 TIMES",
+			"        INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG",
+			"                   IPRICELIMLOGANT.",
+			"01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.",
+			"77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -180,6 +194,74 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testDataDivisionPresence() {
 		assertThat(tree.dataDivision(), is(not(nullValue(DataDivisionContext.class))));
+	}
+	
+	@Test
+	public void testWorkingSectionPresence() {
+		assertThat(tree.dataDivision().workingStorageSection(), is(not(nullValue(WorkingStorageSectionContext.class))));
+	}
+	
+	@Test
+	public void testDataDescriptionParagraph1() {
+		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(0);
+		
+		// 77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.
+		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
+		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG")));
+		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
+	}
+
+	@Test
+	public void testDataDescriptionParagraph2() {
+		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(1);
+		
+		// 77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.
+		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
+		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG1")));
+		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionParagraph.usageClause_.usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.valueClause_.literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+	}
+
+	@Test
+	public void testDataDescriptionParagraph4() {
+		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(3);
+		
+		//    03  WS-TB-F-PRICE OCCURS 1000 TIMES
+		//        INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG
+		//                   IPRICELIMLOGANT.
+		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("03")));
+		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-TB-F-PRICE")));
+		assertThat(dataDescriptionParagraph.occursClause_.INTEGER().getText(), is(equalTo("1000")));
+		
+		Iterator<IndexNameContext> it = dataDescriptionParagraph.occursClause_.indexName().iterator();
+		for (String indexName : new String[] {"IPRICE", "IPRICEUM", "IPRICEMIL", "IPRICELIMLOG", "IPRICELIMLOGANT"}) {
+			assertThat(it.next().getText(), is(equalTo(indexName))); 
+		}
+	}
+
+	@Test
+	public void testDataDescriptionParagraph5() {
+		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(4);
+		
+		// 01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.
+		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("DESL17V00")));
+		assertThat(dataDescriptionParagraph.redefinesClause().dataName().ID().getText(), is(equalTo("DESL12V05")));
+		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(17)")));
+		assertThat(dataDescriptionParagraph.usageClause_.usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
+	}
+
+	@Test
+	public void testDataDescriptionParagraph6() {
+		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(5);
+		
+		// 77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.
+		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
+		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG2")));
+		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionParagraph.usageClause_.usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.valueClause_.literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 
 	@Test

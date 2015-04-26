@@ -45,6 +45,7 @@ environmentDivision :
 
 dataDivision :
 		DATA DIVISION PERIOD
+		workingStorageSection?
 	;
 
 procedureDivision :
@@ -63,6 +64,11 @@ configurationSection :
 inputOutputSection :
 		INPUT_OUTPUT SECTION PERIOD
 		fileControlParagraph?
+	;
+
+workingStorageSection :
+		WORKING_STORAGE SECTION PERIOD
+		dataDescriptionParagraph*
 	;
 
 userDefinedProcedureSection :

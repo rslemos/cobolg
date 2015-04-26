@@ -273,6 +273,120 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
+		//WORKING-STORAGE SECTION.
+		matchToken(WORKING_STORAGE, "WORKING-STORAGE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SECTION, "SECTION");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.
+		matchToken(INTEGER, "77");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "WS-DEBUG");
+		matchToken(WS, "             ", HIDDEN);
+		matchToken(PICTURE, "PIC");
+		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
+		matchToken(PICTURE_MODE, PICTURESTRING, "ZZZ.ZZZ.ZZZ.ZZ9,999999-");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.
+		matchToken(INTEGER, "77");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "WS-DEBUG1");
+		matchToken(WS, "            ", HIDDEN);
+		matchToken(PICTURE, "PIC");
+		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
+		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(COMPUTATIONAL, "COMP");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(VALUE, "VALUE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ZERO, "ZERO");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//01  WS-TAB-F-PRICE.
+		matchToken(INTEGER, "01");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "WS-TAB-F-PRICE");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    03  WS-TB-F-PRICE OCCURS 1000 TIMES
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(INTEGER, "03");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "WS-TB-F-PRICE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(OCCURS, "OCCURS");		
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "1000");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TIMES, "TIMES");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//        INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG
+		matchToken(WS, "        ", HIDDEN);
+		matchToken(INDEXED, "INDEXED");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(BY, "BY");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "IPRICE");		
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "IPRICEUM");		
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "IPRICEMIL");		
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "IPRICELIMLOG");		
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//                   IPRICELIMLOGANT.
+		matchToken(WS, "                   ", HIDDEN);
+		matchToken(ID, "IPRICELIMLOGANT");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.
+		matchToken(INTEGER, "01");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "DESL17V00");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(REDEFINES, "REDEFINES");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "DESL12V05");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(PICTURE, "PIC");
+		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
+		matchToken(PICTURE_MODE, PICTURESTRING, "S9(17)");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(COMPUTATIONAL_3, "COMP-3");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.
+		matchToken(INTEGER, "77");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "WS-DEBUG2");
+		matchToken(WS, "            ", HIDDEN);
+		matchToken(VALUE, "VALUE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ZERO, "ZERO");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(PICTURE, "PIC");
+		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
+		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(COMPUTATIONAL, "COMP");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
 		//PROCEDURE DIVISION.\r
 		matchToken(PROCEDURE, "PROCEDURE");
 		matchToken(WS, " ", HIDDEN);
