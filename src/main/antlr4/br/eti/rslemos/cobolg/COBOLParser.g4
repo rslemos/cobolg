@@ -89,14 +89,24 @@ fileControlParagraph :
 		selectFileSentence+
 	;
 
-dataDescriptionParagraph :
+dataDescriptionParagraph
+locals [
+	PictureClauseContext pictureClause_ = null,
+	UsageClauseContext usageClause_ = null,
+	ValueClauseContext valueClause_ = null,
+	OccursClauseContext occursClause_ = null
+] :
 		levelNumber (dataName | FILLER)?
 		redefinesClause?
-		pictureClause?
-		usageClause?
-		valueClause?
-		occursClause?
+		dataDescriptionClauses*
 		PERIOD
+	;
+
+dataDescriptionClauses :
+		{ $dataDescriptionParagraph::pictureClause_ == null }? pictureClause { $dataDescriptionParagraph::pictureClause_ = $pictureClause; }
+	|	{ $dataDescriptionParagraph::usageClause_ == null }? usageClause { $dataDescriptionParagraph::usageClause_ = $usageClause; }
+	|	{ $dataDescriptionParagraph::valueClause_ == null }? valueClause { $dataDescriptionParagraph::valueClause_ = $valueClause; }
+	|	{ $dataDescriptionParagraph::occursClause_ == null }? occursClause { $dataDescriptionParagraph::occursClause_ = $occursClause; }
 	;
 
 /* sentences */
