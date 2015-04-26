@@ -52,7 +52,7 @@ dataDivision :
 
 procedureDivision :
 		PROCEDURE DIVISION PERIOD
-		userDefinedProcedureSection*
+		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
 	;
 
 /* sections */
@@ -83,10 +83,13 @@ linkageSection :
 		dataDescriptionParagraph*
 	;
 
-userDefinedProcedureSection :
-		( sectionName SECTION PERIOD )?
-		( paragraphName PERIOD )?
-		proceduralStatement+
+unnamedProceduralSection :
+		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
+	;
+
+namedProceduralSection :
+		sectionName SECTION PERIOD
+		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
 	;
 
 /* paragraphs */
@@ -138,6 +141,15 @@ dataDescriptionClauses :
 	|	{ $dataDescriptionParagraph::usageClause_ == null }? usageClause { $dataDescriptionParagraph::usageClause_ = $usageClause; }
 	|	{ $dataDescriptionParagraph::valueClause_ == null }? valueClause { $dataDescriptionParagraph::valueClause_ = $valueClause; }
 	|	{ $dataDescriptionParagraph::occursClause_ == null }? occursClause { $dataDescriptionParagraph::occursClause_ = $occursClause; }
+	;
+
+unnamedProceduralParagraph :
+		proceduralStatement+
+	;
+
+namedProceduralParagraph :
+		paragraphName PERIOD
+		proceduralStatement+
 	;
 
 /* sentences */
