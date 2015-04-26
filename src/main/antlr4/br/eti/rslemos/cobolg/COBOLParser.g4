@@ -51,7 +51,7 @@ dataDivision :
 	;
 
 procedureDivision :
-		PROCEDURE DIVISION PERIOD
+		PROCEDURE DIVISION usingClause? PERIOD
 		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
 	;
 
@@ -300,6 +300,10 @@ occursClause :
 		OCCURS INTEGER TIMES?
 //		((ASCENDING | DESCENDING) KEY? IS? dataName+)*
 		(INDEXED BY? indexName+)?
+	;
+
+usingClause :
+		USING ((BY? (REFERENCE|VALUE))? dataName)+
 	;
 
 literal :
