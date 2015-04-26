@@ -46,6 +46,7 @@ environmentDivision :
 dataDivision :
 		DATA DIVISION PERIOD
 		workingStorageSection?
+		linkageSection?
 	;
 
 procedureDivision :
@@ -68,6 +69,11 @@ inputOutputSection :
 
 workingStorageSection :
 		WORKING_STORAGE SECTION PERIOD
+		dataDescriptionParagraph*
+	;
+
+linkageSection :
+		LINKAGE SECTION PERIOD
 		dataDescriptionParagraph*
 	;
 

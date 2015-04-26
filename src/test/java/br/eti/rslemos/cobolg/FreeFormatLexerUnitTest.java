@@ -387,6 +387,20 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
+		//LINKAGE SECTION.
+		matchToken(LINKAGE, "LINKAGE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SECTION, "SECTION");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+
+		//01  LE-ENDI.
+		matchToken(INTEGER, "01");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "LE-ENDI");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+
 		//PROCEDURE DIVISION.\r
 		matchToken(PROCEDURE, "PROCEDURE");
 		matchToken(WS, " ", HIDDEN);

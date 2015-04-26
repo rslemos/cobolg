@@ -43,6 +43,7 @@ import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IndexNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.LinkageSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
@@ -84,6 +85,8 @@ public class FreeFormatUnitTest {
 			"                   IPRICELIMLOGANT.",
 			"01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.",
 			"77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.",
+			"LINKAGE SECTION.",
+			"01  LE-ENDI.",
 			"PROCEDURE DIVISION.\r",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
@@ -262,6 +265,11 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(8)")));
 		assertThat(dataDescriptionParagraph.usageClause_.usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
 		assertThat(dataDescriptionParagraph.valueClause_.literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+	}
+
+	@Test
+	public void testLinkageSectionPresence() {
+		assertThat(tree.dataDivision().linkageSection(), is(not(nullValue(LinkageSectionContext.class))));
 	}
 
 	@Test
