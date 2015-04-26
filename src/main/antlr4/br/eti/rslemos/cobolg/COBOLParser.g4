@@ -89,6 +89,26 @@ fileControlParagraph :
 		selectFileSentence+
 	;
 
+dataDescriptionParagraph
+locals [
+	PictureClauseContext pictureClause_ = null,
+	UsageClauseContext usageClause_ = null,
+	ValueClauseContext valueClause_ = null,
+	OccursClauseContext occursClause_ = null
+] :
+		levelNumber (dataName | FILLER)?
+		redefinesClause?
+		dataDescriptionClauses*
+		PERIOD
+	;
+
+dataDescriptionClauses :
+		{ $dataDescriptionParagraph::pictureClause_ == null }? pictureClause { $dataDescriptionParagraph::pictureClause_ = $pictureClause; }
+	|	{ $dataDescriptionParagraph::usageClause_ == null }? usageClause { $dataDescriptionParagraph::usageClause_ = $usageClause; }
+	|	{ $dataDescriptionParagraph::valueClause_ == null }? valueClause { $dataDescriptionParagraph::valueClause_ = $valueClause; }
+	|	{ $dataDescriptionParagraph::occursClause_ == null }? occursClause { $dataDescriptionParagraph::occursClause_ = $occursClause; }
+	;
+
 /* sentences */
 specialNamesSentence :
 		ID IS? ID
@@ -130,9 +150,59 @@ paragraphName :
 		ID
 	;
 
+dataName :
+		ID
+	;
+
+indexName :
+		ID
+	;
+
+redefinesClause :
+		REDEFINES dataName
+	;
+
+pictureClause :
+		PICTURE IS? PICTURESTRING
+	;
+
+usageClause :
+		(USAGE IS?)? usage
+	;
+
+usage :
+		BINARY NATIVE?
+	|	COMPUTATIONAL NATIVE?
+	|	COMPUTATIONAL_1 NATIVE?
+	|	COMPUTATIONAL_2 NATIVE?
+	|	COMPUTATIONAL_3 NATIVE?
+	|	COMPUTATIONAL_4 NATIVE?
+	|	COMPUTATIONAL_5 NATIVE?
+	|	DISPLAY NATIVE?
+	|	DISPLAY_1 NATIVE?
+	|	INDEX
+	|	NATIONAL NATIVE?
+//	|	OBJECT REFERENCE className
+	|	PACKED_DECIMAL NATIVE?
+	|	POINTER
+	|	PROCEDURE_POINTER
+	|	FUNCTION_POINTER
+	;
+
+valueClause :
+		VALUE IS? literal
+	;
+
+occursClause :
+		OCCURS INTEGER TIMES?
+//		((ASCENDING | DESCENDING) KEY? IS? dataName+)*
+		(INDEXED BY? indexName+)?
+	;
+
 literal :
 		numericLiteral
 	|	alphanumericLiteral
+	|	figurativeConstant
 	;
 
 numericLiteral :
@@ -146,9 +216,24 @@ alphanumericLiteral :
 	|	HEXSTRING
 	;
 
+figurativeConstant :
+		ZERO
+	|	SPACE
+	|	HIGH_VALUE
+	|	LOW_VALUE
+	|	QUOTE
+	|	ALL literal
+	|	NULL
+//	|	symbolicCharacter
+	;
+
 quotedString :
 		DOUBLEQUOTEDSTRING
 	|	SINGLEQUOTEDSTRING
 	|	DOUBLEQUOTEDSTRING_START DOUBLEQUOTEDSTRING_MID* DOUBLEQUOTEDSTRING_END
 	|	SINGLEQUOTEDSTRING_START SINGLEQUOTEDSTRING_MID* SINGLEQUOTEDSTRING_END
+	;
+	
+levelNumber :
+		INTEGER { $INTEGER.text.matches("^[0-9][0-9]$") }?
 	;

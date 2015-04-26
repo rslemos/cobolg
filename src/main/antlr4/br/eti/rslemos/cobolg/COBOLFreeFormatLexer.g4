@@ -25,3 +25,30 @@ import COBOLKeywords, COBOLBasics;
 COMMENT			: ('*' | '/') .*? NEWLINE 
 				{ _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
 
+/* 
+ * This block should really be part of COBOLBasics, but as of 2015-04-25
+ * ANTLR4 cannot import multi-mode Lexers: https://github.com/antlr/antlr4/issues/160
+ * 
+ * These rules are replicated in
+ *  - COBOLFreeFormatLexer; and
+ *  - COBOLFixedFormatLexer.
+ */
+PICTURE : 'PIC' 'TURE'?
+	-> pushMode(PICTURE_MODE)
+	;
+
+mode PICTURE_MODE;
+
+PIC_WS : WS
+	-> channel(HIDDEN)
+	;
+
+PIC_IS : IS
+	;
+
+// accepts any string, even malformed picture strings
+// validation of picture strings is to be done elsewhere  
+// using only '$' as currency symbol
+PICTURESTRING : [-+ABEGNPSVXZCRDB90/,.*$()0-9]* [-+ABEGNPSVXZCRDB90/,*$()0-9] 
+	-> popMode
+	;

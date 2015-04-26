@@ -41,6 +41,8 @@ import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
 public abstract class Compiler {
 	
+	private CollectErrorListener custom;
+
 	public TokenSource decompose(String contents) throws IOException {
 		return buildLexer(new StringReader(contents));
 	}
@@ -54,8 +56,26 @@ public abstract class Compiler {
 	}
 	
 	public ProgramContext compile(String fileName, Reader reader) throws IOException {
-		CollectErrorListener custom = new CollectErrorListener(fileName);
+		setFilename(fileName);
 		
+		COBOLParser parser = getParser(reader);
+		
+		ProgramContext tree = parser.program();
+		
+		verify();
+		
+		return tree;
+	}
+
+	public void setFilename(String fileName) {
+		custom = new CollectErrorListener(fileName);
+	}
+
+	public void verify() {
+		custom.verify();
+	}
+
+	public COBOLParser getParser(Reader reader) throws IOException {
 		Lexer lexer = buildLexer(reader);
 		lexer.removeErrorListeners();
 		lexer.addErrorListener(custom);
@@ -65,11 +85,7 @@ public abstract class Compiler {
 		parser.addErrorListener(custom);
 		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
 		
-		ProgramContext tree = parser.program();
-		
-		custom.verify();
-		
-		return tree;
+		return parser;
 	}
 
 	protected COBOLParser buildParser(Lexer lexer) {
