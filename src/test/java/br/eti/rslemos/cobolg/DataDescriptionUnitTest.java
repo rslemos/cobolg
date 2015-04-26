@@ -78,6 +78,14 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.usageClause().usage().getText(), is(equalTo("BINARY")));
 	}
 
+	@Test
+	public void testValueClause () {
+		DataDescriptionParagraphContext dataDescription = compile("01  VALUE-DECLARATION VALUE IS 0.");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("VALUE-DECLARATION")));
+		assertThat(dataDescription.valueClause().literal().numericLiteral().INTEGER().getText(), is(equalTo("0")));
+	}
+
 	private static DataDescriptionParagraphContext compile(String source) {
 		FreeFormatCompiler compiler = new FreeFormatCompiler();
 		compiler.setFilename(null);

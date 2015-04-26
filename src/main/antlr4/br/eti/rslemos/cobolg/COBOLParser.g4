@@ -93,6 +93,7 @@ dataDescriptionParagraph :
 		levelNumber (dataName | FILLER)? 
 		pictureClause?
 		usageClause?
+		valueClause?
 		PERIOD
 	;
 
@@ -166,6 +167,10 @@ usage :
 	|	POINTER
 	|	PROCEDURE_POINTER
 	|	FUNCTION_POINTER
+	;
+
+valueClause :
+		VALUE IS? literal
 	;
 
 literal :

@@ -55,6 +55,7 @@ RECORD			: 'RECORD';
 STATUS			: 'STATUS';
 FILLER			: 'FILLER';
 USAGE			: 'USAGE';
+VALUE			: 'VALUE';
 
 // syntatic sugar
 IS				: 'IS';
