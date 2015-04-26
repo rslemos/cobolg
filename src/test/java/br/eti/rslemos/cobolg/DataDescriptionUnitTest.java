@@ -94,6 +94,14 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.valueClause().literal().figurativeConstant().getText(), is(equalTo("ZERO")));
 	}
 
+	@Test
+	public void testOccursClause () {
+		DataDescriptionParagraphContext dataDescription = compile("01  OCCURS-DECLARATION OCCURS 10 TIMES.");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("OCCURS-DECLARATION")));
+		assertThat(dataDescription.occursClause().INTEGER().getText(), is(equalTo("10")));
+	}
+
 	private static DataDescriptionParagraphContext compile(String source) {
 		FreeFormatCompiler compiler = new FreeFormatCompiler();
 		compiler.setFilename(null);

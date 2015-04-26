@@ -56,8 +56,11 @@ STATUS			: 'STATUS';
 FILLER			: 'FILLER';
 USAGE			: 'USAGE';
 VALUE			: 'VALUE';
+OCCURS			: 'OCCURS';
+TIMES			: 'TIMES';
 
 // syntatic sugar
+BY				: 'BY';
 IS				: 'IS';
 TO				: 'TO';
 KEY				: 'KEY';

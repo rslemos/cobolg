@@ -94,6 +94,7 @@ dataDescriptionParagraph :
 		pictureClause?
 		usageClause?
 		valueClause?
+		occursClause?
 		PERIOD
 	;
 
@@ -142,6 +143,10 @@ dataName :
 		ID
 	;
 
+indexName :
+		ID
+	;
+
 pictureClause :
 		PICTURE IS? PICTURESTRING
 	;
@@ -171,6 +176,12 @@ usage :
 
 valueClause :
 		VALUE IS? literal
+	;
+
+occursClause :
+		OCCURS INTEGER TIMES?
+//		((ASCENDING | DESCENDING) KEY? IS? dataName+)*
+		(INDEXED BY? indexName+)?
 	;
 
 literal :
