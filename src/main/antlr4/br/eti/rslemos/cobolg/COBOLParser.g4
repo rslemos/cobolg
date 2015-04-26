@@ -90,7 +90,8 @@ fileControlParagraph :
 	;
 
 dataDescriptionParagraph :
-		levelNumber (dataName | FILLER)?
+		levelNumber (dataName | FILLER)? 
+		pictureClause?
 		PERIOD
 	;
 
@@ -137,6 +138,10 @@ paragraphName :
 
 dataName :
 		ID
+	;
+
+pictureClause :
+		PICTURE IS? PICTURESTRING
 	;
 
 literal :

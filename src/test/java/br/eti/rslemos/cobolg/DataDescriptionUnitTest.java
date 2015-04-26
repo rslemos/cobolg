@@ -59,6 +59,17 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.FILLER(), is(nullValue(TerminalNode.class)));
 	}
 
+	@Test
+	public void testPICDeclaration () {
+		// the PICTURESTRING is invalid on purpose
+		// this is a bold statement that whatever PICTURESTRING our lexer gave us
+		// should be validated elsewhere (a specialized lexer perhaps?)
+		DataDescriptionParagraphContext dataDescription = compile("01  PIC-DECLARATION PIC Z$ABX09PPAAAVS,.,,.");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("PIC-DECLARATION")));
+		assertThat(dataDescription.pictureClause().PICTURESTRING().getText(), is(equalTo("Z$ABX09PPAAAVS,.,,")));
+	}
+
 	private static DataDescriptionParagraphContext compile(String source) {
 		FreeFormatCompiler compiler = new FreeFormatCompiler();
 		compiler.setFilename(null);
