@@ -90,7 +90,8 @@ fileControlParagraph :
 	;
 
 dataDescriptionParagraph :
-		levelNumber (dataName | FILLER)? 
+		levelNumber (dataName | FILLER)?
+		redefinesClause?
 		pictureClause?
 		usageClause?
 		valueClause?
@@ -145,6 +146,10 @@ dataName :
 
 indexName :
 		ID
+	;
+
+redefinesClause :
+		REDEFINES dataName
 	;
 
 pictureClause :

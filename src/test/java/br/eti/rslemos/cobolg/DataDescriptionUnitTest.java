@@ -102,6 +102,14 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.occursClause().INTEGER().getText(), is(equalTo("10")));
 	}
 
+	@Test
+	public void testRedefinesClause () {
+		DataDescriptionParagraphContext dataDescription = compile("01  REDEFINITION-DECLARATION REDEFINES REDEFINED-DECLARATION.");
+		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("REDEFINITION-DECLARATION")));
+		assertThat(dataDescription.redefinesClause().dataName().ID().getText(), is(equalTo("REDEFINED-DECLARATION")));
+	}
+
 	private static DataDescriptionParagraphContext compile(String source) {
 		FreeFormatCompiler compiler = new FreeFormatCompiler();
 		compiler.setFilename(null);

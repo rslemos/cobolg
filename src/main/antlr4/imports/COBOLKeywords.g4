@@ -58,6 +58,7 @@ USAGE			: 'USAGE';
 VALUE			: 'VALUE';
 OCCURS			: 'OCCURS';
 TIMES			: 'TIMES';
+REDEFINES		: 'REDEFINES';
 
 // syntatic sugar
 BY				: 'BY';
