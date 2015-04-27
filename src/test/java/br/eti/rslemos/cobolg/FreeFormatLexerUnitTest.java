@@ -273,6 +273,215 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
+		//FILE SECTION.
+		matchToken(FILE, "FILE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SECTION, "SECTION");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+
+		//FD  FD0 IS EXTERNAL IS GLOBAL
+		matchToken(FD, "FD");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "FD0");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(EXTERNAL, "EXTERNAL");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(GLOBAL, "GLOBAL");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    BLOCK CONTAINS 5 TO 100 RECORDS
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(BLOCK, "BLOCK");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CONTAINS, "CONTAINS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "5");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TO, "TO");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "100");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(RECORDS, "RECORDS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    RECORD CONTAINS 80 TO 120 CHARACTERS
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(RECORD, "RECORD");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CONTAINS, "CONTAINS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "80");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TO, "TO");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "120");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CHARACTERS, "CHARACTERS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    LABEL RECORD IS STANDARD
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(LABEL, "LABEL");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(RECORD, "RECORD");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(STANDARD, "STANDARD");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    VALUE OF SYSVAR1 IS 'SYSVAR1' SYSVAR2 IS 'SYSVAR2'
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(VALUE, "VALUE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(OF, "OF");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "SYSVAR1");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR1'");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "SYSVAR2");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR2'");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    DATA RECORDS ARE REC1 REC2
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(DATA, "DATA");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(RECORDS, "RECORDS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ARE, "ARE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "REC1");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "REC2");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    LINAGE IS 2 LINES
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(LINAGE, "LINAGE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "2");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(LINES, "LINES");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      WITH FOOTING AT 2
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(WITH, "WITH");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(FOOTING, "FOOTING");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(AT, "AT");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "2");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      LINES AT TOP 1
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(LINES, "LINES");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(AT, "AT");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TOP, "TOP");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "1");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      LINES AT BOTTOM 1
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(LINES, "LINES");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(AT, "AT");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(BOTTOM, "BOTTOM");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "1");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    RECORDING MODE IS V
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(RECORDING, "RECORDING");
+		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
+		matchToken(RECORDING_MODE, REC_MODE, "MODE");
+		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
+		matchToken(RECORDING_MODE, REC_IS, "IS");
+		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
+		matchToken(RECORDING_MODE, V, "V");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    CODE-SET IS ALPHABET1.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(CODE_SET, "CODE-SET");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "ALPHABET1");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//FD  FD1
+		matchToken(FD, "FD");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "FD1");
+		matchToken(NEWLINE, "\n", HIDDEN);
+
+		//    BLOCK CONTAINS 120 CHARACTERS
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(BLOCK, "BLOCK");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CONTAINS, "CONTAINS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "120");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CHARACTERS, "CHARACTERS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(RECORD, "RECORD");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(VARYING, "VARYING");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IN, "IN");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SIZE, "SIZE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(FROM, "FROM");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "10");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TO, "TO");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "120");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CHARACTERS, "CHARACTERS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      DEPENDING ON REC-SIZE.
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(DEPENDING, "DEPENDING");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ON, "ON");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "REC-SIZE");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
 		//WORKING-STORAGE SECTION.
 		matchToken(WORKING_STORAGE, "WORKING-STORAGE");
 		matchToken(WS, " ", HIDDEN);

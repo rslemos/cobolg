@@ -45,6 +45,7 @@ environmentDivision :
 
 dataDivision :
 		DATA DIVISION PERIOD
+		fileSection?
 		workingStorageSection?
 		linkageSection?
 	;
@@ -65,6 +66,11 @@ configurationSection :
 inputOutputSection :
 		INPUT_OUTPUT SECTION PERIOD
 		fileControlParagraph?
+	;
+
+fileSection :
+		FILE SECTION PERIOD
+		fileDescriptionParagraph*
 	;
 
 workingStorageSection :
@@ -99,6 +105,19 @@ specialNamesParagraph :
 fileControlParagraph :
 		FILE_CONTROL PERIOD
 		selectFileSentence+
+	;
+
+fileDescriptionParagraph :
+		FD fileName (IS? EXTERNAL)? (IS? GLOBAL)?
+		fdBlockClause?
+		fdRecordClause?
+		fdLabelRecordClause?
+		fdValueOfClause?
+		fdDataRecordClause?
+		fdLinageClause?
+		fdRecordingModeClause?
+		fdCodeSetClause?
+		PERIOD
 	;
 
 dataDescriptionParagraph
@@ -162,12 +181,72 @@ paragraphName :
 		ID
 	;
 
+fileName :
+		ID
+	;
+
+systemName :
+		ID
+	;
+
+alphabetName :
+		ID
+	;
+
 dataName :
 		ID
 	;
 
 indexName :
 		ID
+	;
+
+fdBlockClause :
+		BLOCK CONTAINS? (from=INTEGER TO)? to=INTEGER (CHARACTERS | RECORDS)
+	;
+
+fdRecordClause :
+		RECORD CONTAINS? (from=INTEGER TO)? to=INTEGER CHARACTERS?
+	|	RECORD IS? VARYING IN? SIZE? (FROM? from=INTEGER)? (TO to=INTEGER)? CHARACTERS? (DEPENDING ON? dependingOn=dataName)?
+	;
+
+fdLabelRecordClause :
+		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName*) // why not dataName+?
+	;
+
+fdValueOfClause :
+		VALUE OF (systemName IS? (dataName | literal))+
+	;
+
+fdDataRecordClause :
+		DATA (RECORD IS? | RECORDS ARE?) dataName+
+	;
+
+fdLinageClause :
+		LINAGE IS? (dataName | INTEGER) LINES?
+		(WITH? FOOTING AT? footingAt)? 
+		(LINES? AT? TOP linesAtTop)?
+		(LINES? AT? BOTTOM linesAtBottom)?
+	;
+
+footingAt :
+		(dataName | INTEGER)
+	;
+
+linesAtTop :
+		(dataName | INTEGER)
+	;
+
+linesAtBottom :
+		(dataName | INTEGER)
+	;
+
+fdRecordingModeClause :
+		RECORDING REC_MODE? REC_IS? (F | V | U | S)
+	;
+
+fdCodeSetClause :
+		CODE_SET IS? alphabetName
 	;
 
 redefinesClause :

@@ -38,8 +38,18 @@ import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdBlockClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdCodeSetClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdDataRecordClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdLabelRecordClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdLinageClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdRecordClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdRecordingModeClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdValueOfClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IndexNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
@@ -76,6 +86,23 @@ public class FreeFormatUnitTest {
 			"                        STATUS IS PROJ-STATUS",
 			"                        ORGANIZATION INDEXED.",
 			"DATA DIVISION.",
+			"FILE SECTION.",
+			"FD  FD0 IS EXTERNAL IS GLOBAL",
+			"    BLOCK CONTAINS 5 TO 100 RECORDS",
+			"    RECORD CONTAINS 80 TO 120 CHARACTERS",
+			"    LABEL RECORD IS STANDARD",
+			"    VALUE OF SYSVAR1 IS 'SYSVAR1' SYSVAR2 IS 'SYSVAR2'",
+			"    DATA RECORDS ARE REC1 REC2",
+			"    LINAGE IS 2 LINES",
+			"      WITH FOOTING AT 2",
+			"      LINES AT TOP 1",
+			"      LINES AT BOTTOM 1",
+			"    RECORDING MODE IS V",
+			"    CODE-SET IS ALPHABET1.",
+			"FD  FD1",
+			"    BLOCK CONTAINS 120 CHARACTERS",
+			"    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS",
+			"      DEPENDING ON REC-SIZE.",
 			"WORKING-STORAGE SECTION.",
 			"77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.",
 			"77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.",
@@ -198,7 +225,99 @@ public class FreeFormatUnitTest {
 	public void testDataDivisionPresence() {
 		assertThat(tree.dataDivision(), is(not(nullValue(DataDivisionContext.class))));
 	}
-	
+
+	@Test
+	public void testFileSectionPresence() {
+		assertThat(tree.dataDivision().fileSection(), is(not(nullValue(FileSectionContext.class))));
+	}
+
+	@Test
+	public void testFileDescriptor0Presence() {
+		FileDescriptionParagraphContext fd0 = tree.dataDivision().fileSection().fileDescriptionParagraph(0);
+		assertThat(fd0.fileName().getText(), is(equalTo("FD0")));
+		assertThat(fd0.EXTERNAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.GLOBAL(), is(not(nullValue(TerminalNode.class))));
+	}
+
+	@Test
+	public void testFD0BlockClause() {
+		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdBlockClause();
+		assertThat(blockClause.from.getText(), is(equalTo("5")));
+		assertThat(blockClause.to.getText(), is(equalTo("100")));
+		assertThat(blockClause.RECORDS(), is(not(nullValue(TerminalNode.class))));
+	}
+
+	@Test
+	public void testFD0RecordClause() {
+		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdRecordClause();
+		assertThat(recordClause.from.getText(), is(equalTo("80")));
+		assertThat(recordClause.to.getText(), is(equalTo("120")));
+	}
+
+	@Test
+	public void testFD0LabelRecordClause() {
+		FdLabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdLabelRecordClause();
+		assertThat(labelRecordClause.STANDARD(), is(not(nullValue(TerminalNode.class))));
+	}
+
+	@Test
+	public void testFD0ValueOfClause() {
+		FdValueOfClauseContext valueOfClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdValueOfClause();
+		assertThat(valueOfClause.systemName(0).getText(), is(equalTo("SYSVAR1")));
+		assertThat(valueOfClause.literal(0).getText(), is(equalTo("'SYSVAR1'")));
+		assertThat(valueOfClause.systemName(1).getText(), is(equalTo("SYSVAR2")));
+		assertThat(valueOfClause.literal(1).getText(), is(equalTo("'SYSVAR2'")));
+	}
+
+	@Test
+	public void testFD0DataRecordClause() {
+		FdDataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdDataRecordClause();
+		assertThat(dataRecordClause.dataName(0).getText(), is(equalTo("REC1")));
+		assertThat(dataRecordClause.dataName(1).getText(), is(equalTo("REC2")));
+	}
+
+	@Test
+	public void testFD0LinageClause() {
+		FdLinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdLinageClause();
+		assertThat(linageClause.INTEGER().getText(), is(equalTo("2")));
+		assertThat(linageClause.footingAt().INTEGER().getText(), is(equalTo("2")));
+		assertThat(linageClause.linesAtBottom().INTEGER().getText(), is(equalTo("1")));
+		assertThat(linageClause.linesAtTop().INTEGER().getText(), is(equalTo("1")));
+	}
+
+	@Test
+	public void testFD0RecordingModeClause() {
+		FdRecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdRecordingModeClause();
+		assertThat(recordingModeClause.V(), is(not(nullValue(TerminalNode.class))));
+	}
+
+	@Test
+	public void testFD0CodeSetClause() {
+		FdCodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdCodeSetClause();
+		assertThat(codeSetClause.alphabetName().ID().getText(), is(equalTo("ALPHABET1")));
+	}
+
+	@Test
+	public void testFileDescriptor1Presence() {
+		FileDescriptionParagraphContext fd1 = tree.dataDivision().fileSection().fileDescriptionParagraph(1);
+		assertThat(fd1.fileName().getText(), is(equalTo("FD1")));
+	}
+
+	@Test
+	public void testFD1BlockClause() {
+		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fdBlockClause();
+		assertThat(blockClause.to.getText(), is(equalTo("120")));
+		assertThat(blockClause.CHARACTERS(), is(not(nullValue(TerminalNode.class))));
+	}
+
+	@Test
+	public void testFD1RecordClause() {
+		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fdRecordClause();
+		assertThat(recordClause.from.getText(), is(equalTo("10")));
+		assertThat(recordClause.to.getText(), is(equalTo("120")));
+		assertThat(recordClause.dependingOn.getText(), is(equalTo("REC-SIZE")));
+	}
+
 	@Test
 	public void testWorkingSectionPresence() {
 		assertThat(tree.dataDivision().workingStorageSection(), is(not(nullValue(WorkingStorageSectionContext.class))));
