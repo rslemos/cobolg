@@ -54,6 +54,10 @@ PICTURE : 'PIC' 'TURE'?
 	-> pushMode(PICTURE_MODE)
 	;
 
+RECORDING : 'RECORDING'
+	-> pushMode(RECORDING_MODE)
+	;
+
 mode PICTURE_MODE;
 
 PIC_WS : WS
@@ -69,7 +73,36 @@ PIC_IS : IS
 PICTURESTRING : [-+ABEGNPSVXZCRDB90/,.*$()0-9]* [-+ABEGNPSVXZCRDB90/,*$()0-9] 
 	-> popMode
 	;
- 
+
+mode RECORDING_MODE;
+
+REC_WS : WS
+	-> channel(HIDDEN);
+
+REC_MODE : MODE
+	;
+
+REC_IS : IS
+	;
+
+F : 'F'
+	-> popMode
+	;
+
+V : 'V'
+	-> popMode
+	;
+
+U : 'U'
+	-> popMode
+	;
+
+S : 'S'
+	-> popMode
+	;
+
+/* common block ends here */
+
 mode SEQUENCE_MODE;
 SEQUENCE_MODE_NL	: NEWLINE 	-> channel(HIDDEN), mode(DEFAULT_MODE);
 

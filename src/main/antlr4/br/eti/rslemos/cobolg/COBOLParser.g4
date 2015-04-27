@@ -115,6 +115,7 @@ fileDescriptionParagraph :
 		fdValueOfClause?
 		fdDataRecordClause?
 		fdLinageClause?
+		fdRecordingModeClause?
 		PERIOD
 	;
 
@@ -233,6 +234,10 @@ linesAtTop :
 
 linesAtBottom :
 		(dataName | INTEGER)
+	;
+
+fdRecordingModeClause :
+		RECORDING REC_MODE? REC_IS? (F | V | U | S)
 	;
 
 redefinesClause :

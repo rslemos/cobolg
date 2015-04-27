@@ -43,6 +43,7 @@ import br.eti.rslemos.cobolg.COBOLParser.FdDataRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdLabelRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdLinageClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdRecordClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdRecordingModeClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdValueOfClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileDescriptionParagraphContext;
@@ -94,7 +95,8 @@ public class FreeFormatUnitTest {
 			"    LINAGE IS 2 LINES",
 			"      WITH FOOTING AT 2",
 			"      LINES AT TOP 1",
-			"      LINES AT BOTTOM 1.",
+			"      LINES AT BOTTOM 1",
+			"    RECORDING MODE IS V.",
 			"FD  FD1",
 			"    BLOCK CONTAINS 120 CHARACTERS",
 			"    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS",
@@ -277,6 +279,12 @@ public class FreeFormatUnitTest {
 		assertThat(linageClause.footingAt().INTEGER().getText(), is(equalTo("2")));
 		assertThat(linageClause.linesAtBottom().INTEGER().getText(), is(equalTo("1")));
 		assertThat(linageClause.linesAtTop().INTEGER().getText(), is(equalTo("1")));
+	}
+
+	@Test
+	public void testFD0RecordingModeClause() {
+		FdRecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdRecordingModeClause();
+		assertThat(recordingModeClause.V(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
