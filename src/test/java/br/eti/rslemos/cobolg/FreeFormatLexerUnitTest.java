@@ -280,6 +280,20 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
+		//FD  FD0.
+		matchToken(FD, "FD");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "FD0");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//FD  FD1.
+		matchToken(FD, "FD");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "FD1");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+
 		//WORKING-STORAGE SECTION.
 		matchToken(WORKING_STORAGE, "WORKING-STORAGE");
 		matchToken(WS, " ", HIDDEN);

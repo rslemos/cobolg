@@ -70,6 +70,7 @@ inputOutputSection :
 
 fileSection :
 		FILE SECTION PERIOD
+		fileDescriptionParagraph*
 	;
 
 workingStorageSection :
@@ -104,6 +105,11 @@ specialNamesParagraph :
 fileControlParagraph :
 		FILE_CONTROL PERIOD
 		selectFileSentence+
+	;
+
+fileDescriptionParagraph :
+		FD fileName
+		PERIOD
 	;
 
 dataDescriptionParagraph
@@ -164,6 +170,10 @@ sectionName :
 	;
 
 paragraphName :
+		ID
+	;
+
+fileName :
 		ID
 	;
 

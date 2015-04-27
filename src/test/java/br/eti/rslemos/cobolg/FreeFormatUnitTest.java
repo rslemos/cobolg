@@ -39,6 +39,7 @@ import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
@@ -78,6 +79,8 @@ public class FreeFormatUnitTest {
 			"                        ORGANIZATION INDEXED.",
 			"DATA DIVISION.",
 			"FILE SECTION.",
+			"FD  FD0.",
+			"FD  FD1.",
 			"WORKING-STORAGE SECTION.",
 			"77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.",
 			"77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.",
@@ -205,6 +208,19 @@ public class FreeFormatUnitTest {
 	public void testFileSectionPresence() {
 		assertThat(tree.dataDivision().fileSection(), is(not(nullValue(FileSectionContext.class))));
 	}
+
+	@Test
+	public void testFileDescriptor0Presence() {
+		FileDescriptionParagraphContext fd0 = tree.dataDivision().fileSection().fileDescriptionParagraph(0);
+		assertThat(fd0.fileName().getText(), is(equalTo("FD0")));
+	}
+
+	@Test
+	public void testFileDescriptor1Presence() {
+		FileDescriptionParagraphContext fd1 = tree.dataDivision().fileSection().fileDescriptionParagraph(1);
+		assertThat(fd1.fileName().getText(), is(equalTo("FD1")));
+	}
+
 	@Test
 	public void testWorkingSectionPresence() {
 		assertThat(tree.dataDivision().workingStorageSection(), is(not(nullValue(WorkingStorageSectionContext.class))));
