@@ -116,6 +116,7 @@ fileDescriptionParagraph :
 		fdDataRecordClause?
 		fdLinageClause?
 		fdRecordingModeClause?
+		fdCodeSetClause?
 		PERIOD
 	;
 
@@ -188,6 +189,10 @@ systemName :
 		ID
 	;
 
+alphabetName :
+		ID
+	;
+
 dataName :
 		ID
 	;
@@ -238,6 +243,10 @@ linesAtBottom :
 
 fdRecordingModeClause :
 		RECORDING REC_MODE? REC_IS? (F | V | U | S)
+	;
+
+fdCodeSetClause :
+		CODE_SET IS? alphabetName
 	;
 
 redefinesClause :

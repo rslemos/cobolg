@@ -403,7 +403,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INTEGER, "1");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    RECORDING MODE IS V.
+		//    RECORDING MODE IS V
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(RECORDING, "RECORDING");
 		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
@@ -412,6 +412,15 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(RECORDING_MODE, REC_IS, "IS");
 		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
 		matchToken(RECORDING_MODE, V, "V");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    CODE-SET IS ALPHABET1.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(CODE_SET, "CODE-SET");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "ALPHABET1");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		

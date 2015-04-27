@@ -39,6 +39,7 @@ import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdBlockClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdCodeSetClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdDataRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdLabelRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdLinageClauseContext;
@@ -96,7 +97,8 @@ public class FreeFormatUnitTest {
 			"      WITH FOOTING AT 2",
 			"      LINES AT TOP 1",
 			"      LINES AT BOTTOM 1",
-			"    RECORDING MODE IS V.",
+			"    RECORDING MODE IS V",
+			"    CODE-SET IS ALPHABET1.",
 			"FD  FD1",
 			"    BLOCK CONTAINS 120 CHARACTERS",
 			"    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS",
@@ -285,6 +287,12 @@ public class FreeFormatUnitTest {
 	public void testFD0RecordingModeClause() {
 		FdRecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdRecordingModeClause();
 		assertThat(recordingModeClause.V(), is(not(nullValue(TerminalNode.class))));
+	}
+
+	@Test
+	public void testFD0CodeSetClause() {
+		FdCodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdCodeSetClause();
+		assertThat(codeSetClause.alphabetName().ID().getText(), is(equalTo("ALPHABET1")));
 	}
 
 	@Test
