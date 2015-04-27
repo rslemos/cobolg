@@ -187,7 +187,7 @@ indexName :
 	;
 
 fdBlockClause :
-		BLOCK CONTAINS? INTEGER (CHARACTERS | RECORDS)
+		BLOCK CONTAINS? (from=INTEGER TO)? to=INTEGER (CHARACTERS | RECORDS)
 	;
 
 redefinesClause :

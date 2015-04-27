@@ -81,7 +81,7 @@ public class FreeFormatUnitTest {
 			"DATA DIVISION.",
 			"FILE SECTION.",
 			"FD  FD0",
-			"    BLOCK CONTAINS 100 RECORDS.",
+			"    BLOCK CONTAINS 5 TO 100 RECORDS.",
 			"FD  FD1",
 			"    BLOCK CONTAINS 120 CHARACTERS.",
 			"WORKING-STORAGE SECTION.",
@@ -221,7 +221,8 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testFD0BlockClause() {
 		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdBlockClause();
-		assertThat(blockClause.INTEGER().getText(), is(equalTo("100")));
+		assertThat(blockClause.from.getText(), is(equalTo("5")));
+		assertThat(blockClause.to.getText(), is(equalTo("100")));
 		assertThat(blockClause.RECORDS(), is(not(nullValue(TerminalNode.class))));
 	}
 
@@ -234,7 +235,7 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testFD1BlockClause() {
 		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fdBlockClause();
-		assertThat(blockClause.INTEGER().getText(), is(equalTo("120")));
+		assertThat(blockClause.to.getText(), is(equalTo("120")));
 		assertThat(blockClause.CHARACTERS(), is(not(nullValue(TerminalNode.class))));
 	}
 
