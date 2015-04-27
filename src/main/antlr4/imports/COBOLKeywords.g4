@@ -62,6 +62,9 @@ BLOCK			: 'BLOCK';
 CHARACTERS		: 'CHARACTERS';
 VARYING			: 'VARYING';
 DEPENDING		: 'DEPENDING';
+LABEL			: 'LABEL';
+STANDARD		: 'STANDARD';
+OMITTED			: 'OMITTED';
 FILLER			: 'FILLER';
 USAGE			: 'USAGE';
 VALUE			: 'VALUE';
@@ -72,6 +75,7 @@ REDEFINES		: 'REDEFINES';
 // syntatic sugar
 BY				: 'BY';
 IS				: 'IS';
+ARE				: 'ARE';
 FROM			: 'FROM';
 TO				: 'TO';
 IN				: 'IN';

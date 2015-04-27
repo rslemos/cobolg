@@ -39,6 +39,7 @@ import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdBlockClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdLabelRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileDescriptionParagraphContext;
@@ -83,7 +84,8 @@ public class FreeFormatUnitTest {
 			"FILE SECTION.",
 			"FD  FD0",
 			"    BLOCK CONTAINS 5 TO 100 RECORDS",
-			"    RECORD CONTAINS 80 TO 120 CHARACTERS.",
+			"    RECORD CONTAINS 80 TO 120 CHARACTERS",
+			"    LABEL RECORD IS STANDARD.",
 			"FD  FD1",
 			"    BLOCK CONTAINS 120 CHARACTERS",
 			"    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS",
@@ -235,6 +237,12 @@ public class FreeFormatUnitTest {
 		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdRecordClause();
 		assertThat(recordClause.from.getText(), is(equalTo("80")));
 		assertThat(recordClause.to.getText(), is(equalTo("120")));
+	}
+
+	@Test
+	public void testFD0LabelRecordClause() {
+		FdLabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdLabelRecordClause();
+		assertThat(labelRecordClause.STANDARD(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test

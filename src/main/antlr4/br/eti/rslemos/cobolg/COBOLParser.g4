@@ -111,6 +111,7 @@ fileDescriptionParagraph :
 		FD fileName
 		fdBlockClause?
 		fdRecordClause?
+		fdLabelRecordClause?
 		PERIOD
 	;
 
@@ -194,6 +195,10 @@ fdBlockClause :
 fdRecordClause :
 		RECORD CONTAINS? (from=INTEGER TO)? to=INTEGER CHARACTERS?
 	|	RECORD IS? VARYING IN? SIZE? (FROM? from=INTEGER)? (TO to=INTEGER)? CHARACTERS? (DEPENDING ON? dependingOn=dataName)?
+	;
+
+fdLabelRecordClause :
+		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName*) // why not dataName+?
 	;
 
 redefinesClause :

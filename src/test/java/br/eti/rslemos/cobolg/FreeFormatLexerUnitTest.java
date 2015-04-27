@@ -301,7 +301,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(RECORDS, "RECORDS");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    RECORD CONTAINS 80 TO 120 CHARACTERS.
+		//    RECORD CONTAINS 80 TO 120 CHARACTERS
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(RECORD, "RECORD");
 		matchToken(WS, " ", HIDDEN);
@@ -314,6 +314,17 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INTEGER, "120");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(CHARACTERS, "CHARACTERS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    LABEL RECORD IS STANDARD.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(LABEL, "LABEL");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(RECORD, "RECORD");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(STANDARD, "STANDARD");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
