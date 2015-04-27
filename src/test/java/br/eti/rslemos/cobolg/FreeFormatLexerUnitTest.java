@@ -286,7 +286,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(ID, "FD0");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    BLOCK CONTAINS 5 TO 100 RECORDS.
+		//    BLOCK CONTAINS 5 TO 100 RECORDS
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(BLOCK, "BLOCK");
 		matchToken(WS, " ", HIDDEN);
@@ -299,6 +299,21 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INTEGER, "100");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(RECORDS, "RECORDS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    RECORD CONTAINS 80 TO 120 CHARACTERS.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(RECORD, "RECORD");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CONTAINS, "CONTAINS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "80");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TO, "TO");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "120");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CHARACTERS, "CHARACTERS");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
