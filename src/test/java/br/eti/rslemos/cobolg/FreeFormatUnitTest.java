@@ -55,14 +55,14 @@ import br.eti.rslemos.cobolg.COBOLParser.IndexNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.LinkageSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.ParagraphNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 import br.eti.rslemos.cobolg.COBOLParser.SelectFileSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesSentenceContext;
-import br.eti.rslemos.cobolg.COBOLParser.UserDefinedProcedureSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.UnnamedProceduralParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.UnnamedProceduralSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
@@ -399,16 +399,19 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testProcedureDivision() {
 		ProcedureDivisionContext procDivision = tree.procedureDivision();
-		assertThat(procDivision.userDefinedProcedureSection().size(), is(equalTo(1)));
 		
-		UserDefinedProcedureSectionContext userDefinedProcedureSection_0 = procDivision.userDefinedProcedureSection(0);
-		assertThat(userDefinedProcedureSection_0.paragraphName(), is(nullValue(ParagraphNameContext.class)));
-		assertThat(userDefinedProcedureSection_0.proceduralStatement().size(), is(equalTo(2)));
+		assertThat(procDivision.namedProceduralSection().size(), is(equalTo(0)));
+		UnnamedProceduralSectionContext unnamedProceduralSection = procDivision.unnamedProceduralSection();
+
+		assertThat(unnamedProceduralSection.namedProceduralParagraph().size(), is(equalTo(0)));
+		UnnamedProceduralParagraphContext unnamedProceduralParagraph = unnamedProceduralSection.unnamedProceduralParagraph();
 		
-		ProceduralStatementContext statement_0_0 = userDefinedProcedureSection_0.proceduralStatement(0);
-		assertThat(statement_0_0.DISPLAY(), is(not(nullValue(TerminalNode.class))));
+		assertThat(unnamedProceduralParagraph.proceduralStatement().size(), is(equalTo(2)));
 		
-		ProceduralStatementContext statement_0_1 = userDefinedProcedureSection_0.proceduralStatement(1);
-		assertThat(statement_0_1.STOP(), is(not(nullValue(TerminalNode.class))));
+		ProceduralStatementContext statement_0 = unnamedProceduralParagraph.proceduralStatement(0);
+		assertThat(statement_0.DISPLAY(), is(not(nullValue(TerminalNode.class))));
+		
+		ProceduralStatementContext statement_1 = unnamedProceduralParagraph.proceduralStatement(1);
+		assertThat(statement_1.STOP(), is(not(nullValue(TerminalNode.class))));
 	}
 }

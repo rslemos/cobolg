@@ -79,6 +79,8 @@ VALUE			: 'VALUE';
 OCCURS			: 'OCCURS';
 TIMES			: 'TIMES';
 REDEFINES		: 'REDEFINES';
+USING			: 'USING';
+REFERENCE		: 'REFERENCE';
 
 // syntatic sugar
 BY				: 'BY';
