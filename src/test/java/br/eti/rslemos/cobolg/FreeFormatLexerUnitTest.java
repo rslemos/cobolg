@@ -334,7 +334,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(CHARACTERS, "CHARACTERS");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS.
+		//    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(RECORD, "RECORD");
 		matchToken(WS, " ", HIDDEN);
@@ -355,6 +355,15 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INTEGER, "120");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(CHARACTERS, "CHARACTERS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      DEPENDING ON REC-SIZE.
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(DEPENDING, "DEPENDING");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ON, "ON");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "REC-SIZE");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		

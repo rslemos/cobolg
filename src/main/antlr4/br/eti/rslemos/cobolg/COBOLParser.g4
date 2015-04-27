@@ -193,7 +193,7 @@ fdBlockClause :
 
 fdRecordClause :
 		RECORD CONTAINS? (from=INTEGER TO)? to=INTEGER CHARACTERS?
-	|	RECORD IS? VARYING IN? SIZE? (FROM? from=INTEGER)? (TO to=INTEGER)? CHARACTERS?
+	|	RECORD IS? VARYING IN? SIZE? (FROM? from=INTEGER)? (TO to=INTEGER)? CHARACTERS? (DEPENDING ON? dependingOn=dataName)?
 	;
 
 redefinesClause :

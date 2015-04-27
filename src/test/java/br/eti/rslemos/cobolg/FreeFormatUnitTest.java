@@ -86,7 +86,8 @@ public class FreeFormatUnitTest {
 			"    RECORD CONTAINS 80 TO 120 CHARACTERS.",
 			"FD  FD1",
 			"    BLOCK CONTAINS 120 CHARACTERS",
-			"    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS.",
+			"    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS",
+			"      DEPENDING ON REC-SIZE.",
 			"WORKING-STORAGE SECTION.",
 			"77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.",
 			"77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.",
@@ -254,6 +255,7 @@ public class FreeFormatUnitTest {
 		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fdRecordClause();
 		assertThat(recordClause.from.getText(), is(equalTo("10")));
 		assertThat(recordClause.to.getText(), is(equalTo("120")));
+		assertThat(recordClause.dependingOn.getText(), is(equalTo("REC-SIZE")));
 	}
 
 	@Test
