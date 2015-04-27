@@ -280,10 +280,18 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
-		//FD  FD0
+		//FD  FD0 IS EXTERNAL IS GLOBAL
 		matchToken(FD, "FD");
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(ID, "FD0");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(EXTERNAL, "EXTERNAL");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(GLOBAL, "GLOBAL");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//    BLOCK CONTAINS 5 TO 100 RECORDS

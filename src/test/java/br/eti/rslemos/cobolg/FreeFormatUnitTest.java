@@ -87,7 +87,7 @@ public class FreeFormatUnitTest {
 			"                        ORGANIZATION INDEXED.",
 			"DATA DIVISION.",
 			"FILE SECTION.",
-			"FD  FD0",
+			"FD  FD0 IS EXTERNAL IS GLOBAL",
 			"    BLOCK CONTAINS 5 TO 100 RECORDS",
 			"    RECORD CONTAINS 80 TO 120 CHARACTERS",
 			"    LABEL RECORD IS STANDARD",
@@ -235,6 +235,8 @@ public class FreeFormatUnitTest {
 	public void testFileDescriptor0Presence() {
 		FileDescriptionParagraphContext fd0 = tree.dataDivision().fileSection().fileDescriptionParagraph(0);
 		assertThat(fd0.fileName().getText(), is(equalTo("FD0")));
+		assertThat(fd0.EXTERNAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.GLOBAL(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test

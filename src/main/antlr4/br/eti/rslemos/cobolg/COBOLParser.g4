@@ -108,7 +108,7 @@ fileControlParagraph :
 	;
 
 fileDescriptionParagraph :
-		FD fileName
+		FD fileName (IS? EXTERNAL)? (IS? GLOBAL)?
 		fdBlockClause?
 		fdRecordClause?
 		fdLabelRecordClause?
