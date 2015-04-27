@@ -316,7 +316,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(CHARACTERS, "CHARACTERS");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    LABEL RECORD IS STANDARD.
+		//    LABEL RECORD IS STANDARD
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(LABEL, "LABEL");
 		matchToken(WS, " ", HIDDEN);
@@ -325,6 +325,25 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(STANDARD, "STANDARD");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    VALUE OF SYSVAR1 IS 'SYSVAR1' SYSVAR2 IS 'SYSVAR2'.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(VALUE, "VALUE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(OF, "OF");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "SYSVAR1");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR1'");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "SYSVAR2");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR2'");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		

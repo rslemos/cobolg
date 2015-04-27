@@ -112,6 +112,7 @@ fileDescriptionParagraph :
 		fdBlockClause?
 		fdRecordClause?
 		fdLabelRecordClause?
+		fdValueOfClause?
 		PERIOD
 	;
 
@@ -180,6 +181,10 @@ fileName :
 		ID
 	;
 
+systemName :
+		ID
+	;
+
 dataName :
 		ID
 	;
@@ -199,6 +204,10 @@ fdRecordClause :
 
 fdLabelRecordClause :
 		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName*) // why not dataName+?
+	;
+
+fdValueOfClause :
+		VALUE OF (systemName IS? (dataName | literal))+
 	;
 
 redefinesClause :
