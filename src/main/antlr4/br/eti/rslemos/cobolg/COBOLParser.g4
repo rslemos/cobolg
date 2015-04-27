@@ -114,6 +114,7 @@ fileDescriptionParagraph :
 		fdLabelRecordClause?
 		fdValueOfClause?
 		fdDataRecordClause?
+		fdLinageClause?
 		PERIOD
 	;
 
@@ -213,6 +214,25 @@ fdValueOfClause :
 
 fdDataRecordClause :
 		DATA (RECORD IS? | RECORDS ARE?) dataName+
+	;
+
+fdLinageClause :
+		LINAGE IS? (dataName | INTEGER) LINES?
+		(WITH? FOOTING AT? footingAt)? 
+		(LINES? AT? TOP linesAtTop)?
+		(LINES? AT? BOTTOM linesAtBottom)?
+	;
+
+footingAt :
+		(dataName | INTEGER)
+	;
+
+linesAtTop :
+		(dataName | INTEGER)
+	;
+
+linesAtBottom :
+		(dataName | INTEGER)
 	;
 
 redefinesClause :

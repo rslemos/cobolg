@@ -66,6 +66,10 @@ LABEL			: 'LABEL';
 STANDARD		: 'STANDARD';
 OMITTED			: 'OMITTED';
 OF				: 'OF';
+LINAGE			: 'LINAGE';
+FOOTING			: 'FOOTING';
+TOP				: 'TOP';
+BOTTOM			: 'BOTTOM';
 FILLER			: 'FILLER';
 USAGE			: 'USAGE';
 VALUE			: 'VALUE';
@@ -86,6 +90,9 @@ KEY				: 'KEY';
 MODE			: 'MODE';
 NATIVE			: 'NATIVE';
 CONTAINS		: 'CONTAINS';
+WITH			: 'WITH';
+LINES			: 'LINES';
+AT				: 'AT';
 
 // usages
 BINARY			: 'BINARY';

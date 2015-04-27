@@ -41,6 +41,7 @@ import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdBlockClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdDataRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdLabelRecordClauseContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdLinageClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdRecordClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FdValueOfClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
@@ -89,7 +90,11 @@ public class FreeFormatUnitTest {
 			"    RECORD CONTAINS 80 TO 120 CHARACTERS",
 			"    LABEL RECORD IS STANDARD",
 			"    VALUE OF SYSVAR1 IS 'SYSVAR1' SYSVAR2 IS 'SYSVAR2'",
-			"    DATA RECORDS ARE REC1 REC2.",
+			"    DATA RECORDS ARE REC1 REC2",
+			"    LINAGE IS 2 LINES",
+			"      WITH FOOTING AT 2",
+			"      LINES AT TOP 1",
+			"      LINES AT BOTTOM 1.",
 			"FD  FD1",
 			"    BLOCK CONTAINS 120 CHARACTERS",
 			"    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS",
@@ -263,6 +268,15 @@ public class FreeFormatUnitTest {
 		FdDataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdDataRecordClause();
 		assertThat(dataRecordClause.dataName(0).getText(), is(equalTo("REC1")));
 		assertThat(dataRecordClause.dataName(1).getText(), is(equalTo("REC2")));
+	}
+
+	@Test
+	public void testFD0LinageClause() {
+		FdLinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdLinageClause();
+		assertThat(linageClause.INTEGER().getText(), is(equalTo("2")));
+		assertThat(linageClause.footingAt().INTEGER().getText(), is(equalTo("2")));
+		assertThat(linageClause.linesAtBottom().INTEGER().getText(), is(equalTo("1")));
+		assertThat(linageClause.linesAtTop().INTEGER().getText(), is(equalTo("1")));
 	}
 
 	@Test

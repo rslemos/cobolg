@@ -346,7 +346,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR2'");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    DATA RECORDS ARE REC1 REC2.
+		//    DATA RECORDS ARE REC1 REC2
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(DATA, "DATA");
 		matchToken(WS, " ", HIDDEN);
@@ -357,6 +357,50 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(ID, "REC1");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ID, "REC2");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    LINAGE IS 2 LINES
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(LINAGE, "LINAGE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "2");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(LINES, "LINES");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      WITH FOOTING AT 2
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(WITH, "WITH");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(FOOTING, "FOOTING");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(AT, "AT");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "2");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      LINES AT TOP 1
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(LINES, "LINES");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(AT, "AT");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TOP, "TOP");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "1");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//      LINES AT BOTTOM 1.
+		matchToken(WS, "      ", HIDDEN);
+		matchToken(LINES, "LINES");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(AT, "AT");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(BOTTOM, "BOTTOM");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "1");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
