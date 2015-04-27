@@ -273,6 +273,13 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
+		//FILE SECTION.
+		matchToken(FILE, "FILE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SECTION, "SECTION");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+
 		//WORKING-STORAGE SECTION.
 		matchToken(WORKING_STORAGE, "WORKING-STORAGE");
 		matchToken(WS, " ", HIDDEN);

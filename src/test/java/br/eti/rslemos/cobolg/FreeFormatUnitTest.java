@@ -40,6 +40,7 @@ import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.IndexNameContext;
 import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
@@ -76,6 +77,7 @@ public class FreeFormatUnitTest {
 			"                        STATUS IS PROJ-STATUS",
 			"                        ORGANIZATION INDEXED.",
 			"DATA DIVISION.",
+			"FILE SECTION.",
 			"WORKING-STORAGE SECTION.",
 			"77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.",
 			"77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.",
@@ -198,7 +200,11 @@ public class FreeFormatUnitTest {
 	public void testDataDivisionPresence() {
 		assertThat(tree.dataDivision(), is(not(nullValue(DataDivisionContext.class))));
 	}
-	
+
+	@Test
+	public void testFileSectionPresence() {
+		assertThat(tree.dataDivision().fileSection(), is(not(nullValue(FileSectionContext.class))));
+	}
 	@Test
 	public void testWorkingSectionPresence() {
 		assertThat(tree.dataDivision().workingStorageSection(), is(not(nullValue(WorkingStorageSectionContext.class))));

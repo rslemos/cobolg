@@ -45,6 +45,7 @@ environmentDivision :
 
 dataDivision :
 		DATA DIVISION PERIOD
+		fileSection?
 		workingStorageSection?
 		linkageSection?
 	;
@@ -65,6 +66,10 @@ configurationSection :
 inputOutputSection :
 		INPUT_OUTPUT SECTION PERIOD
 		fileControlParagraph?
+	;
+
+fileSection :
+		FILE SECTION PERIOD
 	;
 
 workingStorageSection :
