@@ -60,6 +60,7 @@ RECORDS			: 'RECORDS';
 STATUS			: 'STATUS';
 BLOCK			: 'BLOCK';
 CHARACTERS		: 'CHARACTERS';
+VARYING			: 'VARYING';
 FILLER			: 'FILLER';
 USAGE			: 'USAGE';
 VALUE			: 'VALUE';
@@ -70,7 +71,10 @@ REDEFINES		: 'REDEFINES';
 // syntatic sugar
 BY				: 'BY';
 IS				: 'IS';
+FROM			: 'FROM';
 TO				: 'TO';
+IN				: 'IN';
+SIZE			: 'SIZE';
 KEY				: 'KEY';
 MODE			: 'MODE';
 NATIVE			: 'NATIVE';

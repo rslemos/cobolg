@@ -323,11 +323,34 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(ID, "FD1");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
-		//    BLOCK CONTAINS 120 CHARACTERS.
+		//    BLOCK CONTAINS 120 CHARACTERS
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(BLOCK, "BLOCK");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(CONTAINS, "CONTAINS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "120");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CHARACTERS, "CHARACTERS");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    RECORD IS VARYING IN SIZE FROM 10 TO 120 CHARACTERS.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(RECORD, "RECORD");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(VARYING, "VARYING");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IN, "IN");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(SIZE, "SIZE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(FROM, "FROM");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "10");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TO, "TO");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(INTEGER, "120");
 		matchToken(WS, " ", HIDDEN);
