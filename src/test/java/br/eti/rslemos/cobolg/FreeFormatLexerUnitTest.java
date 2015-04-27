@@ -327,7 +327,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(STANDARD, "STANDARD");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    VALUE OF SYSVAR1 IS 'SYSVAR1' SYSVAR2 IS 'SYSVAR2'.
+		//    VALUE OF SYSVAR1 IS 'SYSVAR1' SYSVAR2 IS 'SYSVAR2'
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(VALUE, "VALUE");
 		matchToken(WS, " ", HIDDEN);
@@ -344,6 +344,19 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR2'");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    DATA RECORDS ARE REC1 REC2.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(DATA, "DATA");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(RECORDS, "RECORDS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ARE, "ARE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "REC1");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(ID, "REC2");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		

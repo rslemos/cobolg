@@ -113,6 +113,7 @@ fileDescriptionParagraph :
 		fdRecordClause?
 		fdLabelRecordClause?
 		fdValueOfClause?
+		fdDataRecordClause?
 		PERIOD
 	;
 
@@ -208,6 +209,10 @@ fdLabelRecordClause :
 
 fdValueOfClause :
 		VALUE OF (systemName IS? (dataName | literal))+
+	;
+
+fdDataRecordClause :
+		DATA (RECORD IS? | RECORDS ARE?) dataName+
 	;
 
 redefinesClause :
