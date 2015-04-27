@@ -38,6 +38,7 @@ import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
 import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
+import br.eti.rslemos.cobolg.COBOLParser.FdBlockClauseContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
@@ -79,8 +80,10 @@ public class FreeFormatUnitTest {
 			"                        ORGANIZATION INDEXED.",
 			"DATA DIVISION.",
 			"FILE SECTION.",
-			"FD  FD0.",
-			"FD  FD1.",
+			"FD  FD0",
+			"    BLOCK CONTAINS 100 RECORDS.",
+			"FD  FD1",
+			"    BLOCK CONTAINS 120 CHARACTERS.",
 			"WORKING-STORAGE SECTION.",
 			"77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.",
 			"77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.",
@@ -216,9 +219,23 @@ public class FreeFormatUnitTest {
 	}
 
 	@Test
+	public void testFD0BlockClause() {
+		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdBlockClause();
+		assertThat(blockClause.INTEGER().getText(), is(equalTo("100")));
+		assertThat(blockClause.RECORDS(), is(not(nullValue(TerminalNode.class))));
+	}
+
+	@Test
 	public void testFileDescriptor1Presence() {
 		FileDescriptionParagraphContext fd1 = tree.dataDivision().fileSection().fileDescriptionParagraph(1);
 		assertThat(fd1.fileName().getText(), is(equalTo("FD1")));
+	}
+
+	@Test
+	public void testFD1BlockClause() {
+		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fdBlockClause();
+		assertThat(blockClause.INTEGER().getText(), is(equalTo("120")));
+		assertThat(blockClause.CHARACTERS(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test

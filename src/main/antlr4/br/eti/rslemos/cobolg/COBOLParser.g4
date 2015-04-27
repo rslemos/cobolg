@@ -109,6 +109,7 @@ fileControlParagraph :
 
 fileDescriptionParagraph :
 		FD fileName
+		fdBlockClause?
 		PERIOD
 	;
 
@@ -183,6 +184,10 @@ dataName :
 
 indexName :
 		ID
+	;
+
+fdBlockClause :
+		BLOCK CONTAINS? INTEGER (CHARACTERS | RECORDS)
 	;
 
 redefinesClause :

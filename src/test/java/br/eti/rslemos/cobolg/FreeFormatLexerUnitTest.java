@@ -280,20 +280,42 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
-		//FD  FD0.
+		//FD  FD0
 		matchToken(FD, "FD");
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(ID, "FD0");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    BLOCK CONTAINS 100 RECORDS.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(BLOCK, "BLOCK");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CONTAINS, "CONTAINS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "100");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(RECORDS, "RECORDS");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//FD  FD1.
+		//FD  FD1
 		matchToken(FD, "FD");
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(ID, "FD1");
-		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
+		//    BLOCK CONTAINS 120 CHARACTERS.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(BLOCK, "BLOCK");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CONTAINS, "CONTAINS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "120");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(CHARACTERS, "CHARACTERS");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
 		//WORKING-STORAGE SECTION.
 		matchToken(WORKING_STORAGE, "WORKING-STORAGE");
 		matchToken(WS, " ", HIDDEN);
