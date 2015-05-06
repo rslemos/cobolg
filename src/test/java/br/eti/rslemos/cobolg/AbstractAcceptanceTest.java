@@ -72,7 +72,11 @@ public abstract class AbstractAcceptanceTest extends TestCase {
 
 	@Override
 	protected void runTest() throws Throwable {
-		getCompiler().compile(basename(file), new InputStreamReader(new BufferedInputStream(file.openStream())));
+		Compiler compiler = getCompiler();
+		CollectErrorListener collect = new CollectErrorListener(basename(file));
+		compiler.setCustomErrorListener(collect);
+		compiler.compile(new InputStreamReader(new BufferedInputStream(file.openStream())));
+		collect.verify();
 	}
 
 	protected abstract Compiler getCompiler();

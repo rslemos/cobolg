@@ -2,7 +2,7 @@
  * BEGIN COPYRIGHT NOTICE
  * 
  * This file is part of program "cobolg"
- * Copyright 2013  Rodrigo Lemos
+ * Copyright 2015  Rodrigo Lemos
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,16 +24,11 @@ package br.eti.rslemos.cobolg;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
 
+import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.Parser;
-import org.antlr.v4.runtime.RecognitionException;
-import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.atn.PredictionMode;
 
@@ -41,7 +36,7 @@ import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
 public abstract class Compiler {
 	
-	private CollectErrorListener custom;
+	private ANTLRErrorListener custom;
 
 	public TokenSource decompose(String contents) throws IOException {
 		return buildLexer(new StringReader(contents));
@@ -52,37 +47,25 @@ public abstract class Compiler {
 	}
 
 	public ProgramContext compile(Reader reader) throws IOException {
-		return compile(null, reader);
-	}
-	
-	public ProgramContext compile(String fileName, Reader reader) throws IOException {
-		setFilename(fileName);
-		
 		COBOLParser parser = getParser(reader);
-		
 		ProgramContext tree = parser.program();
-		
-		verify();
-		
 		return tree;
 	}
 
-	public void setFilename(String fileName) {
-		custom = new CollectErrorListener(fileName);
-	}
-
-	public void verify() {
-		custom.verify();
+	public void setCustomErrorListener(ANTLRErrorListener custom) {
+		this.custom = custom;
 	}
 
 	public COBOLParser getParser(Reader reader) throws IOException {
 		Lexer lexer = buildLexer(reader);
 		lexer.removeErrorListeners();
-		lexer.addErrorListener(custom);
+		if (custom != null)
+			lexer.addErrorListener(custom);
 		
 		COBOLParser parser = buildParser(lexer);
 		parser.removeErrorListeners();
-		parser.addErrorListener(custom);
+		if (custom != null)
+			parser.addErrorListener(custom);
 		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
 		
 		return parser;
@@ -110,77 +93,5 @@ public abstract class Compiler {
 			
 			return new COBOLFixedFormatLexer(new ANTLRInputStream(reader));
 		}
-	}
-}
-
-class CollectErrorListener extends BaseErrorListener {
-	private final String fileName;
-	List<String> errors = new ArrayList<String>();
-	
-	
-	public CollectErrorListener(String fileName) {
-		this.fileName = fileName;
-	}
-
-	@Override
-	public void syntaxError(Recognizer<?, ?> recognizer,
-							Object offendingSymbol,
-							int line,
-							int charPositionInLine,
-							String msg,
-							RecognitionException e) {
-		
-		char type;
-		int mode = -1;
-		
-		if (recognizer instanceof Parser)
-			type = 'P';
-		else if (recognizer instanceof Lexer) {
-			type = 'L';
-			mode = ((Lexer)recognizer)._mode;
-		} else
-			type = '?';
-		
-		if (fileName != null)
-			errors.add(String.format("[%c:%d] %s (%s:%d,%d)", type, mode, msg, fileName, line, charPositionInLine));
-		else
-			errors.add(String.format("[%c:%d] %s (%d,%d)", type, mode, msg, line, charPositionInLine));
-	}
-	
-	void verify() {
-		if (!errors.isEmpty()) {
-			StringBuilder message = new StringBuilder();
-			
-			message.append(errors.size()).append(" errors\n");
-			
-			for (int i = 0; i < errors.size(); i++) {
-				message.append(String.format("%4d.", i + 1)).append(errors.get(i)).append("\n");
-			}
-			
-			message.setLength(message.length() - 1);
-
-			throw new CompilationError(message.toString());
-		}
-	}
-}
-
-class CompilationError extends Error {
-
-	private static final long serialVersionUID = 1355307576009905119L;
-
-	public CompilationError() {
-		super();
-	}
-
-	public CompilationError(String message, Throwable cause) {
-		super(message, cause);
-	}
-
-	public CompilationError(String message) {
-		super(message);
-	}
-
-	public CompilationError(Throwable cause) {
-		super(cause);
 	}
 }
