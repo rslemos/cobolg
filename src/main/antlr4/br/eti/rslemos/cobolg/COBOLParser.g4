@@ -352,4 +352,5 @@ compilerStatements :
 	;
 
 compilerStatement :
+		EJECT
 	;
