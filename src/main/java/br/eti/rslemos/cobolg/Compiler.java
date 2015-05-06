@@ -30,22 +30,32 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.DefaultErrorStrategy;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
+import org.antlr.v4.runtime.ParserRuleContext;
 
+import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
 public abstract class Compiler {
 	
 	final Lexer lexer;
 	
-	public final COBOLParser parser;
+	public final COBOLParser preParser;
+	public final COBOLParser mainParser;
 	
 	private Compiler (Lexer lexer) {
 		this.lexer = lexer;
 		this.lexer.removeErrorListeners();
 
-		CommonTokenStream tokens = new CommonTokenStream(lexer);
+		lexer.reset();
+		CommonTokenStream preTokens = new CommonTokenStream(lexer, COBOLFreeFormatLexer.COMPILER_CHANNEL);
+		preTokens.fill();
 		
-		parser = setup(new COBOLParser(tokens));
+		lexer.reset();
+		CommonTokenStream mainTokens = new CommonTokenStream(lexer);
+		mainTokens.fill();
+		
+		preParser = setup(new COBOLParser(preTokens));
+		mainParser = setup(new COBOLParser(mainTokens));
 	}
 
 	private static <R extends Parser> R setup(R parser) {
@@ -58,13 +68,21 @@ public abstract class Compiler {
 	}
 
 	public ProgramContext compile() throws IOException {
-		ProgramContext tree = this.parser.program();
-		return tree;
+		CompilerStatementsContext preTree = this.preParser.compilerStatements();
+		ProgramContext mainTree = this.mainParser.program();
+		
+		preProcess(preTree, mainTree);
+		
+		return mainTree;
+	}
+	
+	public void preProcess(CompilerStatementsContext preTree, ParserRuleContext mainTree) {
 	}
 
 	public void addErrorListener(ANTLRErrorListener listener) {
 		lexer.addErrorListener(listener);
-		parser.addErrorListener(listener);
+		mainParser.addErrorListener(listener);
+		preParser.addErrorListener(listener);
 	}
 	
 	public static class FreeFormatCompiler extends Compiler {

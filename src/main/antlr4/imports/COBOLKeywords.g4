@@ -20,6 +20,9 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 lexer grammar COBOLKeywords;
+@members {
+	public static final int COMPILER_CHANNEL = 65000;
+}
 
 PERIOD			: '.';
 

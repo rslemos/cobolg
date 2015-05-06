@@ -140,7 +140,7 @@ public class DataDescriptionUnitTest {
 			CollectErrorListener listener;
 			compiler.addErrorListener(listener = new CollectErrorListener(null));
 			
-			DataDescriptionParagraphContext tree = compiler.parser.dataDescriptionParagraph();
+			DataDescriptionParagraphContext tree = compiler.mainParser.dataDescriptionParagraph();
 			
 			assertThat(tree, is(not(nullValue(DataDescriptionParagraphContext.class))));
 			

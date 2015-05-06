@@ -344,3 +344,12 @@ quotedString :
 levelNumber :
 		INTEGER { $INTEGER.text.matches("^[0-9][0-9]$") }?
 	;
+
+/* compiler statements */
+
+compilerStatements :
+		compilerStatement*
+	;
+
+compilerStatement :
+	;
