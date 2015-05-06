@@ -23,8 +23,10 @@ package br.eti.rslemos.cobolg;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.reflect.Constructor;
 import java.net.URL;
 
@@ -72,13 +74,14 @@ public abstract class AbstractAcceptanceTest extends TestCase {
 
 	@Override
 	protected void runTest() throws Throwable {
-		Compiler compiler = getCompiler();
 		CollectErrorListener collect = new CollectErrorListener(basename(file));
-		compiler.setCustomErrorListener(collect);
-		compiler.compile(new InputStreamReader(new BufferedInputStream(file.openStream())));
+
+		Compiler compiler = getCompiler(new InputStreamReader(new BufferedInputStream(file.openStream())));
+		compiler.addErrorListener(collect);
+		compiler.compile();
 		collect.verify();
 	}
 
-	protected abstract Compiler getCompiler();
+	protected abstract Compiler getCompiler(Reader source) throws IOException;
 
 }

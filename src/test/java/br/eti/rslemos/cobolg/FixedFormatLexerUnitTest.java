@@ -23,15 +23,15 @@ package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.COBOLFixedFormatLexer.*;
 import static br.eti.rslemos.cobolg.TextHelper.join;
+
+import java.io.IOException;
+import java.io.Reader;
+
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.Compiler.FixedFormatCompiler;
 
 public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
-
-	public FixedFormatLexerUnitTest() {
-		super(new FixedFormatCompiler());
-	}
 
 	@Test
 	public void testEmptyLine() throws Exception {
@@ -207,5 +207,10 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(SKIPTOEOL_MODE,        SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		
 		matchEOF();
+	}
+
+	@Override
+	protected Compiler getCompiler(Reader reader) throws IOException {
+		return new FixedFormatCompiler(reader);
 	}
 }

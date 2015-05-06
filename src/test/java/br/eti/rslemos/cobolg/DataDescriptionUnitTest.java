@@ -133,13 +133,14 @@ public class DataDescriptionUnitTest {
 	}
 
 	private static DataDescriptionParagraphContext compile(String source) {
-		FreeFormatCompiler compiler = new FreeFormatCompiler();
 		
 		try {
-			CollectErrorListener listener;
-			compiler.setCustomErrorListener(listener = new CollectErrorListener(null));
+			FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(source));
 			
-			DataDescriptionParagraphContext tree = compiler.getParser(new StringReader(source)).dataDescriptionParagraph();
+			CollectErrorListener listener;
+			compiler.addErrorListener(listener = new CollectErrorListener(null));
+			
+			DataDescriptionParagraphContext tree = compiler.parser.dataDescriptionParagraph();
 			
 			assertThat(tree, is(not(nullValue(DataDescriptionParagraphContext.class))));
 			

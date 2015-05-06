@@ -21,6 +21,8 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.net.URL;
 
 import junit.framework.TestSuite;
@@ -35,7 +37,8 @@ public class FixedFormatAcceptanceTest extends AbstractAcceptanceTest {
 		return suite(FixedFormatAcceptanceTest.class, "fixedFormat/", "/private/samples/fixedFormat/");
 	}
 	
-	protected Compiler getCompiler() {
-		return new Compiler.FixedFormatCompiler();
+	@Override
+	protected Compiler getCompiler(Reader source) throws IOException {
+		return new Compiler.FixedFormatCompiler(source);
 	}
 }

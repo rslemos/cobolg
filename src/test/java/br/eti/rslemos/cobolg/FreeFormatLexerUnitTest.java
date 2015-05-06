@@ -28,16 +28,15 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
+import java.io.IOException;
+import java.io.Reader;
+
 import org.antlr.v4.runtime.Token;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
-	
-	public FreeFormatLexerUnitTest() {
-		super(new FreeFormatCompiler());
-	}
 
 	@Test
 	public void testCommentLine() throws Exception {
@@ -634,5 +633,10 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(NEWLINE, "\r", HIDDEN);
 
 		matchEOF();
+	}
+
+	@Override
+	protected Compiler getCompiler(Reader reader) throws IOException {
+		return new FreeFormatCompiler(reader);
 	}
 }

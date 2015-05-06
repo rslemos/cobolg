@@ -23,75 +23,67 @@ package br.eti.rslemos.cobolg;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.io.StringReader;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.DefaultErrorStrategy;
 import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.TokenSource;
-import org.antlr.v4.runtime.atn.PredictionMode;
+import org.antlr.v4.runtime.Parser;
 
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
 public abstract class Compiler {
 	
-	private ANTLRErrorListener custom;
+	final Lexer lexer;
+	
+	public final COBOLParser parser;
+	
+	private Compiler (Lexer lexer) {
+		this.lexer = lexer;
+		this.lexer.removeErrorListeners();
 
-	public TokenSource decompose(String contents) throws IOException {
-		return buildLexer(new StringReader(contents));
-	}
-
-	public ProgramContext compile(String contents) throws IOException {
-		return compile(new StringReader(contents));
-	}
-
-	public ProgramContext compile(Reader reader) throws IOException {
-		COBOLParser parser = getParser(reader);
-		ProgramContext tree = parser.program();
-		return tree;
-	}
-
-	public void setCustomErrorListener(ANTLRErrorListener custom) {
-		this.custom = custom;
-	}
-
-	public COBOLParser getParser(Reader reader) throws IOException {
-		Lexer lexer = buildLexer(reader);
-		lexer.removeErrorListeners();
-		if (custom != null)
-			lexer.addErrorListener(custom);
+		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		
-		COBOLParser parser = buildParser(lexer);
+		parser = setup(new COBOLParser(tokens));
+	}
+
+	private static <R extends Parser> R setup(R parser) {
 		parser.removeErrorListeners();
-		if (custom != null)
-			parser.addErrorListener(custom);
-		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
+		parser.setErrorHandler(new DefaultErrorStrategy());
+		//parser.getInterpreter().setPredictionMode(PredictionMode.LL);
+		parser.setBuildParseTree(true);
 		
 		return parser;
 	}
 
-	protected COBOLParser buildParser(Lexer lexer) {
-		return new COBOLParser(new CommonTokenStream(lexer));
+	public ProgramContext compile() throws IOException {
+		ProgramContext tree = this.parser.program();
+		return tree;
 	}
 
-	protected abstract Lexer buildLexer(Reader reader) throws IOException;
+	public void addErrorListener(ANTLRErrorListener listener) {
+		lexer.addErrorListener(listener);
+		parser.addErrorListener(listener);
+	}
 	
 	public static class FreeFormatCompiler extends Compiler {
-
-		@Override
-		protected Lexer buildLexer(Reader reader) throws IOException {
-			return new COBOLFreeFormatLexer(new ANTLRInputStream(reader));
+		public FreeFormatCompiler(Reader source) throws IOException {
+			super(new COBOLFreeFormatLexer(forANTLR(source)));
 		}
 	}
 
 	public static class FixedFormatCompiler extends Compiler {
-
-		@Override
-		protected Lexer buildLexer(Reader reader) throws IOException {
-			reader = new StuffingReader(reader, 0, '\uEBA0', 6, '\uEBA1', 7, '\uEBA2', 72, '\uEBA3'/*, 80, '\uEBA4'*/);
-			
-			return new COBOLFixedFormatLexer(new ANTLRInputStream(reader));
+		public FixedFormatCompiler(Reader source) throws IOException {
+			super(new COBOLFixedFormatLexer(forANTLR(stuffFixedWidthChars(source))));
 		}
+
+		private static StuffingReader stuffFixedWidthChars(Reader source) {
+			return new StuffingReader(source, 0, '\uEBA0', 6, '\uEBA1', 7, '\uEBA2', 72, '\uEBA3'/*, 80, '\uEBA4'*/);
+		}
+	}
+	
+	private static ANTLRInputStream forANTLR(Reader source) throws IOException {
+		return new ANTLRInputStream(source);
 	}
 }

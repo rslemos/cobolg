@@ -28,6 +28,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import java.io.StringReader;
 import java.util.Iterator;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -123,7 +124,8 @@ public class FreeFormatUnitTest {
 	
 	@BeforeClass
 	public static void compile() throws Exception {
-		tree = new FreeFormatCompiler().compile(SOURCE);
+		FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(SOURCE));
+		tree = compiler.compile();
 		assertThat(tree, is(not(nullValue(ProgramContext.class))));
 	}
 	

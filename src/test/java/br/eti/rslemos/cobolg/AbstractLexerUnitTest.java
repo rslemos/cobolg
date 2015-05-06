@@ -28,23 +28,25 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.TokenSource;
 
-public class AbstractLexerUnitTest {
+public abstract class AbstractLexerUnitTest {
 
-	private final Compiler compiler;
+	private Compiler compiler;
 	protected TokenSource stream;
 	
-	protected AbstractLexerUnitTest(Compiler compiler) {
-		this.compiler = compiler;
+	protected void setSource(String source) throws IOException {
+		compiler = getCompiler(new StringReader(source));
+		compiler.lexer.reset();
+		stream = compiler.lexer;
 	}
 
-	protected void setSource(String source) throws IOException {
-		stream = compiler.decompose(source);
-	}
+	protected abstract Compiler getCompiler(Reader reader) throws IOException;
 
 	protected void matchToken(int mode, int type, String text, int channel) {
 		// mode is ignored
