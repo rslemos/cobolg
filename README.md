@@ -242,6 +242,52 @@ For the above source code, produced tokens are:
 | ⋮                     | ⋮                               | ⋮                 | ⋮       | ⋮           |
  
 
+How does the compiler statements (like COPY) work?
+--------------------------------------------------
+
+This is one is tough.
+
+Were this grammar intended for compilation, these statements would be dealt
+with like they were directed to some sort of preprocessor: for the COPY
+statement, for example, it would simple paste together the COPY LIB inside the
+source code (not unlike the #include directive for a C preprocessor).
+
+However this grammar has far broader applications: for example, it could be
+used to syntax highlight COBOL source code in a home page, or to do static code
+analysis, or gather metrics on code quality, and so on. So the compiler
+statements cannot simply vanish (with their effects applied). They must end on
+the parse tree.
+
+To accomplish this, the lexer is prepared to throw these statements into a
+separate channel (the COMPILE_CHANNEL). After the main source code is parsed
+(perhaps with missing tokens insertion) a second pass is made over this
+channel, to collect just these statements.
+
+For each compiler statement, the (main) tokens immediately to the left and to
+the right of it are searched for. As injected missing tokens have no position,
+these are considered to lie to the right of our target if the token following
+it lies to the right of the compiler statement and is a PERIOD.
+
+To get to the rule to insert the compiler statement, the preprocess goes:
+1. if there is no token either to the left or to the right (that is, the
+compiler statement is at the very beginning or at the very end of the source),
+then attach to the root;
+2. if the left neighbor is an injected missing token, then attach to its
+parent;
+3. if the right neighbor is an injected missing PERIOD, then attach to its
+parent (rationale: one expects that a COPY compiler statement will provide the
+missing PERIOD);
+4. else start with either neighbor's (both will reach the same place) parent
+and travel to the root looking for the first rule that properly contains the
+compiler statement; if the compiler.
+
+After the correct rule to inject the compiler statement is found, a last effort
+is made to find the correct position to inject it, which comprises basically
+iterating over the rule tokens looking for the one immediately to the left.
+Here, again there is a special provision for injected missing tokens.
+
+See comments spread throughout br.eti.rslemos.cobolg.Compiler class.
+
 --------------------------------------------------------------------------------
 
 This project is permanently under development using this [successful branching

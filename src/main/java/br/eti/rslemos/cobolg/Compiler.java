@@ -218,6 +218,54 @@ public abstract class Compiler {
 	}
 
 	private ParserRuleContext findRuleToInject(ParserRuleContext mainTree, TerminalNode left, TerminalNode right, Interval targetInterval) {
+		/**********************************************************************
+		 * - mainTree: obeying the following properties: 
+		 * 		1. flattened terminal nodes are as:
+		 * 			… L₃ L₂ L₁ L₀ R₀ R₁ R₂ R₃ …
+		 * 		2. well-formed parenthesized expression; examples:
+		 * 			(… (… L₃ (L₂) (L₁ L₀)) R₀ (R₁ R₂ R₃) …)
+		 * 			(… L₃ (L₂ L₁) ((L₀ R₀ R₁) R₂) R₃ …)
+		 * 		3. rooted tree, i.e., there is always a root node encompassing
+		 * 			all of the tree (in parenthesized expression this means
+		 * 			that there is always parenthesis around the full string).
+		 * 
+		 * - left: L₀ (node to the left of our target);
+		 * 
+		 * - right: R₀ (node to the right of our target);
+		 * 
+		 * - targetInterval: T (our target)
+		 * 
+		 * The algorithm walks from the left and right nodes towards the root,
+		 * looking for the first tree node that circumscribes it. 
+		 * 
+		 * From the 2nd property (rooted tree), it follows that (except for a
+		 * target at the beginning or at the end) our search will always find a
+		 * node, even if the root node.
+		 * 
+		 * From the 3rd property (well-formedness), whatever encompassing node
+		 * we find for walking from L₀ has to be the same we find walking from
+		 * R₀ (i.e. a node that includes L₀ and T must also include R₀)
+		 * differing, perhaps, only on depth (walking length).
+		 * 
+		 * From the above it follows that:
+		 * - if either L₀ or R₀ is null, then no rule will properly contain our
+		 *   target; and as the tree cannot have two roots, the target should
+		 *   be inserted into the root node;
+		 * - it is enough to either walk the tree from L₀ or R₀; both will
+		 *   reach the same node to insert the statement;
+		 * 
+		 * When ANTLR4 injects a missing token (which is very useful to parse
+		 * COBOL with COPY statements, since PERIODs may go missing), these
+		 * tokens are not positioned (i.e., they are at -1..-1). It could not
+		 * be otherwise, given that whatever [integer] position they should be
+		 * in would clash with other (hidden) tokens.
+		 * 
+		 * Thanks to that, the node above a missing token, while encompassing
+		 * it, can never be said to "properly contain it" (interval wise). In
+		 * case of a missing token, we consider its parent node to contain it.
+		 * And we should test for a missing token both left and right of our
+		 * target.
+		 */
 		if (left == null || right == null) {
 			// attach to the root (after the previous compilerStatements)
 			return mainTree;
