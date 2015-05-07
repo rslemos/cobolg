@@ -23,6 +23,8 @@ package br.eti.rslemos.cobolg;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -31,7 +33,10 @@ import org.antlr.v4.runtime.DefaultErrorStrategy;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
+import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
@@ -77,6 +82,23 @@ public abstract class Compiler {
 	}
 	
 	public void preProcess(CompilerStatementsContext preTree, ParserRuleContext mainTree) {
+		List<Neighbor<TerminalNode>> nodes = findCircumNodesTo(preTree.compilerStatement(), mainTree);
+	
+		for (int i = 0; i < nodes.size(); i++) {
+			CompilerStatementContext statement = preTree.compilerStatement(i);
+			injectCompilerStatement(mainTree, statement, nodes.get(i));
+		}
+	}
+
+	private List<Neighbor<TerminalNode>> findCircumNodesTo(List<CompilerStatementContext> statements, ParserRuleContext mainTree) {
+		List<Neighbor<TerminalNode>> result = new ArrayList<Neighbor<TerminalNode>>();
+		
+		List<TerminalNode> mainNodes = new FlattenTree().visit(mainTree);
+
+		return result;
+	}
+
+	private void injectCompilerStatement(ParserRuleContext mainTree, CompilerStatementContext statement, Neighbor<TerminalNode> neighbor) {
 	}
 
 	public void addErrorListener(ANTLRErrorListener listener) {
@@ -103,5 +125,29 @@ public abstract class Compiler {
 	
 	private static ANTLRInputStream forANTLR(Reader source) throws IOException {
 		return new ANTLRInputStream(source);
+	}
+}
+
+class FlattenTree extends AbstractParseTreeVisitor<List<TerminalNode>> {
+	private List<TerminalNode> flat = new ArrayList<TerminalNode>();
+	
+	@Override
+	public List<TerminalNode> visitTerminal(TerminalNode thisNode) {
+		flat.add(thisNode);
+		return flat;
+	}
+
+	@Override
+	protected List<TerminalNode> defaultResult() {
+		return flat;
+	}
+}
+
+class Neighbor<T> {
+	public final T left, right;
+	
+	public Neighbor(T left, T right) {
+		this.left = left;
+		this.right = right;
 	}
 }
