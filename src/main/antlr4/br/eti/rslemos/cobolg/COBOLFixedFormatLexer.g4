@@ -58,6 +58,10 @@ RECORDING : 'RECORDING'
 	-> pushMode(RECORDING_MODE)
 	;
 
+COPY : 'COPY'
+	-> channel(COMPILER_CHANNEL), pushMode(COPY_MODE)
+	;
+
 mode PICTURE_MODE;
 
 PIC_WS : WS
@@ -100,6 +104,17 @@ U : 'U'
 S : 'S'
 	-> popMode
 	;
+
+mode COPY_MODE;
+
+COPY_WS : WS
+	-> channel(HIDDEN);
+
+COPY_ID : ID
+	-> channel(COMPILER_CHANNEL);
+
+COPY_PERIOD : PERIOD
+	-> channel(COMPILER_CHANNEL), popMode;
 
 /* common block ends here */
 

@@ -353,4 +353,5 @@ compilerStatements :
 
 compilerStatement :
 		EJECT
+	|	COPY COPY_ID COPY_PERIOD
 	;
