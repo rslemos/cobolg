@@ -122,9 +122,14 @@ public abstract class Compiler {
 					break;
 			}
 			
+			// hasPrevious() implies hasNext()
+			// (if it has previous now, it had also before, so the loop above
+			// executed at least once; so at least one previous() returned an
+			// element without throwing exception; so at least one next() will
+			// also return [the last previous()] without throwing exception)
 			result.add(new Neighbor<TerminalNode>(
-					/* left */  mainIt.hasPrevious() ? mainIt.next() : null,
-					/* right */ mainIt.next()
+					/* left */  mainIt.hasPrevious() /*&& mainIt.hasNext()*/ ? mainIt.next() : null,
+					/* right */ mainIt.hasNext() ? mainIt.next() : null
 				));
 			
 			// return to previous position
@@ -208,12 +213,18 @@ public abstract class Compiler {
 	}
 
 	private ParserRuleContext findRuleToInject(ParserRuleContext mainTree, TerminalNode left, TerminalNode right, Interval targetInterval) {
-		// known to be not null
-		ParserRuleContext rule = (ParserRuleContext) left.getParent();
-		while (rule != null && !rule.getSourceInterval().properlyContains(targetInterval))
-			rule = rule.getParent();
+		if (right == null) {
+			// attach to the root (after the previous compilerStatements)
+			return mainTree;
+		} else {
+			// known to be not null
+			ParserRuleContext rule = (ParserRuleContext) right.getParent();
 			
-		return rule;
+			while (!rule.getSourceInterval().properlyContains(targetInterval))
+				rule = rule.getParent();
+			
+			return rule;
+		}
 	}
 	
 	private ListIterator<ParseTree> findPositionToInject(Interval targetInterval, ListIterator<ParseTree> it) {

@@ -181,6 +181,77 @@ public class CompilerStatementsUnitTest {
 				+ "(fileDescriptionParagraph FD (fileName FD1) .))")));
 	}
 	
+	@Test
+	public void testEJECTAtTheEnd () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"PROCEDURE DIVISION.",
+				"    STOP RUN.",
+				"EJECT"
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))) "
+				+ "(compilerStatement EJECT))")));		
+	}
+	
+	@Test
+	public void testCOPYStatementOutsideLastDataDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"WORKING-STORAGE SECTION.",
+				"77  DECL-1. COPY COPY-LIB-FOR-DECL-1."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
+				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) .) "
+				+ "(compilerStatement COPY COPY-LIB-FOR-DECL-1 .))")));
+	}
+	
+	@Test
+	public void testCOPYStatementOutsideLastFileDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0. COPY COPY-LIB-FOR-FD0."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) .) "
+				+ "(compilerStatement COPY COPY-LIB-FOR-FD0 .))")));
+	}
+	
+	@Test
+	public void testSoleCOPYStatement () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"COPY ENTIRE-PROGRAM."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		ProgramContext mainTree = compiler.mainParser.program();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(program identificationDivision procedureDivision "
+				+ "(compilerStatement COPY ENTIRE-PROGRAM .))")));
+	}
+	
 	private void setSource(Reader source) throws IOException {
 		compiler = new FreeFormatCompiler(source);
 	}
