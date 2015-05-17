@@ -209,7 +209,7 @@ public abstract class Compiler {
 	}
 
 	private ParserRuleContext findRuleToInject(ParserRuleContext mainTree, TerminalNode left, TerminalNode right, Interval targetInterval) {
-		if (right == null) {
+		if (left == null || right == null) {
 			// attach to the root (after the previous compilerStatements)
 			return mainTree;
 		} else {

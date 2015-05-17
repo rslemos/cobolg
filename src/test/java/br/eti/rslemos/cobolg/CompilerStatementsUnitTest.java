@@ -273,6 +273,46 @@ public class CompilerStatementsUnitTest {
 				+ "(compilerStatement EJECT))")));
 	}
 	
+	@Test
+	public void testEJECTAtTheBeginning () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"EJECT",
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"PROCEDURE DIVISION.",
+				"    STOP RUN."
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(compilerStatement EJECT) "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));
+	}
+
+	@Test
+	public void testDoubleEJECTAtTheBeginning () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"EJECT",
+				"EJECT",
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"PROCEDURE DIVISION.",
+				"    STOP RUN."
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(compilerStatement EJECT) "
+				+ "(compilerStatement EJECT) "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));
+	}
+	
 	private void setSource(Reader source) throws IOException {
 		compiler = new FreeFormatCompiler(source);
 	}
