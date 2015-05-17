@@ -481,6 +481,17 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
+		//FD  FD3  COPY XZT0190.
+		matchToken(FD, "FD");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "FD3");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(COPY, "COPY", COMPILER_CHANNEL);
+		matchToken(COPY_MODE, COPY_WS, " ", HIDDEN);
+		matchToken(COPY_MODE, COPY_ID, "XZT0190", COMPILER_CHANNEL);
+		matchToken(COPY_MODE, COPY_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
 		//WORKING-STORAGE SECTION.
 		matchToken(WORKING_STORAGE, "WORKING-STORAGE");
 		matchToken(WS, " ", HIDDEN);
@@ -595,6 +606,18 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
+		//01  LE-TABE.            COPY XZT0100.
+		matchToken(INTEGER, "01");
+		matchToken(WS, "  ", HIDDEN);
+		matchToken(ID, "LE-TABE");
+		matchToken(PERIOD, ".");
+		matchToken(WS, "            ", HIDDEN);
+		matchToken(COPY, "COPY", COMPILER_CHANNEL);
+		matchToken(COPY_MODE, COPY_WS, " ", HIDDEN);
+		matchToken(COPY_MODE, COPY_ID, "XZT0100", COMPILER_CHANNEL);
+		matchToken(COPY_MODE, COPY_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(NEWLINE, "\n", HIDDEN);
+
 		//LINKAGE SECTION.
 		matchToken(LINKAGE, "LINKAGE");
 		matchToken(WS, " ", HIDDEN);
@@ -602,11 +625,20 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
-		//01  LE-ENDI.
+		//01  LE-ENDI.            COPY XZT0009.
 		matchToken(INTEGER, "01");
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(ID, "LE-ENDI");
 		matchToken(PERIOD, ".");
+		matchToken(WS, "            ", HIDDEN);
+		matchToken(COPY, "COPY", COMPILER_CHANNEL);
+		matchToken(COPY_MODE, COPY_WS, " ", HIDDEN);
+		matchToken(COPY_MODE, COPY_ID, "XZT0009", COMPILER_CHANNEL);
+		matchToken(COPY_MODE, COPY_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(NEWLINE, "\n", HIDDEN);
+
+		//EJECT
+		matchToken(EJECT, "EJECT", COMPILER_CHANNEL);
 		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//PROCEDURE DIVISION.\r
