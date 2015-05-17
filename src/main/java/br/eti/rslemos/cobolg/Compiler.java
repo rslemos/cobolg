@@ -22,9 +22,11 @@
 package br.eti.rslemos.cobolg;
 
 import java.io.IOException;
+
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Formatter;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -39,12 +41,18 @@ import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 
+import static java.lang.String.format;
+
 public abstract class Compiler {
+	
+	final Logger logger = LoggerFactory.getLogger(Compiler.class);
 	
 	final Lexer lexer;
 	
@@ -126,7 +134,67 @@ public abstract class Compiler {
 
 		Collections.reverse(result);
 
+		if (logger.isDebugEnabled())
+			debug(statements, mainNodes, result);
+		
 		return result;
+	}
+
+	private void debug(List<CompilerStatementContext> statements, List<TerminalNode> mainNodes, List<Neighbor<TerminalNode>> result) {
+		logger.debug("== findCircumNodesTo ==========================================================");
+
+		showInput(statements);
+		showRelationships(statements, mainNodes);
+		showReturn(statements, result);
+	}
+
+	private void showInput(List<CompilerStatementContext> statements) {
+		for (CompilerStatementContext stmt : statements)
+			logger.debug(format("[%8s]: %s", stmt.getSourceInterval(), stmt.toStringTree(preParser)).toString());
+	}
+
+	@SuppressWarnings("resource")
+	private void showRelationships(List<CompilerStatementContext> statements, List<TerminalNode> mainNodes) {
+		logger.debug("-- statement X main node ------------------------------------------------------");
+		
+		Formatter header = new Formatter();
+		header.format("%42s", "");
+		for (CompilerStatementContext stmt : statements)
+			header.format(" [%8s]", stmt.getSourceInterval());
+		
+		logger.debug(header.toString());
+		
+		logger.debug("-------------------------------------------------------------------------------");
+		
+		for (TerminalNode node : mainNodes) {
+			Formatter line = new Formatter();
+			
+			Interval nodeInterval = node.getSourceInterval();
+			line.format("[%8s]: %30s", nodeInterval, node);
+
+			for (CompilerStatementContext stmt : statements) {
+				Interval stmtInterval = stmt.getSourceInterval();
+				
+				boolean startsAfterDisjoint = stmtInterval.startsAfterDisjoint(nodeInterval);
+				line.format(" %10s", startsAfterDisjoint ? "after" : "before");
+			}
+			
+			logger.debug(line.toString());
+		}
+	}
+
+	private void showReturn(List<CompilerStatementContext> statements, List<Neighbor<TerminalNode>> result) {
+		logger.debug("-- return ---------------------------------------------------------------------");
+		for (int i = 0; i < statements.size(); i++) {
+			CompilerStatementContext stmt = statements.get(i);
+			Neighbor<TerminalNode> neighbor = result.get(i);
+			
+			logger.debug(format("[%8s] [%8s] [%8s] - %s %s %s",
+					neighbor.left != null ? neighbor.left.getSourceInterval() : "********",
+					stmt.getSourceInterval(), 
+					neighbor.right != null ? neighbor.right.getSourceInterval() : "********",
+					neighbor.left, stmt.toStringTree(preParser), neighbor.right));
+		}
 	}
 
 	private void injectCompilerStatement(ParserRuleContext mainTree, CompilerStatementContext statement, Neighbor<TerminalNode> neighbor) {
