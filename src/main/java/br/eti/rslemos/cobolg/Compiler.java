@@ -24,7 +24,9 @@ package br.eti.rslemos.cobolg;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -33,7 +35,9 @@ import org.antlr.v4.runtime.DefaultErrorStrategy;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementContext;
@@ -94,13 +98,69 @@ public abstract class Compiler {
 		List<Neighbor<TerminalNode>> result = new ArrayList<Neighbor<TerminalNode>>();
 		
 		List<TerminalNode> mainNodes = new FlattenTree().visit(mainTree);
+		
+		// iterate backwards
+		ListIterator<TerminalNode> mainIt = mainNodes.listIterator(mainNodes.size());
+		ListIterator<CompilerStatementContext> stmtIt = statements.listIterator(statements.size());
+		
+		while (stmtIt.hasPrevious()) {
+			Interval stmtInterval = stmtIt.previous().getSourceInterval();
+			
+			while (mainIt.hasPrevious()) {
+				TerminalNode node = mainIt.previous();
+				Interval nodeInterval = node.getSourceInterval();
+				
+				if (!stmtInterval.startsBeforeDisjoint(nodeInterval))
+					break;
+			}
+			
+			result.add(new Neighbor<TerminalNode>(
+					/* left */  mainIt.hasPrevious() ? mainIt.next() : null,
+					/* right */ mainIt.next()
+				));
+			
+			// return to previous position
+			if (mainIt.hasPrevious())
+				mainIt.previous();
+		}
+
+		Collections.reverse(result);
 
 		return result;
 	}
 
 	private void injectCompilerStatement(ParserRuleContext mainTree, CompilerStatementContext statement, Neighbor<TerminalNode> neighbor) {
+		Interval targetInterval = statement.getSourceInterval();
+
+		ParserRuleContext rule = findRuleToInject(mainTree, neighbor.left, neighbor.right, targetInterval);
+		statement.parent = rule;
+
+		ListIterator<ParseTree> it = findPositionToInject(targetInterval, rule.children.listIterator());
+		it.add(statement);
 	}
 
+	private ParserRuleContext findRuleToInject(ParserRuleContext mainTree, TerminalNode left, TerminalNode right, Interval targetInterval) {
+		// known to be not null
+		ParserRuleContext rule = (ParserRuleContext) left.getParent();
+		while (rule != null && !rule.getSourceInterval().properlyContains(targetInterval))
+			rule = rule.getParent();
+			
+		return rule;
+	}
+	
+	private ListIterator<ParseTree> findPositionToInject(Interval targetInterval, ListIterator<ParseTree> it) {
+		while (it.hasNext()) {
+			Interval candidateInterval = it.next().getSourceInterval();
+			
+			if (candidateInterval.startsAfter(targetInterval)) {
+				it.previous();
+				break;
+			}
+		}
+		
+		return it;
+	}
+	
 	public void addErrorListener(ANTLRErrorListener listener) {
 		lexer.addErrorListener(listener);
 		mainParser.addErrorListener(listener);

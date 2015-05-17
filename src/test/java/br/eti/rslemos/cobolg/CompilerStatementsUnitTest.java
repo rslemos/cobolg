@@ -31,7 +31,10 @@ import java.io.StringReader;
 
 import org.junit.Test;
 
+import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class CompilerStatementsUnitTest {
@@ -52,6 +55,130 @@ public class CompilerStatementsUnitTest {
 		assertThat(toString, is(equalTo("(program "
 				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
 				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
+	}
+
+	@Test
+	public void testEJECTBetweenDivisions () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"EJECT",
+				"PROCEDURE DIVISION.",
+				"    STOP RUN."
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(compilerStatement EJECT) "
+				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
+	}
+
+	@Test
+	public void testEJECTInsideDivision () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"PROCEDURE DIVISION.",
+				"EJECT",
+				"    STOP RUN."
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(procedureDivision PROCEDURE DIVISION . "
+					+ "(compilerStatement EJECT) "
+					+ "(unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
+
+	}
+
+	@Test
+	public void testDoubleEJECTBetweenDivisions () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"EJECT",
+				"EJECT",
+				"PROCEDURE DIVISION.",
+				"    STOP RUN."
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(compilerStatement EJECT) "
+				+ "(compilerStatement EJECT) "
+				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
+	}
+
+	@Test
+	public void testDoubleEJECTInsideDivision () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"PROCEDURE DIVISION.",
+				"EJECT",
+				"EJECT",
+				"    STOP RUN."
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(procedureDivision PROCEDURE DIVISION . "
+					+ "(compilerStatement EJECT) "
+					+ "(compilerStatement EJECT) "
+					+ "(unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
+
+	}
+	
+	@Test
+	public void testCOPYStatementOutsideDataDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"WORKING-STORAGE SECTION.",
+				"77  DECL-1. COPY COPY-LIB-FOR-DECL-1.",
+				"77  DECL-2."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
+				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) .) "
+				+ "(compilerStatement COPY COPY-LIB-FOR-DECL-1 .) "
+				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-2) .))")));
+	}
+	
+	@Test
+	public void testCOPYStatementOutsideFileDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0. COPY COPY-LIB-FOR-FD0.",
+				"FD  FD1."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) .) "
+				+ "(compilerStatement COPY COPY-LIB-FOR-FD0 .) "
+				+ "(fileDescriptionParagraph FD (fileName FD1) .))")));
 	}
 	
 	private void setSource(Reader source) throws IOException {
