@@ -252,6 +252,27 @@ public class CompilerStatementsUnitTest {
 				+ "(compilerStatement COPY ENTIRE-PROGRAM .))")));
 	}
 	
+	@Test
+	public void testDoubleEJECTAtTheEnd () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"IDENTIFICATION DIVISION.",
+				"PROGRAM-NAME. X.",
+				"PROCEDURE DIVISION.",
+				"    STOP RUN.",
+				"EJECT",
+				"EJECT"
+			)));
+		
+		ProgramContext mainTree = compiler.compile();
+		String toString = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(toString, is(equalTo("(program "
+				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
+				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))) "
+				+ "(compilerStatement EJECT) "
+				+ "(compilerStatement EJECT))")));
+	}
+	
 	private void setSource(Reader source) throws IOException {
 		compiler = new FreeFormatCompiler(source);
 	}

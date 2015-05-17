@@ -131,10 +131,6 @@ public abstract class Compiler {
 					/* left */  mainIt.hasPrevious() /*&& mainIt.hasNext()*/ ? mainIt.next() : null,
 					/* right */ mainIt.hasNext() ? mainIt.next() : null
 				));
-			
-			// return to previous position
-			if (mainIt.hasPrevious())
-				mainIt.previous();
 		}
 
 		Collections.reverse(result);
