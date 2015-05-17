@@ -351,6 +351,42 @@ public class CompilerStatementsUnitTest {
 					+ "(systemName SYSTEM-NAME) (literal (numericLiteral 10))) .))")));
 	}
 	
+	@Test
+	public void testCOPYStatementInsideDataDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"WORKING-STORAGE SECTION.",
+				"77  DECL-1 COPY COPY-LIB-FOR-DECL-1.",
+				"77  DECL-2."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
+				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) (compilerStatement COPY COPY-LIB-FOR-DECL-1 .) <missing PERIOD>) "
+				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-2) .))")));
+	}
+	
+	@Test
+	public void testCOPYStatementInsideLastDataDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"WORKING-STORAGE SECTION.",
+				"77  DECL-1 COPY COPY-LIB-FOR-DECL-1."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
+				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) (compilerStatement COPY COPY-LIB-FOR-DECL-1 .) <missing PERIOD>))")));
+	}
+	
 	private void setSource(Reader source) throws IOException {
 		compiler = new FreeFormatCompiler(source);
 	}

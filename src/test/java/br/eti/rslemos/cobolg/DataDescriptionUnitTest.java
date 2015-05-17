@@ -28,30 +28,34 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.junit.Test;
 
+import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionClausesContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataNameContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
-public class DataDescriptionUnitTest {
-	@Test
+public class DataDescriptionUnitTest extends TestCase {
 	public void testEmptyDeclaration () {
 		DataDescriptionParagraphContext dataDescription = compile("01  EMPTY-DECLARATION.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("EMPTY-DECLARATION")));
 	}
 
-	@Test
 	public void testFillerDeclaration () {
 		DataDescriptionParagraphContext dataDescription = compile("01  FILLER.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.FILLER().getText(), is(equalTo("FILLER")));
 	}
 
-	@Test
 	public void testAnonymousDeclaration () {
 		DataDescriptionParagraphContext dataDescription = compile("01  .");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
@@ -59,7 +63,6 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.FILLER(), is(nullValue(TerminalNode.class)));
 	}
 
-	@Test
 	public void testPICDeclaration () {
 		// the PICTURESTRING is invalid on purpose
 		// this is a bold statement that whatever PICTURESTRING our lexer gave us
@@ -67,42 +70,37 @@ public class DataDescriptionUnitTest {
 		DataDescriptionParagraphContext dataDescription = compile("01  PIC-DECLARATION PIC Z$ABX09PPAAAVS,.,,.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("PIC-DECLARATION")));
-		assertThat(dataDescription.pictureClause_.PICTURESTRING().getText(), is(equalTo("Z$ABX09PPAAAVS,.,,")));
+		assertThat(dataDescription.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("Z$ABX09PPAAAVS,.,,")));
 	}
 	
-	@Test
 	public void testUsageClause () {
 		DataDescriptionParagraphContext dataDescription = compile("01  USAGE-DECLARATION USAGE IS BINARY.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("USAGE-DECLARATION")));
-		assertThat(dataDescription.usageClause_.usage().getText(), is(equalTo("BINARY")));
+		assertThat(dataDescription.dataDescriptionClauses().usageClause().usage().getText(), is(equalTo("BINARY")));
 	}
 
-	@Test
 	public void testValueClause () {
 		DataDescriptionParagraphContext dataDescription = compile("01  VALUE-DECLARATION VALUE IS 0.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("VALUE-DECLARATION")));
-		assertThat(dataDescription.valueClause_.literal().numericLiteral().INTEGER().getText(), is(equalTo("0")));
+		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().numericLiteral().INTEGER().getText(), is(equalTo("0")));
 	}
 
-	@Test
 	public void testValueClauseWithFigurativeConstant () {
 		DataDescriptionParagraphContext dataDescription = compile("01  VALUE-DECLARATION VALUE IS ZERO.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("VALUE-DECLARATION")));
-		assertThat(dataDescription.valueClause_.literal().figurativeConstant().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().figurativeConstant().getText(), is(equalTo("ZERO")));
 	}
 
-	@Test
 	public void testOccursClause () {
 		DataDescriptionParagraphContext dataDescription = compile("01  OCCURS-DECLARATION OCCURS 10 TIMES.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("OCCURS-DECLARATION")));
-		assertThat(dataDescription.occursClause_.INTEGER().getText(), is(equalTo("10")));
+		assertThat(dataDescription.dataDescriptionClauses().occursClause().INTEGER().getText(), is(equalTo("10")));
 	}
 
-	@Test
 	public void testRedefinesClause () {
 		DataDescriptionParagraphContext dataDescription = compile("01  REDEFINITION-DECLARATION REDEFINES REDEFINED-DECLARATION.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
@@ -110,25 +108,23 @@ public class DataDescriptionUnitTest {
 		assertThat(dataDescription.redefinesClause().dataName().ID().getText(), is(equalTo("REDEFINED-DECLARATION")));
 	}
 	
-	@Test
 	public void testPIC_USAGE_VALUE () {
 		DataDescriptionParagraphContext dataDescription = compile("01  DECL PIC XXXXX USAGE COMP-3 VALUE IS QUOTES.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("DECL")));
-		assertThat(dataDescription.pictureClause_.PICTURESTRING().getText(), is(equalTo("XXXXX")));
-		assertThat(dataDescription.usageClause_.usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
-		assertThat(dataDescription.valueClause_.literal().figurativeConstant().QUOTE().getText(), is(equalTo("QUOTES")));
+		assertThat(dataDescription.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("XXXXX")));
+		assertThat(dataDescription.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
+		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().figurativeConstant().QUOTE().getText(), is(equalTo("QUOTES")));
 		
 	}
 
-	@Test
 	public void testPIC_VALUE_USAGE () {
 		DataDescriptionParagraphContext dataDescription = compile("01  DECL PIC XXXXX VALUE IS QUOTES USAGE COMP-3.");
 		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("DECL")));
-		assertThat(dataDescription.pictureClause_.PICTURESTRING().getText(), is(equalTo("XXXXX")));
-		assertThat(dataDescription.usageClause_.usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
-		assertThat(dataDescription.valueClause_.literal().figurativeConstant().QUOTE().getText(), is(equalTo("QUOTES")));
+		assertThat(dataDescription.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("XXXXX")));
+		assertThat(dataDescription.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
+		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().figurativeConstant().QUOTE().getText(), is(equalTo("QUOTES")));
 		
 	}
 
@@ -150,5 +146,97 @@ public class DataDescriptionUnitTest {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	public static TestSuite suite() {
+		TestSuite suite = new TestSuite(DataDescriptionUnitTest.class);
+		suite.addTest(FullPermutationTestCase.suite());
+		
+		return suite;
+	}
+
+	public static class FullPermutationTestCase extends TestCase {
+
+		private static String[] ELEMENTS = {"PIC XXXX ", "USAGE COMP-3 ", "VALUE IS QUOTES ", "OCCURS 10 TIMES "};
+		
+		@Override
+		protected void runTest() throws Throwable {
+			DataDescriptionClausesContext clauses = compile(getName()).dataDescriptionClauses();
+			
+			if (permutation.size() == 0)
+				assertThat(clauses, is(nullValue(DataDescriptionClausesContext.class)));
+			else {
+				checkClause(clauses.pictureClause(), permutation.contains(0) ? ELEMENTS[0] : null);
+				checkClause(clauses.usageClause(),   permutation.contains(1) ? ELEMENTS[1] : null);
+				checkClause(clauses.valueClause(),   permutation.contains(2) ? ELEMENTS[2] : null);
+				checkClause(clauses.occursClause(),  permutation.contains(3) ? ELEMENTS[3] : null);
+			}
+		}
+
+		private void checkClause(RuleContext clause, String expected) {
+			if (expected != null) {
+				// whitespace go to HIDDEN channel (so getText() will not return them)
+				expected = expected.replaceAll(" ", "");
+				assertThat(clause.getText(), is(equalTo(expected)));
+			} else
+				assertThat(clause, is(nullValue(RuleContext.class)));
+		}
+
+		public static TestSuite suite() {
+			TestSuite suite = new TestSuite(FullPermutationTestCase.class.getName());
+			
+			// http://oeis.org/A000522(4)
+			List<ArrayList<Integer>> permutations = new ArrayList<ArrayList<Integer>>(65);
+			
+			// start with empty permutation
+			permutations.add(new ArrayList<Integer>());
+			
+			for (int i = 0; i < ELEMENTS.length; i++) {
+				ListIterator<ArrayList<Integer>> it = permutations.listIterator();
+				while(it.hasNext()) {
+					// new permutations based on existing ones
+					ArrayList<Integer> existing = it.next();
+					
+					for (int j = 0; j < ELEMENTS.length; j++)
+						// avoid repeated element
+						if (!existing.contains(j)) {
+							ArrayList<Integer> neww = new ArrayList<Integer>(existing);
+							neww.add(j);
+							
+							// both fors make a square, but only half is needed (a triangle)
+							if (!permutations.contains(neww))
+								it.add(neww);
+						}
+				}
+			}
+			
+			for (ArrayList<Integer> permutation : permutations)
+				suite.addTest(new FullPermutationTestCase(permutation));
+			
+			return suite;
+		}
+		
+		private final List<Integer> permutation;
+
+		public FullPermutationTestCase(List<Integer> permutation) {
+			super(buildDecl(permutation));
+			this.permutation = permutation;
+		}
+
+		private static String buildDecl(List<Integer> permutation) {
+			StringBuilder decl = new StringBuilder();
+			decl.append("77  DECL-");
+			decl.append(permutation.toString().replaceAll("[^0-9]", ""));
+			decl.append("-X ");
+			
+			for (Integer i : permutation)
+				decl.append(ELEMENTS[i]);
+			
+			decl.setLength(decl.length() - 1);
+			decl.append('.');
+			
+			return decl.toString();
+		}
+
 	}
 }

@@ -332,7 +332,7 @@ public class FreeFormatUnitTest {
 		// 77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG")));
-		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
 	}
 
 	@Test
@@ -342,9 +342,9 @@ public class FreeFormatUnitTest {
 		// 77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG1")));
-		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.usageClause_.usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
-		assertThat(dataDescriptionParagraph.valueClause_.literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 
 	@Test
@@ -356,9 +356,9 @@ public class FreeFormatUnitTest {
 		//                   IPRICELIMLOGANT.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("03")));
 		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-TB-F-PRICE")));
-		assertThat(dataDescriptionParagraph.occursClause_.INTEGER().getText(), is(equalTo("1000")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().occursClause().INTEGER().getText(), is(equalTo("1000")));
 		
-		Iterator<IndexNameContext> it = dataDescriptionParagraph.occursClause_.indexName().iterator();
+		Iterator<IndexNameContext> it = dataDescriptionParagraph.dataDescriptionClauses().occursClause().indexName().iterator();
 		for (String indexName : new String[] {"IPRICE", "IPRICEUM", "IPRICEMIL", "IPRICELIMLOG", "IPRICELIMLOGANT"}) {
 			assertThat(it.next().getText(), is(equalTo(indexName))); 
 		}
@@ -372,8 +372,8 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("DESL17V00")));
 		assertThat(dataDescriptionParagraph.redefinesClause().dataName().ID().getText(), is(equalTo("DESL12V05")));
-		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(17)")));
-		assertThat(dataDescriptionParagraph.usageClause_.usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(17)")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
 	}
 
 	@Test
@@ -383,9 +383,9 @@ public class FreeFormatUnitTest {
 		// 77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG2")));
-		assertThat(dataDescriptionParagraph.pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.usageClause_.usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
-		assertThat(dataDescriptionParagraph.valueClause_.literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 
 	@Test
