@@ -21,6 +21,8 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.net.URL;
 
 import junit.framework.TestSuite;
@@ -35,7 +37,8 @@ public class FreeFormatAcceptanceTest extends AbstractAcceptanceTest {
 		return suite(FreeFormatAcceptanceTest.class, "freeFormat/", "/private/samples/freeFormat/");
 	}
 	
-	protected Compiler getCompiler() {
-		return new Compiler.FreeFormatCompiler();
+	@Override
+	protected Compiler getCompiler(Reader source) throws IOException {
+		return new Compiler.FreeFormatCompiler(source);
 	}
 }
