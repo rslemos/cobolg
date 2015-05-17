@@ -468,6 +468,26 @@ public class CompilerStatementsUnitTest {
 				+ "<missing PERIOD>))")));
 	}
 	
+	@Test
+	public void testUnterminatedCOPYStatementsInsideFileDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0 COPY COPY-LIB-FOR-FD0",
+				"FD  FD1."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		// still facing difficulties with \n before FD (shouldn't be a problem though)
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) (compilerStatement COPY COPY-LIB-FOR-FD0 <missing COPY_PERIOD>) <missing PERIOD>) "
+				+ "(fileDescriptionParagraph \\nFD (fileName FD1) .))")));
+	}
+	
 	private void setSource(Reader source) throws IOException {
 		compiler = new FreeFormatCompiler(source);
 	}

@@ -111,10 +111,21 @@ COPY_WS : WS
 	-> channel(HIDDEN);
 
 COPY_ID : ID
-	-> channel(COMPILER_CHANNEL);
+	-> channel(COMPILER_CHANNEL), mode(COPY_MODE2);
+
+COPY_ELSE : .
+	-> more, popMode;
+
+mode COPY_MODE2;
+
+COPY2_WS : WS
+	-> channel(HIDDEN);
 
 COPY_PERIOD : PERIOD
 	-> channel(COMPILER_CHANNEL), popMode;
+
+COPY2_ELSE : .
+	-> more, popMode;
 
 /* common block ends here */
 
