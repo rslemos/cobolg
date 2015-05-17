@@ -111,7 +111,8 @@ fileControlParagraph :
 	;
 
 fileDescriptionParagraph :
-		FD fileName (IS? EXTERNAL)? (IS? GLOBAL)?
+		FD fileName
+		fdIsClauses?
 		fdBlockClause?
 		fdRecordClause?
 		fdLabelRecordClause?
@@ -229,6 +230,11 @@ dataName :
 
 indexName :
 		ID
+	;
+
+fdIsClauses :
+		IS? EXTERNAL (IS? GLOBAL)?
+	|	IS? GLOBAL
 	;
 
 fdBlockClause :

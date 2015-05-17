@@ -237,8 +237,8 @@ public class FreeFormatUnitTest {
 	public void testFileDescriptor0Presence() {
 		FileDescriptionParagraphContext fd0 = tree.dataDivision().fileSection().fileDescriptionParagraph(0);
 		assertThat(fd0.fileName().getText(), is(equalTo("FD0")));
-		assertThat(fd0.EXTERNAL(), is(not(nullValue(TerminalNode.class))));
-		assertThat(fd0.GLOBAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.fdIsClauses().EXTERNAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.fdIsClauses().GLOBAL(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test

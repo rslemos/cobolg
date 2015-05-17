@@ -387,6 +387,87 @@ public class CompilerStatementsUnitTest {
 				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) (compilerStatement COPY COPY-LIB-FOR-DECL-1 .) <missing PERIOD>))")));
 	}
 	
+	@Test
+	public void testCOPYStatementInsideFileDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0 COPY COPY-LIB-FOR-FD0.",
+				"FD  FD1."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) (compilerStatement COPY COPY-LIB-FOR-FD0 .) <missing PERIOD>) "
+				+ "(fileDescriptionParagraph FD (fileName FD1) .))")));
+	}
+	
+	@Test
+	public void testCOPYStatementInsideLastFileDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0 COPY COPY-LIB-FOR-FD0."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) (compilerStatement COPY COPY-LIB-FOR-FD0 .) <missing PERIOD>))")));
+	}
+	
+	@Test
+	public void testTwoCOPYStatementsInsideFileDeclaration () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0 COPY FD-ACCESS. COPY FD-REG."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) "
+					+ "(compilerStatement COPY FD-ACCESS .) "
+					+ "(compilerStatement COPY FD-REG .) "
+				+ "<missing PERIOD>))")));
+	}
+	
+	@Test
+	public void testCOPYStatementInsideFileDeclarationWithMissingFilename () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0 COPY FD-ACCESS. COPY FD-REG.",
+				"FD  COPY FD-AFTER-MISSING-TOKEN."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) "
+					+ "(compilerStatement COPY FD-ACCESS .) "
+					+ "(compilerStatement COPY FD-REG .) "
+				+ "<missing PERIOD>) "
+				+ "(fileDescriptionParagraph FD "
+					+ "(compilerStatement COPY FD-AFTER-MISSING-TOKEN .) "
+					+ "fileName "
+				+ "<missing PERIOD>))")));
+	}
+	
 	private void setSource(Reader source) throws IOException {
 		compiler = new FreeFormatCompiler(source);
 	}
