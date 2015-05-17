@@ -119,8 +119,8 @@ public abstract class Compiler {
 				TerminalNode node = mainIt.previous();
 				Interval nodeInterval = node.getSourceInterval();
 				
-				// bind missing token to the right
-				if (!stmtInterval.startsBeforeDisjoint(nodeInterval) && !isInjectedMissingToken(node))
+				// bind missing token to the right only if a PERIOD
+				if (!stmtInterval.startsBeforeDisjoint(nodeInterval) && !isInjectedMissingPeriod(node))
 					break;
 			}
 			
@@ -143,11 +143,11 @@ public abstract class Compiler {
 		return result;
 	}
 
-	private static boolean isInjectedMissingToken(ParseTree node) {
-		boolean isToken = node instanceof TerminalNode;
+	private static boolean isInjectedMissingPeriod(ParseTree node) {
+		boolean isPeriod = node instanceof TerminalNode && ((TerminalNode)node).getSymbol().getType() == COBOLParser.PERIOD;
 		boolean isMissingToken = node.getSourceInterval().b < 0;
 		
-		return isMissingToken && isToken;
+		return isMissingToken && isPeriod;
 	}
 
 	private void debug(List<CompilerStatementContext> statements, List<TerminalNode> mainNodes, List<Neighbor<TerminalNode>> result) {
@@ -221,6 +221,8 @@ public abstract class Compiler {
 		if (left == null || right == null) {
 			// attach to the root (after the previous compilerStatements)
 			return mainTree;
+		} else if (left.getSourceInterval().b < 0) {
+			return (ParserRuleContext) left.getParent();
 		} else if (right.getSourceInterval().b < 0) {
 			return (ParserRuleContext) right.getParent();
 		} else {
@@ -239,8 +241,8 @@ public abstract class Compiler {
 			ParseTree candidate = it.next();
 			Interval candidateInterval = candidate.getSourceInterval();
 			
-			// we bind to a missing token to the right
-			if (isInjectedMissingToken(candidate) || candidateInterval.startsAfter(targetInterval)) {
+			// we bind to a missing token to the right only if a PERIOD
+			if (isInjectedMissingPeriod(candidate) || candidateInterval.startsAfter(targetInterval)) {
 				it.previous();
 				break;
 			}

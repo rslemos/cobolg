@@ -332,6 +332,25 @@ public class CompilerStatementsUnitTest {
 				+ "<missing PERIOD>)")));
 	}
 	
+	@Test
+	public void testCOPYStatementInsideFileDeclarationWithValueMissingOf () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"FILE SECTION.",
+				"FD  FD0 VALUE COPY VALUE-OF. SYSTEM-NAME 10."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		FileSectionContext mainTree = compiler.mainParser.fileSection();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
+				+ "(fileDescriptionParagraph FD (fileName FD0) "
+					+ "(fdValueOfClause VALUE <missing OF> (compilerStatement COPY VALUE-OF .) "
+					+ "(systemName SYSTEM-NAME) (literal (numericLiteral 10))) .))")));
+	}
+	
 	private void setSource(Reader source) throws IOException {
 		compiler = new FreeFormatCompiler(source);
 	}
