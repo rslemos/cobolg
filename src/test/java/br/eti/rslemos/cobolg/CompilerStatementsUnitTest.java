@@ -33,6 +33,7 @@ import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
@@ -311,6 +312,24 @@ public class CompilerStatementsUnitTest {
 				+ "(compilerStatement EJECT) "
 				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
 				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));
+	}
+	
+	@Test
+	public void testCOPYStatementWithMissingPERIOD () throws IOException {
+		setSource(new StringReader(TextHelper.join(
+				"DISPLAY '' COPY STRING."
+			)));
+		
+		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+		ProceduralStatementContext mainTree = compiler.mainParser.proceduralStatement();
+		compiler.preProcess(preTree, mainTree);
+		
+		String string = mainTree.toStringTree(compiler.mainParser);
+
+		assertThat(string, is(equalTo("(proceduralStatement DISPLAY "
+				+ "(literal (alphanumericLiteral (quotedString ''))) "
+				+ "(compilerStatement COPY STRING .) "
+				+ "<missing PERIOD>)")));
 	}
 	
 	private void setSource(Reader source) throws IOException {

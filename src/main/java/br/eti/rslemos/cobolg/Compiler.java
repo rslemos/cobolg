@@ -39,6 +39,7 @@ import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.slf4j.Logger;
@@ -118,7 +119,8 @@ public abstract class Compiler {
 				TerminalNode node = mainIt.previous();
 				Interval nodeInterval = node.getSourceInterval();
 				
-				if (!stmtInterval.startsBeforeDisjoint(nodeInterval))
+				// bind missing token to the right
+				if (!stmtInterval.startsBeforeDisjoint(nodeInterval) && !isInjectedMissingToken(node))
 					break;
 			}
 			
@@ -139,6 +141,13 @@ public abstract class Compiler {
 			debug(statements, mainNodes, result);
 		
 		return result;
+	}
+
+	private static boolean isInjectedMissingToken(ParseTree node) {
+		boolean isToken = node instanceof TerminalNode;
+		boolean isMissingToken = node.getSourceInterval().b < 0;
+		
+		return isMissingToken && isToken;
 	}
 
 	private void debug(List<CompilerStatementContext> statements, List<TerminalNode> mainNodes, List<Neighbor<TerminalNode>> result) {
@@ -212,6 +221,8 @@ public abstract class Compiler {
 		if (left == null || right == null) {
 			// attach to the root (after the previous compilerStatements)
 			return mainTree;
+		} else if (right.getSourceInterval().b < 0) {
+			return (ParserRuleContext) right.getParent();
 		} else {
 			// known to be not null
 			ParserRuleContext rule = (ParserRuleContext) right.getParent();
@@ -225,9 +236,11 @@ public abstract class Compiler {
 	
 	private ListIterator<ParseTree> findPositionToInject(Interval targetInterval, ListIterator<ParseTree> it) {
 		while (it.hasNext()) {
-			Interval candidateInterval = it.next().getSourceInterval();
+			ParseTree candidate = it.next();
+			Interval candidateInterval = candidate.getSourceInterval();
 			
-			if (candidateInterval.startsAfter(targetInterval)) {
+			// we bind to a missing token to the right
+			if (isInjectedMissingToken(candidate) || candidateInterval.startsAfter(targetInterval)) {
 				it.previous();
 				break;
 			}
@@ -270,6 +283,11 @@ class FlattenTree extends AbstractParseTreeVisitor<List<TerminalNode>> {
 	public List<TerminalNode> visitTerminal(TerminalNode thisNode) {
 		flat.add(thisNode);
 		return flat;
+	}
+
+	@Override
+	public List<TerminalNode> visitErrorNode(ErrorNode node) {
+		return visitTerminal(node);
 	}
 
 	@Override
