@@ -31,13 +31,15 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-public class StuffingReaderUnitTest extends TestCase {
+public class StuffingReaderUnitTest {
 	private char[] targetBuffer;
 	private Reader reader;
 	
-	@Override
+	@Before
 	public void setUp() {
 		targetBuffer = new char[1024];
 		System.arraycopy("CANARY".toCharArray(), 0, targetBuffer, 0, "CANARY".length());
@@ -47,7 +49,7 @@ public class StuffingReaderUnitTest extends TestCase {
 		reader = new StuffingReader(new StringReader(source), charsToStuff);		
 	}
 	
-	@Override
+	@After
 	public void tearDown() throws IOException {
 		// after the reader has been drained:
 		// - read must return -1;
@@ -60,14 +62,17 @@ public class StuffingReaderUnitTest extends TestCase {
 		reader.close();
 	}
 	
-	public void testEmptyReaderNoStuff() throws IOException {
+	@Test
+	public void testEmptyReaderNoStuffDontRead() throws IOException {
 		initReader("");
 	}
 	
-	public void testEmptyReader() throws IOException {
+	@Test
+	public void testEmptyReaderDontRead() throws IOException {
 		initReader("", 1, 'x');
 	}
 	
+	@Test
 	public void testEmptyReaderReadNone() throws IOException {
 		initReader("", 1, 'x');
 
@@ -76,6 +81,7 @@ public class StuffingReaderUnitTest extends TestCase {
 		assertThat(new String(targetBuffer, 0, "CANARY".length()), is(equalTo("CANARY")));
 	}
 	
+	@Test
 	public void testEmptyReaderStuffItAt0() throws IOException {
 		initReader("", 0, 'x');
 
@@ -84,36 +90,42 @@ public class StuffingReaderUnitTest extends TestCase {
 		assertThat(new String(targetBuffer, 0, "CANARY".length()), is(equalTo("xANARY")));
 	}
 	
+	@Test
 	public void testSingleLineStuffItAt0() throws IOException {
 		initReader("CAFEBABE", 0, 'x');
 		
 		readAndAssertThatBufferIs("xCAFEBABE");
 	}
 
+	@Test
 	public void testSingleLineStuffItAtEveryChar() throws IOException {
 		initReader("CAFEBABE", 0, 'c', 1, 'a', 2, 'f', 3, 'e', 4, 'b', 5, 'a', 6, 'b', 7, 'e');
 		
 		readAndAssertThatBufferIs("cCaAfFeEbBaAbBeE");
 	}
 	
+	@Test
 	public void testTwoLinesStuffItAt0() throws IOException {
 		initReader("CAFEBABE\nCAFEBABE", 0, 'x');
 		
 		readAndAssertThatBufferIs("xCAFEBABE\nxCAFEBABE");
 	}
 	
+	@Test
 	public void testTwoLinesStuffItAt1() throws IOException {
 		initReader("CAFEBABE\nCAFEBABE", 1, 'x');
 		
 		readAndAssertThatBufferIs("CxAFEBABE\nCxAFEBABE");
 	}
 
+	@Test
 	public void testTwoLineStuffItAtEveryChar() throws IOException {
 		initReader("CAFEBABE\nCAFEBABE", 0, 'c', 1, 'a', 2, 'f', 3, 'e', 4, 'b', 5, 'a', 6, 'b', 7, 'e');
 		
 		readAndAssertThatBufferIs("cCaAfFeEbBaAbBeE\ncCaAfFeEbBaAbBeE");
 	}
 	
+	@Test
 	public void testTwoUnevenLineStuffItAtEveryChar() throws IOException {
 		initReader("CAFEBABE\nCAFE", 0, 'c', 1, 'a', 2, 'f', 3, 'e', 4, 'b', 5, 'a', 6, 'b', 7, 'e');
 		
@@ -156,6 +168,7 @@ public class StuffingReaderUnitTest extends TestCase {
 			"001500     GOBACK.                                                      PROGRAM "
 		};
 	
+	@Test
 	public void testRealUseCase() throws IOException {
 		// we'll need more space than default
 		targetBuffer = new char[2048];
@@ -164,6 +177,7 @@ public class StuffingReaderUnitTest extends TestCase {
 		readAndAssertThatBufferIs(join(REALUSECASE_EXPECTED));
 	}
 	
+	@Test
 	public void testRealUseCaseCRLF() throws IOException {
 		String CRLF = "\r\n";
 		
@@ -174,6 +188,7 @@ public class StuffingReaderUnitTest extends TestCase {
 		readAndAssertThatBufferIs(join0(CRLF, REALUSECASE_EXPECTED));
 	}
 	
+	@Test
 	public void testRealUseCaseLFCR() throws IOException {
 		String LFCR = "\n\r";
 		
@@ -184,6 +199,7 @@ public class StuffingReaderUnitTest extends TestCase {
 		readAndAssertThatBufferIs(join0(LFCR, REALUSECASE_EXPECTED));
 	}
 
+	@Test
 	public void testCarefullyPositionedCRLFForInternalBuffer() throws IOException {
 		final int internalBufferSize = 1024;
 
@@ -203,11 +219,10 @@ public class StuffingReaderUnitTest extends TestCase {
 		readAndAssertThatBufferIs(new String(expected));
 	}
 
-
+	@Test
 	public void testCarefullyPositionedCRLFForExternalBuffer() throws IOException {
 		final int externalBufferSize = 4;
 
-		// we'll need more space than default
 		targetBuffer = new char[externalBufferSize];
 		
 		char[] source = new char[externalBufferSize];
@@ -228,14 +243,4 @@ public class StuffingReaderUnitTest extends TestCase {
 		assertThat(reader.read(targetBuffer), is(expected.length()));
 		assertThat(new String(targetBuffer, 0, expected.length()), is(equalTo(expected)));
 	}	
-
-	@Override
-	public void runTest() throws Throwable {
-		try {
-			super.runTest();
-		} catch (AssertionError e) {
-			System.out.println("BUFFER: \n" + new String(targetBuffer));
-			throw e;
-		}
-	}
 }

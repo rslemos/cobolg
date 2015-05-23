@@ -25,7 +25,6 @@ import java.io.FilterReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.CharBuffer;
-import java.util.Arrays;
 
 public class StuffingReader extends FilterReader {
 
@@ -33,10 +32,8 @@ public class StuffingReader extends FilterReader {
 	
 	private final CharBuffer inputBuffer;
 	private int positionInLine;
-
-	private int lastStuffed = -1;
-	
-	private char ongoingNewline = 0;
+	private int lastStuffed;
+	private char ongoingNewline;
 	
 	public StuffingReader(Reader reader, int... charsToStuff) {
 		this(reader, expand(charsToStuff));
@@ -49,20 +46,19 @@ public class StuffingReader extends FilterReader {
 		inputBuffer = CharBuffer.allocate(1024);
 		inputBuffer.flip();
 		
-		positionInLine = 0;
+		newLine();
 	}
 	
 	@Override
 	public int read(char[] buffer, int offset, int length) throws IOException {		
 		int read = 0;
 
-outerloop:
 		while (length > read) {
 			if (inStuffPosition())
 				buffer[offset + read++] = charsToStuff[lastStuffed = positionInLine];
 			
 			if (!hasMoreData())
-				break outerloop;
+				break;
 			
 			int i;
 			for (i = 0; i < length - read && i < inputBuffer.remaining(); i++) {
@@ -75,9 +71,7 @@ outerloop:
 					if ((c == '\n' || c == '\r') && c != ongoingNewline)
 						i++;
 					
-					ongoingNewline = 0;
-					positionInLine = 0;
-					lastStuffed = -1;
+					newLine();
 					break;
 				}
 				
@@ -94,35 +88,37 @@ outerloop:
 		return length > 0 && read == 0 ? -1 : read;
 	}
 
+	private void newLine() {
+		ongoingNewline = 0;
+		positionInLine = 0;
+		lastStuffed = -1;
+	}
+
 	private int drainInputBufferTo(char[] buffer, int offset, int length) {
 		inputBuffer.get(buffer, offset, length);
 		return length;
 	}
 
 	private boolean inStuffPosition() {
-		return positionInLine != lastStuffed && positionInLine < charsToStuff.length && charsToStuff[positionInLine] < '\uffff';
+		return positionInLine != lastStuffed && positionInLine < charsToStuff.length && charsToStuff[positionInLine] > 0;
 	}
 
 	private boolean hasMoreData() throws IOException {
-		final boolean hasData = inputBuffer.remaining() > 0;
+		boolean hasData = inputBuffer.remaining() > 0;
 		
 		inputBuffer.compact();
 		
 		if (!hasData) {
 			char[] b = new char[inputBuffer.remaining()];
 			
-			int size;
-			if ((size = super.read(b, 0, b.length)) == -1) {
-				inputBuffer.flip();
-				return inputBuffer.remaining() > 0;
-			}
-			
-			inputBuffer.put(b, 0, size);
+			int size = super.read(b, 0, b.length);
+			if (hasData = (size != -1))
+				inputBuffer.put(b, 0, size);
 		}
 		
 		inputBuffer.flip();
 		
-		return true;
+		return hasData;
 	}
 
 	private static char[] expand(int... charsToStuff) {
@@ -134,12 +130,35 @@ outerloop:
 			if (charsToStuff[i] > max) max = charsToStuff[i];
 		
 		char[] result = new char[max+1];
-		Arrays.fill(result, '\uffff');
 		for (int i = 0; i < charsToStuff.length; i += 2) {
 			result[charsToStuff[i]] = (char)charsToStuff[i+1];
 		}
 		
 		return result;
+	}
+
+	@Override
+	public long skip(long n) throws IOException {
+		// because we would have to skip stuffed characters
+		// java.io.Reader#skip(long) would work (since it is based on #read)
+		// but java.io.FilterReader#skip(long) resort to delegate#skip(long)
+		throw new IOException("skip() not supported");
+	}
+
+	@Override
+	public boolean markSupported() {
+		// because we have an internal buffer which would have to be flushed
+		return false;
+	}
+
+	@Override
+	public void mark(int readAheadLimit) throws IOException {
+		throw new IOException("mark() not supported");
+	}
+
+	@Override
+	public void reset() throws IOException {
+		throw new IOException("reset() not supported");
 	}
 
 }
