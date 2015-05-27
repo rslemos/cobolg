@@ -23,7 +23,7 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.eti.rslemos</groupId>
 	<artifactId>cobolg</artifactId>
@@ -34,7 +34,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<antlr4.visitor>true</antlr4.visitor>
-	 	<antlr4.listener>true</antlr4.listener>
+		<antlr4.listener>true</antlr4.listener>
 	</properties>
 
 	<dependencies>
@@ -44,17 +44,20 @@
 			<version>4.5</version>
 			<scope>compile</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.12</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
@@ -74,7 +77,7 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-
+			
 			<plugin>
 				<groupId>org.antlr</groupId>
 				<artifactId>antlr4-maven-plugin</artifactId>
@@ -90,32 +93,54 @@
 					</execution>
 				</executions>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18.1</version>
 				<configuration>
 					<systemPropertyVariables>
-						<org.slf4j.simpleLogger.defaultLogLevel>debug</org.slf4j.simpleLogger.defaultLogLevel>
+						<org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>us.bryon</groupId>
-				<artifactId>graphviz-maven-plugin</artifactId>
-				<version>1.0</version>
-				<configuration>
-					<basedir>target/generated-sources/antlr4</basedir>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>dot</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
-
 	</build>
+
+	<profiles>
+		<profile>
+			<id>debug</id>
+			
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.18.1</version>
+						<configuration>
+							<systemPropertyVariables>
+								<org.slf4j.simpleLogger.defaultLogLevel>debug</org.slf4j.simpleLogger.defaultLogLevel>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+					
+					<plugin>
+						<groupId>us.bryon</groupId>
+						<artifactId>graphviz-maven-plugin</artifactId>
+						<version>1.0</version>
+						<configuration>
+							<basedir>target/generated-sources/antlr4</basedir>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>dot</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
