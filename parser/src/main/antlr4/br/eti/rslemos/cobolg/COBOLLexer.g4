@@ -22,9 +22,7 @@
 lexer grammar COBOLLexer;
 import Words;
 
-tokens { 
-	MARK // a channel instead
-}
+channels { MARK, COMPILER_CHANNEL }
 
 WS : ' '+
 	-> channel(HIDDEN);

@@ -20,9 +20,6 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 lexer grammar Words;
-@members {
-	public static final int COMPILER_CHANNEL = 65000;
-}
 
 PERIOD			: '.';
 
