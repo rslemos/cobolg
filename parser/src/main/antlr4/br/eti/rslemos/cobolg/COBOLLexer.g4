@@ -20,30 +20,46 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 lexer grammar COBOLLexer;
-import COBOLKeywords, COBOLBasics;
+import COBOLKeywords;
 
 tokens { 
 	MARK // a channel instead
 }
 
-COMMENT			: ('*' | '/') .*? NEWLINE 
-                { _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
+WS : ' '+
+	-> channel(HIDDEN);
 
-fragment MARK0	: '\uEBA0';
-fragment MARK1	: '\uEBA1';
-fragment MARK2	: '\uEBA2';
-fragment MARK3	: '\uEBA3';
+NEWLINE : ('\n' '\r'? | '\r' '\n'?)
+	-> channel(HIDDEN);
+
+INTEGER : '-'? [0-9]+
+	;
+
+FIXEDPOINT : [0-9]+ '.' [0-9]+
+	;
+
+HEXINTEGER :
+		'H' ["] [0-9A-F]+ ["]
+	|	'H' ['] [0-9A-F]+ [']
+	;
+
+DOUBLEQUOTEDSTRING : ["] ( ~["\n\r] | ["] ["] )* ["]
+	;
+
+SINGLEQUOTEDSTRING : ['] ( ~['\n\r] | ['] ['] )* [']
+	;
 
 DOUBLEQUOTEDSTRING_START	:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ;
 SINGLEQUOTEDSTRING_START	:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ;
 
-TO_SEQUENCE_MODE	: MARK0 -> channel(MARK), mode(SEQUENCE_MODE);
-TO_SKIPTOEOL_MODE_DEFAULT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
+HEXSTRING :
+		'X' ["] ([0-9A-F][0-9A-F])+ ["]
+	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
+	;
 
-/* 
- * This block should really be part of COBOLBasics, but as of 2015-04-25
- * ANTLR4 cannot import multi-mode Lexers: https://github.com/antlr/antlr4/issues/160
- */
+COMMENT			: ('*' | '/') .*? NEWLINE
+                { _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
+
 PICTURE : 'PIC' 'TURE'?
 	-> pushMode(PICTURE_MODE)
 	;
@@ -55,6 +71,14 @@ RECORDING : 'RECORDING'
 COPY : 'COPY'
 	-> channel(COMPILER_CHANNEL), pushMode(COPY_MODE)
 	;
+
+fragment MARK0	: '\uEBA0';
+fragment MARK1	: '\uEBA1';
+fragment MARK2	: '\uEBA2';
+fragment MARK3	: '\uEBA3';
+
+TO_SEQUENCE_MODE	: MARK0 -> channel(MARK), mode(SEQUENCE_MODE);
+TO_SKIPTOEOL_MODE_DEFAULT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
 
 mode PICTURE_MODE;
 

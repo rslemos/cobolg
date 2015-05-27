@@ -138,3 +138,9 @@ RUN				: 'RUN';
 EJECT : 'EJECT'
 	-> channel(COMPILER_CHANNEL)
 	;
+
+// not exactly a keyword
+ID	:
+		[A-Za-z0-9]+
+	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
+	;
