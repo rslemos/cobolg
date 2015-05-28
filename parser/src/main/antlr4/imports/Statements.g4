@@ -19,42 +19,12 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-parser grammar ProcedureDivision;
-import Basics, Statements;
+parser grammar Statements;
+import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
-procedureDivision :
-		PROCEDURE DIVISION usingClause? PERIOD
-		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
-	;
-
-unnamedProceduralSection :
-		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
-	;
-
-namedProceduralSection :
-		sectionName SECTION PERIOD
-		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
-	;
-
-unnamedProceduralParagraph :
-		proceduralStatement+
-	;
-
-namedProceduralParagraph :
-		paragraphName PERIOD
-		proceduralStatement+
-	;
-
-usingClause :
-		USING ((BY? (REFERENCE|VALUE))? dataName)+
-	;
-
-sectionName :
-		ID
-	;
-
-paragraphName :
-		ID
+proceduralStatement :
+		DISPLAY literal PERIOD
+	|	STOP RUN PERIOD
 	;
