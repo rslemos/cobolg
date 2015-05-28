@@ -19,14 +19,12 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-parser grammar DataDivision;
-import DataDivisionFileSection, DataDivisionWorkingStorageSection, DataDivisionLinkageSection;
+parser grammar DataDivisionLinkageSection;
+import DataDescriptionBasics;
 
 options { tokenVocab = COBOLLexer; }
 
-dataDivision :
-		DATA DIVISION PERIOD
-		fileSection?
-		workingStorageSection?
-		linkageSection?
+linkageSection :
+		LINKAGE SECTION PERIOD
+		dataDescriptionParagraph*
 	;
