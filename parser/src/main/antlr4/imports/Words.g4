@@ -21,116 +21,116 @@
  ******************************************************************************/
 lexer grammar Words;
 
-PERIOD			: '.';
+PERIOD                : '.';
 
 // headers
-DIVISION 		: 'DIVISION';
-SECTION			: 'SECTION';
+DIVISION              : 'DIVISION';
+SECTION               : 'SECTION';
 
 // divisions
-IDENTIFICATION	: 'ID' ('ENTIFICATION')?;
-ENVIRONMENT		: 'ENVIRONMENT';
-DATA			: 'DATA';
-PROCEDURE		: 'PROCEDURE';
+IDENTIFICATION        : 'ID' ('ENTIFICATION')?;
+ENVIRONMENT           : 'ENVIRONMENT';
+DATA                  : 'DATA';
+PROCEDURE             : 'PROCEDURE';
 
 // sections
-CONFIGURATION	: 'CONFIGURATION';
-INPUT_OUTPUT	: 'INPUT-OUTPUT';
-FILE			: 'FILE';
-WORKING_STORAGE : 'WORKING-STORAGE';
-LINKAGE			: 'LINKAGE';
+CONFIGURATION         : 'CONFIGURATION';
+INPUT_OUTPUT          : 'INPUT-OUTPUT';
+FILE                  : 'FILE';
+WORKING_STORAGE       : 'WORKING-STORAGE';
+LINKAGE               : 'LINKAGE';
 
 // paragraphs
-OBJECT_COMPUTER	: 'OBJECT-COMPUTER';
-SPECIAL_NAMES	: 'SPECIAL-NAMES';
-FILE_CONTROL	: 'FILE-CONTROL';
-FD				: 'FD';
+OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
+SPECIAL_NAMES         : 'SPECIAL-NAMES';
+FILE_CONTROL          : 'FILE-CONTROL';
+FD                    : 'FD';
 
 // sentences
-PROGRAM_ID		: 'PROGRAM-ID';
-SELECT			: 'SELECT';
-OPTIONAL		: 'OPTIONAL';
-ASSIGN			: 'ASSIGN';
-ORGANIZATION	: 'ORGANIZATION';
-INDEXED			: 'INDEXED';
-ACCESS			: 'ACCESS';
-SEQUENTIAL		: 'SEQUENTIAL';
-RECORD			: 'RECORD';
-RECORDS			: 'RECORDS';
-STATUS			: 'STATUS';
-BLOCK			: 'BLOCK';
-EXTERNAL		: 'EXTERNAL';
-GLOBAL			: 'GLOBAL';
-CHARACTERS		: 'CHARACTERS';
-VARYING			: 'VARYING';
-DEPENDING		: 'DEPENDING';
-LABEL			: 'LABEL';
-STANDARD		: 'STANDARD';
-OMITTED			: 'OMITTED';
-OF				: 'OF';
-LINAGE			: 'LINAGE';
-FOOTING			: 'FOOTING';
-TOP				: 'TOP';
-BOTTOM			: 'BOTTOM';
-CODE_SET		: 'CODE-SET';
-FILLER			: 'FILLER';
-USAGE			: 'USAGE';
-VALUE			: 'VALUE';
-OCCURS			: 'OCCURS';
-TIMES			: 'TIMES';
-REDEFINES		: 'REDEFINES';
-USING			: 'USING';
-REFERENCE		: 'REFERENCE';
+PROGRAM_ID            : 'PROGRAM-ID';
+SELECT                : 'SELECT';
+OPTIONAL              : 'OPTIONAL';
+ASSIGN                : 'ASSIGN';
+ORGANIZATION          : 'ORGANIZATION';
+INDEXED               : 'INDEXED';
+ACCESS                : 'ACCESS';
+SEQUENTIAL            : 'SEQUENTIAL';
+RECORD                : 'RECORD';
+RECORDS               : 'RECORDS';
+STATUS                : 'STATUS';
+BLOCK                 : 'BLOCK';
+EXTERNAL              : 'EXTERNAL';
+GLOBAL                : 'GLOBAL';
+CHARACTERS            : 'CHARACTERS';
+VARYING               : 'VARYING';
+DEPENDING             : 'DEPENDING';
+LABEL                 : 'LABEL';
+STANDARD              : 'STANDARD';
+OMITTED               : 'OMITTED';
+OF                    : 'OF';
+LINAGE                : 'LINAGE';
+FOOTING               : 'FOOTING';
+TOP                   : 'TOP';
+BOTTOM                : 'BOTTOM';
+CODE_SET              : 'CODE-SET';
+FILLER                : 'FILLER';
+USAGE                 : 'USAGE';
+VALUE                 : 'VALUE';
+OCCURS                : 'OCCURS';
+TIMES                 : 'TIMES';
+REDEFINES             : 'REDEFINES';
+USING                 : 'USING';
+REFERENCE             : 'REFERENCE';
 
 // syntatic sugar
-BY				: 'BY';
-IS				: 'IS';
-ARE				: 'ARE';
-FROM			: 'FROM';
-TO				: 'TO';
-IN				: 'IN';
-ON				: 'ON';
-SIZE			: 'SIZE';
-KEY				: 'KEY';
-MODE			: 'MODE';
-NATIVE			: 'NATIVE';
-CONTAINS		: 'CONTAINS';
-WITH			: 'WITH';
-LINES			: 'LINES';
-AT				: 'AT';
+BY                    : 'BY';
+IS                    : 'IS';
+ARE                   : 'ARE';
+FROM                  : 'FROM';
+TO                    : 'TO';
+IN                    : 'IN';
+ON                    : 'ON';
+SIZE                  : 'SIZE';
+KEY                   : 'KEY';
+MODE                  : 'MODE';
+NATIVE                : 'NATIVE';
+CONTAINS              : 'CONTAINS';
+WITH                  : 'WITH';
+LINES                 : 'LINES';
+AT                    : 'AT';
 
 // usages
-BINARY			: 'BINARY';
-COMPUTATIONAL	: 'COMPUTATIONAL' | 'COMP';
-COMPUTATIONAL_1	: 'COMPUTATIONAL-1' | 'COMP-1';
-COMPUTATIONAL_2	: 'COMPUTATIONAL-2' | 'COMP-2';
-COMPUTATIONAL_3	: 'COMPUTATIONAL-3' | 'COMP-3';
-COMPUTATIONAL_4	: 'COMPUTATIONAL-4' | 'COMP-4';
-COMPUTATIONAL_5	: 'COMPUTATIONAL-5' | 'COMP-5';
-DISPLAY			: 'DISPLAY';
-DISPLAY_1		: 'DISPLAY-1';
-INDEX			: 'INDEX';
-NATIONAL		: 'NATIONAL';
-// OBJECT		: 'OBJECT';
-// REFERENCE	: 'REFERENCE';
-PACKED_DECIMAL	: 'PACKED-DECIMAL';
-POINTER			: 'POINTER';
-PROCEDURE_POINTER : 'PROCEDURE-POINTER';
-FUNCTION_POINTER  : 'FUNCTION-POINTER';
+BINARY                : 'BINARY';
+COMPUTATIONAL         : 'COMPUTATIONAL' | 'COMP';
+COMPUTATIONAL_1       : 'COMPUTATIONAL-1' | 'COMP-1';
+COMPUTATIONAL_2       : 'COMPUTATIONAL-2' | 'COMP-2';
+COMPUTATIONAL_3       : 'COMPUTATIONAL-3' | 'COMP-3';
+COMPUTATIONAL_4       : 'COMPUTATIONAL-4' | 'COMP-4';
+COMPUTATIONAL_5       : 'COMPUTATIONAL-5' | 'COMP-5';
+DISPLAY               : 'DISPLAY';
+DISPLAY_1             : 'DISPLAY-1';
+INDEX                 : 'INDEX';
+NATIONAL              : 'NATIONAL';
+// OBJECT                : 'OBJECT';
+// REFERENCE             : 'REFERENCE';
+PACKED_DECIMAL        : 'PACKED-DECIMAL';
+POINTER               : 'POINTER';
+PROCEDURE_POINTER     : 'PROCEDURE-POINTER';
+FUNCTION_POINTER      : 'FUNCTION-POINTER';
 
 // figurative constants
-ZERO			: 'ZEROES' | 'ZEROS' | 'ZERO';
-SPACE			: 'SPACES' | 'SPACE';
-HIGH_VALUE		: 'HIGH-VALUES' | 'HIGH-VALUE';
-LOW_VALUE		: 'LOW-VALUES' | 'LOW-VALUE';
-QUOTE			: 'QUOTES' | 'QUOTE';
-ALL				: 'ALL';
-NULL			: 'NULLS' | 'NULL';
+ZERO                  : 'ZEROES' | 'ZEROS' | 'ZERO';
+SPACE                 : 'SPACES' | 'SPACE';
+HIGH_VALUE            : 'HIGH-VALUES' | 'HIGH-VALUE';
+LOW_VALUE             : 'LOW-VALUES' | 'LOW-VALUE';
+QUOTE                 : 'QUOTES' | 'QUOTE';
+ALL                   : 'ALL';
+NULL                  : 'NULLS' | 'NULL';
 
 // statements
-// DISPLAY			: 'DISPLAY';  (also a usage mode)
-STOP			: 'STOP';
-RUN				: 'RUN';
+// DISPLAY               : 'DISPLAY';  (also a usage mode)
+STOP                  : 'STOP';
+RUN                   : 'RUN';
 
 /* COMPILER DIRECTING STATEMENTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */
