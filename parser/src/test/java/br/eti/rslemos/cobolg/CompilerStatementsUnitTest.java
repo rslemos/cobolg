@@ -31,11 +31,7 @@ import java.io.StringReader;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
-import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
-import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.*;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class CompilerStatementsUnitTest {

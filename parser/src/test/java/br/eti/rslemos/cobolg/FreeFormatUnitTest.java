@@ -35,37 +35,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementContext;
-import br.eti.rslemos.cobolg.COBOLParser.ConfigurationSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.DataDivisionContext;
-import br.eti.rslemos.cobolg.COBOLParser.EnvironmentDivisionContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdBlockClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdCodeSetClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdDataRecordClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdLabelRecordClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdLinageClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdRecordClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdRecordingModeClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FdValueOfClauseContext;
-import br.eti.rslemos.cobolg.COBOLParser.FileControlParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.FileDescriptionParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.FileOrganizationIndexedContext;
-import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
-import br.eti.rslemos.cobolg.COBOLParser.IndexNameContext;
-import br.eti.rslemos.cobolg.COBOLParser.InputOutputSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.LinkageSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.ObjectComputerParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProcedureDivisionContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
-import br.eti.rslemos.cobolg.COBOLParser.SelectFileSentenceContext;
-import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.SpecialNamesSentenceContext;
-import br.eti.rslemos.cobolg.COBOLParser.UnnamedProceduralParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.UnnamedProceduralSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.*;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatUnitTest {
