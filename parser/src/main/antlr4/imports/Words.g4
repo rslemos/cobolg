@@ -23,114 +23,102 @@ lexer grammar Words;
 
 PERIOD                : '.';
 
-// headers
-DIVISION              : 'DIVISION';
-SECTION               : 'SECTION';
+/* categories given in http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=34&zoom=auto,-100,275 */
 
-// divisions
-IDENTIFICATION        : 'ID' ('ENTIFICATION')?;
-ENVIRONMENT           : 'ENVIRONMENT';
-DATA                  : 'DATA';
-PROCEDURE             : 'PROCEDURE';
+/* KEYWORDS */
 
-// sections
-CONFIGURATION         : 'CONFIGURATION';
-INPUT_OUTPUT          : 'INPUT-OUTPUT';
-FILE                  : 'FILE';
-WORKING_STORAGE       : 'WORKING-STORAGE';
-LINKAGE               : 'LINKAGE';
-
-// paragraphs
-OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
-SPECIAL_NAMES         : 'SPECIAL-NAMES';
-FILE_CONTROL          : 'FILE-CONTROL';
-FD                    : 'FD';
-
-// sentences
-PROGRAM_ID            : 'PROGRAM-ID';
-SELECT                : 'SELECT';
-OPTIONAL              : 'OPTIONAL';
-ASSIGN                : 'ASSIGN';
-ORGANIZATION          : 'ORGANIZATION';
-INDEXED               : 'INDEXED';
 ACCESS                : 'ACCESS';
-SEQUENTIAL            : 'SEQUENTIAL';
-RECORD                : 'RECORD';
-RECORDS               : 'RECORDS';
-STATUS                : 'STATUS';
-BLOCK                 : 'BLOCK';
-EXTERNAL              : 'EXTERNAL';
-GLOBAL                : 'GLOBAL';
-CHARACTERS            : 'CHARACTERS';
-VARYING               : 'VARYING';
-DEPENDING             : 'DEPENDING';
-LABEL                 : 'LABEL';
-STANDARD              : 'STANDARD';
-OMITTED               : 'OMITTED';
-OF                    : 'OF';
-LINAGE                : 'LINAGE';
-FOOTING               : 'FOOTING';
-TOP                   : 'TOP';
-BOTTOM                : 'BOTTOM';
-CODE_SET              : 'CODE-SET';
-FILLER                : 'FILLER';
-USAGE                 : 'USAGE';
-VALUE                 : 'VALUE';
-OCCURS                : 'OCCURS';
-TIMES                 : 'TIMES';
-REDEFINES             : 'REDEFINES';
-USING                 : 'USING';
-REFERENCE             : 'REFERENCE';
-
-// syntatic sugar
-BY                    : 'BY';
-IS                    : 'IS';
 ARE                   : 'ARE';
-FROM                  : 'FROM';
-TO                    : 'TO';
-IN                    : 'IN';
-ON                    : 'ON';
-SIZE                  : 'SIZE';
-KEY                   : 'KEY';
-MODE                  : 'MODE';
-NATIVE                : 'NATIVE';
-CONTAINS              : 'CONTAINS';
-WITH                  : 'WITH';
-LINES                 : 'LINES';
+ASSIGN                : 'ASSIGN';
 AT                    : 'AT';
-
-// usages
 BINARY                : 'BINARY';
+BLOCK                 : 'BLOCK';
+BOTTOM                : 'BOTTOM';
+BY                    : 'BY';
+CHARACTERS            : 'CHARACTERS';
+CODE_SET              : 'CODE-SET';
 COMPUTATIONAL         : 'COMPUTATIONAL' | 'COMP';
 COMPUTATIONAL_1       : 'COMPUTATIONAL-1' | 'COMP-1';
 COMPUTATIONAL_2       : 'COMPUTATIONAL-2' | 'COMP-2';
 COMPUTATIONAL_3       : 'COMPUTATIONAL-3' | 'COMP-3';
 COMPUTATIONAL_4       : 'COMPUTATIONAL-4' | 'COMP-4';
 COMPUTATIONAL_5       : 'COMPUTATIONAL-5' | 'COMP-5';
+CONFIGURATION         : 'CONFIGURATION';
+CONTAINS              : 'CONTAINS';
+DATA                  : 'DATA';
+DEPENDING             : 'DEPENDING';
 DISPLAY               : 'DISPLAY';
 DISPLAY_1             : 'DISPLAY-1';
+DIVISION              : 'DIVISION';
+ENVIRONMENT           : 'ENVIRONMENT';
+EXTERNAL              : 'EXTERNAL';
+FD                    : 'FD';
+FILE                  : 'FILE';
+FILE_CONTROL          : 'FILE-CONTROL';
+FILLER                : 'FILLER';
+FOOTING               : 'FOOTING';
+FROM                  : 'FROM';
+FUNCTION_POINTER      : 'FUNCTION-POINTER';
+GLOBAL                : 'GLOBAL';
+IDENTIFICATION        : 'ID' ('ENTIFICATION')?;
+IN                    : 'IN';
 INDEX                 : 'INDEX';
+INDEXED               : 'INDEXED';
+INPUT_OUTPUT          : 'INPUT-OUTPUT';
+IS                    : 'IS';
+KEY                   : 'KEY';
+LABEL                 : 'LABEL';
+LINAGE                : 'LINAGE';
+LINES                 : 'LINES';
+LINKAGE               : 'LINKAGE';
+MODE                  : 'MODE';
 NATIONAL              : 'NATIONAL';
+NATIVE                : 'NATIVE';
 // OBJECT                : 'OBJECT';
-// REFERENCE             : 'REFERENCE';
+OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
+OCCURS                : 'OCCURS';
+OF                    : 'OF';
+OMITTED               : 'OMITTED';
+ON                    : 'ON';
+OPTIONAL              : 'OPTIONAL';
+ORGANIZATION          : 'ORGANIZATION';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
 POINTER               : 'POINTER';
+PROCEDURE             : 'PROCEDURE';
 PROCEDURE_POINTER     : 'PROCEDURE-POINTER';
-FUNCTION_POINTER      : 'FUNCTION-POINTER';
+PROGRAM_ID            : 'PROGRAM-ID';
+RECORD                : 'RECORD';
+RECORDS               : 'RECORDS';
+REDEFINES             : 'REDEFINES';
+REFERENCE             : 'REFERENCE';
+RUN                   : 'RUN';
+SECTION               : 'SECTION';
+SELECT                : 'SELECT';
+SEQUENTIAL            : 'SEQUENTIAL';
+SIZE                  : 'SIZE';
+SPECIAL_NAMES         : 'SPECIAL-NAMES';
+STANDARD              : 'STANDARD';
+STATUS                : 'STATUS';
+STOP                  : 'STOP';
+TIMES                 : 'TIMES';
+TO                    : 'TO';
+TOP                   : 'TOP';
+USAGE                 : 'USAGE';
+USING                 : 'USING';
+VALUE                 : 'VALUE';
+VARYING               : 'VARYING';
+WITH                  : 'WITH';
+WORKING_STORAGE       : 'WORKING-STORAGE';
 
-// figurative constants
-ZERO                  : 'ZEROES' | 'ZEROS' | 'ZERO';
-SPACE                 : 'SPACES' | 'SPACE';
+/* FIGURATIVE CONSTANTS */
+
+ALL                   : 'ALL';
 HIGH_VALUE            : 'HIGH-VALUES' | 'HIGH-VALUE';
 LOW_VALUE             : 'LOW-VALUES' | 'LOW-VALUE';
-QUOTE                 : 'QUOTES' | 'QUOTE';
-ALL                   : 'ALL';
 NULL                  : 'NULLS' | 'NULL';
-
-// statements
-// DISPLAY               : 'DISPLAY';  (also a usage mode)
-STOP                  : 'STOP';
-RUN                   : 'RUN';
+QUOTE                 : 'QUOTES' | 'QUOTE';
+SPACE                 : 'SPACES' | 'SPACE';
+ZERO                  : 'ZEROES' | 'ZEROS' | 'ZERO';
 
 /* COMPILER DIRECTING STATEMENTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */
