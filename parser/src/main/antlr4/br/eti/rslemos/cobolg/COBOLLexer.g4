@@ -20,7 +20,7 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 lexer grammar COBOLLexer;
-import COBOLKeywords;
+import Words;
 
 tokens { 
 	MARK // a channel instead
