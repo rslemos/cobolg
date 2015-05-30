@@ -58,7 +58,11 @@ HEXSTRING :
 COMMENT			: ('*' | '/') .*? NEWLINE
                 { _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
 
-PICTURE : 'PIC' 'TURE'?
+PICTURE : 'PICTURE'
+	-> pushMode(PICTURE_MODE)
+	;
+
+PIC : 'PIC'
 	-> pushMode(PICTURE_MODE)
 	;
 

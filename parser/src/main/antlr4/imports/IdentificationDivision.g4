@@ -24,7 +24,7 @@ parser grammar IdentificationDivision;
 options { tokenVocab = COBOLLexer; }
 
 identificationDivision :
-		IDENTIFICATION DIVISION PERIOD
+		(IDENTIFICATION | ID) DIVISION PERIOD
 		PROGRAM_ID PERIOD programName PERIOD
 	;
 

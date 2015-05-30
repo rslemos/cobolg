@@ -317,7 +317,7 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG1")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP().getText(), is(equalTo("COMP")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 
@@ -347,7 +347,7 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL17V00")));
 		assertThat(dataDescriptionParagraph.redefinesClause().dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL12V05")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(17)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP_3().getText(), is(equalTo("COMP-3")));
 	}
 
 	@Test
@@ -358,7 +358,7 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG2")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP().getText(), is(equalTo("COMP")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 	

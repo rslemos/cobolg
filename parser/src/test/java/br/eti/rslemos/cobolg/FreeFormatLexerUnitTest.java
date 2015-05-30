@@ -504,7 +504,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(USERDEFINEDWORD, "WS-DEBUG");
 		matchToken(WS, "             ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "ZZZ.ZZZ.ZZZ.ZZ9,999999-");
 		matchToken(PERIOD, ".");
@@ -515,11 +515,11 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(USERDEFINEDWORD, "WS-DEBUG1");
 		matchToken(WS, "            ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(COMPUTATIONAL, "COMP");
+		matchToken(COMP, "COMP");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(VALUE, "VALUE");
 		matchToken(WS, " ", HIDDEN);
@@ -579,11 +579,11 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(USERDEFINEDWORD, "DESL12V05");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "S9(17)");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(COMPUTATIONAL_3, "COMP-3");
+		matchToken(COMP_3, "COMP-3");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
@@ -598,11 +598,11 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ZERO, "ZERO");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(COMPUTATIONAL, "COMP");
+		matchToken(COMP, "COMP");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
