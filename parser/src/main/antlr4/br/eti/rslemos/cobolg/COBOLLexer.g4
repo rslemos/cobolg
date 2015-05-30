@@ -41,18 +41,19 @@ HEXINTEGER :
 	|	'H' ['] [0-9A-F]+ [']
 	;
 
-DOUBLEQUOTEDSTRING : ["] ( ~["\n\r] | ["] ["] )* ["]
+QUOTEDSTRING :
+		["] ( ~["\n\r] | ["] ["] )* ["]
+	|	['] ( ~['\n\r] | ['] ['] )* [']
 	;
-
-SINGLEQUOTEDSTRING : ['] ( ~['\n\r] | ['] ['] )* [']
-	;
-
-DOUBLEQUOTEDSTRING_START	:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ;
-SINGLEQUOTEDSTRING_START	:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ;
 
 HEXSTRING :
 		'X' ["] ([0-9A-F][0-9A-F])+ ["]
 	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
+	;
+
+QUOTEDSTRING_START	:
+		["]  ( ~["\n\r\uEBA3] | ["] ["] )*
+	|	[']  ( ~['\n\r\uEBA3] | ['] ['] )*
 	;
 
 COMMENT			: ('*' | '/') .*? NEWLINE
@@ -153,7 +154,7 @@ COMPILER_ID : USERDEFINEDWORD
 	-> channel(COMPILER_CHANNEL), popMode
 	;
 
-COMPILER_STRING : (DOUBLEQUOTEDSTRING | SINGLEQUOTEDSTRING)
+COMPILER_STRING : QUOTEDSTRING
 	-> channel(COMPILER_CHANNEL), popMode
 	;
 
@@ -198,11 +199,8 @@ CONTINUATION_MODE_NL		: NEWLINE	-> channel(HIDDEN), mode(DEFAULT_MODE);
 
 WS_CONT						: ' '+ -> channel(HIDDEN);
 
-DOUBLEQUOTEDSTRING_MID		:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ;
-DOUBLEQUOTEDSTRING_END		:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ["] -> mode(DEFAULT_MODE);
-
-SINGLEQUOTEDSTRING_MID		:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ;
-SINGLEQUOTEDSTRING_END		:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ['] -> mode(DEFAULT_MODE);
+QUOTEDSTRING_MID            :  ( ["]  ( ~["\n\r\uEBA3] | ["] ["] )*     | [']  ( ~['\n\r\uEBA3] | ['] ['] )*     );
+QUOTEDSTRING_END			:  ( ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ["] | [']  ( ~['\n\r\uEBA3] | ['] ['] )* ['] ) -> mode(DEFAULT_MODE);
 
 TO_SKIPTOEOL_MODE_CONTINUATION : MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
 												

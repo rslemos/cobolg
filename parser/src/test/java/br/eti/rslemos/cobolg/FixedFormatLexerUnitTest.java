@@ -106,7 +106,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(SEQUENCE_MODE,    TO_INDICATOR_MODE,         "\uEBA1",   MARK  );
 		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
-		matchToken(                  DOUBLEQUOTEDSTRING_START,  "\"DOUBLE QUOTED START                                             ");
+		matchToken(                  QUOTEDSTRING_START,        "\"DOUBLE QUOTED START                                             ");
 		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		
@@ -123,7 +123,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(SEQUENCE_MODE,    TO_INDICATOR_MODE,         "\uEBA1",   MARK  );
 		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
-		matchToken(                  DOUBLEQUOTEDSTRING_START,  "\"DOUBLE QUOTED START WITH \"\"DOUBLE QUOTES\"\"                      ");
+		matchToken(                  QUOTEDSTRING_START,        "\"DOUBLE QUOTED START WITH \"\"DOUBLE QUOTES\"\"                      ");
 		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		
@@ -143,7 +143,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(SEQUENCE_MODE,    TO_INDICATOR_MODE,         "\uEBA1",   MARK  );
 		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
-		matchToken(                  DOUBLEQUOTEDSTRING_START,  "\"DOUBLE QUOTED START WITH \"\"DOUBLE QUOTES\"\" THAT LEAKS INTO THE N");
+		matchToken(                  QUOTEDSTRING_START,        "\"DOUBLE QUOTED START WITH \"\"DOUBLE QUOTES\"\" THAT LEAKS INTO THE N");
 		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		matchToken(SKIPTOEOL_MODE,   SKIPTOEOL_MODE_NL,         "\n",       HIDDEN);
@@ -155,7 +155,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INDICATOR_MODE,        INDICATOR_CONTINUATION,    "-",        HIDDEN);
 		matchToken(PRE_CONTINUATION_MODE, TO_CONTINUATION_MODE,      "\uEBA2",   MARK  );
 		matchToken(CONTINUATION_MODE,     WS_CONT,                   "    ",     HIDDEN);
-		matchToken(CONTINUATION_MODE,     DOUBLEQUOTEDSTRING_END,    "\"EXT LINE\""      );
+		matchToken(CONTINUATION_MODE,     QUOTEDSTRING_END,          "\"EXT LINE\""      );
 		matchToken(                       WS,                        "                                                   ", HIDDEN);
 		matchToken(                       TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,        SKIP_TO_EOL,               "IGNORED+", HIDDEN);
@@ -177,7 +177,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(SEQUENCE_MODE,    TO_INDICATOR_MODE,         "\uEBA1",   MARK  );
 		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
 		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
-		matchToken(                  DOUBLEQUOTEDSTRING_START,  "\"DOUBLE QUOTED START WITH \"\"DOUBLE QUOTES\"\" THAT LEAKS INTO THE N");
+		matchToken(                  QUOTEDSTRING_START,        "\"DOUBLE QUOTED START WITH \"\"DOUBLE QUOTES\"\" THAT LEAKS INTO THE N");
 		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		matchToken(SKIPTOEOL_MODE,   SKIPTOEOL_MODE_NL,         "\n",       HIDDEN);
@@ -189,7 +189,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INDICATOR_MODE,        INDICATOR_CONTINUATION,    "-",        HIDDEN);
 		matchToken(PRE_CONTINUATION_MODE, TO_CONTINUATION_MODE,      "\uEBA2",   MARK  );
 		matchToken(CONTINUATION_MODE,     WS_CONT,                   "    ",     HIDDEN);
-		matchToken(CONTINUATION_MODE,     DOUBLEQUOTEDSTRING_MID,    "\"EXT LINE BUT KEEPS GOING OVER AND OVER AND OVER AND OVER AND");
+		matchToken(CONTINUATION_MODE,     QUOTEDSTRING_MID,          "\"EXT LINE BUT KEEPS GOING OVER AND OVER AND OVER AND OVER AND");
 		matchToken(CONTINUATION_MODE,     TO_SKIPTOEOL_MODE_CONTINUATION, "\uEBA3",     MARK  );
 		matchToken(SKIPTOEOL_MODE,        SKIP_TO_EOL,               "IGNORED+", HIDDEN);
 		matchToken(SKIPTOEOL_MODE,        SKIPTOEOL_MODE_NL,         "\n",       HIDDEN);
@@ -201,7 +201,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(INDICATOR_MODE,        INDICATOR_CONTINUATION,    "-",        HIDDEN);
 		matchToken(PRE_CONTINUATION_MODE, TO_CONTINUATION_MODE,      "\uEBA2",   MARK  );
 		matchToken(CONTINUATION_MODE,     WS_CONT,                   "    ",     HIDDEN);
-		matchToken(CONTINUATION_MODE,     DOUBLEQUOTEDSTRING_END,    "\"OVER AGAIN UNTIL THE 3RD LINE\"");
+		matchToken(CONTINUATION_MODE,     QUOTEDSTRING_END,          "\"OVER AGAIN UNTIL THE 3RD LINE\"");
 		matchToken(                       WS,                        "                              ", HIDDEN);
 		matchToken(                       TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
 		matchToken(SKIPTOEOL_MODE,        SKIP_TO_EOL,               "IGNORED+", HIDDEN);

@@ -102,24 +102,6 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	}
 
 	@Test
-	public void testDoubleQuotedString() throws Exception {
-		setSource("\"DOUBLE QUOTED STRING\"");
-		
-		matchToken(DOUBLEQUOTEDSTRING, "\"DOUBLE QUOTED STRING\"");
-		
-		matchEOF();
-	}
-
-	@Test
-	public void testDoubleQuotedWithDoubleQuotesString() throws Exception {
-		setSource("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
-		
-		matchToken(DOUBLEQUOTEDSTRING, "\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
-		
-		matchEOF();
-	}
-	
-	@Test
 	public void testProgramInFreeFormatUnitTest() throws Exception {
 		setSource(FreeFormatUnitTest.SOURCE);
 		
@@ -344,13 +326,13 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR1'");
+		matchToken(QUOTEDSTRING, "'SYSVAR1'");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(USERDEFINEDWORD, "SYSVAR2");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR2'");
+		matchToken(QUOTEDSTRING, "'SYSVAR2'");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//    DATA RECORDS ARE REC1 REC2
@@ -652,7 +634,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(DISPLAY, "DISPLAY");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(SINGLEQUOTEDSTRING, "'Hello, world'");
+		matchToken(QUOTEDSTRING, "'Hello, world'");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
