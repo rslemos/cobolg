@@ -126,7 +126,8 @@ COPY                  : 'COPY';
 EJECT                 : 'EJECT';
 
 // not exactly a keyword
-ID	:
+USERDEFINEDWORD :
 		[A-Za-z0-9]+
 	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
 	;
+

@@ -29,5 +29,5 @@ identificationDivision :
 	;
 
 programName :
-		ID
+		USERDEFINEDWORD
 	;

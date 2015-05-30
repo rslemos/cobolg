@@ -97,13 +97,13 @@ fdCodeSetClause :
 	;
 
 fileName :
-		ID
+		USERDEFINEDWORD
 	;
 
 systemName :
-		ID
+		USERDEFINEDWORD
 	;
 
 alphabetName :
-		ID
+		USERDEFINEDWORD
 	;

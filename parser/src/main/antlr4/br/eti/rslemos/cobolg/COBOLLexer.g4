@@ -145,7 +145,7 @@ COMPILER_ID_WS : ' '+
 	-> channel(HIDDEN)
 	;
 
-COMPILER_ID : ID
+COMPILER_ID : USERDEFINEDWORD
 	-> channel(COMPILER_CHANNEL), popMode
 	;
 

@@ -24,7 +24,7 @@ parser grammar Basics;
 options { tokenVocab = COBOLLexer; }
 
 dataName :
-		ID
+		USERDEFINEDWORD
 	;
 
 literal :

@@ -52,9 +52,9 @@ usingClause :
 	;
 
 sectionName :
-		ID
+		USERDEFINEDWORD
 	;
 
 paragraphName :
-		ID
+		USERDEFINEDWORD
 	;

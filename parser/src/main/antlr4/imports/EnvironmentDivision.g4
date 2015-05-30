@@ -37,7 +37,7 @@ configurationSection :
 
 objectComputerParagraph :
 		OBJECT_COMPUTER PERIOD
-		ID
+		USERDEFINEDWORD
 		PERIOD
 	;
 
@@ -48,7 +48,7 @@ specialNamesParagraph :
 	;
 
 specialNamesSentence :
-		ID IS? ID
+		USERDEFINEDWORD IS? USERDEFINEDWORD
 	;
 
 inputOutputSection :
@@ -62,7 +62,7 @@ fileControlParagraph :
 	;
 
 selectFileSentence :
-		SELECT OPTIONAL? ID ASSIGN TO? ID
+		SELECT OPTIONAL? USERDEFINEDWORD ASSIGN TO? USERDEFINEDWORD
 		(fileOrganizationIndexed)?
 		PERIOD
 	;
@@ -70,9 +70,9 @@ selectFileSentence :
 // TODO: may appear in any order, but at most once
 // (though this may be not a syntatic concern, but rather semantic one)
 fileOrganizationIndexed :
-		RECORD KEY? IS? ID
+		RECORD KEY? IS? USERDEFINEDWORD
 		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
-		(STATUS IS? ID)?				// this clause belongs to general selectFileSentence
+		(STATUS IS? USERDEFINEDWORD)?	// this clause belongs to general selectFileSentence
 		ORGANIZATION IS? INDEXED
 	;
 

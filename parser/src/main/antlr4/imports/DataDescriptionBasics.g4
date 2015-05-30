@@ -108,5 +108,5 @@ levelNumber :
 	;
 
 indexName :
-		ID
+		USERDEFINEDWORD
 	;
