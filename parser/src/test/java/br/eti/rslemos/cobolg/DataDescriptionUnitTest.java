@@ -38,102 +38,126 @@ import junit.framework.TestSuite;
 import org.antlr.v4.runtime.ConsoleErrorListener;
 import org.antlr.v4.runtime.DiagnosticErrorListener;
 import org.antlr.v4.runtime.RuleContext;
-import org.antlr.v4.runtime.tree.TerminalNode;
 
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionClausesContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
-import br.eti.rslemos.cobolg.COBOLParser.DataNameContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class DataDescriptionUnitTest extends TestCase {
 	public void testEmptyDeclaration () {
-		DataDescriptionParagraphContext dataDescription = compile("01  EMPTY-DECLARATION.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("EMPTY-DECLARATION")));
+		assertThat(compile("01  EMPTY-DECLARATION."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName EMPTY-DECLARATION) "
+			+ ".)")));
 	}
 
 	public void testFillerDeclaration () {
-		DataDescriptionParagraphContext dataDescription = compile("01  FILLER.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.FILLER().getText(), is(equalTo("FILLER")));
+		assertThat(compile("01  FILLER."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "FILLER "
+			+ ".)")));
 	}
 
 	public void testAnonymousDeclaration () {
-		DataDescriptionParagraphContext dataDescription = compile("01  .");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName(), is(nullValue(DataNameContext.class)));
-		assertThat(dataDescription.FILLER(), is(nullValue(TerminalNode.class)));
+		assertThat(compile("01  ."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+			+ ".)")));
 	}
 
 	public void testPICDeclaration () {
 		// the PICTURESTRING is invalid on purpose
 		// this is a bold statement that whatever PICTURESTRING our lexer gave us
 		// should be validated elsewhere (a specialized lexer perhaps?)
-		DataDescriptionParagraphContext dataDescription = compile("01  PIC-DECLARATION PIC Z$ABX09PPAAAVS,.,,.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("PIC-DECLARATION")));
-		assertThat(dataDescription.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("Z$ABX09PPAAAVS,.,,")));
+		assertThat(compile("01  PIC-DECLARATION PIC Z$ABX09PPAAAVS,.,,."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName PIC-DECLARATION) "
+				+ "(dataDescriptionClauses "
+					+ "(pictureClause PIC Z$ABX09PPAAAVS,.,,)"
+				+ ") "
+			+ ".)")));
 	}
 	
 	public void testUsageClause () {
-		DataDescriptionParagraphContext dataDescription = compile("01  USAGE-DECLARATION USAGE IS BINARY.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("USAGE-DECLARATION")));
-		assertThat(dataDescription.dataDescriptionClauses().usageClause().usage().getText(), is(equalTo("BINARY")));
+		assertThat(compile("01  USAGE-DECLARATION USAGE IS BINARY."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName USAGE-DECLARATION) "
+				+ "(dataDescriptionClauses "
+					+ "(usageClause USAGE IS (usage BINARY))"
+				+ ") "
+			+ ".)")));
 	}
 
 	public void testValueClause () {
-		DataDescriptionParagraphContext dataDescription = compile("01  VALUE-DECLARATION VALUE IS 0.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("VALUE-DECLARATION")));
-		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().numericLiteral().INTEGER().getText(), is(equalTo("0")));
+		assertThat(compile("01  VALUE-DECLARATION VALUE IS 0."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName VALUE-DECLARATION) "
+				+ "(dataDescriptionClauses "
+					+ "(valueClause VALUE IS (literal (numericLiteral 0)))"
+				+ ") "
+			+ ".)")));
 	}
 
 	public void testValueClauseWithFigurativeConstant () {
-		DataDescriptionParagraphContext dataDescription = compile("01  VALUE-DECLARATION VALUE IS ZERO.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("VALUE-DECLARATION")));
-		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().figurativeConstant().getText(), is(equalTo("ZERO")));
+		assertThat(compile("01  VALUE-DECLARATION VALUE IS ZERO."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName VALUE-DECLARATION) "
+				+ "(dataDescriptionClauses "
+					+ "(valueClause VALUE IS (literal (figurativeConstant ZERO)))"
+				+ ") "
+			+ ".)")));
 	}
 
 	public void testOccursClause () {
-		DataDescriptionParagraphContext dataDescription = compile("01  OCCURS-DECLARATION OCCURS 10 TIMES.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("OCCURS-DECLARATION")));
-		assertThat(dataDescription.dataDescriptionClauses().occursClause().INTEGER().getText(), is(equalTo("10")));
+		assertThat(compile("01  OCCURS-DECLARATION OCCURS 10 TIMES."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName OCCURS-DECLARATION) "
+				+ "(dataDescriptionClauses "
+					+ "(occursClause OCCURS 10 TIMES)"
+				+ ") "
+			+ ".)")));
 	}
 
 	public void testRedefinesClause () {
-		DataDescriptionParagraphContext dataDescription = compile("01  REDEFINITION-DECLARATION REDEFINES REDEFINED-DECLARATION.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("REDEFINITION-DECLARATION")));
-		assertThat(dataDescription.redefinesClause().dataName().ID().getText(), is(equalTo("REDEFINED-DECLARATION")));
+		assertThat(compile("01  REDEFINITION-DECLARATION REDEFINES REDEFINED-DECLARATION."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName REDEFINITION-DECLARATION) "
+				+ "(redefinesClause REDEFINES (dataName REDEFINED-DECLARATION)) "
+			+ ".)")));
 	}
 	
 	public void testPIC_USAGE_VALUE () {
-		DataDescriptionParagraphContext dataDescription = compile("01  DECL PIC XXXXX USAGE COMP-3 VALUE IS QUOTES.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("DECL")));
-		assertThat(dataDescription.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("XXXXX")));
-		assertThat(dataDescription.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
-		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().figurativeConstant().QUOTE().getText(), is(equalTo("QUOTES")));
-		
+		assertThat(compile("01  DECL PIC XXXXX USAGE COMP-3 VALUE IS QUOTES."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName DECL) "
+				+ "(dataDescriptionClauses "
+					+ "(pictureClause PIC XXXXX) "
+					+ "(usageClause USAGE (usage COMP-3)) "
+					+ "(valueClause VALUE IS (literal (figurativeConstant QUOTES)))"
+				+ ") "
+			+ ".)")));
 	}
 
 	public void testPIC_VALUE_USAGE () {
-		DataDescriptionParagraphContext dataDescription = compile("01  DECL PIC XXXXX VALUE IS QUOTES USAGE COMP-3.");
-		assertThat(dataDescription.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescription.dataName().ID().getText(), is(equalTo("DECL")));
-		assertThat(dataDescription.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("XXXXX")));
-		assertThat(dataDescription.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
-		assertThat(dataDescription.dataDescriptionClauses().valueClause().literal().figurativeConstant().QUOTE().getText(), is(equalTo("QUOTES")));
-		
+		assertThat(compile("01  DECL PIC XXXXX VALUE IS QUOTES USAGE COMP-3."), is(equalTo("(dataDescriptionParagraph "
+				+ "(levelNumber 01) "
+				+ "(dataName DECL) "
+				+ "(dataDescriptionClauses "
+					+ "(pictureClause PIC XXXXX) "
+					+ "(valueClause VALUE IS (literal (figurativeConstant QUOTES))) "
+					+ "(usageClause USAGE (usage COMP-3))"
+				+ ") "
+			+ ".)")));
 	}
 
-	private static DataDescriptionParagraphContext compile(String source) {
-		
+	private static FreeFormatCompiler compiler;
+
+	private static String compile(String source) {
+		return compileAsContext(source).toStringTree(compiler.mainParser);
+	}
+
+	private static DataDescriptionParagraphContext compileAsContext(String source) {
 		try {
-			FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(source));
+			compiler = new FreeFormatCompiler(new StringReader(source));
 			
 			ErrorDetector detector = new ErrorDetector();
 			//compiler.addErrorListener(new DiagnosticErrorListener(true));
@@ -165,7 +189,7 @@ public class DataDescriptionUnitTest extends TestCase {
 		
 		@Override
 		protected void runTest() throws Throwable {
-			DataDescriptionClausesContext clauses = compile(getName()).dataDescriptionClauses();
+			DataDescriptionClausesContext clauses = compileAsContext(getName()).dataDescriptionClauses();
 			
 			if (permutation.size() == 0)
 				assertThat(clauses, is(nullValue(DataDescriptionClausesContext.class)));
