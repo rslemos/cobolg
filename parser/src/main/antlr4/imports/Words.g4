@@ -100,6 +100,8 @@ ON                    : 'ON';
 OPTIONAL              : 'OPTIONAL';
 ORGANIZATION          : 'ORGANIZATION';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
+PIC                   : 'PIC';     // will be overridden on the main lexer
+PICTURE               : 'PICTURE'; // will be overridden on the main lexer
 POINTER               : 'POINTER';
 PROCEDURE             : 'PROCEDURE';
 PROCEDURE_POINTER     : 'PROCEDURE-POINTER';

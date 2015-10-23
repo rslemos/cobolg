@@ -111,7 +111,12 @@ PIC_IS : IS
 // accepts any string, even malformed picture strings
 // validation of picture strings is to be done elsewhere  
 // using only '$' as currency symbol
-PICTURESTRING : [-+ABEGNPSVXZCRDB90/,.*$()0-9]* [-+ABEGNPSVXZCRDB90/,*$()0-9] 
+/**
+ * PICTURE character-string
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=67&zoom=auto,-100,420
+ */
+PICTURESTRING : [-+ABEGNPSVXZCRDB90/,*$()0-9.]* [-+ABEGNPSVXZCRDB90/,*$()0-9]
 	-> popMode
 	;
 
