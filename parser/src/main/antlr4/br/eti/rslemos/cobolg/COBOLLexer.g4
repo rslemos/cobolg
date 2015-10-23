@@ -30,6 +30,13 @@ import Words;
 
 channels { MARK, COMPILER_CHANNEL }
 
+/**
+ * Inline comment.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=67&zoom=auto,-100,160
+ */
+INLINECOMMENT : '*>' ~[\n\r\uEBA3]* -> channel(HIDDEN)
+	;
 
 /* separators */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=69&zoom=auto,-100,730 */
@@ -68,7 +75,7 @@ QUOTEDSTRING_START	:
 	|	[']  ( ~['\n\r\uEBA3] | ['] ['] )*
 	;
 
-COMMENT			: ('*' | '/') .*? NEWLINE
+COMMENT			: ('*' | '/') ~[\n\r\uEBA3]*
                 { _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
 
 PICTURE : 'PICTURE'

@@ -42,8 +42,21 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	public void testCommentLine() throws Exception {
 		setSource("*COMMENT LINE\n");
 		
-		matchToken(COMMENT, "*COMMENT LINE\n", HIDDEN);
+		matchToken(COMMENT, "*COMMENT LINE", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
+		matchEOF();
+	}
+
+	@Test
+	public void testInlineComment() throws Exception {
+		setSource("X *> INLINE COMMENT\n");
+		
+		matchToken(USERDEFINEDWORD, "X");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INLINECOMMENT, "*> INLINE COMMENT", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
+
 		matchEOF();
 	}
 
@@ -71,7 +84,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		
 		setSource(SOURCE);
 		
-		matchToken(COMMENT, "*COMMENT LINE\n", HIDDEN);
+		matchToken(COMMENT, "*COMMENT LINE", HIDDEN);
+		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		Token token;
 		
@@ -87,7 +101,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	public void testCommentLineWithCRLF() throws Exception {
 		setSource("*COMMENT LINE\r\n");
 		
-		matchToken(COMMENT, "*COMMENT LINE\r\n", HIDDEN);
+		matchToken(COMMENT, "*COMMENT LINE", HIDDEN);
+		matchToken(NEWLINE, "\r\n", HIDDEN);
 		
 		matchEOF();
 	}
@@ -96,7 +111,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	public void testCommentLineWithCR() throws Exception {
 		setSource("*COMMENT LINE\r");
 		
-		matchToken(COMMENT, "*COMMENT LINE\r", HIDDEN);
+		matchToken(COMMENT, "*COMMENT LINE", HIDDEN);
+		matchToken(NEWLINE, "\r", HIDDEN);
 		
 		matchEOF();
 	}
@@ -121,8 +137,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//*COMMENT LINE\r
-		matchToken(COMMENT, "*COMMENT LINE\r\n", HIDDEN);
-		//matchToken(NEWLINE, "\r\n", HIDDEN);
+		matchToken(COMMENT, "*COMMENT LINE", HIDDEN);
+		matchToken(NEWLINE, "\r\n", HIDDEN);
 		
 		//ENVIRONMENT DIVISION.
 		matchToken(ENVIRONMENT, "ENVIRONMENT");
