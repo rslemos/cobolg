@@ -19,16 +19,28 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
+/**
+ * This grammar is based on Enterprise COBOL for z/OS Language Reference Version 5.2
+ * (SC14-7381-03).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf
+ */
 lexer grammar COBOLLexer;
 import Words;
 
 channels { MARK, COMPILER_CHANNEL }
+
+
+/* separators */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=69&zoom=auto,-100,730 */
 
 WS : ' '+
 	-> channel(HIDDEN);
 
 NEWLINE : ('\n' '\r'? | '\r' '\n'?)
 	-> channel(HIDDEN);
+
+PERIOD    : '.'; // technically speaking, it should be '.' ( ' ' | '\n' | EOF )
 
 INTEGER : '-'? [0-9]+
 	;

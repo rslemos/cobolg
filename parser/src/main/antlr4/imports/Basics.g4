@@ -23,9 +23,12 @@ parser grammar Basics;
 
 options { tokenVocab = COBOLLexer; }
 
-dataName :
-		USERDEFINEDWORD
-	;
+/* 
+ * classes of user defined words.
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=32&zoom=auto,-100,194
+ */
+
+dataName          : USERDEFINEDWORD;
 
 literal :
 		numericLiteral

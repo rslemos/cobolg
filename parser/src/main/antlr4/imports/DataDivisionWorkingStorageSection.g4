@@ -24,6 +24,11 @@ import DataDescriptionBasics;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Working-Storage section.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=179&zoom=auto,-40,485
+ */
 workingStorageSection :
 		WORKING_STORAGE SECTION PERIOD
 		dataDescriptionParagraph*

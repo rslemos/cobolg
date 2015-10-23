@@ -19,6 +19,16 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
+/**
+ * This grammar is based on Enterprise COBOL for z/OS Language Reference Version 5.2
+ * (SC14-7381-03).
+ * 
+ * This COBOLKeywords lexer lists all available reserved words for COBOL. It
+ * includes the potential reserved words.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=621
+ */
 lexer grammar Words;
 
 PERIOD                : '.';
