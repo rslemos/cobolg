@@ -20,7 +20,7 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 parser grammar DataDivisionFileSection;
-import Basics;
+import Basics, DataDescriptionBasics;
 
 options { tokenVocab = COBOLLexer; }
 
@@ -30,17 +30,33 @@ fileSection :
 	;
 
 fileDescriptionParagraph :
-		FD fileName
-		fdIsClauses?
-		fdBlockClause?
-		fdRecordClause?
-		fdLabelRecordClause?
-		fdValueOfClause?
-		fdDataRecordClause?
-		fdLinageClause?
-		fdRecordingModeClause?
-		fdCodeSetClause?
-		PERIOD
+		fileDescriptionEntry PERIOD
+		recordDescriptionEntry* // the reference manual states recordDescriptionEntry+
+	;
+
+/**
+ * File description entry.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=193&zoom=auto,-40,730
+ */
+fileDescriptionEntry :
+		FD fileName fileDescriptionEntryClauses
+	;
+
+fileDescriptionEntryClauses :
+		fileDescriptionEntryClause*
+	;
+
+fileDescriptionEntryClause :
+		fdIsClauses
+	|	fdBlockClause
+	|	fdRecordClause
+	|	fdLabelRecordClause
+	|	fdValueOfClause
+	|	fdDataRecordClause
+	|	fdLinageClause
+	|	fdRecordingModeClause
+	|	fdCodeSetClause
 	;
 
 fdIsClauses :
@@ -94,10 +110,6 @@ fdRecordingModeClause :
 
 fdCodeSetClause :
 		CODE_SET IS? alphabetName
-	;
-
-fileName :
-		USERDEFINEDWORD
 	;
 
 systemName :

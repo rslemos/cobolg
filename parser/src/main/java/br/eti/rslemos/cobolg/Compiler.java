@@ -212,6 +212,9 @@ public abstract class Compiler {
 		ParserRuleContext rule = findRuleToInject(mainTree, neighbor.left, neighbor.right, targetInterval);
 		statement.parent = rule;
 
+		if (rule.children == null)
+			rule.children = new ArrayList<ParseTree>(1);
+		
 		ListIterator<ParseTree> it = findPositionToInject(targetInterval, rule.children.listIterator());
 		it.add(statement);
 	}
@@ -289,7 +292,7 @@ public abstract class Compiler {
 			Interval candidateInterval = candidate.getSourceInterval();
 			
 			// we bind to a missing token to the right only if a PERIOD
-			if (isInjectedMissingPeriod(candidate) || candidateInterval.startsAfter(targetInterval)) {
+			if (isInjectedMissingPeriod(candidate) || (candidateInterval.length() > 0 && candidateInterval.startsAfter(targetInterval))) {
 				it.previous();
 				break;
 			}
