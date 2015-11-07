@@ -36,12 +36,6 @@ literal :
 	|	figurativeConstant
 	;
 
-numericLiteral :
-		INTEGER
-	|	FIXEDPOINT
-	|	HEXINTEGER
-	;
-
 alphanumericLiteral :
 		quotedString
 	|	HEXSTRING
@@ -61,4 +55,16 @@ figurativeConstant :
 quotedString :
 		QUOTEDSTRING
 	|	QUOTEDSTRING_START QUOTEDSTRING_MID* QUOTEDSTRING_END
+	;
+
+/**
+ * Numeric literal.
+ * 
+ * http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=62&zoom=auto,-100,345
+ */
+numericLiteral :
+		INTEGER
+	|	FIXEDPOINT
+	|	FLOATINGPOINT
+//	|	HEXINTEGER
 	;

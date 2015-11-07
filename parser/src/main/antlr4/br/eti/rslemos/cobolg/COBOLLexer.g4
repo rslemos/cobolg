@@ -49,16 +49,41 @@ NEWLINE : ('\n' '\r'? | '\r' '\n'?)
 
 PERIOD    : '.'; // technically speaking, it should be '.' ( ' ' | '\n' | EOF )
 
-INTEGER : '-'? [0-9]+
+/**
+ * Integer.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,120
+ */
+INTEGER : [-+]? [0-9]+
 	;
 
-FIXEDPOINT : [0-9]+ '.' [0-9]+
+/**
+ * Fixed point.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,120
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,670
+ */
+FIXEDPOINT : [-+]? [0-9]+ ('.'|',') [0-9]+
 	;
 
-HEXINTEGER :
-		'H' ["] [0-9A-F]+ ["]
-	|	'H' ['] [0-9A-F]+ [']
+/**
+ * Floating point.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=63&zoom=auto,-100,675
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,670
+ */
+FLOATINGPOINT : [-+]? [0-9]+ ('.'|',') [0-9]+ 'E' [-+]? [0-9]?[0-9]
 	;
+
+///**
+// * Hexadecimal integer.
+// * 
+// * @see where is it defined?
+// */
+//HEXINTEGER :
+//		'H' ["] [0-9A-F]+ ["]
+//	|	'H' ['] [0-9A-F]+ [']
+//	;
 
 QUOTEDSTRING :
 		["] ( ~["\n\r] | ["] ["] )* ["]
