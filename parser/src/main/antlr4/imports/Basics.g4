@@ -209,5 +209,16 @@ arithmeticExpression :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
  */
 refDataName :
-		dataName ((IN | OF) dataName)* ((IN | OF) fileName)? (LPAREN arithmeticExpression COLON arithmeticExpression? RPAREN)?
+		dataName ((IN | OF) dataName)* ((IN | OF) fileName)? (LPAREN subscript+ RPAREN)? (LPAREN arithmeticExpression COLON arithmeticExpression? RPAREN)?
+	;
+
+/**
+ * Subscripting.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=95&zoom=auto,-40,270
+ */
+subscript :
+		INTEGER
+	|	ALL
+	|	refDataName ((OP_PLUS | OP_MINUS) INTEGER)?
 	;
