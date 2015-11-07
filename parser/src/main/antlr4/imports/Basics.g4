@@ -30,6 +30,22 @@ options { tokenVocab = COBOLLexer; }
 
 dataName          : USERDEFINEDWORD;
 
+/**
+ * Figurative constant.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160
+ */
+figurativeConstant :
+		ZERO | ZEROS | ZEROES
+	|	SPACE | SPACES
+	|	HIGH_VALUE | HIGH_VALUES
+	|	LOW_VALUE | LOW_VALUES
+	|	QUOTE | QUOTES
+	|	ALL literal
+//	|	symbolicCharacter
+	|	NULL | NULLS
+	;
+
 literal :
 		numericLiteral
 	|	alphanumericLiteral
@@ -45,17 +61,6 @@ alphanumericLiteral :
 		QUOTEDSTRING
 	|	QUOTEDSTRING_START QUOTEDSTRING_MID* QUOTEDSTRING_END
 	|	HEXSTRING
-	;
-
-figurativeConstant :
-		ZERO
-	|	SPACE
-	|	HIGH_VALUE
-	|	LOW_VALUE
-	|	QUOTE
-	|	ALL literal
-	|	NULL
-//	|	symbolicCharacter
 	;
 
 /**
