@@ -46,6 +46,11 @@ figurativeConstant :
 	|	NULL | NULLS
 	;
 
+/**
+ * Literal.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,300
+ */
 literal :
 		numericLiteral
 	|	alphanumericLiteral
