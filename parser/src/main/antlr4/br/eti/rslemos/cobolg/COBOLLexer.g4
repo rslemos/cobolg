@@ -85,16 +85,45 @@ FLOATINGPOINT : [-+]? [0-9]+ ('.'|',') [0-9]+ 'E' [-+]? [0-9]?[0-9]
 //	|	'H' ['] [0-9A-F]+ [']
 //	;
 
+/**
+ * Basic alphanumeric literals.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=59&zoom=auto,-100,670
+ */
 QUOTEDSTRING :
 		["] ( ~["\n\r] | ["] ["] )* ["]
 	|	['] ( ~['\n\r] | ['] ['] )* [']
 	;
 
+/**
+ * Hexadecimal notation for alphanumeric literals.
+ *
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=61&zoom=auto,-100,665
+ */
 HEXSTRING :
 		'X' ["] ([0-9A-F][0-9A-F])+ ["]
 	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
 	;
 
+///**
+// * Null-terminated alphanumeric literals.
+// * 
+// * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=61&zoom=auto,-100,185
+// */
+//NULLTERMINATEDSTRING :
+//		'Z' ["] ([0-9A-F][0-9A-F])+ ["]
+//	|	'Z' ['] ([0-9A-F][0-9A-F])+ [']
+//	;
+//
+//
+
+/**
+ * Continuation of alphanumeric literals.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=79&zoom=auto,-100,740
+ * 
+ * TODO: do it right
+ */
 QUOTEDSTRING_START	:
 		["]  ( ~["\n\r\uEBA3] | ["] ["] )*
 	|	[']  ( ~['\n\r\uEBA3] | ['] ['] )*

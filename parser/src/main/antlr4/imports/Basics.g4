@@ -36,8 +36,14 @@ literal :
 	|	figurativeConstant
 	;
 
+/**
+ * Alphanumeric literal.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,120
+ */
 alphanumericLiteral :
-		quotedString
+		QUOTEDSTRING
+	|	QUOTEDSTRING_START QUOTEDSTRING_MID* QUOTEDSTRING_END
 	|	HEXSTRING
 	;
 
@@ -50,11 +56,6 @@ figurativeConstant :
 	|	ALL literal
 	|	NULL
 //	|	symbolicCharacter
-	;
-
-quotedString :
-		QUOTEDSTRING
-	|	QUOTEDSTRING_START QUOTEDSTRING_MID* QUOTEDSTRING_END
 	;
 
 /**
