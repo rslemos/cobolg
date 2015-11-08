@@ -26,27 +26,26 @@ import java.util.Arrays;
 public class RecordDescriptionEntryData {
 	private static final String INDENT = "%1$s";
 	private static final String TAB = "\t";
-	private static final String NEWLINE = "\n";
+	private static final String NEWLINE = "\n" + TAB;
 
 	private static final String FMT_GROUP_SOURCE = INDENT + "%2$02d LEVEL-%2$02d-%3$03d-GROUP.\n%4$s";
 	private static final String FMT_ITEM_SOURCE = INDENT + "%1$s%2$02d LEVEL-%2$02d-%3$03d PIC X.\n";
 	
 	private static final String FMT_GROUP_TREE = NEWLINE +
-			TAB + "(recordDescriptionEntry " + NEWLINE +
-			TAB + TAB + "(dataDescriptionEntry " + NEWLINE +
-			TAB + TAB + TAB + "(levelNumber %2$02d) (dataName LEVEL-%2$02d-%3$03d-GROUP) " + NEWLINE +
-			TAB + TAB + TAB + "dataDescriptionClauses " + NEWLINE +
-			TAB + TAB + ".)" + NEWLINE +
-			TAB + ") " + NEWLINE +
-			TAB + "%4$s ";
+			INDENT + "(recordDescriptionEntry " + NEWLINE +
+			INDENT + TAB + "(dataDescriptionEntry " + NEWLINE +
+			INDENT + TAB + TAB + "(levelNumber %2$02d) (dataName LEVEL-%2$02d-%3$03d-GROUP) " + NEWLINE +
+			INDENT + TAB + TAB + "dataDescriptionClauses " + NEWLINE +
+			INDENT + TAB + ".) %4$s" + NEWLINE +
+			INDENT + ") ";
 	
 	private static final String FMT_ITEM_TREE = NEWLINE +
-			TAB + "(recordDescriptionEntry " + NEWLINE +
-			TAB + TAB + "(dataDescriptionEntry " + NEWLINE +
-			TAB + TAB + TAB + "(levelNumber %2$02d) (dataName LEVEL-%2$02d-%3$03d) " + NEWLINE +
-			TAB + TAB + TAB + "(dataDescriptionClauses (dataDescriptionClause (pictureClause PIC X))) " + NEWLINE +
-			TAB + TAB + ".)" + NEWLINE +
-			TAB + ") ";
+			INDENT + "(recordDescriptionEntry " + NEWLINE +
+			INDENT + TAB + "(dataDescriptionEntry " + NEWLINE +
+			INDENT + TAB + TAB + "(levelNumber %2$02d) (dataName LEVEL-%2$02d-%3$03d) " + NEWLINE +
+			INDENT + TAB + TAB + "(dataDescriptionClauses (dataDescriptionClause (pictureClause PIC X))) " + NEWLINE +
+			INDENT + TAB + ".)" + NEWLINE +
+			INDENT + ") ";
 
 	public static String source(int... split) {
 		return "WORKING-STORAGE SECTION.\n" + build0("", FMT_GROUP_SOURCE, FMT_ITEM_SOURCE, new int[] {1}, split);

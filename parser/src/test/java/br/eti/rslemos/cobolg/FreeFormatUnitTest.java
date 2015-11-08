@@ -311,6 +311,8 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 
 	@Test
@@ -324,27 +326,27 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 
 	@Test
 	public void testRecordDescriptionEntry3() {
 		// 01  WS-TAB-F-PRICE.
+		//     03  WS-TB-F-PRICE OCCURS 1000 TIMES
+		//         INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG
+		//                    IPRICELIMLOGANT.
 		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(2);
 		
 		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TAB-F-PRICE")));
-	}
 		
-	@Test
-	public void testRecordDescriptionEntry4() {
-		//    03  WS-TB-F-PRICE OCCURS 1000 TIMES
-		//        INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG
-		//                   IPRICELIMLOGANT.
-		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(3);
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(1)));
 		
-		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
+		recordDescriptionEntry = recordDescriptionEntry.recordDescriptionEntry(0);
 		
+		dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("03")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TB-F-PRICE")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().INTEGER(0).getText(), is(equalTo("1000")));
@@ -356,9 +358,9 @@ public class FreeFormatUnitTest {
 	}
 
 	@Test
-	public void testRecordDescriptionEntry5() {
+	public void testRecordDescriptionEntry4() {
 		// 01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.
-		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(4);
+		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(3);
 		
 		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("01")));
@@ -366,12 +368,14 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionEntry.redefinesClause().dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL12V05")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(17)")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).usageClause().usage().COMP_3().getText(), is(equalTo("COMP-3")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 
 	@Test
-	public void testRecordDescriptionEntry6() {
+	public void testRecordDescriptionEntry5() {
 		// 77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.
-		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(5);
+		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(4);
 		
 		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
@@ -379,6 +383,8 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 	
 	@Test
