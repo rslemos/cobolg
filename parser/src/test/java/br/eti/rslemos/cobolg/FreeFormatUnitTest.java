@@ -125,29 +125,29 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testConfigurationSectionPresence() {
-		assertThat(tree.environmentDivision().configurationSection(), is(not(nullValue(ConfigurationSectionContext.class))));
+		assertThat(tree.environmentDivision().environmentDivisionContent().configurationSection(), is(not(nullValue(ConfigurationSectionContext.class))));
 	}
 
 	@Test
 	public void testObjectComputerParagraphPresence() {
-		assertThat(tree.environmentDivision().configurationSection().objectComputerParagraph(), is(not(nullValue(ObjectComputerParagraphContext.class))));
+		assertThat(tree.environmentDivision().environmentDivisionContent().configurationSection().objectComputerParagraph(), is(not(nullValue(ObjectComputerParagraphContext.class))));
 	}
 	
 	@Test
 	public void testObjectComputerParagraph() {
-		ObjectComputerParagraphContext objCompParagraph = tree.environmentDivision().configurationSection().objectComputerParagraph();
+		ObjectComputerParagraphContext objCompParagraph = tree.environmentDivision().environmentDivisionContent().configurationSection().objectComputerParagraph();
 		
 		assertThat(objCompParagraph.computerName().getText(), is(equalTo("IBM-370-148")));
 	}
 	
 	@Test
 	public void testSpecialNamesParagraphPresence() {
-		assertThat(tree.environmentDivision().configurationSection().specialNamesParagraph(), is(not(nullValue(SpecialNamesParagraphContext.class))));
+		assertThat(tree.environmentDivision().environmentDivisionContent().configurationSection().specialNamesParagraph(), is(not(nullValue(SpecialNamesParagraphContext.class))));
 	}
 	
 	@Test
 	public void testSpecialNamesParagraph() {
-		SpecialNamesParagraphContext specNamesParagraph = tree.environmentDivision().configurationSection().specialNamesParagraph();
+		SpecialNamesParagraphContext specNamesParagraph = tree.environmentDivision().environmentDivisionContent().configurationSection().specialNamesParagraph();
 		assertThat(specNamesParagraph.specialNamesClause().size(), is(equalTo(2)));
 		
 		EnvironmentAssignmentClauseContext environmentAssignmentClause_0 = specNamesParagraph.specialNamesClause(0).environmentAssignmentClause();
@@ -159,17 +159,17 @@ public class FreeFormatUnitTest {
 	
 	@Test
 	public void testInputOutputSectionPresence() {
-		assertThat(tree.environmentDivision().inputOutputSection(), is(not(nullValue(InputOutputSectionContext.class))));
+		assertThat(tree.environmentDivision().environmentDivisionContent().inputOutputSection(), is(not(nullValue(InputOutputSectionContext.class))));
 	}
 
 	@Test
 	public void testFileControlParagraphPresence() {
-		assertThat(tree.environmentDivision().inputOutputSection().fileControlParagraph(), is(not(nullValue(FileControlParagraphContext.class))));
+		assertThat(tree.environmentDivision().environmentDivisionContent().inputOutputSection().fileControlParagraph(), is(not(nullValue(FileControlParagraphContext.class))));
 	}
 
 	@Test
 	public void testFileControlParagraph() {
-		FileControlParagraphContext fileCtlParagraph = tree.environmentDivision().inputOutputSection().fileControlParagraph();
+		FileControlParagraphContext fileCtlParagraph = tree.environmentDivision().environmentDivisionContent().inputOutputSection().fileControlParagraph();
 		assertThat(fileCtlParagraph.selectEntry().size(), is(equalTo(3)));
 		
 		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
@@ -189,7 +189,7 @@ public class FreeFormatUnitTest {
 		// "                        ACCESS SEQUENTIAL",
 		// "                        STATUS IS PROJ-STATUS",
 		// "                        ORGANIZATION INDEXED.",
-		IndexedFileControlEntryContext selectEntry_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectEntry(2).indexedFileControlEntry();
+		IndexedFileControlEntryContext selectEntry_2 = tree.environmentDivision().environmentDivisionContent().inputOutputSection().fileControlParagraph().selectEntry(2).indexedFileControlEntry();
 		assertThat(selectEntry_2.selectClause().fileName().getText(), is(equalTo("PROJEN-I")));
 		assertThat(selectEntry_2.assignClause().assignmentName(0).getText(), is(equalTo("D433131")));
 
