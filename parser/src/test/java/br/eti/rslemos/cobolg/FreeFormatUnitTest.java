@@ -132,7 +132,7 @@ public class FreeFormatUnitTest {
 	public void testObjectComputerParagraph() {
 		ObjectComputerParagraphContext objCompParagraph = tree.environmentDivision().configurationSection().objectComputerParagraph();
 		
-		assertThat(objCompParagraph.USERDEFINEDWORD().getText(), is(equalTo("IBM-370-148")));
+		assertThat(objCompParagraph.computerName().getText(), is(equalTo("IBM-370-148")));
 	}
 	
 	@Test

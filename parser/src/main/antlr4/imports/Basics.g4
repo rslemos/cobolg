@@ -23,11 +23,14 @@ parser grammar Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+priorityNumber    : INTEGER { $INTEGER.text.matches("^[0-9]?[0-9]$") }?;
+
 /* 
  * classes of user defined words.
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=32&zoom=auto,-100,194
  */
 
+alphabetName      : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
 

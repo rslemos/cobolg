@@ -20,6 +20,7 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 parser grammar EnvironmentDivision;
+import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
@@ -45,10 +46,19 @@ sourceComputerParagraph :
 		SOURCE_COMPUTER PERIOD (computerName (WITH? DEBUGGING MODE)? PERIOD)?
 	;
 
+/**
+ * Object-computer paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=134&zoom=auto,-40,135
+ */
 objectComputerParagraph :
-		OBJECT_COMPUTER PERIOD
-		USERDEFINEDWORD
-		PERIOD
+		OBJECT_COMPUTER PERIOD (
+			computerName
+			(MEMORY SIZE? INTEGER (WORDS | CHARACTERS | MODULES))?
+			(PROGRAM? COLLATING? SEQUENCE IS? alphabetName)?
+			(SEGMENT_LIMIT IS? priorityNumber)?
+			PERIOD
+		)?
 	;
 
 specialNamesParagraph :
