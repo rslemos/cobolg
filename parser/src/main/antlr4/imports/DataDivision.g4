@@ -31,6 +31,10 @@ options { tokenVocab = COBOLLexer; }
  */
 dataDivision :
 		DATA DIVISION PERIOD
+		dataDivisionContent
+	;
+
+dataDivisionContent :
 		fileSection?
 		workingStorageSection?
 		localStorageSection?
