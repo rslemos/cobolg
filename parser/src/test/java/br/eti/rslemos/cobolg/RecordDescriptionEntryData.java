@@ -35,6 +35,7 @@ public class RecordDescriptionEntryData {
 			TAB + "(recordDescriptionEntry " + NEWLINE +
 			TAB + TAB + "(dataDescriptionEntry " + NEWLINE +
 			TAB + TAB + TAB + "(levelNumber %2$02d) (dataName LEVEL-%2$02d-%3$03d-GROUP) " + NEWLINE +
+			TAB + TAB + TAB + "dataDescriptionClauses " + NEWLINE +
 			TAB + TAB + ".)" + NEWLINE +
 			TAB + ") " + NEWLINE +
 			TAB + "%4$s ";
@@ -43,7 +44,7 @@ public class RecordDescriptionEntryData {
 			TAB + "(recordDescriptionEntry " + NEWLINE +
 			TAB + TAB + "(dataDescriptionEntry " + NEWLINE +
 			TAB + TAB + TAB + "(levelNumber %2$02d) (dataName LEVEL-%2$02d-%3$03d) " + NEWLINE +
-			TAB + TAB + TAB + "(dataDescriptionClauses (pictureClause PIC X)) " + NEWLINE +
+			TAB + TAB + TAB + "(dataDescriptionClauses (dataDescriptionClause (pictureClause PIC X))) " + NEWLINE +
 			TAB + TAB + ".)" + NEWLINE +
 			TAB + ") ";
 

@@ -46,39 +46,19 @@ recordDescriptionEntry :
  */
 dataDescriptionEntry :
 	levelNumber
-	(dataName | FILLER)? redefinesClause? dataDescriptionClauses? 
+	(dataName | FILLER)? redefinesClause? dataDescriptionClauses
 	PERIOD
 	;
 
-// Waiting for correction or workaround to https://github.com/antlr/antlr4/issues/867 or http://stackoverflow.com/questions/30021472/antlr4-semantic-predicates-mess-with-error-recovery-why
-// This rather small permutation set covers all "variations" of 4 distinct
-// objects and was found by trial and error (after some algorithmic foundation).
-// (see also http://oeis.org/A007526)
 dataDescriptionClauses :
-		pictureClause usageClause    valueClause    occursClause
-	|	pictureClause usageClause    occursClause   valueClause?
-	|	pictureClause valueClause    usageClause    occursClause
-	|	pictureClause valueClause    occursClause?  usageClause?
-	|	pictureClause occursClause   valueClause    usageClause
-	|	pictureClause occursClause?  usageClause?   valueClause?
-	|	usageClause   pictureClause  valueClause    occursClause
-	|	usageClause   pictureClause  occursClause   valueClause?
-	|	usageClause   valueClause    pictureClause  occursClause
-	|	usageClause   valueClause    occursClause?  pictureClause?
-	|	usageClause   occursClause   valueClause    pictureClause
-	|	usageClause   occursClause?  pictureClause? valueClause?
-	|	valueClause   pictureClause  usageClause    occursClause
-	|	valueClause   pictureClause  occursClause   usageClause?
-	|	valueClause   usageClause    pictureClause  occursClause
-	|	valueClause   usageClause    occursClause?  pictureClause?
-	|	valueClause   occursClause   usageClause    pictureClause
-	|	valueClause   occursClause?  pictureClause? usageClause?
-	|	occursClause  pictureClause  usageClause    valueClause
-	|	occursClause  pictureClause  valueClause    usageClause?
-	|	occursClause  usageClause    pictureClause  valueClause
-	|	occursClause  usageClause    valueClause?   pictureClause?
-	|	occursClause  valueClause    usageClause    pictureClause
-	|	occursClause  valueClause?   pictureClause? usageClause?
+	dataDescriptionClause*
+	;
+
+dataDescriptionClause :
+		occursClause
+	|	pictureClause
+	|	usageClause
+	|	valueClause
 	;
 
 redefinesClause :

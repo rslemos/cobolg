@@ -30,7 +30,6 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionEntryContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class DataDescriptionEntryUnitTest {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.dataDescriptionEntry");
@@ -157,7 +156,6 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DECL_X_PICTURE_VALUE() {
 		helper.compileAndVerify(
 				source(PICTURE, VALUE),
@@ -179,7 +177,6 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DECL_X_USAGE_VALUE() {
 		helper.compileAndVerify(
 				source(USAGE, VALUE),
@@ -201,7 +198,6 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DECL_X_VALUE_USAGE() {
 		helper.compileAndVerify(
 				source(VALUE, USAGE),
@@ -223,7 +219,6 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DECL_X_OCCURS_USAGE() {
 		helper.compileAndVerify(
 				source(OCCURS, USAGE),
