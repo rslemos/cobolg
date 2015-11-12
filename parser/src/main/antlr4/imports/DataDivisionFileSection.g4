@@ -24,6 +24,11 @@ import Basics, DataDescriptionBasics;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * File section.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=178&zoom=auto,-40,175
+ */
 fileSection :
 		FILE SECTION PERIOD
 		fileDescriptionParagraph*
