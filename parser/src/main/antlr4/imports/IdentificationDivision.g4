@@ -20,6 +20,7 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 parser grammar IdentificationDivision;
+import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
@@ -28,6 +29,3 @@ identificationDivision :
 		PROGRAM_ID PERIOD programName PERIOD
 	;
 
-programName :
-		USERDEFINEDWORD
-	;
