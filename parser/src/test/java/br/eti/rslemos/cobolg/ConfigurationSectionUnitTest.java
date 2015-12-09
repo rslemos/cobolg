@@ -42,6 +42,13 @@ public class ConfigurationSectionUnitTest {
 			);
 	}
 
+	@Test public void SOURCE_COMPUTER_XYZ() {
+		helper.compileAndVerify(
+				get("SOURCE_COMPUTER_XYZ.source"),
+				get("SOURCE_COMPUTER_XYZ.tree")
+			);
+	}
+
 	@Test public void OBJECT_COMPUTER_XYZ() {
 		helper.compileAndVerify(
 				get("OBJECT_COMPUTER_XYZ.source"),

@@ -31,8 +31,18 @@ environmentDivision :
 
 configurationSection :
 		CONFIGURATION SECTION PERIOD
+		sourceComputerParagraph?
 		objectComputerParagraph?
 		specialNamesParagraph?
+	;
+
+/**
+ * Source-computer paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=134&zoom=auto,-40,670
+ */
+sourceComputerParagraph : 
+		SOURCE_COMPUTER PERIOD (computerName (WITH? DEBUGGING MODE)? PERIOD)?
 	;
 
 objectComputerParagraph :
