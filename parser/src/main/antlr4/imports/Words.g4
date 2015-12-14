@@ -123,6 +123,7 @@ LINAGE                : 'LINAGE';
 LINE                  : 'LINE';
 LINES                 : 'LINES';
 LINKAGE               : 'LINKAGE';
+LOCAL_STORAGE         : 'LOCAL-STORAGE';
 MEMORY                : 'MEMORY';
 MODE                  : 'MODE';
 MODULES               : 'MODULES';
