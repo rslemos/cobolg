@@ -24,6 +24,11 @@ import DataDivisionFileSection, DataDivisionWorkingStorageSection, DataDivisionL
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Data division.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=177&zoom=auto,-40,730
+ */
 dataDivision :
 		DATA DIVISION PERIOD
 		fileSection?
