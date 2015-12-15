@@ -148,5 +148,5 @@ numericLiteral :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
  */
 refDataName :
-		dataName ((IN | OF) dataName)*
+		dataName ((IN | OF) dataName)* ((IN | OF) fileName)?
 	;
