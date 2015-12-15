@@ -257,11 +257,11 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0LinageClause() {
-		FdLinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(7).fdLinageClause();
+		LinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(7).linageClause();
 		assertThat(linageClause.INTEGER().getText(), is(equalTo("2")));
-		assertThat(linageClause.footingAt().INTEGER().getText(), is(equalTo("2")));
-		assertThat(linageClause.linesAtBottom().INTEGER().getText(), is(equalTo("1")));
-		assertThat(linageClause.linesAtTop().INTEGER().getText(), is(equalTo("1")));
+		assertThat(linageClause.footingAtPhrase().INTEGER().getText(), is(equalTo("2")));
+		assertThat(linageClause.linesAtBottomPhrase().INTEGER().getText(), is(equalTo("1")));
+		assertThat(linageClause.linesAtTopPhrase().INTEGER().getText(), is(equalTo("1")));
 	}
 
 	@Test

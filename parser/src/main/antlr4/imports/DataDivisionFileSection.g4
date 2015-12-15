@@ -56,7 +56,7 @@ fileDescriptionEntryClause :
 	|	labelRecordClause
 	|	valueOfClause
 	|	dataRecordClause
-	|	fdLinageClause
+	|	linageClause
 	|	fdRecordingModeClause
 	|	fdCodeSetClause
 	;
@@ -71,7 +71,7 @@ sortDescriptionEntryClause :
 	|	blockContainsClause
 	|	labelRecordClause
 	|	valueOfClause
-	|	fdLinageClause
+	|	linageClause
 	|	fdCodeSetClause
 	;
 
@@ -140,23 +140,28 @@ dataRecordClause :
 		DATA (RECORD IS? | RECORDS ARE?) dataName+
 	;
 
-fdLinageClause :
+/**
+ * Linage clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=204&zoom=auto,-100,360
+ */
+linageClause :
 		LINAGE IS? (dataName | INTEGER) LINES?
-		(WITH? FOOTING AT? footingAt)? 
-		(LINES? AT? TOP linesAtTop)?
-		(LINES? AT? BOTTOM linesAtBottom)?
+		footingAtPhrase?
+		linesAtTopPhrase?
+		linesAtBottomPhrase?
 	;
 
-footingAt :
-		(dataName | INTEGER)
+footingAtPhrase :
+		WITH? FOOTING AT? (dataName | INTEGER)
 	;
 
-linesAtTop :
-		(dataName | INTEGER)
+linesAtTopPhrase :
+		LINES? AT? TOP (dataName | INTEGER)
 	;
 
-linesAtBottom :
-		(dataName | INTEGER)
+linesAtBottomPhrase :
+		LINES? AT? BOTTOM (dataName | INTEGER)
 	;
 
 fdRecordingModeClause :
