@@ -272,7 +272,7 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0CodeSetClause() {
-		FdCodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(9).fdCodeSetClause();
+		CodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(9).codeSetClause();
 		assertThat(codeSetClause.alphabetName().USERDEFINEDWORD().getText(), is(equalTo("ALPHABET1")));
 	}
 

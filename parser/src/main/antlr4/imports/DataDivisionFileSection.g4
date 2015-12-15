@@ -58,7 +58,7 @@ fileDescriptionEntryClause :
 	|	dataRecordClause
 	|	linageClause
 	|	recordingModeClause
-	|	fdCodeSetClause
+	|	codeSetClause
 	;
 
 sortDescriptionEntryClauses :
@@ -72,7 +72,7 @@ sortDescriptionEntryClause :
 	|	labelRecordClause
 	|	valueOfClause
 	|	linageClause
-	|	fdCodeSetClause
+	|	codeSetClause
 	;
 
 /**
@@ -173,6 +173,11 @@ recordingModeClause :
 		RECORDING REC_MODE? REC_IS? (F | V | U | S)
 	;
 
-fdCodeSetClause :
+/**
+ * Code-set clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=207&zoom=auto,-100,340
+ */
+codeSetClause :
 		CODE_SET IS? alphabetName
 	;
