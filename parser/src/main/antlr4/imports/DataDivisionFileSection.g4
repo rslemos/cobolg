@@ -52,7 +52,7 @@ fileDescriptionEntryClause :
 		externalClause
 	|	globalClause
 	|	blockContainsClause
-	|	fdRecordClause
+	|	recordClause
 	|	fdLabelRecordClause
 	|	fdValueOfClause
 	|	fdDataRecordClause
@@ -66,7 +66,7 @@ sortDescriptionEntryClauses :
 	;
 
 sortDescriptionEntryClause :
-		fdRecordClause
+		recordClause
 	|	fdDataRecordClause
 	|	blockContainsClause
 	|	fdLabelRecordClause
@@ -92,9 +92,18 @@ blockContainsClause :
 		(CHARACTERS | RECORDS)?
 	;
 
-fdRecordClause :
-		RECORD CONTAINS? (from=INTEGER TO)? to=INTEGER CHARACTERS?
-	|	RECORD IS? VARYING IN? SIZE? (FROM? from=INTEGER)? (TO to=INTEGER)? CHARACTERS? (DEPENDING ON? dependingOn=dataName)?
+/**
+ * Record clause.
+ * 
+ * TODO: check if the following constructions are valid:
+ * - RECORD VARYING
+ * - RECORD VARYING CHARACTERS
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=201&zoom=auto,-100,740
+ */
+recordClause :
+		RECORD CONTAINS? (INTEGER TO)? INTEGER CHARACTERS?
+	|	RECORD IS? VARYING IN? SIZE? (FROM? INTEGER)? (TO INTEGER)? CHARACTERS? (DEPENDING ON? dataName)?
 	;
 
 fdLabelRecordClause :

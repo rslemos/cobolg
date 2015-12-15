@@ -228,9 +228,9 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0RecordClause() {
-		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(3).fdRecordClause();
-		assertThat(recordClause.from.getText(), is(equalTo("80")));
-		assertThat(recordClause.to.getText(), is(equalTo("120")));
+		RecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(3).recordClause();
+		assertThat(recordClause.INTEGER(0).getText(), is(equalTo("80")));
+		assertThat(recordClause.INTEGER(1).getText(), is(equalTo("120")));
 	}
 
 	@Test
@@ -291,10 +291,10 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD1RecordClause() {
-		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(1).fdRecordClause();
-		assertThat(recordClause.from.getText(), is(equalTo("10")));
-		assertThat(recordClause.to.getText(), is(equalTo("120")));
-		assertThat(recordClause.dependingOn.getText(), is(equalTo("REC-SIZE")));
+		RecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(1).recordClause();
+		assertThat(recordClause.INTEGER(0).getText(), is(equalTo("10")));
+		assertThat(recordClause.INTEGER(1).getText(), is(equalTo("120")));
+		assertThat(recordClause.dataName().getText(), is(equalTo("REC-SIZE")));
 	}
 
 	@Test
