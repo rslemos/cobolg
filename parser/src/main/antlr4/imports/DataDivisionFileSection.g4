@@ -57,7 +57,7 @@ fileDescriptionEntryClause :
 	|	valueOfClause
 	|	dataRecordClause
 	|	linageClause
-	|	fdRecordingModeClause
+	|	recordingModeClause
 	|	fdCodeSetClause
 	;
 
@@ -164,7 +164,12 @@ linesAtBottomPhrase :
 		LINES? AT? BOTTOM (dataName | INTEGER)
 	;
 
-fdRecordingModeClause :
+/**
+ * Recording mode clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=206&zoom=auto,-100,530
+ */
+recordingModeClause :
 		RECORDING REC_MODE? REC_IS? (F | V | U | S)
 	;
 

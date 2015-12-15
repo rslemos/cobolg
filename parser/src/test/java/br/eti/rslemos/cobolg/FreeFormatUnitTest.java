@@ -266,7 +266,7 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0RecordingModeClause() {
-		FdRecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(8).fdRecordingModeClause();
+		RecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(8).recordingModeClause();
 		assertThat(recordingModeClause.V(), is(not(nullValue(TerminalNode.class))));
 	}
 
