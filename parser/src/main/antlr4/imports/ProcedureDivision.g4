@@ -31,7 +31,7 @@ options { tokenVocab = COBOLLexer; }
  */
 procedureDivision :
 		PROCEDURE DIVISION usingPhrase? returningPhrase? PERIOD
-		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
+		procedureDivisionContent
 	;
 
 // usingPhrase declared in Statements, as it is used by stmtENTRY
@@ -43,6 +43,10 @@ procedureDivision :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=276&zoom=auto,-40,600
  */
 returningPhrase : RETURNING dataName;
+
+procedureDivisionContent :
+		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
+	;
 
 unnamedProceduralSection :
 		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )

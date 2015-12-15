@@ -441,7 +441,7 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testProcedureDivision() {
-		ProcedureDivisionContext procDivision = tree.procedureDivision();
+		ProcedureDivisionContentContext procDivision = tree.procedureDivision().procedureDivisionContent();
 		
 		assertThat(procDivision.namedProceduralSection().size(), is(equalTo(0)));
 		UnnamedProceduralSectionContext unnamedProceduralSection = procDivision.unnamedProceduralSection();
