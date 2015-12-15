@@ -41,6 +41,7 @@ fileDescriptionParagraph :
  */
 fileDescriptionEntry :
 		FD fileName fileDescriptionEntryClauses
+	|	SD fileName sortDescriptionEntryClauses
 	;
 
 fileDescriptionEntryClauses :
@@ -56,6 +57,20 @@ fileDescriptionEntryClause :
 	|	fdDataRecordClause
 	|	fdLinageClause
 	|	fdRecordingModeClause
+	|	fdCodeSetClause
+	;
+
+sortDescriptionEntryClauses :
+		sortDescriptionEntryClause*
+	;
+
+sortDescriptionEntryClause :
+		fdRecordClause
+	|	fdDataRecordClause
+	|	fdBlockClause
+	|	fdLabelRecordClause
+	|	fdValueOfClause
+	|	fdLinageClause
 	|	fdCodeSetClause
 	;
 

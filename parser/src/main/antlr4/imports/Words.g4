@@ -164,6 +164,7 @@ RESERVE               : 'RESERVE';
 RIGHT                 : 'RIGHT';
 RUN                   : 'RUN';
 SAME                  : 'SAME';
+SD                    : 'SD';
 SECTION               : 'SECTION';
 SECURITY              : 'SECURITY';
 SEGMENT_LIMIT         : 'SEGMENT-LIMIT';
