@@ -214,13 +214,13 @@ public class FreeFormatUnitTest {
 	public void testFileDescriptor0Presence() {
 		FileDescriptionParagraphContext fd0 = tree.dataDivision().fileSection().fileDescriptionParagraph(0);
 		assertThat(fd0.fileDescriptionEntry().fileName().getText(), is(equalTo("FD0")));
-		assertThat(fd0.fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(0).fdIsClauses().EXTERNAL(), is(not(nullValue(TerminalNode.class))));
-		assertThat(fd0.fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(0).fdIsClauses().GLOBAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(0).externalClause().EXTERNAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(1).globalClause().GLOBAL(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD0BlockClause() {
-		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(1).fdBlockClause();
+		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(2).fdBlockClause();
 		assertThat(blockClause.from.getText(), is(equalTo("5")));
 		assertThat(blockClause.to.getText(), is(equalTo("100")));
 		assertThat(blockClause.RECORDS(), is(not(nullValue(TerminalNode.class))));
@@ -228,20 +228,20 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0RecordClause() {
-		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(2).fdRecordClause();
+		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(3).fdRecordClause();
 		assertThat(recordClause.from.getText(), is(equalTo("80")));
 		assertThat(recordClause.to.getText(), is(equalTo("120")));
 	}
 
 	@Test
 	public void testFD0LabelRecordClause() {
-		FdLabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(3).fdLabelRecordClause();
+		FdLabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(4).fdLabelRecordClause();
 		assertThat(labelRecordClause.STANDARD(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD0ValueOfClause() {
-		FdValueOfClauseContext valueOfClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(4).fdValueOfClause();
+		FdValueOfClauseContext valueOfClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(5).fdValueOfClause();
 		assertThat(valueOfClause.systemName(0).getText(), is(equalTo("SYSVAR1")));
 		assertThat(valueOfClause.literal(0).getText(), is(equalTo("'SYSVAR1'")));
 		assertThat(valueOfClause.systemName(1).getText(), is(equalTo("SYSVAR2")));
@@ -250,14 +250,14 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0DataRecordClause() {
-		FdDataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(5).fdDataRecordClause();
+		FdDataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(6).fdDataRecordClause();
 		assertThat(dataRecordClause.dataName(0).getText(), is(equalTo("REC1")));
 		assertThat(dataRecordClause.dataName(1).getText(), is(equalTo("REC2")));
 	}
 
 	@Test
 	public void testFD0LinageClause() {
-		FdLinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(6).fdLinageClause();
+		FdLinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(7).fdLinageClause();
 		assertThat(linageClause.INTEGER().getText(), is(equalTo("2")));
 		assertThat(linageClause.footingAt().INTEGER().getText(), is(equalTo("2")));
 		assertThat(linageClause.linesAtBottom().INTEGER().getText(), is(equalTo("1")));
@@ -266,13 +266,13 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0RecordingModeClause() {
-		FdRecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(7).fdRecordingModeClause();
+		FdRecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(8).fdRecordingModeClause();
 		assertThat(recordingModeClause.V(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD0CodeSetClause() {
-		FdCodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(8).fdCodeSetClause();
+		FdCodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(9).fdCodeSetClause();
 		assertThat(codeSetClause.alphabetName().USERDEFINEDWORD().getText(), is(equalTo("ALPHABET1")));
 	}
 

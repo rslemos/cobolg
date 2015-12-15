@@ -57,7 +57,6 @@ public class FileDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void FD_FILE_NAME_IS_EXTERNAL_IS_GLOBAL() {
 		helper.compileAndVerify(
 				get("FD_FILE_NAME_IS_EXTERNAL_IS_GLOBAL.source"),

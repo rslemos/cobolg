@@ -49,7 +49,8 @@ fileDescriptionEntryClauses :
 	;
 
 fileDescriptionEntryClause :
-		fdIsClauses
+		externalClause
+	|	globalClause
 	|	fdBlockClause
 	|	fdRecordClause
 	|	fdLabelRecordClause
@@ -72,11 +73,6 @@ sortDescriptionEntryClause :
 	|	fdValueOfClause
 	|	fdLinageClause
 	|	fdCodeSetClause
-	;
-
-fdIsClauses :
-		IS? EXTERNAL (IS? GLOBAL)?
-	|	IS? GLOBAL
 	;
 
 fdBlockClause :
