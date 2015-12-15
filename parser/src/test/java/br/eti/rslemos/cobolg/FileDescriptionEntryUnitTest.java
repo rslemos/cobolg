@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.FileDescriptionEntryContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class FileDescriptionEntryUnitTest {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.fileDescriptionEntry");
@@ -239,14 +238,6 @@ public class FileDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.SYNTAX_ERROR})
-	@Test public void FD_FILE_NAME_LABEL_RECORD_IS() {
-		helper.compileAndVerify(
-				get("FD_FILE_NAME_LABEL_RECORD_IS.source"),
-				get("FD_FILE_NAME_LABEL_RECORD_IS.tree")
-			);
-	}
-
 	@Test public void FD_FILE_NAME_LABEL_RECORDS_ARE_STANDARD() {
 		helper.compileAndVerify(
 				get("FD_FILE_NAME_LABEL_RECORDS_ARE_STANDARD.source"),
@@ -275,18 +266,10 @@ public class FileDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.SYNTAX_ERROR})
-	@Test public void FD_FILE_NAME_LABEL_RECORDS_ARE() {
+	@Test public void FD_FILE_NAME_LABEL_RECORDS_ARE_LABEL_1_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC() {
 		helper.compileAndVerify(
-				get("FD_FILE_NAME_LABEL_RECORDS_ARE.source"),
-				get("FD_FILE_NAME_LABEL_RECORDS_ARE.tree")
-			);
-	}
-
-	@Test public void FD_FILE_NAME_LABEL_RECORDS_ARE_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC() {
-		helper.compileAndVerify(
-				get("FD_FILE_NAME_LABEL_RECORDS_ARE_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.source"),
-				get("FD_FILE_NAME_LABEL_RECORDS_ARE_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.tree")
+				get("FD_FILE_NAME_LABEL_RECORDS_ARE_LABEL_1_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.source"),
+				get("FD_FILE_NAME_LABEL_RECORDS_ARE_LABEL_1_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.tree")
 			);
 	}
 
@@ -675,14 +658,6 @@ public class FileDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.SYNTAX_ERROR})
-	@Test public void SD_FILE_NAME_LABEL_RECORD_IS() {
-		helper.compileAndVerify(
-				get("SD_FILE_NAME_LABEL_RECORD_IS.source"),
-				get("SD_FILE_NAME_LABEL_RECORD_IS.tree")
-			);
-	}
-
 	@Test public void SD_FILE_NAME_LABEL_RECORDS_ARE_STANDARD() {
 		helper.compileAndVerify(
 				get("SD_FILE_NAME_LABEL_RECORDS_ARE_STANDARD.source"),
@@ -711,18 +686,10 @@ public class FileDescriptionEntryUnitTest {
 			);
 	}
 
-	@Waive({CompilationError.SYNTAX_ERROR})
-	@Test public void SD_FILE_NAME_LABEL_RECORDS_ARE() {
+	@Test public void SD_FILE_NAME_LABEL_RECORDS_ARE_LABEL_1_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC() {
 		helper.compileAndVerify(
-				get("SD_FILE_NAME_LABEL_RECORDS_ARE.source"),
-				get("SD_FILE_NAME_LABEL_RECORDS_ARE.tree")
-			);
-	}
-
-	@Test public void SD_FILE_NAME_LABEL_RECORDS_ARE_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC() {
-		helper.compileAndVerify(
-				get("SD_FILE_NAME_LABEL_RECORDS_ARE_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.source"),
-				get("SD_FILE_NAME_LABEL_RECORDS_ARE_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.tree")
+				get("SD_FILE_NAME_LABEL_RECORDS_ARE_LABEL_1_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.source"),
+				get("SD_FILE_NAME_LABEL_RECORDS_ARE_LABEL_1_VALUE_OF_THIS_NAME_IS_THAT_VALUE_TWELVE_IS_12_ABC_IS_ABC.tree")
 			);
 	}
 

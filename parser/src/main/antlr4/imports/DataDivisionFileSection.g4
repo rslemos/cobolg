@@ -53,7 +53,7 @@ fileDescriptionEntryClause :
 	|	globalClause
 	|	blockContainsClause
 	|	recordClause
-	|	fdLabelRecordClause
+	|	labelRecordClause
 	|	fdValueOfClause
 	|	fdDataRecordClause
 	|	fdLinageClause
@@ -69,7 +69,7 @@ sortDescriptionEntryClause :
 		recordClause
 	|	fdDataRecordClause
 	|	blockContainsClause
-	|	fdLabelRecordClause
+	|	labelRecordClause
 	|	fdValueOfClause
 	|	fdLinageClause
 	|	fdCodeSetClause
@@ -106,8 +106,20 @@ recordClause :
 	|	RECORD IS? VARYING IN? SIZE? (FROM? INTEGER)? (TO INTEGER)? CHARACTERS? (DEPENDING ON? dataName)?
 	;
 
-fdLabelRecordClause :
-		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName*) // why not dataName+?
+/**
+ * Label records clause.
+ * 
+ * Main syntax diagram specifies dataName* for FD (dataName+ for SD). We'll 
+ * keep that second definition, because it is saner.
+ * 
+ * TODO: check if the following constructions are valid:
+ * - LABEL RECORD IS
+ * - LABEL RECORDS ARE
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=203&zoom=auto,-100,260
+ */
+labelRecordClause :
+		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName+)
 	;
 
 fdValueOfClause :

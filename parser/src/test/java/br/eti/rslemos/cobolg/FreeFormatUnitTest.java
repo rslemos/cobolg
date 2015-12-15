@@ -235,7 +235,7 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0LabelRecordClause() {
-		FdLabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(4).fdLabelRecordClause();
+		LabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(4).labelRecordClause();
 		assertThat(labelRecordClause.STANDARD(), is(not(nullValue(TerminalNode.class))));
 	}
 
