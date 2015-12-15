@@ -136,6 +136,12 @@ numericLiteral :
 //	|	HEXINTEGER
 	;
 
+identifier :
+		USERDEFINEDWORD
+	|	USERDEFINEDWORD LPAREN identifier+ RPAREN
+	|	USERDEFINEDWORD LPAREN INTEGER RPAREN
+	;
+
 /**
  * Arithmetic expression.
  * 
@@ -148,6 +154,7 @@ arithmeticExpression :
 	|	arithmeticExpression (OP_STAR | OP_SLASH) arithmeticExpression
 	|	arithmeticExpression (OP_PLUS | OP_MINUS) arithmeticExpression
 	|	literal
+	|	identifier
 	;
 
 /*
