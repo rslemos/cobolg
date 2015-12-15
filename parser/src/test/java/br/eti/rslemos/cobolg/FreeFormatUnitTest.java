@@ -250,7 +250,7 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0DataRecordClause() {
-		FdDataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(6).fdDataRecordClause();
+		DataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(6).dataRecordClause();
 		assertThat(dataRecordClause.dataName(0).getText(), is(equalTo("REC1")));
 		assertThat(dataRecordClause.dataName(1).getText(), is(equalTo("REC2")));
 	}

@@ -55,7 +55,7 @@ fileDescriptionEntryClause :
 	|	recordClause
 	|	labelRecordClause
 	|	valueOfClause
-	|	fdDataRecordClause
+	|	dataRecordClause
 	|	fdLinageClause
 	|	fdRecordingModeClause
 	|	fdCodeSetClause
@@ -67,7 +67,7 @@ sortDescriptionEntryClauses :
 
 sortDescriptionEntryClause :
 		recordClause
-	|	fdDataRecordClause
+	|	dataRecordClause
 	|	blockContainsClause
 	|	labelRecordClause
 	|	valueOfClause
@@ -131,7 +131,12 @@ valueOfClause :
 		VALUE OF (systemName IS? (dataName | literal))+
 	;
 
-fdDataRecordClause :
+/**
+ * Data records clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=204&zoom=auto,-100,480
+ */
+dataRecordClause :
 		DATA (RECORD IS? | RECORDS ARE?) dataName+
 	;
 
