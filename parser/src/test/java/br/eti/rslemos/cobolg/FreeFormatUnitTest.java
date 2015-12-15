@@ -241,7 +241,7 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0ValueOfClause() {
-		FdValueOfClauseContext valueOfClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(5).fdValueOfClause();
+		ValueOfClauseContext valueOfClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(5).valueOfClause();
 		assertThat(valueOfClause.systemName(0).getText(), is(equalTo("SYSVAR1")));
 		assertThat(valueOfClause.literal(0).getText(), is(equalTo("'SYSVAR1'")));
 		assertThat(valueOfClause.systemName(1).getText(), is(equalTo("SYSVAR2")));

@@ -54,7 +54,7 @@ fileDescriptionEntryClause :
 	|	blockContainsClause
 	|	recordClause
 	|	labelRecordClause
-	|	fdValueOfClause
+	|	valueOfClause
 	|	fdDataRecordClause
 	|	fdLinageClause
 	|	fdRecordingModeClause
@@ -70,7 +70,7 @@ sortDescriptionEntryClause :
 	|	fdDataRecordClause
 	|	blockContainsClause
 	|	labelRecordClause
-	|	fdValueOfClause
+	|	valueOfClause
 	|	fdLinageClause
 	|	fdCodeSetClause
 	;
@@ -122,7 +122,12 @@ labelRecordClause :
 		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName+)
 	;
 
-fdValueOfClause :
+/**
+ * Value of clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=204&zoom=auto,-100,675
+ */
+valueOfClause :
 		VALUE OF (systemName IS? (dataName | literal))+
 	;
 
@@ -156,8 +161,3 @@ fdRecordingModeClause :
 fdCodeSetClause :
 		CODE_SET IS? alphabetName
 	;
-
-systemName :
-		USERDEFINEDWORD
-	;
-
