@@ -136,6 +136,20 @@ numericLiteral :
 //	|	HEXINTEGER
 	;
 
+/**
+ * Arithmetic expression.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=279&zoom=auto,-40,185
+ */
+arithmeticExpression :
+		LPAREN arithmeticExpression RPAREN
+	|	(OP_PLUS | OP_MINUS) arithmeticExpression
+	|	arithmeticExpression OP_STARSTAR arithmeticExpression
+	|	arithmeticExpression (OP_STAR | OP_SLASH) arithmeticExpression
+	|	arithmeticExpression (OP_PLUS | OP_MINUS) arithmeticExpression
+	|	literal
+	;
+
 /*
  * References
  * 
@@ -148,5 +162,5 @@ numericLiteral :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
  */
 refDataName :
-		dataName ((IN | OF) dataName)* ((IN | OF) fileName)?
+		dataName ((IN | OF) dataName)* ((IN | OF) fileName)? (LPAREN arithmeticExpression COLON arithmeticExpression? RPAREN)?
 	;

@@ -226,6 +226,16 @@ ZERO                  : 'ZERO';
 ZEROES                : 'ZEROES';
 ZEROS                 : 'ZEROS';
 
+/* SPECIAL CHARACTER WORDS */
+
+/* arithmetic operators */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=279&zoom=auto,-100,185 */
+OP_PLUS               : '+';  // unary plus or addition
+OP_MINUS              : '-';  // unary minus or subtraction
+OP_STAR               : '*';  // multiplication
+OP_SLASH              : '/';  // division
+OP_STARSTAR           : '**'; // exponentiation
+
 
 EBCDIC                : 'EBCDIC';
 //SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer
