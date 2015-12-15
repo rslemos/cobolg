@@ -51,7 +51,7 @@ fileDescriptionEntryClauses :
 fileDescriptionEntryClause :
 		externalClause
 	|	globalClause
-	|	fdBlockClause
+	|	blockContainsClause
 	|	fdRecordClause
 	|	fdLabelRecordClause
 	|	fdValueOfClause
@@ -68,15 +68,28 @@ sortDescriptionEntryClauses :
 sortDescriptionEntryClause :
 		fdRecordClause
 	|	fdDataRecordClause
-	|	fdBlockClause
+	|	blockContainsClause
 	|	fdLabelRecordClause
 	|	fdValueOfClause
 	|	fdLinageClause
 	|	fdCodeSetClause
 	;
 
-fdBlockClause :
-		BLOCK CONTAINS? (from=INTEGER TO)? to=INTEGER (CHARACTERS | RECORDS)
+/**
+ * Block contains.
+ * 
+ * Main syntax diagram indicates that either CHARACTERS or RECORDS should be 
+ * used. But reference text says that "the CHARACTERS phrase is the default".
+ * Moreover sources were found where none of them is specified (look at NIST 
+ * COBOL-85 Test Suite's IX(IX216A), IX(IX108A)).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=199&zoom=auto,-100,390
+ */
+blockContainsClause :
+		BLOCK CONTAINS?
+		(INTEGER TO)?
+		INTEGER
+		(CHARACTERS | RECORDS)?
 	;
 
 fdRecordClause :

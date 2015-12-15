@@ -220,9 +220,9 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0BlockClause() {
-		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(2).fdBlockClause();
-		assertThat(blockClause.from.getText(), is(equalTo("5")));
-		assertThat(blockClause.to.getText(), is(equalTo("100")));
+		BlockContainsClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(2).blockContainsClause();
+		assertThat(blockClause.INTEGER(0).getText(), is(equalTo("5")));
+		assertThat(blockClause.INTEGER(1).getText(), is(equalTo("100")));
 		assertThat(blockClause.RECORDS(), is(not(nullValue(TerminalNode.class))));
 	}
 
@@ -284,8 +284,8 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD1BlockClause() {
-		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(0).fdBlockClause();
-		assertThat(blockClause.to.getText(), is(equalTo("120")));
+		BlockContainsClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(0).blockContainsClause();
+		assertThat(blockClause.INTEGER(0).getText(), is(equalTo("120")));
 		assertThat(blockClause.CHARACTERS(), is(not(nullValue(TerminalNode.class))));
 	}
 

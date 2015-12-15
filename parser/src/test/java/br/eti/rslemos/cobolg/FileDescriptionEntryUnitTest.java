@@ -113,6 +113,27 @@ public class FileDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void FD_FILE_NAME_BLOCK_CONTAINS_5() {
+		helper.compileAndVerify(
+				get("FD_FILE_NAME_BLOCK_CONTAINS_5.source"),
+				get("FD_FILE_NAME_BLOCK_CONTAINS_5.tree")
+			);
+	}
+
+	@Test public void FD_FILE_NAME_BLOCK_CONTAINS_5_TO_10() {
+		helper.compileAndVerify(
+				get("FD_FILE_NAME_BLOCK_CONTAINS_5_TO_10.source"),
+				get("FD_FILE_NAME_BLOCK_CONTAINS_5_TO_10.tree")
+			);
+	}
+
+	@Test public void FD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORD_CONTAINS_80_CHARACTERS() {
+		helper.compileAndVerify(
+				get("FD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORD_CONTAINS_80_CHARACTERS.source"),
+				get("FD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORD_CONTAINS_80_CHARACTERS.tree")
+			);
+	}
+
 	@Test public void FD_FILE_NAME_RECORD_CONTAINS_80_CHARACTERS() {
 		helper.compileAndVerify(
 				get("FD_FILE_NAME_RECORD_CONTAINS_80_CHARACTERS.source"),
@@ -525,6 +546,27 @@ public class FileDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				get("SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORDS_RECORD_CONTAINS_80_CHARACTERS.source"),
 				get("SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORDS_RECORD_CONTAINS_80_CHARACTERS.tree")
+			);
+	}
+
+	@Test public void SD_FILE_NAME_BLOCK_CONTAINS_5() {
+		helper.compileAndVerify(
+				get("SD_FILE_NAME_BLOCK_CONTAINS_5.source"),
+				get("SD_FILE_NAME_BLOCK_CONTAINS_5.tree")
+			);
+	}
+
+	@Test public void SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10() {
+		helper.compileAndVerify(
+				get("SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10.source"),
+				get("SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10.tree")
+			);
+	}
+
+	@Test public void SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORD_CONTAINS_80_CHARACTERS() {
+		helper.compileAndVerify(
+				get("SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORD_CONTAINS_80_CHARACTERS.source"),
+				get("SD_FILE_NAME_BLOCK_CONTAINS_5_TO_10_RECORD_CONTAINS_80_CHARACTERS.tree")
 			);
 	}
 
