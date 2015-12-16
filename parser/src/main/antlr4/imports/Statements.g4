@@ -56,6 +56,13 @@ imperativeStatement :
 	|	stmtSequentialWRITEimperative
 	;
 
+/**
+ * CORRESPONDING phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=307&zoom=auto,-40,290
+ */
+correspondingPhrase : (CORR | CORRESPONDING);
+
 /* here come the actual statements (all prefixed by stmt) */
 
 /**
