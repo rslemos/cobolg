@@ -210,6 +210,7 @@ OR                    : 'OR';
 ORDER                 : 'ORDER';
 ORGANIZATION          : 'ORGANIZATION';
 OUTPUT                : 'OUTPUT';
+OVERFLOW              : 'OVERFLOW';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
 PADDING               : 'PADDING';
 PAGE                  : 'PAGE';

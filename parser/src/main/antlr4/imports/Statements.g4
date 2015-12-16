@@ -131,6 +131,16 @@ onExceptionPhrase    :     ON? EXCEPTION imperativeStatement;
 notOnExceptionPhrase : NOT ON? EXCEPTION imperativeStatement;
 
 /**
+ * OVERFLOW phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=338&zoom=auto,-40,700
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=468&zoom=auto,-40,630
+ */
+overflowPhrases : onOverflowPhrase? notOnOverflowPhrase?;
+onOverflowPhrase    :     ON? OVERFLOW imperativeStatement;
+notOnOverflowPhrase : NOT ON? OVERFLOW imperativeStatement;
+
+/**
  * INVALID KEY phrases.
  * 
  */
