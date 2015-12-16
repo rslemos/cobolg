@@ -129,6 +129,7 @@ EOP                   : 'EOP';
 EQUAL                 : 'EQUAL';
 ERROR                 : 'ERROR';
 EVERY                 : 'EVERY';
+EXCEPTION             : 'EXCEPTION';
 EXIT                  : 'EXIT';
 EXTEND                : 'EXTEND';
 EXTERNAL              : 'EXTERNAL';

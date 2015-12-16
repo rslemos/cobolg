@@ -121,6 +121,16 @@ onSizeErrorPhrase    :     ON? SIZE ERROR imperativeStatement;
 notOnSizeErrorPhrase : NOT ON? SIZE ERROR imperativeStatement;
 
 /**
+ * EXCEPTION phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,410
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,230
+ */
+exceptionPhrases : onExceptionPhrase? notOnExceptionPhrase?;
+onExceptionPhrase    :     ON? EXCEPTION imperativeStatement;
+notOnExceptionPhrase : NOT ON? EXCEPTION imperativeStatement;
+
+/**
  * INVALID KEY phrases.
  * 
  */
