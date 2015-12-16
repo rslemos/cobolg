@@ -126,6 +126,15 @@ atEndPhrases : atEndPhrase? notAtEndPhrase?;
 atEndPhrase    :     AT? END imperativeStatement;
 notAtEndPhrase : NOT AT? END imperativeStatement;
 
+/**
+ * AT END-OF-PAGE phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=485&zoom=auto,-40,335
+ */
+atEndOfPagePhrases : atEndOfPagePhrase? notAtEndOfPagePhrase?;
+atEndOfPagePhrase    :     AT? (END_OF_PAGE | EOP) imperativeStatement;
+notAtEndOfPagePhrase : NOT AT? (END_OF_PAGE | EOP) imperativeStatement;
+
 /* here come the actual statements (all prefixed by stmt) */
 
 /**
