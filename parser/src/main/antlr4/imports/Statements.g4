@@ -110,6 +110,17 @@ roundedPhrase : identifier ROUNDED?;
 givingPhrase : GIVING roundedPhrase+;
 
 /**
+ * SIZE ERROR phrases.
+ * 
+ * (should allow any order?)
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=309&zoom=auto,-40,340
+ */
+sizeErrorPhrases : onSizeErrorPhrase? notOnSizeErrorPhrase?;
+onSizeErrorPhrase    :     ON? SIZE ERROR imperativeStatement;
+notOnSizeErrorPhrase : NOT ON? SIZE ERROR imperativeStatement;
+
+/**
  * INVALID KEY phrases.
  * 
  */

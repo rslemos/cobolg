@@ -127,6 +127,7 @@ ENTRY                 : 'ENTRY';
 ENVIRONMENT           : 'ENVIRONMENT';
 EOP                   : 'EOP';
 EQUAL                 : 'EQUAL';
+ERROR                 : 'ERROR';
 EVERY                 : 'EVERY';
 EXIT                  : 'EXIT';
 EXTEND                : 'EXTEND';
