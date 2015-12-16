@@ -45,6 +45,7 @@ imperativeStatement :
 	|	stmtCLOSE
 	|	stmtDELETEimperative
 	|	stmtDISPLAY
+	|	stmtOPEN
 	;
 
 /* here come the actual statements (all prefixed by stmt) */
@@ -79,5 +80,19 @@ stmtDELETEimperative : DELETE fileName RECORD?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=350&zoom=auto,-40,735
  */
 stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentName))? (WITH? NO ADVANCING)?;
+
+/**
+ * OPEN statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=408&zoom=auto,-40,735
+ */
+stmtOPEN : OPEN openObject+;
+
+openObject :
+		INPUT (fileName (REVERSED | WITH? NO REWIND)?)+
+	|	OUTPUT (fileName (WITH? NO REWIND)?)+
+	|	I_O (fileName)+
+	|	EXTEND (fileName)+
+	;
 
 stmtSTOPRUN : STOP RUN;
