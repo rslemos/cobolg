@@ -63,6 +63,13 @@ imperativeStatement :
  */
 correspondingPhrase : (CORR | CORRESPONDING);
 
+/**
+ * ROUNDED phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=309&zoom=auto,-40,735
+ */
+roundedPhrase : identifier ROUNDED?;
+
 /* here come the actual statements (all prefixed by stmt) */
 
 /**

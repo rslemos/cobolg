@@ -200,6 +200,7 @@ REVERSED              : 'REVERSED';
 REWIND                : 'REWIND';
 REWRITE               : 'REWRITE';
 RIGHT                 : 'RIGHT';
+ROUNDED               : 'ROUNDED';
 RUN                   : 'RUN';
 SAME                  : 'SAME';
 SD                    : 'SD';
