@@ -116,6 +116,7 @@ FOOTING               : 'FOOTING';
 FOR                   : 'FOR';
 FROM                  : 'FROM';
 FUNCTION_POINTER      : 'FUNCTION-POINTER';
+GIVING                : 'GIVING';
 GLOBAL                : 'GLOBAL';
 GREATER               : 'GREATER';
 GROUP_USAGE           : 'GROUP-USAGE';

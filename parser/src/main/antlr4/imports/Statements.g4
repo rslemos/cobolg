@@ -70,6 +70,13 @@ correspondingPhrase : (CORR | CORRESPONDING);
  */
 roundedPhrase : identifier ROUNDED?;
 
+/**
+ * GIVING phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=308&zoom=auto,-40,140
+ */
+givingPhrase : GIVING roundedPhrase+;
+
 /* here come the actual statements (all prefixed by stmt) */
 
 /**
