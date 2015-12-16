@@ -42,6 +42,7 @@ imperativeStatement :
 		/* unknown statements */
 		stmtSTOPRUN
 	|	stmtACCEPT // format 1
+	|	stmtCLOSE
 	|	stmtDISPLAY
 	;
 
@@ -56,6 +57,13 @@ imperativeStatement :
 stmtACCEPT :
 		ACCEPT identifier (FROM (mnemonicName | environmentName))?
 	;
+
+/**
+ * CLOSE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=341&zoom=auto,-40,735
+ */
+stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WITH? (NO REWIND | LOCK))?)+;
 
 stmtDISPLAY : DISPLAY literal;
 
