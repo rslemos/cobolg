@@ -72,6 +72,7 @@ imperativeStatement :
 	|	stmtSTOP
 	|	stmtPageWRITEimperative
 	|	stmtSequentialWRITEimperative
+	|	stmtALTER
 	;
 
 /**
@@ -121,6 +122,13 @@ stmtADDimperative :
 	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
 	|	ADD correspondingPhrase identifier TO roundedPhrase
 	;
+
+/**
+ * ALTER statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=329&zoom=auto,-40,735
+ */
+stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
 
 /**
  * CLOSE statement.
