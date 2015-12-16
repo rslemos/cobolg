@@ -50,6 +50,7 @@ imperativeStatement :
 	|	stmtRandomREADimperative
 	|	stmtREWRITEimperative
 	|	stmtSTARTimperative
+	|	stmtSTOP
 	;
 
 /* here come the actual statements (all prefixed by stmt) */
@@ -121,5 +122,12 @@ stmtREWRITEimperative : REWRITE recordName (FROM identifier);
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=462&zoom=auto,-40,735
  */
 stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)?;
+
+/**
+ * STOP statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=465&zoom=auto,-40,735
+ */
+stmtSTOP : STOP literal;
 
 stmtSTOPRUN : STOP RUN;
