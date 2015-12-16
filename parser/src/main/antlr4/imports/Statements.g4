@@ -117,6 +117,15 @@ invalidKeyPhrases : invalidKeyPhrase? notInvalidKeyPhrase?;
 invalidKeyPhrase    :     INVALID KEY? imperativeStatement;
 notInvalidKeyPhrase : NOT INVALID KEY? imperativeStatement;
 
+/**
+ * AT END phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=425&zoom=auto,-40,190
+ */
+atEndPhrases : atEndPhrase? notAtEndPhrase?;
+atEndPhrase    :     AT? END imperativeStatement;
+notAtEndPhrase : NOT AT? END imperativeStatement;
+
 /* here come the actual statements (all prefixed by stmt) */
 
 /**
