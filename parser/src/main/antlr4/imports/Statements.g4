@@ -41,10 +41,21 @@ proceduralStatement :
 imperativeStatement :
 		/* unknown statements */
 		stmtSTOPRUN
+	|	stmtACCEPT // format 1
 	|	stmtDISPLAY
 	;
 
 /* here come the actual statements (all prefixed by stmt) */
+
+/**
+ * ACCEPT statement.
+ * 
+ * Format 1:
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=322&zoom=auto,-40,735
+ */
+stmtACCEPT :
+		ACCEPT identifier (FROM (mnemonicName | environmentName))?
+	;
 
 stmtDISPLAY : DISPLAY literal;
 

@@ -37,6 +37,7 @@ PERIOD                : '.';
 
 /* KEYWORDS */
 
+ACCEPT                : 'ACCEPT';
 ACCESS                : 'ACCESS';
 ADDRESS               : 'ADDRESS';
 ALL                   : 'ALL';
