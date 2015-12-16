@@ -50,6 +50,7 @@ imperativeStatement :
 //	|	ACCEPT // format 2
 	|	stmtINITIALIZE
 	|	stmtINSPECT
+	|	stmtMOVE
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -179,6 +180,16 @@ inspectTallyingFor :
 inspectReplacingObject :
 		CHARACTERS BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*
 	|	(ALL | LEADING | FIRST) ((identifier | literal) BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*)+
+	;
+
+/**
+ * MOVE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=398&zoom=auto,-40,735
+ */
+stmtMOVE :
+		MOVE (identifier | literal) TO identifier+
+	|	MOVE (CORRESPONDING | CORR) identifier TO identifier
 	;
 
 /**

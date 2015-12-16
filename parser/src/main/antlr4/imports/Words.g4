@@ -163,6 +163,7 @@ LOCK                  : 'LOCK';
 MEMORY                : 'MEMORY';
 MODE                  : 'MODE';
 MODULES               : 'MODULES';
+MOVE                  : 'MOVE';
 MULTIPLE              : 'MULTIPLE';
 MULTIPLY              : 'MULTIPLY';
 NATIONAL              : 'NATIONAL';
