@@ -73,6 +73,11 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  */
 stmtDELETEimperative : DELETE fileName RECORD?;
 
-stmtDISPLAY : DISPLAY literal;
+/**
+ * DISPLAY statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=350&zoom=auto,-40,735
+ */
+stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentName))? (WITH? NO ADVANCING)?;
 
 stmtSTOPRUN : STOP RUN;
