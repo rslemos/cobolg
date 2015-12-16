@@ -159,6 +159,7 @@ INPUT_OUTPUT          : 'INPUT-OUTPUT';
 INSPECT               : 'INSPECT';
 INSTALLATION          : 'INSTALLATION';
 INTO                  : 'INTO';
+INVALID               : 'INVALID';
 INVOKE                : 'INVOKE';
 IS                    : 'IS';
 JUST                  : 'JUST';

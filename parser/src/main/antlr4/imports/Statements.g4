@@ -109,6 +109,14 @@ roundedPhrase : identifier ROUNDED?;
  */
 givingPhrase : GIVING roundedPhrase+;
 
+/**
+ * INVALID KEY phrases.
+ * 
+ */
+invalidKeyPhrases : invalidKeyPhrase? notInvalidKeyPhrase?;
+invalidKeyPhrase    :     INVALID KEY? imperativeStatement;
+notInvalidKeyPhrase : NOT INVALID KEY? imperativeStatement;
+
 /* here come the actual statements (all prefixed by stmt) */
 
 /**
