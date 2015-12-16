@@ -51,6 +51,7 @@ imperativeStatement :
 	|	stmtINITIALIZE
 	|	stmtINSPECT
 	|	stmtMOVE
+	|	stmtSET
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -231,6 +232,21 @@ stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dat
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
+
+/**
+ * SET statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=445&zoom=auto,-40,735
+ */
+stmtSET :
+		SET (indexName | identifier)+ TO (indexName | identifier | INTEGER)
+	|	SET indexName+ (UP | DOWN) BY (identifier | INTEGER)
+	|	SET (mnemonicName+ TO (ON | OFF))+
+	|	SET conditionName+ TO TRUE
+	|	SET (identifier | ADDRESS OF identifier)+ TO (identifier | ADDRESS OF identifier | NULL | NULLS)
+//	|	SET (procedurePointer | functionPointer)+ TO (procedurePointer | functionPointer | ENTRY (identifier | literal) | NULL | NULLS | pointerDataItem)
+//	|	SET objectReference TO (objectReference | SELF | NULL)
+	;
 
 /**
  * START statement.
