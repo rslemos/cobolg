@@ -75,6 +75,7 @@ imperativeStatement :
 	|	stmtMERGE
 	|	stmtRELEASE
 	|	stmtRETURNimperative
+	|	stmtSORT
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
@@ -378,6 +379,18 @@ stmtSET :
 	|	SET (identifier | ADDRESS OF identifier)+ TO (identifier | ADDRESS OF identifier | NULL | NULLS)
 //	|	SET (procedurePointer | functionPointer)+ TO (procedurePointer | functionPointer | ENTRY (identifier | literal) | NULL | NULLS | pointerDataItem)
 //	|	SET objectReference TO (objectReference | SELF | NULL)
+	;
+
+/**
+ * SORT statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=452&zoom=auto,-40,735
+ */
+stmtSORT :
+		SORT dataName (ON? (ASCENDING | DESCENDING) KEY? dataName+)* (WITH? DUPLICATES IN? ORDER?)? (COLLATING? SEQUENCE IS? alphabetName)?
+	|	SORT fileName (ON? (ASCENDING | DESCENDING) KEY? dataName+)+ (WITH? DUPLICATES IN? ORDER?)? (COLLATING? SEQUENCE IS? alphabetName)?
+		(USING fileName+ | INPUT PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?)
+		(GIVING fileName+ | OUTPUT PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?)
 	;
 
 /**

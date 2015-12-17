@@ -202,6 +202,7 @@ ON                    : 'ON';
 OPEN                  : 'OPEN';
 OPTIONAL              : 'OPTIONAL';
 OR                    : 'OR';
+ORDER                 : 'ORDER';
 ORGANIZATION          : 'ORGANIZATION';
 OUTPUT                : 'OUTPUT';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
