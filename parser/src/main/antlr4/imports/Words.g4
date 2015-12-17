@@ -229,6 +229,7 @@ REDEFINES             : 'REDEFINES';
 REEL                  : 'REEL';
 REFERENCE             : 'REFERENCE';
 RELATIVE              : 'RELATIVE';
+RELEASE               : 'RELEASE';
 REMAINDER             : 'REMAINDER';
 REMOVAL               : 'REMOVAL';
 RENAMES               : 'RENAMES';

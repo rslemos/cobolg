@@ -73,6 +73,7 @@ imperativeStatement :
 	|	stmtPageWRITEimperative
 	|	stmtSequentialWRITEimperative
 	|	stmtMERGE
+	|	stmtRELEASE
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
@@ -341,6 +342,13 @@ performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | ind
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
+
+/**
+ * RELEASE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=431&zoom=auto,-40,735
+ */
+stmtRELEASE : RELEASE recordName (FROM identifier)?;
 
 /**
  * REWRITE statement.
