@@ -176,6 +176,7 @@ LINKAGE               : 'LINKAGE';
 LOCAL_STORAGE         : 'LOCAL-STORAGE';
 LOCK                  : 'LOCK';
 MEMORY                : 'MEMORY';
+MERGE                 : 'MERGE';
 METHOD                : 'METHOD';
 MODE                  : 'MODE';
 MODULES               : 'MODULES';

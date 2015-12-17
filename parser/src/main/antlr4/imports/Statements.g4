@@ -72,6 +72,7 @@ imperativeStatement :
 	|	stmtSTOP
 	|	stmtPageWRITEimperative
 	|	stmtSequentialWRITEimperative
+	|	stmtMERGE
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
@@ -269,6 +270,18 @@ stmtINVOKEimperative :
 		INVOKE (identifier | className | SELF | SUPER) (literal | identifier | NEW)
 		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
 		(RETURNING identifier)?
+	;
+
+/**
+ * MERGE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=393&zoom=auto,-40,735
+ */
+stmtMERGE :
+		MERGE fileName (ON? (ASCENDING | DESCENDING) KEY? dataName+)+
+		(COLLATING? SEQUENCE IS? alphabetName)?
+		USING fileName fileName+
+		(OUTPUT PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)? | GIVING fileName+)
 	;
 
 /**
