@@ -137,6 +137,7 @@ FUNCTION_POINTER      : 'FUNCTION-POINTER';
 GENERATE              : 'GENERATE';
 GIVING                : 'GIVING';
 GLOBAL                : 'GLOBAL';
+GOBACK                : 'GOBACK';
 GREATER               : 'GREATER';
 GROUP_USAGE           : 'GROUP-USAGE';
 I_O                   : 'I-O';
