@@ -69,6 +69,7 @@ BLOCK                 : 'BLOCK';
 BOTTOM                : 'BOTTOM';
 BY                    : 'BY';
 CALL                  : 'CALL';
+CANCEL                : 'CANCEL';
 CHARACTER             : 'CHARACTER';
 CHARACTERS            : 'CHARACTERS';
 CLASS                 : 'CLASS';

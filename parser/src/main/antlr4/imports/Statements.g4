@@ -78,6 +78,7 @@ imperativeStatement :
 	|	stmtPERFORMimperative
 	|	stmtCONTINUE
 	|	stmtCALLimperative
+	|	stmtCANCEL
 	;
 
 /**
@@ -147,6 +148,13 @@ callUsing :
 	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
 	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
 	;
+
+/**
+ * CANCEL statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=339&zoom=auto,-40,735
+ */
+stmtCANCEL : CANCEL (identifier | literal)+;
 
 /**
  * CLOSE statement.
