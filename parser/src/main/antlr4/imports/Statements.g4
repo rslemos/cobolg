@@ -75,6 +75,7 @@ imperativeStatement :
 	|	stmtALTER
 	|	stmtGOTO
 	|	stmtPERFORMimperative
+	|	stmtCONTINUE
 	;
 
 /**
@@ -145,6 +146,13 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=345&zoom=auto,-40,735
  */
 stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
+
+/**
+ * CONTINUE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=347&zoom=auto,-40,735
+ */
+stmtCONTINUE : CONTINUE;
 
 /**
  * DELETE statement.

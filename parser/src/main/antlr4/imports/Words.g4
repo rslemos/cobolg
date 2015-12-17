@@ -91,6 +91,7 @@ COMPUTE               : 'COMPUTE';
 CONFIGURATION         : 'CONFIGURATION';
 CONTAINS              : 'CONTAINS';
 CONTENT               : 'CONTENT';
+CONTINUE              : 'CONTINUE';
 CONVERTING            : 'CONVERTING';
 CORR                  : 'CORR';
 CORRESPONDING         : 'CORRESPONDING';
