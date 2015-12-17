@@ -229,4 +229,25 @@ public class CompilerStatementsUnitTest {
 				get("UnterminatedCOPYStatementsInsideFileDeclaration.tree")
 			);
 	}
+	
+	@Test public void COPYEntireProceduralParagraph () {
+		programHelper.compileAndVerify(
+				get("COPYEntireProceduralParagraph.source"),
+				get("COPYEntireProceduralParagraph.tree")
+			);
+	}
+	
+	@Test public void COPYEntireProceduralAnonymousParagraph () {
+		programHelper.compileAndVerify(
+				get("COPYEntireProceduralAnonymousParagraph.source"),
+				get("COPYEntireProceduralAnonymousParagraph.tree")
+			);
+	}
+	
+	@Test public void COPYEntireProceduralAnonymousParagraphFollowedByNamedParagraph () {
+		programHelper.compileAndVerify(
+				get("COPYEntireProceduralAnonymousParagraphFollowedByNamedParagraph.source"),
+				get("COPYEntireProceduralAnonymousParagraphFollowedByNamedParagraph.tree")
+			);
+	}
 }
