@@ -249,8 +249,8 @@ public class CompilerStatementsUnitTest {
 		
 		String string = mainTree.toStringTree(compiler.mainParser);
 
-		assertThat(string, is(equalTo("(program identificationDivision procedureDivision "
-				+ "(compilerStatement COPY ENTIRE-PROGRAM .))")));
+		assertThat(string, is(equalTo("(program (compilerStatement COPY ENTIRE-PROGRAM .) "
+				+ "identificationDivision procedureDivision)")));
 	}
 	
 	@Test
