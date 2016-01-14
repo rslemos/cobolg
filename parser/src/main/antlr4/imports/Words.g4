@@ -135,9 +135,10 @@ NULL			: 'NULLS' | 'NULL';
 STOP			: 'STOP';
 RUN				: 'RUN';
 
-EJECT : 'EJECT'
-	-> channel(COMPILER_CHANNEL)
-	;
+/* COMPILER DIRECTING STATEMENTS */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */
+COPY                  : 'COPY';
+EJECT                 : 'EJECT';
 
 // not exactly a keyword
 ID	:

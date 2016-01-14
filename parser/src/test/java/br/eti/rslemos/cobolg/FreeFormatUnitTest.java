@@ -382,7 +382,7 @@ public class FreeFormatUnitTest {
 		// 2 - COPY XZT0190.
 		CompilerStatementContext copyXZT0190 = (CompilerStatementContext) fd3.children.get(2);
 		assertThat(copyXZT0190.COPY().getText(), is(equalTo("COPY")));
-		assertThat(copyXZT0190.COPY_ID().getText(), is(equalTo("XZT0190")));
+		assertThat(copyXZT0190.COMPILER_ID().getText(), is(equalTo("XZT0190")));
 		
 		//  0 - DATA
 		//  1 - DIVISION
@@ -392,7 +392,7 @@ public class FreeFormatUnitTest {
 		// 5 - COPY XZT0100.
 		CompilerStatementContext copyXZT0100 = (CompilerStatementContext) tree.dataDivision().children.get(5);
 		assertThat(copyXZT0100.COPY().getText(), is(equalTo("COPY")));
-		assertThat(copyXZT0100.COPY_ID().getText(), is(equalTo("XZT0100")));
+		assertThat(copyXZT0100.COMPILER_ID().getText(), is(equalTo("XZT0100")));
 		
 		// 0 - IDENTIFICATION DIVISION
 		// 1 - ENVIRONMENT DIVISION
@@ -402,7 +402,7 @@ public class FreeFormatUnitTest {
 		// 5 - PROCEDURE DIVISION
 		CompilerStatementContext copyXZT0009 = (CompilerStatementContext) tree.children.get(3);
 		assertThat(copyXZT0009.COPY().getText(), is(equalTo("COPY")));
-		assertThat(copyXZT0009.COPY_ID().getText(), is(equalTo("XZT0009")));
+		assertThat(copyXZT0009.COMPILER_ID().getText(), is(equalTo("XZT0009")));
 	}
 
 	@Test

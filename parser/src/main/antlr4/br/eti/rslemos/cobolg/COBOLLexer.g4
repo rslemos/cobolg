@@ -69,7 +69,11 @@ RECORDING : 'RECORDING'
 	;
 
 COPY : 'COPY'
-	-> channel(COMPILER_CHANNEL), pushMode(COPY_MODE)
+	-> channel(COMPILER_CHANNEL), pushMode(COMPILER_MODE), pushMode(COMPILER_ID_MODE)
+	;
+
+EJECT : 'EJECT'
+	-> channel(COMPILER_CHANNEL), pushMode(COMPILER_MODE)
 	;
 
 fragment MARK0	: '\uEBA0';
@@ -123,27 +127,33 @@ S : 'S'
 	-> popMode
 	;
 
-mode COPY_MODE;
+mode COMPILER_MODE;
 
-COPY_WS : WS
-	-> channel(HIDDEN);
+COMPILER_WS : ' '+
+	-> channel(HIDDEN)
+	;
 
-COPY_ID : ID
-	-> channel(COMPILER_CHANNEL), mode(COPY_MODE2);
+COMPILER_PERIOD : PERIOD
+	-> channel(COMPILER_CHANNEL), popMode
+	;
 
-COPY_ELSE : .
-	-> more, popMode;
+COMPILER_ELSE : 
+	-> more, popMode
+	;
 
-mode COPY_MODE2;
+mode COMPILER_ID_MODE;
 
-COPY2_WS : WS
-	-> channel(HIDDEN);
+COMPILER_ID_WS : ' '+
+	-> channel(HIDDEN)
+	;
 
-COPY_PERIOD : PERIOD
-	-> channel(COMPILER_CHANNEL), popMode;
+COMPILER_ID : ID
+	-> channel(COMPILER_CHANNEL), popMode
+	;
 
-COPY2_ELSE : .
-	-> more, popMode;
+COMPILER_ID_ELSE :
+	-> more, popMode
+	;
 
 /* basic block ends here */
 

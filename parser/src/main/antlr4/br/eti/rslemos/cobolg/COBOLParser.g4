@@ -375,7 +375,10 @@ compilerStatements :
 		compilerStatement*
 	;
 
+// unfortunately single token deletion is tried before single token insertion
+// so EJECT is deleted before COMPILER_PERIOD is injected
+// that is why they are all optional (so never injected)
 compilerStatement :
-		EJECT
-	|	COPY COPY_ID COPY_PERIOD
+		EJECT COMPILER_PERIOD?
+	|	COPY COMPILER_ID COMPILER_PERIOD?
 	;
