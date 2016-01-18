@@ -37,6 +37,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 	protected abstract T parsePart();
 	
 	protected COBOLParser parser;
+	protected FreeFormatCompiler compiler;
 	
 	public T compile(String source, ANTLRErrorListener... listeners) {
 		prepare(source, listeners);
@@ -58,7 +59,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 
 	private void prepare(String source, ANTLRErrorListener... listeners) {
 		try {
-			FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(source));
+			compiler = new FreeFormatCompiler(new StringReader(source));
 			
 			for (ANTLRErrorListener listener : listeners)
 				compiler.addErrorListener(listener);

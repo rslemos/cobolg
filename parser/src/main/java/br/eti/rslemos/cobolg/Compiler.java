@@ -84,7 +84,7 @@ public abstract class Compiler {
 		return parser;
 	}
 
-	public ProgramContext compile() throws IOException {
+	public ProgramContext compile() {
 		CompilerStatementsContext preTree = this.preParser.compilerStatements();
 		ProgramContext mainTree = this.mainParser.program();
 		
