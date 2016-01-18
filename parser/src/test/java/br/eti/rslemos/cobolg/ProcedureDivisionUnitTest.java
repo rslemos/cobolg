@@ -58,6 +58,13 @@ public class ProcedureDivisionUnitTest {
 			);
 	}
 	
+	@Test public void PROCEDURE_DIVISION_STOP_RUN_STOP_RUN_STOP_RUN() {
+		helper.compileAndVerify(
+				get("PROCEDURE_DIVISION_STOP_RUN_STOP_RUN_STOP_RUN.source"),
+				get("PROCEDURE_DIVISION_STOP_RUN_STOP_RUN_STOP_RUN.tree")
+			);
+	}
+	
 	@Test public void PROCEDURE_DIVISION_SECTION_1_SECTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("PROCEDURE_DIVISION_SECTION_1_SECTION_STOP_RUN.source"),

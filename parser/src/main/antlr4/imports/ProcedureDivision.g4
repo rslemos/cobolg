@@ -58,10 +58,12 @@ namedProceduralSection :
 	;
 
 unnamedProceduralParagraph :
-		proceduralStatement+
+		proceduralSentence+
 	;
 
 namedProceduralParagraph :
 		paragraphName PERIOD
-		proceduralStatement+
+		proceduralSentence+
 	;
+
+proceduralSentence : proceduralStatement+ PERIOD;

@@ -24,7 +24,13 @@ import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Procedural statements.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,185
+ */
 proceduralStatement :
-		DISPLAY literal PERIOD
-	|	STOP RUN PERIOD
+		DISPLAY literal
+	|	STOP RUN
 	;
+
