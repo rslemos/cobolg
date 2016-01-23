@@ -30,7 +30,7 @@ import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
-class CollectErrorListener extends BaseErrorListener {
+public class CollectErrorListener extends BaseErrorListener {
 	private final String fileName;
 	List<String> errors = new ArrayList<String>();
 	
@@ -64,7 +64,7 @@ class CollectErrorListener extends BaseErrorListener {
 			errors.add(String.format("[%c:%d] %s (%d,%d)", type, mode, msg, line, charPositionInLine));
 	}
 	
-	void verify() {
+	public void verify() {
 		if (!errors.isEmpty()) {
 			StringBuilder message = new StringBuilder();
 			

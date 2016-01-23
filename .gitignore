@@ -27,4 +27,4 @@ target/
 .settings/
 
 # uncommitable data
-src/test/resources/private/
+private

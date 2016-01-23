@@ -57,9 +57,9 @@ public abstract class Compiler {
 	
 	final Lexer lexer;
 	
-	public final COBOLParser preParser;
-	public final COBOLParser mainParser;
-	
+	final COBOLParser preParser;
+	final COBOLParser mainParser;
+
 	private Compiler (Lexer lexer) {
 		this.lexer = lexer;
 		this.lexer.removeErrorListeners();
