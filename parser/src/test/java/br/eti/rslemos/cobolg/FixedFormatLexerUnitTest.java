@@ -21,7 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.COBOLFixedFormatLexer.*;
+import static br.eti.rslemos.cobolg.COBOLLexer.*;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 
 import java.io.IOException;

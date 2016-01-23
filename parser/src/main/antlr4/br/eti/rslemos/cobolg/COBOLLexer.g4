@@ -19,17 +19,15 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-lexer grammar COBOLFixedFormatLexer;
+lexer grammar COBOLLexer;
 import COBOLKeywords, COBOLBasics;
-
-options {
-	// to avoid token collision
-	tokenVocab = COBOLFreeFormatLexer;
-}
 
 tokens { 
 	MARK // a channel instead
 }
+
+COMMENT			: ('*' | '/') .*? NEWLINE 
+                { _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
 
 fragment MARK0	: '\uEBA0';
 fragment MARK1	: '\uEBA1';
@@ -45,10 +43,6 @@ TO_SKIPTOEOL_MODE_DEFAULT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
 /* 
  * This block should really be part of COBOLBasics, but as of 2015-04-25
  * ANTLR4 cannot import multi-mode Lexers: https://github.com/antlr/antlr4/issues/160
- * 
- * These rules are replicated in
- *  - COBOLFreeFormatLexer; and
- *  - COBOLFixedFormatLexer.
  */
 PICTURE : 'PIC' 'TURE'?
 	-> pushMode(PICTURE_MODE)
@@ -127,7 +121,7 @@ COPY_PERIOD : PERIOD
 COPY2_ELSE : .
 	-> more, popMode;
 
-/* common block ends here */
+/* basic block ends here */
 
 mode SEQUENCE_MODE;
 SEQUENCE_MODE_NL	: NEWLINE 	-> channel(HIDDEN), mode(DEFAULT_MODE);
