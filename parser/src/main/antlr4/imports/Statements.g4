@@ -31,6 +31,7 @@ options { tokenVocab = COBOLLexer; }
  */
 proceduralStatement :
 		imperativeStatement
+	|	conditionalStatement
 	;
 
 /**
@@ -86,6 +87,14 @@ imperativeStatement :
 	|	stmtCALLimperative
 	|	stmtCANCEL
 	|	stmtINVOKEimperative
+	;
+
+/**
+ * Conditional statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
+ */
+conditionalStatement :
 	;
 
 /**
