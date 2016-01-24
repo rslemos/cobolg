@@ -30,11 +30,18 @@ import IdentificationDivision, EnvironmentDivision, DataDivision, ProcedureDivis
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Program.
+ * 
+ * Per reference manual identificationDivision ought to be required.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=107&zoom=auto,-40,720
+ */
 program :
 		identificationDivision
 		environmentDivision?
 		dataDivision?
-		procedureDivision
+		procedureDivision?
 	;
 
 compilerStatements :
