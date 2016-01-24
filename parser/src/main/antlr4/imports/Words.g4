@@ -126,8 +126,21 @@ COPY                  : 'COPY';
 EJECT                 : 'EJECT';
 
 // not exactly a keyword
-USERDEFINEDWORD :
-		[A-Za-z0-9]+
-	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
+/**
+ * User defined words.
+ * 
+ * - Latin uppercase letters A through Z (A-Z)
+ * - Latin lowercase letters a through z (a-z)
+ * - digits 0 through 9 (0-9)
+ * - hyphen (-)
+ * - underscore (_)
+ * - the hyphen cannot appear as the first or last character
+ * - the underscore cannot appear as the first character
+ * - must contain at least one alphabetic character
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=31&zoom=auto,-100,370
+ */
+USERDEFINEDWORD	:
+		([A-Za-z0-9][-_A-Za-z0-9]*)? [A-Za-z] ([-_A-Za-z0-9]*[_A-Za-z0-9])?
 	;
 
