@@ -87,6 +87,9 @@ imperativeStatement :
 	|	stmtCALLimperative
 	|	stmtCANCEL
 	|	stmtINVOKEimperative
+		/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670 */
+		/* [...] a delimited scope statement can be specified wherever an imperative statement is allowed [...] */
+	|	delimitedScopeStatement
 	;
 
 /**
@@ -124,6 +127,15 @@ conditionalStatement :
 	|	stmtINVOKEconditional
 		/* table-handling */
 	|	stmtSEARCHconditional
+	;
+
+/**
+ * Delimited scope statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670
+ */
+delimitedScopeStatement :
+		/* explicit scope terminator */
 	;
 
 /**
