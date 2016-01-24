@@ -38,10 +38,15 @@ PERIOD                : '.';
 /* KEYWORDS */
 
 ACCESS                : 'ACCESS';
+ADDRESS               : 'ADDRESS';
 ALL                   : 'ALL';
 ALPHABET              : 'ALPHABET';
+ALPHABETIC            : 'ALPHABETIC';
+ALPHABETIC_LOWER      : 'ALPHABETIC-LOWER';
+ALPHABETIC_UPPER      : 'ALPHABETIC-UPPER';
 ALSO                  : 'ALSO';
 ALTERNATE             : 'ALTERNATE';
+AND                   : 'AND';
 APPLY                 : 'APPLY';
 ARE                   : 'ARE';
 AREA                  : 'AREA';
@@ -91,6 +96,7 @@ DUPLICATES            : 'DUPLICATES';
 DYNAMIC               : 'DYNAMIC';
 END                   : 'END';
 ENVIRONMENT           : 'ENVIRONMENT';
+EQUAL                 : 'EQUAL';
 EVERY                 : 'EVERY';
 EXTERNAL              : 'EXTERNAL';
 FD                    : 'FD';
@@ -102,6 +108,7 @@ FOR                   : 'FOR';
 FROM                  : 'FROM';
 FUNCTION_POINTER      : 'FUNCTION-POINTER';
 GLOBAL                : 'GLOBAL';
+GREATER               : 'GREATER';
 GROUP_USAGE           : 'GROUP-USAGE';
 I_O_CONTROL           : 'I-O-CONTROL';
 ID                    : 'ID';
@@ -119,6 +126,7 @@ KEY                   : 'KEY';
 LABEL                 : 'LABEL';
 LEADING               : 'LEADING';
 LEFT                  : 'LEFT';
+LESS                  : 'LESS';
 LINAGE                : 'LINAGE';
 LINE                  : 'LINE';
 LINES                 : 'LINES';
@@ -130,6 +138,9 @@ MODULES               : 'MODULES';
 MULTIPLE              : 'MULTIPLE';
 NATIONAL              : 'NATIONAL';
 NATIVE                : 'NATIVE';
+NEGATIVE              : 'NEGATIVE';
+NOT                   : 'NOT';
+NUMERIC               : 'NUMERIC';
 OBJECT                : 'OBJECT';
 OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
 OCCURS                : 'OCCURS';
@@ -138,6 +149,7 @@ OFF                   : 'OFF';
 OMITTED               : 'OMITTED';
 ON                    : 'ON';
 OPTIONAL              : 'OPTIONAL';
+OR                    : 'OR';
 ORGANIZATION          : 'ORGANIZATION';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
 PADDING               : 'PADDING';
@@ -146,6 +158,7 @@ PIC                   : 'PIC';     // will be overridden on the main lexer
 PICTURE               : 'PICTURE'; // will be overridden on the main lexer
 POINTER               : 'POINTER';
 POSITION              : 'POSITION';
+POSITIVE              : 'POSITIVE';
 PROCEDURE             : 'PROCEDURE';
 PROCEDURE_POINTER     : 'PROCEDURE-POINTER';
 PROGRAM               : 'PROGRAM';
@@ -189,6 +202,7 @@ SYMBOLIC              : 'SYMBOLIC';
 SYNC                  : 'SYNC';
 SYNCHRONIZED          : 'SYNCHRONIZED';
 TAPE                  : 'TAPE';
+THAN                  : 'THAN';
 THROUGH               : 'THROUGH';
 THRU                  : 'THRU';
 TIMES                 : 'TIMES';
@@ -237,6 +251,18 @@ OP_MINUS              : '-';  // unary minus or subtraction
 OP_STAR               : '*';  // multiplication
 OP_SLASH              : '/';  // division
 OP_STARSTAR           : '**'; // exponentiation
+
+/* relational operators */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=282&zoom=auto,-100,730 */
+OP_GREATER            : '>';  // greater than
+OP_LESS               : '<';  // less than
+OP_EQUAL              : '=';  // equal and assignment operator in COMPUTE
+OP_NOTLESS            : '>='; // greater than or equal
+OP_NOTGREATER         : '<='; // less than or equal
+
+/* SPECIAL OBJECT IDENTIFIERS */
+
+SELF                  : 'SELF';
 
 /* SPECIAL REGISTERS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=38&zoom=auto,-100,610 */
