@@ -380,5 +380,5 @@ compilerStatements :
 // that is why they are all optional (so never injected)
 compilerStatement :
 		EJECT COMPILER_PERIOD?
-	|	COPY COMPILER_ID COMPILER_PERIOD?
+	|	COPY (COMPILER_ID | COMPILER_STRING) COMPILER_PERIOD?
 	;

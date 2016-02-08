@@ -111,6 +111,13 @@ public class CompilerStatementsUnitTest {
 			);
 	}
 	
+	@Test public void COPYStatementWithString () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementWithString.source"),
+				get("COPYStatementWithString.tree")
+			);
+	}
+	
 	@Test public void EJECTAtTheEnd () {
 		programHelper.compileAndVerify(
 				get("EJECTAtTheEnd.source"),
