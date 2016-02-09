@@ -170,12 +170,12 @@ public class FreeFormatUnitTest {
 		
 		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
 		SelectFileSentenceContext selectFileSentence_0 = fileCtlParagraph.selectFileSentence(0);
-		assertThat(selectFileSentence_0.USERDEFINEDWORD(0).getText(), is(equalTo("IMPRES")));
-		assertThat(selectFileSentence_0.USERDEFINEDWORD(1).getText(), is(equalTo("UT-S-L439161")));
+		assertThat(selectFileSentence_0.selectClause().fileName().getText(), is(equalTo("IMPRES")));
+		assertThat(selectFileSentence_0.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-L439161")));
 		// "    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
 		SelectFileSentenceContext selectFileSentence_1 = fileCtlParagraph.selectFileSentence(1);
-		assertThat(selectFileSentence_1.USERDEFINEDWORD(0).getText(), is(equalTo("PRAMFIXO")));
-		assertThat(selectFileSentence_1.USERDEFINEDWORD(1).getText(), is(equalTo("UT-S-D433135")));
+		assertThat(selectFileSentence_1.selectClause().fileName().getText(), is(equalTo("PRAMFIXO")));
+		assertThat(selectFileSentence_1.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-D433135")));
 		
 	}
 
@@ -187,8 +187,8 @@ public class FreeFormatUnitTest {
 		// "                        STATUS IS PROJ-STATUS",
 		// "                        ORGANIZATION INDEXED.",
 		SelectFileSentenceContext selectFileSentence_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectFileSentence(2);
-		assertThat(selectFileSentence_2.USERDEFINEDWORD(0).getText(), is(equalTo("PROJEN-I")));
-		assertThat(selectFileSentence_2.USERDEFINEDWORD(1).getText(), is(equalTo("D433131")));
+		assertThat(selectFileSentence_2.selectClause().fileName().getText(), is(equalTo("PROJEN-I")));
+		assertThat(selectFileSentence_2.assignClause().assignmentName(0).getText(), is(equalTo("D433131")));
 		
 		FileOrganizationIndexedContext fileOrganization = selectFileSentence_2.fileOrganizationIndexed();
 		assertThat(fileOrganization, is(not(nullValue(FileOrganizationIndexedContext.class))));

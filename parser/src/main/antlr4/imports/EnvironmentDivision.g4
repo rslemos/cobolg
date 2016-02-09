@@ -180,8 +180,26 @@ fileControlParagraph :
 		selectFileSentence+
 	;
 
+/**
+ * Select clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=154&zoom=auto,-40,730
+ */
+selectClause :
+		SELECT OPTIONAL? fileName
+	;
+
+/**
+ * Assign clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=154&zoom=auto,-40,460
+ */
+assignClause :
+		ASSIGN TO? assignmentName+
+	;
+
 selectFileSentence :
-		SELECT OPTIONAL? USERDEFINEDWORD ASSIGN TO? USERDEFINEDWORD
+		selectClause assignClause
 		(fileOrganizationIndexed)?
 		PERIOD
 	;
