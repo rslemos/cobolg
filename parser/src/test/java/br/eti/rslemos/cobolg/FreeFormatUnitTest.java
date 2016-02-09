@@ -169,11 +169,11 @@ public class FreeFormatUnitTest {
 		assertThat(fileCtlParagraph.selectEntry().size(), is(equalTo(3)));
 		
 		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
-		SelectFileSentenceContext selectEntry_0 = fileCtlParagraph.selectEntry(0).selectFileSentence();
+		SequentialFileControlEntryContext selectEntry_0 = fileCtlParagraph.selectEntry(0).sequentialFileControlEntry();
 		assertThat(selectEntry_0.selectClause().fileName().getText(), is(equalTo("IMPRES")));
 		assertThat(selectEntry_0.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-L439161")));
 		// "    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
-		SelectFileSentenceContext selectEntry_1 = fileCtlParagraph.selectEntry(1).selectFileSentence();
+		SequentialFileControlEntryContext selectEntry_1 = fileCtlParagraph.selectEntry(1).sequentialFileControlEntry();
 		assertThat(selectEntry_1.selectClause().fileName().getText(), is(equalTo("PRAMFIXO")));
 		assertThat(selectEntry_1.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-D433135")));
 		
@@ -186,15 +186,14 @@ public class FreeFormatUnitTest {
 		// "                        ACCESS SEQUENTIAL",
 		// "                        STATUS IS PROJ-STATUS",
 		// "                        ORGANIZATION INDEXED.",
-		SelectFileSentenceContext selectEntry_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectEntry(2).selectFileSentence();
+		IndexedFileControlEntryContext selectEntry_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectEntry(2).indexedFileControlEntry();
 		assertThat(selectEntry_2.selectClause().fileName().getText(), is(equalTo("PROJEN-I")));
 		assertThat(selectEntry_2.assignClause().assignmentName(0).getText(), is(equalTo("D433131")));
 		
-		FileOrganizationIndexedContext fileOrganization = selectEntry_2.fileOrganizationIndexed();
-		assertThat(fileOrganization, is(not(nullValue(FileOrganizationIndexedContext.class))));
-
-		assertThat(fileOrganization.USERDEFINEDWORD(0).getText(), is(equalTo("CHAVE")));
-		assertThat(fileOrganization.USERDEFINEDWORD(1).getText(), is(equalTo("PROJ-STATUS")));
+		assertThat(selectEntry_2.USERDEFINEDWORD(0).getText(), is(equalTo("CHAVE")));
+		assertThat(selectEntry_2.USERDEFINEDWORD(1).getText(), is(equalTo("PROJ-STATUS")));
+		assertThat(selectEntry_2.ORGANIZATION(), is(not(nullValue(TerminalNode.class))));
+		assertThat(selectEntry_2.INDEXED(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test

@@ -181,7 +181,8 @@ fileControlParagraph :
 	;
 
 selectEntry :
-		selectFileSentence
+		sequentialFileControlEntry
+	|	indexedFileControlEntry
 	;
 
 /**
@@ -202,18 +203,29 @@ assignClause :
 		ASSIGN TO? assignmentName+
 	;
 
-selectFileSentence :
+/**
+ * Sequential file control entry.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=151&zoom=auto,-40,730
+ */
+sequentialFileControlEntry :
 		selectClause assignClause
-		(fileOrganizationIndexed)?
 		PERIOD
 	;
 
+/**
+ * Indexed file control entry.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=152&zoom=auto,-40,730
+ */
 // TODO: may appear in any order, but at most once
 // (though this may be not a syntatic concern, but rather semantic one)
-fileOrganizationIndexed :
+indexedFileControlEntry :
+		selectClause assignClause
 		RECORD KEY? IS? USERDEFINEDWORD
 		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
 		(STATUS IS? USERDEFINEDWORD)?	// this clause belongs to general selectFileSentence
 		ORGANIZATION IS? INDEXED
+		PERIOD
 	;
 
