@@ -175,6 +175,19 @@ inputOutputSection :
 		fileControlParagraph?
 	;
 
+/**
+ * File-control paragraph.
+ * 
+ * Here defined somewhat differently than in reference manual, for the sake of
+ * uniformity: sentences start at area B.
+ * 
+ * The File-control paragraph itself does not appear to be constrained to area
+ * A, although that is not clear in the reference manual.
+ * 
+ * Entries clauses may appear in any order, though only once. This restriction
+ * would be too painful to state in ANTLR, so it is postponed to a later
+ * semantic analysis phase.
+ */
 fileControlParagraph :
 		FILE_CONTROL PERIOD
 		selectEntry+
