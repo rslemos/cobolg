@@ -77,6 +77,7 @@ DATE_COMPILED         : 'DATE-COMPILED';
 DATE_WRITTEN          : 'DATE-WRITTEN';
 DEBUGGING             : 'DEBUGGING';
 DECIMAL_POINT         : 'DECIMAL-POINT';
+DELIMITER             : 'DELIMITER';
 DEPENDING             : 'DEPENDING';
 DISPLAY               : 'DISPLAY';
 DISPLAY_1             : 'DISPLAY-1';

@@ -217,6 +217,7 @@ sequentialFileControlEntry :
 		reserveClause?
 		organizationIsSequential?
 		paddingCharacterClause?
+		recordDelimiterClause?
 		accessModeClause[0x0100]?
 		fileStatusClause?
 		PERIOD
@@ -304,6 +305,15 @@ reserveClause :
  */
 paddingCharacterClause :
 		PADDING CHARACTER? IS? (refDataName | literal)
+	;
+
+/**
+ * Record delimiter clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=162&zoom=auto,-40,700
+ */
+recordDelimiterClause :
+		RECORD DELIMITER IS? (STANDARD_1 | assignmentName)
 	;
 
 /**
