@@ -74,6 +74,7 @@ specialNamesClause :
 	|	classClause
 	|	currencySignClause
 	|	decimalPointClause
+	|	xmlSchemaClause
 	;
 
 environmentAssignmentClause :
@@ -130,6 +131,15 @@ currencySignClause :
  */
 decimalPointClause :
 		DECIMAL_POINT IS? COMMA
+	;
+
+/**
+ * XML-schema clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,615
+ */
+xmlSchemaClause :
+		XML_SCHEMA xmlSchemaName IS? (externalFileId | literal)
 	;
 
 inputOutputSection :

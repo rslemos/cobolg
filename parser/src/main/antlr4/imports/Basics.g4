@@ -36,6 +36,7 @@ dataName          : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
+xmlSchemaName     : USERDEFINEDWORD;
 
 // this is not formally defined, but used elsewhere
 computerName      : USERDEFINEDWORD;
@@ -48,6 +49,14 @@ computerName      : USERDEFINEDWORD;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=139&zoom=auto,-40,670
  */
 environmentName   : USERDEFINEDWORD;
+
+/**
+ * External file ID.
+ * 
+ * Further restrictions apply.
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,610
+ */
+externalFileId    : USERDEFINEDWORD;
 
 /**
  * (character) Class name.

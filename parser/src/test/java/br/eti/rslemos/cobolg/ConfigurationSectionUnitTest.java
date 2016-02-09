@@ -454,4 +454,32 @@ public class ConfigurationSectionUnitTest {
 				get("SPECIAL_NAMES_DECIMAL_POINT_COMMA.tree")
 			);
 	}
+
+	@Test public void SPECIAL_NAMES_XML_SCHEMA_XHTML_IS_DDNAME() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_IS_DDNAME.source"),
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_IS_DDNAME.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_XML_SCHEMA_XHTML_IS_URL() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_IS_URL.source"),
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_IS_URL.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_XML_SCHEMA_XHTML_DDNAME() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_DDNAME.source"),
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_DDNAME.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_XML_SCHEMA_XHTML_URL() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_URL.source"),
+				get("SPECIAL_NAMES_XML_SCHEMA_XHTML_URL.tree")
+			);
+	}
 }

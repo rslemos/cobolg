@@ -158,6 +158,7 @@ VARYING               : 'VARYING';
 WITH                  : 'WITH';
 WORDS                 : 'WORDS';
 WORKING_STORAGE       : 'WORKING-STORAGE';
+XML_SCHEMA            : 'XML-SCHEMA';
 
 /* FIGURATIVE CONSTANTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160 */
