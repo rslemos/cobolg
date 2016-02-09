@@ -286,4 +286,18 @@ public class ConfigurationSectionUnitTest {
 				get("SPECIAL_NAMES_ALPHABET_AZ_IS_A_THROUGH_Z_DOT_ALSO_COMMA_0_THRU_9.tree")
 			);
 	}
+
+	@Test public void SPECIAL_NAMES_SYMBOLIC_CHARACTERS_ABC_ARE_65_66_67_IN_ASCII() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_SYMBOLIC_CHARACTERS_ABC_ARE_65_66_67_IN_ASCII.source"),
+				get("SPECIAL_NAMES_SYMBOLIC_CHARACTERS_ABC_ARE_65_66_67_IN_ASCII.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_SYMBOLIC_CHARACTERS_A_IS_65_B_IS_66_C_IS_67() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_SYMBOLIC_CHARACTERS_A_IS_65_B_IS_66_C_IS_67.source"),
+				get("SPECIAL_NAMES_SYMBOLIC_CHARACTERS_A_IS_65_B_IS_66_C_IS_67.tree")
+			);
+	}
 }

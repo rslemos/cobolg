@@ -70,6 +70,7 @@ specialNamesParagraph :
 specialNamesClause :
 		environmentAssignmentClause
 	|	alphabetClause
+	|	symbolicCharactersClause
 	;
 
 environmentAssignmentClause :
@@ -90,6 +91,15 @@ environmentStatusPhrase :
 alphabetClause :
 		ALPHABET alphabetName IS? 
 		(STANDARD_1 | STANDARD_2 | NATIVE | EBCDIC | (literal ((THROUGH | THRU) literal | (ALSO literal)+)?)+)
+	;
+
+/**
+ * Symbolic characters clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=141&zoom=auto,-40,360
+ */
+symbolicCharactersClause :
+		SYMBOLIC CHARACTERS? (symbolicCharacter+ (ARE | IS)? numericLiteral+)+ (IN alphabetName)?
 	;
 
 inputOutputSection :

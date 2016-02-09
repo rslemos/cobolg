@@ -35,6 +35,7 @@ conditionName     : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
+symbolicCharacter : USERDEFINEDWORD;
 
 // this is not formally defined, but used elsewhere
 computerName      : USERDEFINEDWORD;

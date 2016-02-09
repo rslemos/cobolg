@@ -140,6 +140,7 @@ STANDARD_1            : 'STANDARD-1';
 STANDARD_2            : 'STANDARD-2';
 STATUS                : 'STATUS';
 STOP                  : 'STOP';
+SYMBOLIC              : 'SYMBOLIC';
 THROUGH               : 'THROUGH';
 THRU                  : 'THRU';
 TIMES                 : 'TIMES';
