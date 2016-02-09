@@ -210,9 +210,12 @@ assignClause :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=151&zoom=auto,-40,730
  */
+// TODO: may appear in any order, but at most once
+// (though this may be not a syntatic concern, but rather semantic one)
 sequentialFileControlEntry :
 		selectClause assignClause
 		organizationIsSequential?
+		accessModeClause[0x0100]?
 		PERIOD
 	;
 
@@ -226,7 +229,7 @@ sequentialFileControlEntry :
 indexedFileControlEntry :
 		selectClause assignClause
 		recordKeyClause
-		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
+		accessModeClause[0x0100 | 0x0200 | 0x0400]?
 		(STATUS IS? USERDEFINEDWORD)?	// this clause belongs to general selectFileSentence
 		organizationIsIndexed
 		PERIOD
@@ -240,6 +243,7 @@ indexedFileControlEntry :
 relativeFileControlEntry :
 		selectClause assignClause
 		organizationIsRelative
+		accessModeClause[0x0100]?
 		PERIOD
 	;
 
@@ -251,6 +255,7 @@ relativeFileControlEntry :
 lineSequentialFileControlEntry :
 		selectClause assignClause
 		organizationIsLineSequential
+		accessModeClause[0x0100]?
 		PERIOD
 	;
 
@@ -274,6 +279,21 @@ organizationIsRelative :
 
 organizationIsLineSequential :
 		(ORGANIZATION IS?)? LINE SEQUENTIAL
+	;
+
+/**
+ * Access mode clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=162&zoom=auto,-40,520
+ */
+accessModeClause[int flags] :
+		ACCESS MODE? IS? accessMode[$flags]
+	;
+
+accessMode[int flags] :
+		{$flags << ~8 < 0}? SEQUENTIAL
+	|	{$flags << ~9 < 0}? RANDOM
+	|	{$flags << ~10 < 0}? DYNAMIC
 	;
 
 /**

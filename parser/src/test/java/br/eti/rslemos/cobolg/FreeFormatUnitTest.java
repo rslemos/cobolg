@@ -191,6 +191,7 @@ public class FreeFormatUnitTest {
 		assertThat(selectEntry_2.assignClause().assignmentName(0).getText(), is(equalTo("D433131")));
 		
 		assertThat(selectEntry_2.recordKeyClause().refDataName().getText(), is(equalTo("CHAVE")));
+		assertThat(selectEntry_2.accessModeClause().accessMode().SEQUENTIAL(), is(not(nullValue(TerminalNode.class))));
 		assertThat(selectEntry_2.USERDEFINEDWORD().getText(), is(equalTo("PROJ-STATUS")));
 		assertThat(selectEntry_2.organizationIsIndexed(), is(not(nullValue(RuleContext.class))));
 	}
