@@ -216,6 +216,7 @@ sequentialFileControlEntry :
 		selectClause assignClause
 		organizationIsSequential?
 		accessModeClause[0x0100]?
+		fileStatusClause?
 		PERIOD
 	;
 
@@ -230,7 +231,7 @@ indexedFileControlEntry :
 		selectClause assignClause
 		recordKeyClause
 		accessModeClause[0x0100 | 0x0200 | 0x0400]?
-		(STATUS IS? USERDEFINEDWORD)?	// this clause belongs to general selectFileSentence
+		fileStatusClause?
 		organizationIsIndexed
 		PERIOD
 	;
@@ -244,6 +245,7 @@ relativeFileControlEntry :
 		selectClause assignClause
 		organizationIsRelative
 		accessModeClause[0x0100 | 0x0800 | 0x1000 | 0x2000]?
+		fileStatusClause?
 		PERIOD
 	;
 
@@ -256,6 +258,7 @@ lineSequentialFileControlEntry :
 		selectClause assignClause
 		organizationIsLineSequential
 		accessModeClause[0x0100]?
+		fileStatusClause?
 		PERIOD
 	;
 
@@ -315,4 +318,13 @@ recordKeyClause :
  */
 relativeKeyClause :
 		RELATIVE KEY? IS? refDataName
+	;
+
+/**
+ * File status clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=167&zoom=auto,-40,280
+ */
+fileStatusClause :
+		FILE? STATUS IS? refDataName refDataName?
 	;
