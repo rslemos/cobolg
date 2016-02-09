@@ -356,4 +356,88 @@ public class ConfigurationSectionUnitTest {
 				get("SPECIAL_NAMES_CLASS_ABCD_A_B_C_D.tree")
 			);
 	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_SIGN_IS_US$_WITH_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_SIGN_IS_US$_WITH_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_SIGN_IS_US$_WITH_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_SIGN_IS_US$_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_SIGN_IS_US$_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_SIGN_IS_US$_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_SIGN_IS_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_SIGN_IS_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_SIGN_IS_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_SIGN_US$_WITH_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_SIGN_US$_WITH_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_SIGN_US$_WITH_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_SIGN_US$_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_SIGN_US$_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_SIGN_US$_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_SIGN_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_SIGN_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_SIGN_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_IS_US$_WITH_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_IS_US$_WITH_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_IS_US$_WITH_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_IS_US$_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_IS_US$_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_IS_US$_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_IS_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_IS_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_IS_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_US$_WITH_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_US$_WITH_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_US$_WITH_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_US$_PICTURE_SYMBOL_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_US$_PICTURE_SYMBOL_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_US$_PICTURE_SYMBOL_$.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CURRENCY_$() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CURRENCY_$.source"),
+				get("SPECIAL_NAMES_CURRENCY_$.tree")
+			);
+	}
 }

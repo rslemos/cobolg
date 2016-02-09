@@ -67,6 +67,7 @@ COMPUTATIONAL_4       : 'COMPUTATIONAL-4';
 COMPUTATIONAL_5       : 'COMPUTATIONAL-5';
 CONFIGURATION         : 'CONFIGURATION';
 CONTAINS              : 'CONTAINS';
+CURRENCY              : 'CURRENCY';
 DATA                  : 'DATA';
 DATE_COMPILED         : 'DATE-COMPILED';
 DATE_WRITTEN          : 'DATE-WRITTEN';
@@ -133,6 +134,7 @@ SEGMENT_LIMIT         : 'SEGMENT-LIMIT';
 SELECT                : 'SELECT';
 SEQUENCE              : 'SEQUENCE';
 SEQUENTIAL            : 'SEQUENTIAL';
+SIGN                  : 'SIGN';
 SIZE                  : 'SIZE';
 SOURCE_COMPUTER       : 'SOURCE-COMPUTER';
 SPECIAL_NAMES         : 'SPECIAL-NAMES';
@@ -175,6 +177,8 @@ ZEROS                 : 'ZEROS';
 
 
 EBCDIC                : 'EBCDIC';
+//SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer
+//SYMBOL                : 'SYMBOL';
 
 /* COMPILER DIRECTING STATEMENTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */

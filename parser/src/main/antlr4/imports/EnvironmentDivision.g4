@@ -72,6 +72,7 @@ specialNamesClause :
 	|	alphabetClause
 	|	symbolicCharactersClause
 	|	classClause
+	|	currencySignClause
 	;
 
 environmentAssignmentClause :
@@ -110,6 +111,15 @@ symbolicCharactersClause :
  */
 classClause :
 		CLASS className IS? (literal ((THROUGH | THRU) literal)?)+
+	;
+
+/**
+ * Currency sign clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=142&zoom=auto,-40,210
+ */
+currencySignClause :
+		CURRENCY SIGN? IS? literal (WITH? PICTURE SYMBOL literal)?
 	;
 
 inputOutputSection :
