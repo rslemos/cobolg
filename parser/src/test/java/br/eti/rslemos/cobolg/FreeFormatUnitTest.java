@@ -166,16 +166,16 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testFileControlParagraph() {
 		FileControlParagraphContext fileCtlParagraph = tree.environmentDivision().inputOutputSection().fileControlParagraph();
-		assertThat(fileCtlParagraph.selectFileSentence().size(), is(equalTo(3)));
+		assertThat(fileCtlParagraph.selectEntry().size(), is(equalTo(3)));
 		
 		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
-		SelectFileSentenceContext selectFileSentence_0 = fileCtlParagraph.selectFileSentence(0);
-		assertThat(selectFileSentence_0.selectClause().fileName().getText(), is(equalTo("IMPRES")));
-		assertThat(selectFileSentence_0.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-L439161")));
+		SelectFileSentenceContext selectEntry_0 = fileCtlParagraph.selectEntry(0).selectFileSentence();
+		assertThat(selectEntry_0.selectClause().fileName().getText(), is(equalTo("IMPRES")));
+		assertThat(selectEntry_0.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-L439161")));
 		// "    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
-		SelectFileSentenceContext selectFileSentence_1 = fileCtlParagraph.selectFileSentence(1);
-		assertThat(selectFileSentence_1.selectClause().fileName().getText(), is(equalTo("PRAMFIXO")));
-		assertThat(selectFileSentence_1.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-D433135")));
+		SelectFileSentenceContext selectEntry_1 = fileCtlParagraph.selectEntry(1).selectFileSentence();
+		assertThat(selectEntry_1.selectClause().fileName().getText(), is(equalTo("PRAMFIXO")));
+		assertThat(selectEntry_1.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-D433135")));
 		
 	}
 
@@ -186,11 +186,11 @@ public class FreeFormatUnitTest {
 		// "                        ACCESS SEQUENTIAL",
 		// "                        STATUS IS PROJ-STATUS",
 		// "                        ORGANIZATION INDEXED.",
-		SelectFileSentenceContext selectFileSentence_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectFileSentence(2);
-		assertThat(selectFileSentence_2.selectClause().fileName().getText(), is(equalTo("PROJEN-I")));
-		assertThat(selectFileSentence_2.assignClause().assignmentName(0).getText(), is(equalTo("D433131")));
+		SelectFileSentenceContext selectEntry_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectEntry(2).selectFileSentence();
+		assertThat(selectEntry_2.selectClause().fileName().getText(), is(equalTo("PROJEN-I")));
+		assertThat(selectEntry_2.assignClause().assignmentName(0).getText(), is(equalTo("D433131")));
 		
-		FileOrganizationIndexedContext fileOrganization = selectFileSentence_2.fileOrganizationIndexed();
+		FileOrganizationIndexedContext fileOrganization = selectEntry_2.fileOrganizationIndexed();
 		assertThat(fileOrganization, is(not(nullValue(FileOrganizationIndexedContext.class))));
 
 		assertThat(fileOrganization.USERDEFINEDWORD(0).getText(), is(equalTo("CHAVE")));

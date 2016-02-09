@@ -177,7 +177,11 @@ inputOutputSection :
 
 fileControlParagraph :
 		FILE_CONTROL PERIOD
-		selectFileSentence+
+		selectEntry+
+	;
+
+selectEntry :
+		selectFileSentence
 	;
 
 /**
