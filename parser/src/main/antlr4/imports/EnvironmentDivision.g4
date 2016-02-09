@@ -225,7 +225,7 @@ sequentialFileControlEntry :
 // (though this may be not a syntatic concern, but rather semantic one)
 indexedFileControlEntry :
 		selectClause assignClause
-		RECORD KEY? IS? USERDEFINEDWORD
+		recordKeyClause
 		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
 		(STATUS IS? USERDEFINEDWORD)?	// this clause belongs to general selectFileSentence
 		organizationIsIndexed
@@ -274,4 +274,13 @@ organizationIsRelative :
 
 organizationIsLineSequential :
 		(ORGANIZATION IS?)? LINE SEQUENTIAL
+	;
+
+/**
+ * Record key clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=164&zoom=auto,-40,400
+ */
+recordKeyClause :
+		RECORD KEY? IS? refDataName
 	;

@@ -125,3 +125,18 @@ numericLiteral :
 	|	FLOATINGPOINT
 //	|	HEXINTEGER
 	;
+
+/*
+ * References
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=89&zoom=auto,-40,555
+ */
+
+/**
+ * Reference to data names.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
+ */
+refDataName :
+		dataName ((IN | OF) dataName)*
+	;
