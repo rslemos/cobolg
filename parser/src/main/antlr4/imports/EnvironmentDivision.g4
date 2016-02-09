@@ -30,6 +30,11 @@ environmentDivision :
 		inputOutputSection?
 	;
 
+/**
+ * Configuration section.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=133&zoom=auto,-40,710
+ */
 configurationSection :
 		CONFIGURATION SECTION PERIOD
 		sourceComputerParagraph?
@@ -62,6 +67,11 @@ objectComputerParagraph :
 		)?
 	;
 
+/**
+ * Special-names paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=136&zoom=auto,-40,620
+ */
 specialNamesParagraph :
 		SPECIAL_NAMES PERIOD
 		specialNamesClause*
