@@ -252,4 +252,41 @@ public class FileControlParagraphUnitTest {
 				);
 		}
 	}
+
+	public static class OrganizationIsLineSequential {
+		private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.lineSequentialFileControlParagraph");
+		public static String get(String key) { return TEST_DATA.getString(key); }
+
+		private static CompilerHelper<FileControlParagraphContext> helper = new CompilerHelper<FileControlParagraphContext>() {
+			@Override protected FileControlParagraphContext parsePart() { return parser.fileControlParagraph(); }
+		};
+
+		@Test public void SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL() {
+			helper.compileAndVerify(
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.source"),
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.tree")
+				);
+		}
+
+		@Test public void SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL() {
+			helper.compileAndVerify(
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.source"),
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.tree")
+				);
+		}
+
+		@Test public void SELECT_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL() {
+			helper.compileAndVerify(
+					get("SELECT_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.source"),
+					get("SELECT_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.tree")
+				);
+		}
+
+		@Test public void SELECT_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL() {
+			helper.compileAndVerify(
+					get("SELECT_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.source"),
+					get("SELECT_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_LINE_SEQUENTIAL.tree")
+				);
+		}
+	}
 }

@@ -184,6 +184,7 @@ selectEntry :
 		sequentialFileControlEntry
 	|	indexedFileControlEntry
 	|	relativeFileControlEntry
+	|	lineSequentialFileControlEntry
 	;
 
 /**
@@ -242,6 +243,17 @@ relativeFileControlEntry :
 		PERIOD
 	;
 
+/**
+ * Line sequential file control entry.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=153&zoom=auto,-40,320
+ */
+lineSequentialFileControlEntry :
+		selectClause assignClause
+		organizationIsLineSequential
+		PERIOD
+	;
+
 /*
  * Organization clauses.
  * 
@@ -258,4 +270,8 @@ organizationIsIndexed :
 
 organizationIsRelative :
 		(ORGANIZATION IS?)? RELATIVE
+	;
+
+organizationIsLineSequential :
+		(ORGANIZATION IS?)? LINE SEQUENTIAL
 	;

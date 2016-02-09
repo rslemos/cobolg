@@ -100,6 +100,7 @@ IS                    : 'IS';
 KEY                   : 'KEY';
 LABEL                 : 'LABEL';
 LINAGE                : 'LINAGE';
+LINE                  : 'LINE';
 LINES                 : 'LINES';
 LINKAGE               : 'LINKAGE';
 MEMORY                : 'MEMORY';
