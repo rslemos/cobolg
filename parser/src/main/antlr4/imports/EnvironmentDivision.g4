@@ -72,7 +72,13 @@ specialNamesClause :
 	;
 
 environmentAssignmentClause :
-		environmentName IS? mnemonicName
+		environmentName IS? mnemonicName environmentStatusPhrase?
+	|	environmentName environmentStatusPhrase
+	;
+
+environmentStatusPhrase :
+		ON  STATUS? IS? conditionName (OFF STATUS? IS? conditionName)?
+	|	OFF STATUS? IS? conditionName (ON  STATUS? IS? conditionName)?
 	;
 
 inputOutputSection :

@@ -31,6 +31,7 @@ priorityNumber    : INTEGER { $INTEGER.text.matches("^[0-9]?[0-9]$") }?;
  */
 
 alphabetName      : USERDEFINEDWORD;
+conditionName     : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;

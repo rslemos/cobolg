@@ -105,6 +105,7 @@ NATIVE                : 'NATIVE';
 OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
 OCCURS                : 'OCCURS';
 OF                    : 'OF';
+OFF                   : 'OFF';
 OMITTED               : 'OMITTED';
 ON                    : 'ON';
 OPTIONAL              : 'OPTIONAL';
