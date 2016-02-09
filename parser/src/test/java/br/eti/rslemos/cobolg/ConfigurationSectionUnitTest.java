@@ -300,4 +300,60 @@ public class ConfigurationSectionUnitTest {
 				get("SPECIAL_NAMES_SYMBOLIC_CHARACTERS_A_IS_65_B_IS_66_C_IS_67.tree")
 			);
 	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_IS_A_THROUGH_D() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_A_THROUGH_D.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_A_THROUGH_D.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_IS_A_THRU_D() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_A_THRU_D.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_A_THRU_D.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_IS_ABCD() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_ABCD.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_ABCD.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_IS_A_B_C_D() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_A_B_C_D.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_IS_A_B_C_D.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_A_THROUGH_D() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_A_THROUGH_D.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_A_THROUGH_D.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_A_THRU_D() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_A_THRU_D.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_A_THRU_D.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_ABCD() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_ABCD.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_ABCD.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_CLASS_ABCD_A_B_C_D() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_CLASS_ABCD_A_B_C_D.source"),
+				get("SPECIAL_NAMES_CLASS_ABCD_A_B_C_D.tree")
+			);
+	}
 }

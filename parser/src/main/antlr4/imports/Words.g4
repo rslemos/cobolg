@@ -50,6 +50,7 @@ BLOCK                 : 'BLOCK';
 BOTTOM                : 'BOTTOM';
 BY                    : 'BY';
 CHARACTERS            : 'CHARACTERS';
+CLASS                 : 'CLASS';
 CODE_SET              : 'CODE-SET';
 COLLATING             : 'COLLATING';
 COMP                  : 'COMP';

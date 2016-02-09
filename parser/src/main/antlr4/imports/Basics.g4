@@ -50,6 +50,13 @@ computerName      : USERDEFINEDWORD;
 environmentName   : USERDEFINEDWORD;
 
 /**
+ * (character) Class name.
+ * 
+ * @see publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=142&zoom=auto,-40,670
+ */
+className         : USERDEFINEDWORD;
+
+/**
  * Figurative constant.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160

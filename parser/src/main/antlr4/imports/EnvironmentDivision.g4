@@ -71,6 +71,7 @@ specialNamesClause :
 		environmentAssignmentClause
 	|	alphabetClause
 	|	symbolicCharactersClause
+	|	classClause
 	;
 
 environmentAssignmentClause :
@@ -100,6 +101,15 @@ alphabetClause :
  */
 symbolicCharactersClause :
 		SYMBOLIC CHARACTERS? (symbolicCharacter+ (ARE | IS)? numericLiteral+)+ (IN alphabetName)?
+	;
+
+/**
+ * Class clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=142&zoom=auto,-40,670
+ */
+classClause :
+		CLASS className IS? (literal ((THROUGH | THRU) literal)?)+
 	;
 
 inputOutputSection :
