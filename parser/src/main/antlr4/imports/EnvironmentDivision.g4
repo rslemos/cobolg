@@ -235,6 +235,7 @@ indexedFileControlEntry :
 		selectClause assignClause
 		reserveClause?
 		recordKeyClause passwordClause?
+		(alternateRecordKeyClause passwordClause?)*
 		accessModeClause[0x0100 | 0x0200 | 0x0400]?
 		fileStatusClause?
 		organizationIsIndexed
@@ -343,6 +344,15 @@ accessMode[int flags] :
  */
 recordKeyClause :
 		RECORD KEY? IS? refDataName
+	;
+
+/**
+ * Alternate record key clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=165&zoom=auto,-40,500
+ */
+alternateRecordKeyClause :
+		ALTERNATE RECORD? KEY? IS? refDataName (WITH? DUPLICATES)?
 	;
 
 /**
