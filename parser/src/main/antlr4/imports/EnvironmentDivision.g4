@@ -243,7 +243,7 @@ indexedFileControlEntry :
 relativeFileControlEntry :
 		selectClause assignClause
 		organizationIsRelative
-		accessModeClause[0x0100]?
+		accessModeClause[0x0100 | 0x0800 | 0x1000 | 0x2000]?
 		PERIOD
 	;
 
@@ -294,6 +294,9 @@ accessMode[int flags] :
 		{$flags << ~8 < 0}? SEQUENTIAL
 	|	{$flags << ~9 < 0}? RANDOM
 	|	{$flags << ~10 < 0}? DYNAMIC
+	|	{$flags << ~11 < 0}? SEQUENTIAL relativeKeyClause
+	|	{$flags << ~12 < 0}? RANDOM relativeKeyClause
+	|	{$flags << ~13 < 0}? DYNAMIC relativeKeyClause
 	;
 
 /**
@@ -303,4 +306,13 @@ accessMode[int flags] :
  */
 recordKeyClause :
 		RECORD KEY? IS? refDataName
+	;
+
+/**
+ * Relative key clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=166&zoom=auto,-40,400
+ */
+relativeKeyClause :
+		RELATIVE KEY? IS? refDataName
 	;
