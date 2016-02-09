@@ -31,6 +31,7 @@ import static org.junit.Assert.assertThat;
 import java.io.StringReader;
 import java.util.Iterator;
 
+import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -176,7 +177,6 @@ public class FreeFormatUnitTest {
 		SequentialFileControlEntryContext selectEntry_1 = fileCtlParagraph.selectEntry(1).sequentialFileControlEntry();
 		assertThat(selectEntry_1.selectClause().fileName().getText(), is(equalTo("PRAMFIXO")));
 		assertThat(selectEntry_1.assignClause().assignmentName(0).getText(), is(equalTo("UT-S-D433135")));
-		
 	}
 
 	@Test

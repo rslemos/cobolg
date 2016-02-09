@@ -210,6 +210,7 @@ assignClause :
  */
 sequentialFileControlEntry :
 		selectClause assignClause
+		organizationIsSequential?
 		PERIOD
 	;
 
@@ -229,3 +230,11 @@ indexedFileControlEntry :
 		PERIOD
 	;
 
+/**
+ * Organization clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=159&zoom=auto,-40,550
+ */
+organizationIsSequential :
+		(ORGANIZATION IS?)? SEQUENTIAL
+	;
