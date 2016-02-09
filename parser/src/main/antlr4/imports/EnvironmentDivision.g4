@@ -73,6 +73,7 @@ specialNamesClause :
 	|	symbolicCharactersClause
 	|	classClause
 	|	currencySignClause
+	|	decimalPointClause
 	;
 
 environmentAssignmentClause :
@@ -120,6 +121,15 @@ classClause :
  */
 currencySignClause :
 		CURRENCY SIGN? IS? literal (WITH? PICTURE SYMBOL literal)?
+	;
+
+/**
+ * Decimal-point is comma clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,680
+ */
+decimalPointClause :
+		DECIMAL_POINT IS? COMMA
 	;
 
 inputOutputSection :

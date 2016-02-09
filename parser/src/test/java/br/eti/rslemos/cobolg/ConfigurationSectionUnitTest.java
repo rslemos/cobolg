@@ -440,4 +440,18 @@ public class ConfigurationSectionUnitTest {
 				get("SPECIAL_NAMES_CURRENCY_$.tree")
 			);
 	}
+
+	@Test public void SPECIAL_NAMES_DECIMAL_POINT_IS_COMMA() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_DECIMAL_POINT_IS_COMMA.source"),
+				get("SPECIAL_NAMES_DECIMAL_POINT_IS_COMMA.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_DECIMAL_POINT_COMMA() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_DECIMAL_POINT_COMMA.source"),
+				get("SPECIAL_NAMES_DECIMAL_POINT_COMMA.tree")
+			);
+	}
 }
