@@ -63,12 +63,16 @@ objectComputerParagraph :
 
 specialNamesParagraph :
 		SPECIAL_NAMES PERIOD
-		specialNamesSentence+
-		PERIOD
+		specialNamesClause*
+		PERIOD?
 	;
 
-specialNamesSentence :
-		USERDEFINEDWORD IS? USERDEFINEDWORD
+specialNamesClause :
+		environmentAssignmentClause
+	;
+
+environmentAssignmentClause :
+		environmentName IS? mnemonicName
 	;
 
 inputOutputSection :

@@ -32,10 +32,20 @@ priorityNumber    : INTEGER { $INTEGER.text.matches("^[0-9]?[0-9]$") }?;
 
 alphabetName      : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
+mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
 
 // this is not formally defined, but used elsewhere
 computerName      : USERDEFINEDWORD;
+
+/**
+ * Environment name.
+ * 
+ * Further restrictions may apply:
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=138&zoom=auto,-40,330
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=139&zoom=auto,-40,670
+ */
+environmentName   : USERDEFINEDWORD;
 
 /**
  * Figurative constant.
