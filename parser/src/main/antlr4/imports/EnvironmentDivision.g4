@@ -69,6 +69,7 @@ specialNamesParagraph :
 
 specialNamesClause :
 		environmentAssignmentClause
+	|	alphabetClause
 	;
 
 environmentAssignmentClause :
@@ -79,6 +80,16 @@ environmentAssignmentClause :
 environmentStatusPhrase :
 		ON  STATUS? IS? conditionName (OFF STATUS? IS? conditionName)?
 	|	OFF STATUS? IS? conditionName (ON  STATUS? IS? conditionName)?
+	;
+
+/**
+ * Alphabet clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=139&zoom=auto,-40,280
+ */
+alphabetClause :
+		ALPHABET alphabetName IS? 
+		(STANDARD_1 | STANDARD_2 | NATIVE | EBCDIC | (literal ((THROUGH | THRU) literal | (ALSO literal)+)?)+)
 	;
 
 inputOutputSection :

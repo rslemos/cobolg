@@ -251,4 +251,39 @@ public class ConfigurationSectionUnitTest {
 				get("SPECIAL_NAMES_ABC_OFF_STATUS_IS_CONDITION_A_ON_STATUS_IS_CONDITION_B.tree")
 			);
 	}
+
+	@Test public void SPECIAL_NAMES_ALPHABET_ABC_IS_NATIVE() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_ALPHABET_ABC_IS_NATIVE.source"),
+				get("SPECIAL_NAMES_ALPHABET_ABC_IS_NATIVE.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_ALPHABET_ABC_IS_A_THROUGH_C() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_ALPHABET_ABC_IS_A_THROUGH_C.source"),
+				get("SPECIAL_NAMES_ALPHABET_ABC_IS_A_THROUGH_C.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_ALPHABET_ABC_IS_A_THROUGH_C_A_ALSO_a_B_ALSO_b() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_ALPHABET_ABC_IS_A_THROUGH_C_A_ALSO_a_B_ALSO_b.source"),
+				get("SPECIAL_NAMES_ALPHABET_ABC_IS_A_THROUGH_C_A_ALSO_a_B_ALSO_b.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_ALPHABET_AZ_IS_A_THROUGH_Z_DOT_ALSO_COMMA_ALSO_COLON_ALSO_SEMICOLON() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_ALPHABET_AZ_IS_A_THROUGH_Z_DOT_ALSO_COMMA_ALSO_COLON_ALSO_SEMICOLON.source"),
+				get("SPECIAL_NAMES_ALPHABET_AZ_IS_A_THROUGH_Z_DOT_ALSO_COMMA_ALSO_COLON_ALSO_SEMICOLON.tree")
+			);
+	}
+
+	@Test public void SPECIAL_NAMES_ALPHABET_AZ_IS_A_THROUGH_Z_DOT_ALSO_COMMA_0_THRU_9() {
+		helper.compileAndVerify(
+				get("SPECIAL_NAMES_ALPHABET_AZ_IS_A_THROUGH_Z_DOT_ALSO_COMMA_0_THRU_9.source"),
+				get("SPECIAL_NAMES_ALPHABET_AZ_IS_A_THROUGH_Z_DOT_ALSO_COMMA_0_THRU_9.tree")
+			);
+	}
 }

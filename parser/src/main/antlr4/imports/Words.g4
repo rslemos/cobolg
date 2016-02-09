@@ -39,6 +39,8 @@ PERIOD                : '.';
 
 ACCESS                : 'ACCESS';
 ALL                   : 'ALL';
+ALPHABET              : 'ALPHABET';
+ALSO                  : 'ALSO';
 ARE                   : 'ARE';
 ASSIGN                : 'ASSIGN';
 AT                    : 'AT';
@@ -134,8 +136,12 @@ SIZE                  : 'SIZE';
 SOURCE_COMPUTER       : 'SOURCE-COMPUTER';
 SPECIAL_NAMES         : 'SPECIAL-NAMES';
 STANDARD              : 'STANDARD';
+STANDARD_1            : 'STANDARD-1';
+STANDARD_2            : 'STANDARD-2';
 STATUS                : 'STATUS';
 STOP                  : 'STOP';
+THROUGH               : 'THROUGH';
+THRU                  : 'THRU';
 TIMES                 : 'TIMES';
 TO                    : 'TO';
 TOP                   : 'TOP';
@@ -164,6 +170,9 @@ SPACES                : 'SPACES';
 ZERO                  : 'ZERO';
 ZEROES                : 'ZEROES';
 ZEROS                 : 'ZEROS';
+
+
+EBCDIC                : 'EBCDIC';
 
 /* COMPILER DIRECTING STATEMENTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */
