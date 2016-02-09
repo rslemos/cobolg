@@ -183,6 +183,7 @@ fileControlParagraph :
 selectEntry :
 		sequentialFileControlEntry
 	|	indexedFileControlEntry
+	|	relativeFileControlEntry
 	;
 
 /**
@@ -230,6 +231,17 @@ indexedFileControlEntry :
 		PERIOD
 	;
 
+/**
+ * Relative file control entry.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=153&zoom=auto,-40,730
+ */
+relativeFileControlEntry :
+		selectClause assignClause
+		organizationIsRelative
+		PERIOD
+	;
+
 /*
  * Organization clauses.
  * 
@@ -242,4 +254,8 @@ organizationIsSequential :
 
 organizationIsIndexed :
 		(ORGANIZATION IS?)? INDEXED
+	;
+
+organizationIsRelative :
+		(ORGANIZATION IS?)? RELATIVE
 	;

@@ -215,4 +215,41 @@ public class FileControlParagraphUnitTest {
 				);
 		}
 	}
+
+	public static class OrganizationIsRelative {
+		private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.relativeFileControlParagraph");
+		public static String get(String key) { return TEST_DATA.getString(key); }
+
+		private static CompilerHelper<FileControlParagraphContext> helper = new CompilerHelper<FileControlParagraphContext>() {
+			@Override protected FileControlParagraphContext parsePart() { return parser.fileControlParagraph(); }
+		};
+
+		@Test public void SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE() {
+			helper.compileAndVerify(
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.source"),
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.tree")
+				);
+		}
+
+		@Test public void SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE() {
+			helper.compileAndVerify(
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.source"),
+					get("SELECT_OPTIONAL_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.tree")
+				);
+		}
+
+		@Test public void SELECT_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE() {
+			helper.compileAndVerify(
+					get("SELECT_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.source"),
+					get("SELECT_LOCAL_NAME_ASSIGN_TO_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.tree")
+				);
+		}
+
+		@Test public void SELECT_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE() {
+			helper.compileAndVerify(
+					get("SELECT_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.source"),
+					get("SELECT_LOCAL_NAME_ASSIGN_EXTERNAL_NAME_ORGANIZATION_IS_RELATIVE.tree")
+				);
+		}
+	}
 }
