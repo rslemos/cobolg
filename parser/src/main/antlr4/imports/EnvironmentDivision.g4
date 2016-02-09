@@ -219,6 +219,7 @@ sequentialFileControlEntry :
 		paddingCharacterClause?
 		recordDelimiterClause?
 		accessModeClause[0x0100]?
+		passwordClause?
 		fileStatusClause?
 		PERIOD
 	;
@@ -233,7 +234,7 @@ sequentialFileControlEntry :
 indexedFileControlEntry :
 		selectClause assignClause
 		reserveClause?
-		recordKeyClause
+		recordKeyClause passwordClause?
 		accessModeClause[0x0100 | 0x0200 | 0x0400]?
 		fileStatusClause?
 		organizationIsIndexed
@@ -250,6 +251,7 @@ relativeFileControlEntry :
 		reserveClause?
 		organizationIsRelative
 		accessModeClause[0x0100 | 0x0800 | 0x1000 | 0x2000]?
+		passwordClause?
 		fileStatusClause?
 		PERIOD
 	;
@@ -341,6 +343,15 @@ accessMode[int flags] :
  */
 recordKeyClause :
 		RECORD KEY? IS? refDataName
+	;
+
+/**
+ * Password clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=167&zoom=auto,-40,730
+ */
+passwordClause :
+		PASSWORD IS? refDataName
 	;
 
 /**

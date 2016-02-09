@@ -124,6 +124,7 @@ OPTIONAL              : 'OPTIONAL';
 ORGANIZATION          : 'ORGANIZATION';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
 PADDING               : 'PADDING';
+PASSWORD              : 'PASSWORD';
 PIC                   : 'PIC';     // will be overridden on the main lexer
 PICTURE               : 'PICTURE'; // will be overridden on the main lexer
 POINTER               : 'POINTER';
