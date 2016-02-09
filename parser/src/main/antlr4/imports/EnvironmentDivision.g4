@@ -216,6 +216,7 @@ sequentialFileControlEntry :
 		selectClause assignClause
 		reserveClause?
 		organizationIsSequential?
+		paddingCharacterClause?
 		accessModeClause[0x0100]?
 		fileStatusClause?
 		PERIOD
@@ -294,6 +295,15 @@ organizationIsLineSequential :
  */
 reserveClause :
 		RESERVE INTEGER (AREA | AREAS)
+	;
+
+/**
+ * Padding character clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=161&zoom=auto,-40,240
+ */
+paddingCharacterClause :
+		PADDING CHARACTER? IS? (refDataName | literal)
 	;
 
 /**

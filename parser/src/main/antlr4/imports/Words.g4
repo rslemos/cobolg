@@ -51,6 +51,7 @@ BINARY                : 'BINARY';
 BLOCK                 : 'BLOCK';
 BOTTOM                : 'BOTTOM';
 BY                    : 'BY';
+CHARACTER             : 'CHARACTER';
 CHARACTERS            : 'CHARACTERS';
 CLASS                 : 'CLASS';
 CODE_SET              : 'CODE-SET';
@@ -121,6 +122,7 @@ ON                    : 'ON';
 OPTIONAL              : 'OPTIONAL';
 ORGANIZATION          : 'ORGANIZATION';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
+PADDING               : 'PADDING';
 PIC                   : 'PIC';     // will be overridden on the main lexer
 PICTURE               : 'PICTURE'; // will be overridden on the main lexer
 POINTER               : 'POINTER';
