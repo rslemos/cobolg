@@ -192,8 +192,7 @@ public class FreeFormatUnitTest {
 		
 		assertThat(selectEntry_2.USERDEFINEDWORD(0).getText(), is(equalTo("CHAVE")));
 		assertThat(selectEntry_2.USERDEFINEDWORD(1).getText(), is(equalTo("PROJ-STATUS")));
-		assertThat(selectEntry_2.ORGANIZATION(), is(not(nullValue(TerminalNode.class))));
-		assertThat(selectEntry_2.INDEXED(), is(not(nullValue(TerminalNode.class))));
+		assertThat(selectEntry_2.organizationIsIndexed(), is(not(nullValue(RuleContext.class))));
 	}
 
 	@Test

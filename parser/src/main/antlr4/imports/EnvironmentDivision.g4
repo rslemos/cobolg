@@ -226,15 +226,20 @@ indexedFileControlEntry :
 		RECORD KEY? IS? USERDEFINEDWORD
 		(ACCESS MODE? IS? SEQUENTIAL)?	// other modes also apply (but not now)
 		(STATUS IS? USERDEFINEDWORD)?	// this clause belongs to general selectFileSentence
-		ORGANIZATION IS? INDEXED
+		organizationIsIndexed
 		PERIOD
 	;
 
-/**
- * Organization clause.
+/*
+ * Organization clauses.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=159&zoom=auto,-40,550
  */
+ 
 organizationIsSequential :
 		(ORGANIZATION IS?)? SEQUENTIAL
+	;
+
+organizationIsIndexed :
+		(ORGANIZATION IS?)? INDEXED
 	;
