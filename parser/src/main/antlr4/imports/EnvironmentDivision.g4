@@ -173,6 +173,7 @@ repositoryClassSentence :
 inputOutputSection :
 		INPUT_OUTPUT SECTION PERIOD
 		fileControlParagraph?
+		ioControlParagraph?
 	;
 
 /**
@@ -411,4 +412,18 @@ relativeKeyClause :
  */
 fileStatusClause :
 		FILE? STATUS IS? refDataName refDataName?
+	;
+
+/**
+ * I-O-Control paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=168&zoom=auto,-40,250
+ */
+ioControlParagraph :
+		I_O_CONTROL PERIOD
+		ioControlEntry
+		PERIOD
+	;
+
+ioControlEntry :
 	;
