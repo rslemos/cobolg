@@ -117,6 +117,7 @@ LINKAGE               : 'LINKAGE';
 MEMORY                : 'MEMORY';
 MODE                  : 'MODE';
 MODULES               : 'MODULES';
+MULTIPLE              : 'MULTIPLE';
 NATIONAL              : 'NATIONAL';
 NATIVE                : 'NATIVE';
 // OBJECT                : 'OBJECT';
@@ -134,6 +135,7 @@ PASSWORD              : 'PASSWORD';
 PIC                   : 'PIC';     // will be overridden on the main lexer
 PICTURE               : 'PICTURE'; // will be overridden on the main lexer
 POINTER               : 'POINTER';
+POSITION              : 'POSITION';
 PROCEDURE             : 'PROCEDURE';
 PROCEDURE_POINTER     : 'PROCEDURE-POINTER';
 PROGRAM               : 'PROGRAM';
@@ -169,6 +171,7 @@ STANDARD_2            : 'STANDARD-2';
 STATUS                : 'STATUS';
 STOP                  : 'STOP';
 SYMBOLIC              : 'SYMBOLIC';
+TAPE                  : 'TAPE';
 THROUGH               : 'THROUGH';
 THRU                  : 'THRU';
 TIMES                 : 'TIMES';

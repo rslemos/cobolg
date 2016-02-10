@@ -428,6 +428,7 @@ ioControlParagraph :
 ioControlEntry :
 		rerunClause
 	|	sameAreaClause
+	|	multipleFileTapeClause
 	;
 
 /**
@@ -454,4 +455,13 @@ rerunClause :
  */
 sameAreaClause :
 		SAME (RECORD | SORT | SORT_MERGE)? AREA? FOR? fileName+
+	;
+
+/**
+ * Multiple file tape clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,240
+ */
+multipleFileTapeClause :
+		MULTIPLE FILE TAPE? CONTAINS? (fileName (POSITION INTEGER)?)+
 	;

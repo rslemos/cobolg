@@ -90,4 +90,11 @@ public class IOControlParagraphUnitTest {
 				get("I_O_CONTROL_SAME_SORT_MERGE_AREA_FOR_FILE_1_FILE_2.tree")
 			);
 	}
+
+	@Test public void I_O_CONTROL_MULTIPLE_FILE_TAPE_CONTAINS_FILE_1_POSITION_10_FILE_2() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_MULTIPLE_FILE_TAPE_CONTAINS_FILE_1_POSITION_10_FILE_2.source"),
+				get("I_O_CONTROL_MULTIPLE_FILE_TAPE_CONTAINS_FILE_1_POSITION_10_FILE_2.tree")
+			);
+	}
 }
