@@ -429,6 +429,7 @@ ioControlEntry :
 		rerunClause
 	|	sameAreaClause
 	|	multipleFileTapeClause
+	|	applyWriteOnlyClause
 	;
 
 /**
@@ -464,4 +465,13 @@ sameAreaClause :
  */
 multipleFileTapeClause :
 		MULTIPLE FILE TAPE? CONTAINS? (fileName (POSITION INTEGER)?)+
+	;
+
+/**
+ * Apply write-only clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,140
+ */
+applyWriteOnlyClause :
+		APPLY WRITE_ONLY ON? fileName+
 	;

@@ -42,6 +42,7 @@ ALL                   : 'ALL';
 ALPHABET              : 'ALPHABET';
 ALSO                  : 'ALSO';
 ALTERNATE             : 'ALTERNATE';
+APPLY                 : 'APPLY';
 ARE                   : 'ARE';
 AREA                  : 'AREA';
 AREAS                 : 'AREAS';
@@ -185,6 +186,7 @@ VARYING               : 'VARYING';
 WITH                  : 'WITH';
 WORDS                 : 'WORDS';
 WORKING_STORAGE       : 'WORKING-STORAGE';
+WRITE_ONLY            : 'WRITE-ONLY';
 XML_SCHEMA            : 'XML-SCHEMA';
 
 /* FIGURATIVE CONSTANTS */
