@@ -24,6 +24,13 @@ import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Environment division.
+ * 
+ * Implicitly defined.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=131&zoom=auto,-40,710
+ */
 environmentDivision :
 		ENVIRONMENT DIVISION PERIOD
 		configurationSection?
