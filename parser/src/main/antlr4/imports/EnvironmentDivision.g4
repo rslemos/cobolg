@@ -427,6 +427,7 @@ ioControlParagraph :
 
 ioControlEntry :
 		rerunClause
+	|	sameAreaClause
 	;
 
 /**
@@ -441,4 +442,16 @@ ioControlEntry :
  */
 rerunClause :
 		RERUN ON? (/*assignmentName | */fileName) (EVERY? (INTEGER RECORDS | END OF? (REEL | UNIT)) OF? fileName)?
+	;
+
+/**
+ * Same area clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=171&zoom=auto,-40,150
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=172&zoom=auto,-40,470 (RECORD)
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,660 (SORT)
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,330 (SORT-MERGE)
+ */
+sameAreaClause :
+		SAME (RECORD | SORT | SORT_MERGE)? AREA? FOR? fileName+
 	;

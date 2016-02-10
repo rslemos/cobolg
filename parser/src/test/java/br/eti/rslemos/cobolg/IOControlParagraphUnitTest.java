@@ -62,4 +62,32 @@ public class IOControlParagraphUnitTest {
 				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_END_OF_UNIT_OF_LOCAL_NAME.tree")
 			);
 	}
+
+	@Test public void I_O_CONTROL_SAME_AREA_FOR_FILE_1_FILE_2() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_SAME_AREA_FOR_FILE_1_FILE_2.source"),
+				get("I_O_CONTROL_SAME_AREA_FOR_FILE_1_FILE_2.tree")
+			);
+	}
+
+	@Test public void I_O_CONTROL_SAME_RECORD_AREA_FOR_FILE_1_FILE_2() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_SAME_RECORD_AREA_FOR_FILE_1_FILE_2.source"),
+				get("I_O_CONTROL_SAME_RECORD_AREA_FOR_FILE_1_FILE_2.tree")
+			);
+	}
+
+	@Test public void I_O_CONTROL_SAME_SORT_AREA_FOR_FILE_1_FILE_2() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_SAME_SORT_AREA_FOR_FILE_1_FILE_2.source"),
+				get("I_O_CONTROL_SAME_SORT_AREA_FOR_FILE_1_FILE_2.tree")
+			);
+	}
+
+	@Test public void I_O_CONTROL_SAME_SORT_MERGE_AREA_FOR_FILE_1_FILE_2() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_SAME_SORT_MERGE_AREA_FOR_FILE_1_FILE_2.source"),
+				get("I_O_CONTROL_SAME_SORT_MERGE_AREA_FOR_FILE_1_FILE_2.tree")
+			);
+	}
 }
