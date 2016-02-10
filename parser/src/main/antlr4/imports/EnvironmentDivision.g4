@@ -214,6 +214,7 @@ assignClause :
 // (though this may be not a syntatic concern, but rather semantic one)
 sequentialFileControlEntry :
 		selectClause assignClause
+		reserveClause?
 		organizationIsSequential?
 		accessModeClause[0x0100]?
 		fileStatusClause?
@@ -229,6 +230,7 @@ sequentialFileControlEntry :
 // (though this may be not a syntatic concern, but rather semantic one)
 indexedFileControlEntry :
 		selectClause assignClause
+		reserveClause?
 		recordKeyClause
 		accessModeClause[0x0100 | 0x0200 | 0x0400]?
 		fileStatusClause?
@@ -243,6 +245,7 @@ indexedFileControlEntry :
  */
 relativeFileControlEntry :
 		selectClause assignClause
+		reserveClause?
 		organizationIsRelative
 		accessModeClause[0x0100 | 0x0800 | 0x1000 | 0x2000]?
 		fileStatusClause?
@@ -282,6 +285,15 @@ organizationIsRelative :
 
 organizationIsLineSequential :
 		(ORGANIZATION IS?)? LINE SEQUENTIAL
+	;
+
+/**
+ * Reserve clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=159&zoom=auto,-40,730
+ */
+reserveClause :
+		RESERVE INTEGER (AREA | AREAS)
 	;
 
 /**
