@@ -34,4 +34,32 @@ public class IOControlParagraphUnitTest {
 	private static CompilerHelper<IoControlParagraphContext> helper = new CompilerHelper<IoControlParagraphContext>() {
 		@Override protected IoControlParagraphContext parsePart() { return parser.ioControlParagraph(); }
 	};
+
+	@Test public void I_O_CONTROL_RERUN_ON_LOCAL_NAME() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME.source"),
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME.tree")
+			);
+	}
+
+	@Test public void I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_128_RECORDS_OF_LOCAL_NAME() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_128_RECORDS_OF_LOCAL_NAME.source"),
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_128_RECORDS_OF_LOCAL_NAME.tree")
+			);
+	}
+
+	@Test public void I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_END_OF_REEL_OF_LOCAL_NAME() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_END_OF_REEL_OF_LOCAL_NAME.source"),
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_END_OF_REEL_OF_LOCAL_NAME.tree")
+			);
+	}
+
+	@Test public void I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_END_OF_UNIT_OF_LOCAL_NAME() {
+		helper.compileAndVerify(
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_END_OF_UNIT_OF_LOCAL_NAME.source"),
+				get("I_O_CONTROL_RERUN_ON_LOCAL_NAME_EVERY_END_OF_UNIT_OF_LOCAL_NAME.tree")
+			);
+	}
 }

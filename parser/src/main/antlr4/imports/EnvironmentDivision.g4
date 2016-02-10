@@ -421,9 +421,24 @@ fileStatusClause :
  */
 ioControlParagraph :
 		I_O_CONTROL PERIOD
-		ioControlEntry
+		ioControlEntry+
 		PERIOD
 	;
 
 ioControlEntry :
+		rerunClause
+	;
+
+/**
+ * Rerun clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=170&zoom=auto,-40,300
+ * 
+ * Note: reference documentation defines rerun clause over assignmentName and 
+ * fileName. But ANTLR won't be able to decide which one to take (because both 
+ * are defined the same), unless we keep track of which files were defined on 
+ * the FILE-CONTROL paragraph.
+ */
+rerunClause :
+		RERUN ON? (/*assignmentName | */fileName) (EVERY? (INTEGER RECORDS | END OF? (REEL | UNIT)) OF? fileName)?
 	;
