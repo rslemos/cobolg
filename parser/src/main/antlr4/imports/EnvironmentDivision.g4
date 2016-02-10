@@ -170,6 +170,11 @@ repositoryClassSentence :
 		CLASS dataClassName (IS? alphanumericLiteral)?
 	;
 
+/**
+ * Input-output section.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=149&zoom=auto,-40,700
+ */
 inputOutputSection :
 		INPUT_OUTPUT SECTION PERIOD
 		fileControlParagraph?
