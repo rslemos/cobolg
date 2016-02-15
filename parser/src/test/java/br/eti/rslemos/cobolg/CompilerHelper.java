@@ -27,6 +27,8 @@ import static org.junit.Assert.assertThat;
 
 import java.io.StringReader;
 
+import org.antlr.v4.runtime.ANTLRErrorListener;
+import org.antlr.v4.runtime.ConsoleErrorListener;
 import org.antlr.v4.runtime.RuleContext;
 
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
@@ -36,28 +38,29 @@ public abstract class CompilerHelper<T extends RuleContext> {
 	
 	protected COBOLParser parser;
 	
-	public T compile(String source, CollectErrorListener... listeners) {
+	public T compile(String source, ANTLRErrorListener... listeners) {
 		prepare(source, listeners);
 		return parsePart();
 	}
 	
-	public String compileAndGetTree(String source, CollectErrorListener... listeners) {
+	public String compileAndGetTree(String source, ANTLRErrorListener... listeners) {
 		T tree = compile(source, listeners);
 		return tree.toStringTree(parser);
 	}
 
 	public void compileAndVerify(String source, String expectedTree) {
-		CollectErrorListener listener;
-		String actualTree = compileAndGetTree(source, listener = new CollectErrorListener(null));
+		ErrorDetector detector = new ErrorDetector();
+		String actualTree = compileAndGetTree(source, detector, ConsoleErrorListener.INSTANCE);
+		detector.check();
+		
 		assertThat(actualTree, is(equalTo(expectedTree)));
-		listener.verify();
 	}
 
-	private void prepare(String source, CollectErrorListener... listeners) {
+	private void prepare(String source, ANTLRErrorListener... listeners) {
 		try {
 			FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(source));
 			
-			for (CollectErrorListener listener : listeners)
+			for (ANTLRErrorListener listener : listeners)
 				compiler.addErrorListener(listener);
 			
 			parser = compiler.mainParser;

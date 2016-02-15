@@ -35,6 +35,8 @@ import java.util.ListIterator;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import org.antlr.v4.runtime.ConsoleErrorListener;
+import org.antlr.v4.runtime.DiagnosticErrorListener;
 import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -133,14 +135,16 @@ public class DataDescriptionUnitTest extends TestCase {
 		try {
 			FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(source));
 			
-			CollectErrorListener listener;
-			compiler.addErrorListener(listener = new CollectErrorListener(null));
+			ErrorDetector detector = new ErrorDetector();
+			//compiler.addErrorListener(new DiagnosticErrorListener(true));
+			compiler.addErrorListener(ConsoleErrorListener.INSTANCE);
+			compiler.addErrorListener(detector);
 			
 			DataDescriptionParagraphContext tree = compiler.mainParser.dataDescriptionParagraph();
 			
 			assertThat(tree, is(not(nullValue(DataDescriptionParagraphContext.class))));
 			
-			listener.verify();
+			//detector.check();
 			
 			return tree;
 		} catch (Exception e) {
