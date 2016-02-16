@@ -21,250 +21,554 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertThat;
+import static br.eti.rslemos.cobolg.DataDescriptionData.source;
+import static br.eti.rslemos.cobolg.DataDescriptionData.tree;
+import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.OCCURS;
+import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.PICTURE;
+import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.USAGE;
+import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.VALUE;
 
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.ResourceBundle;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
 
-import org.antlr.v4.runtime.ConsoleErrorListener;
-import org.antlr.v4.runtime.DiagnosticErrorListener;
-import org.antlr.v4.runtime.RuleContext;
-
-import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionClausesContext;
 import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
-public class DataDescriptionUnitTest extends TestCase {
-	public void testEmptyDeclaration () {
-		assertThat(compile("01  EMPTY-DECLARATION."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName EMPTY-DECLARATION) "
-			+ ".)")));
+public class DataDescriptionUnitTest {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.dataDescriptionParagraph");
+	public static String get(String key) { return TEST_DATA.getString(key); }
+
+	private static CompilerHelper<DataDescriptionParagraphContext> helper = new CompilerHelper<DataDescriptionParagraphContext>() {
+		@Override protected DataDescriptionParagraphContext parsePart() { return parser.dataDescriptionParagraph(); }
+	};
+
+	@Test public void EMPTYDECLARATION() {
+		helper.compileAndVerify(
+				get("EMPTYDECLARATION.source"),
+				get("EMPTYDECLARATION.tree")
+			);
 	}
 
-	public void testFillerDeclaration () {
-		assertThat(compile("01  FILLER."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "FILLER "
-			+ ".)")));
+	@Test public void FILLERDECLARATION() {
+		helper.compileAndVerify(
+				get("FILLERDECLARATION.source"),
+				get("FILLERDECLARATION.tree")
+			);
 	}
 
-	public void testAnonymousDeclaration () {
-		assertThat(compile("01  ."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-			+ ".)")));
+	@Test public void ANONYMOUSDECLARATION() {
+		helper.compileAndVerify(
+				get("ANONYMOUSDECLARATION.source"),
+				get("ANONYMOUSDECLARATION.tree")
+			);
 	}
 
-	public void testPICDeclaration () {
-		// the PICTURESTRING is invalid on purpose
-		// this is a bold statement that whatever PICTURESTRING our lexer gave us
-		// should be validated elsewhere (a specialized lexer perhaps?)
-		assertThat(compile("01  PIC-DECLARATION PIC Z$ABX09PPAAAVS,.,,."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName PIC-DECLARATION) "
-				+ "(dataDescriptionClauses "
-					+ "(pictureClause PIC Z$ABX09PPAAAVS,.,,)"
-				+ ") "
-			+ ".)")));
-	}
-	
-	public void testUsageClause () {
-		assertThat(compile("01  USAGE-DECLARATION USAGE IS BINARY."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName USAGE-DECLARATION) "
-				+ "(dataDescriptionClauses "
-					+ "(usageClause USAGE IS (usage BINARY))"
-				+ ") "
-			+ ".)")));
+	@Test public void PICDECLARATION() {
+		helper.compileAndVerify(
+				get("PICDECLARATION.source"),
+				get("PICDECLARATION.tree")
+			);
 	}
 
-	public void testValueClause () {
-		assertThat(compile("01  VALUE-DECLARATION VALUE IS 0."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName VALUE-DECLARATION) "
-				+ "(dataDescriptionClauses "
-					+ "(valueClause VALUE IS (literal (numericLiteral 0)))"
-				+ ") "
-			+ ".)")));
+	@Test public void USAGECLAUSE() {
+		helper.compileAndVerify(
+				get("USAGECLAUSE.source"),
+				get("USAGECLAUSE.tree")
+			);
 	}
 
-	public void testValueClauseWithFigurativeConstant () {
-		assertThat(compile("01  VALUE-DECLARATION VALUE IS ZERO."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName VALUE-DECLARATION) "
-				+ "(dataDescriptionClauses "
-					+ "(valueClause VALUE IS (literal (figurativeConstant ZERO)))"
-				+ ") "
-			+ ".)")));
+	@Test public void VALUECLAUSE() {
+		helper.compileAndVerify(
+				get("VALUECLAUSE.source"),
+				get("VALUECLAUSE.tree")
+			);
 	}
 
-	public void testOccursClause () {
-		assertThat(compile("01  OCCURS-DECLARATION OCCURS 10 TIMES."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName OCCURS-DECLARATION) "
-				+ "(dataDescriptionClauses "
-					+ "(occursClause OCCURS 10 TIMES)"
-				+ ") "
-			+ ".)")));
+	@Test public void VALUECLAUSEWITHFIGURATIVECONSTANT() {
+		helper.compileAndVerify(
+				get("VALUECLAUSEWITHFIGURATIVECONSTANT.source"),
+				get("VALUECLAUSEWITHFIGURATIVECONSTANT.tree")
+			);
 	}
 
-	public void testRedefinesClause () {
-		assertThat(compile("01  REDEFINITION-DECLARATION REDEFINES REDEFINED-DECLARATION."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName REDEFINITION-DECLARATION) "
-				+ "(redefinesClause REDEFINES (dataName REDEFINED-DECLARATION)) "
-			+ ".)")));
-	}
-	
-	public void testPIC_USAGE_VALUE () {
-		assertThat(compile("01  DECL PIC XXXXX USAGE COMP-3 VALUE IS QUOTES."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName DECL) "
-				+ "(dataDescriptionClauses "
-					+ "(pictureClause PIC XXXXX) "
-					+ "(usageClause USAGE (usage COMP-3)) "
-					+ "(valueClause VALUE IS (literal (figurativeConstant QUOTES)))"
-				+ ") "
-			+ ".)")));
+	@Test public void OCCURSCLAUSE() {
+		helper.compileAndVerify(
+				get("OCCURSCLAUSE.source"),
+				get("OCCURSCLAUSE.tree")
+			);
 	}
 
-	public void testPIC_VALUE_USAGE () {
-		assertThat(compile("01  DECL PIC XXXXX VALUE IS QUOTES USAGE COMP-3."), is(equalTo("(dataDescriptionParagraph "
-				+ "(levelNumber 01) "
-				+ "(dataName DECL) "
-				+ "(dataDescriptionClauses "
-					+ "(pictureClause PIC XXXXX) "
-					+ "(valueClause VALUE IS (literal (figurativeConstant QUOTES))) "
-					+ "(usageClause USAGE (usage COMP-3))"
-				+ ") "
-			+ ".)")));
+	@Test public void REDEFINESCLAUSE() {
+		helper.compileAndVerify(
+				get("REDEFINESCLAUSE.source"),
+				get("REDEFINESCLAUSE.tree")
+			);
 	}
 
-	private static FreeFormatCompiler compiler;
+	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
-	private static String compile(String source) {
-		return compileAsContext(source).toStringTree(compiler.mainParser);
+	// 0
+	@Test public void DECL_X() {
+		helper.compileAndVerify(
+				source(),
+				tree  ()
+			);
 	}
 
-	private static DataDescriptionParagraphContext compileAsContext(String source) {
-		try {
-			compiler = new FreeFormatCompiler(new StringReader(source));
-			
-			ErrorDetector detector = new ErrorDetector();
-			//compiler.addErrorListener(new DiagnosticErrorListener(true));
-			compiler.addErrorListener(ConsoleErrorListener.INSTANCE);
-			compiler.addErrorListener(detector);
-			
-			DataDescriptionParagraphContext tree = compiler.mainParser.dataDescriptionParagraph();
-			
-			assertThat(tree, is(not(nullValue(DataDescriptionParagraphContext.class))));
-			
-			//detector.check();
-			
-			return tree;
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	public static TestSuite suite() {
-		TestSuite suite = new TestSuite(DataDescriptionUnitTest.class);
-		suite.addTest(FullPermutationTestCase.suite());
-		
-		return suite;
+	// 1
+	@Test public void DECL_X_PICTURE() {
+		helper.compileAndVerify(
+				source(PICTURE),
+				tree  (PICTURE)
+			);
 	}
 
-	public static class FullPermutationTestCase extends TestCase {
+	@Test public void DECL_X_USAGE() {
+		helper.compileAndVerify(
+				source(USAGE),
+				tree  (USAGE)
+			);
+	}
 
-		private static String[] ELEMENTS = {"PIC XXXX ", "USAGE COMP-3 ", "VALUE IS QUOTES ", "OCCURS 10 TIMES "};
-		
-		@Override
-		protected void runTest() throws Throwable {
-			DataDescriptionClausesContext clauses = compileAsContext(getName()).dataDescriptionClauses();
-			
-			if (permutation.size() == 0)
-				assertThat(clauses, is(nullValue(DataDescriptionClausesContext.class)));
-			else {
-				checkClause(clauses.pictureClause(), permutation.contains(0) ? ELEMENTS[0] : null);
-				checkClause(clauses.usageClause(),   permutation.contains(1) ? ELEMENTS[1] : null);
-				checkClause(clauses.valueClause(),   permutation.contains(2) ? ELEMENTS[2] : null);
-				checkClause(clauses.occursClause(),  permutation.contains(3) ? ELEMENTS[3] : null);
-			}
-		}
+	@Test public void DECL_X_VALUE() {
+		helper.compileAndVerify(
+				source(VALUE),
+				tree  (VALUE)
+			);
+	}
 
-		private void checkClause(RuleContext clause, String expected) {
-			if (expected != null) {
-				// whitespace go to HIDDEN channel (so getText() will not return them)
-				expected = expected.replaceAll(" ", "");
-				assertThat(clause.getText(), is(equalTo(expected)));
-			} else
-				assertThat(clause, is(nullValue(RuleContext.class)));
-		}
+	@Test public void DECL_X_OCCURS() {
+		helper.compileAndVerify(
+				source(OCCURS),
+				tree  (OCCURS)
+			);
+	}
 
-		public static TestSuite suite() {
-			TestSuite suite = new TestSuite(FullPermutationTestCase.class.getName());
-			
-			// http://oeis.org/A000522(4)
-			List<ArrayList<Integer>> permutations = new ArrayList<ArrayList<Integer>>(65);
-			
-			// start with empty permutation
-			permutations.add(new ArrayList<Integer>());
-			
-			for (int i = 0; i < ELEMENTS.length; i++) {
-				ListIterator<ArrayList<Integer>> it = permutations.listIterator();
-				while(it.hasNext()) {
-					// new permutations based on existing ones
-					ArrayList<Integer> existing = it.next();
-					
-					for (int j = 0; j < ELEMENTS.length; j++)
-						// avoid repeated element
-						if (!existing.contains(j)) {
-							ArrayList<Integer> neww = new ArrayList<Integer>(existing);
-							neww.add(j);
-							
-							// both fors make a square, but only half is needed (a triangle)
-							if (!permutations.contains(neww))
-								it.add(neww);
-						}
-				}
-			}
-			
-			for (ArrayList<Integer> permutation : permutations)
-				suite.addTest(new FullPermutationTestCase(permutation));
-			
-			return suite;
-		}
-		
-		private final List<Integer> permutation;
+	// 2
+	@Test public void DECL_X_PICTURE_USAGE() {
+		helper.compileAndVerify(
+				source(PICTURE, USAGE),
+				tree  (PICTURE, USAGE)
+			);
+	}
 
-		public FullPermutationTestCase(List<Integer> permutation) {
-			super(buildDecl(permutation));
-			this.permutation = permutation;
-		}
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Test public void DECL_X_PICTURE_VALUE() {
+		helper.compileAndVerify(
+				source(PICTURE, VALUE),
+				tree  (PICTURE, VALUE)
+			);
+	}
 
-		private static String buildDecl(List<Integer> permutation) {
-			StringBuilder decl = new StringBuilder();
-			decl.append("77  DECL-");
-			decl.append(permutation.toString().replaceAll("[^0-9]", ""));
-			decl.append("-X ");
-			
-			for (Integer i : permutation)
-				decl.append(ELEMENTS[i]);
-			
-			decl.setLength(decl.length() - 1);
-			decl.append('.');
-			
-			return decl.toString();
-		}
+	@Test public void DECL_X_PICTURE_OCCURS() {
+		helper.compileAndVerify(
+				source(PICTURE, OCCURS),
+				tree  (PICTURE, OCCURS)
+			);
+	}
 
+	@Test public void DECL_X_USAGE_PICTURE() {
+		helper.compileAndVerify(
+				source(USAGE, PICTURE),
+				tree  (USAGE, PICTURE)
+			);
+	}
+
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Test public void DECL_X_USAGE_VALUE() {
+		helper.compileAndVerify(
+				source(USAGE, VALUE),
+				tree  (USAGE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_OCCURS() {
+		helper.compileAndVerify(
+				source(USAGE, OCCURS),
+				tree  (USAGE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_PICTURE() {
+		helper.compileAndVerify(
+				source(VALUE, PICTURE),
+				tree  (VALUE, PICTURE)
+			);
+	}
+
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Test public void DECL_X_VALUE_USAGE() {
+		helper.compileAndVerify(
+				source(VALUE, USAGE),
+				tree  (VALUE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_OCCURS() {
+		helper.compileAndVerify(
+				source(VALUE, OCCURS),
+				tree  (VALUE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_PICTURE() {
+		helper.compileAndVerify(
+				source(OCCURS, PICTURE),
+				tree  (OCCURS, PICTURE)
+			);
+	}
+
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Test public void DECL_X_OCCURS_USAGE() {
+		helper.compileAndVerify(
+				source(OCCURS, USAGE),
+				tree  (OCCURS, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_VALUE() {
+		helper.compileAndVerify(
+				source(OCCURS, VALUE),
+				tree  (OCCURS, VALUE)
+			);
+	}
+
+	// 3
+	@Test public void DECL_X_PICTURE_USAGE_VALUE() {
+		helper.compileAndVerify(
+				source(PICTURE, USAGE, VALUE),
+				tree  (PICTURE, USAGE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_USAGE_OCCURS() {
+		helper.compileAndVerify(
+				source(PICTURE, USAGE, OCCURS),
+				tree  (PICTURE, USAGE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_VALUE_USAGE() {
+		helper.compileAndVerify(
+				source(PICTURE, VALUE, USAGE),
+				tree  (PICTURE, VALUE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_VALUE_OCCURS() {
+		helper.compileAndVerify(
+				source(PICTURE, VALUE, OCCURS),
+				tree  (PICTURE, VALUE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_OCCURS_USAGE() {
+		helper.compileAndVerify(
+				source(PICTURE, OCCURS, USAGE),
+				tree  (PICTURE, OCCURS, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_OCCURS_VALUE() {
+		helper.compileAndVerify(
+				source(PICTURE, OCCURS, VALUE),
+				tree  (PICTURE, OCCURS, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_PICTURE_VALUE() {
+		helper.compileAndVerify(
+				source(USAGE, PICTURE, VALUE),
+				tree  (USAGE, PICTURE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_PICTURE_OCCURS() {
+		helper.compileAndVerify(
+				source(USAGE, PICTURE, OCCURS),
+				tree  (USAGE, PICTURE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_VALUE_PICTURE() {
+		helper.compileAndVerify(
+				source(USAGE, VALUE, PICTURE),
+				tree  (USAGE, VALUE, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_VALUE_OCCURS() {
+		helper.compileAndVerify(
+				source(USAGE, VALUE, OCCURS),
+				tree  (USAGE, VALUE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_OCCURS_PICTURE() {
+		helper.compileAndVerify(
+				source(USAGE, OCCURS, PICTURE),
+				tree  (USAGE, OCCURS, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_OCCURS_VALUE() {
+		helper.compileAndVerify(
+				source(USAGE, OCCURS, VALUE),
+				tree  (USAGE, OCCURS, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_PICTURE_USAGE() {
+		helper.compileAndVerify(
+				source(VALUE, PICTURE, USAGE),
+				tree  (VALUE, PICTURE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_PICTURE_OCCURS() {
+		helper.compileAndVerify(
+				source(VALUE, PICTURE, OCCURS),
+				tree  (VALUE, PICTURE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_USAGE_PICTURE() {
+		helper.compileAndVerify(
+				source(VALUE, USAGE, PICTURE),
+				tree  (VALUE, USAGE, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_USAGE_OCCURS() {
+		helper.compileAndVerify(
+				source(VALUE, USAGE, OCCURS),
+				tree  (VALUE, USAGE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_OCCURS_PICTURE() {
+		helper.compileAndVerify(
+				source(VALUE, OCCURS, PICTURE),
+				tree  (VALUE, OCCURS, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_OCCURS_USAGE() {
+		helper.compileAndVerify(
+				source(VALUE, OCCURS, USAGE),
+				tree  (VALUE, OCCURS, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_PICTURE_USAGE() {
+		helper.compileAndVerify(
+				source(OCCURS, PICTURE, USAGE),
+				tree  (OCCURS, PICTURE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_PICTURE_VALUE() {
+		helper.compileAndVerify(
+				source(OCCURS, PICTURE, VALUE),
+				tree  (OCCURS, PICTURE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_USAGE_PICTURE() {
+		helper.compileAndVerify(
+				source(OCCURS, USAGE, PICTURE),
+				tree  (OCCURS, USAGE, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_USAGE_VALUE() {
+		helper.compileAndVerify(
+				source(OCCURS, USAGE, VALUE),
+				tree  (OCCURS, USAGE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_VALUE_PICTURE() {
+		helper.compileAndVerify(
+				source(OCCURS, VALUE, PICTURE),
+				tree  (OCCURS, VALUE, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_VALUE_USAGE() {
+		helper.compileAndVerify(
+				source(OCCURS, VALUE, USAGE),
+				tree  (OCCURS, VALUE, USAGE)
+			);
+	}
+
+	// 4
+	@Test public void DECL_X_PICTURE_USAGE_VALUE_OCCURS() {
+		helper.compileAndVerify(
+				source(PICTURE, USAGE, VALUE, OCCURS),
+				tree  (PICTURE, USAGE, VALUE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_USAGE_OCCURS_VALUE() {
+		helper.compileAndVerify(
+				source(PICTURE, USAGE, OCCURS, VALUE),
+				tree  (PICTURE, USAGE, OCCURS, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_VALUE_USAGE_OCCURS() {
+		helper.compileAndVerify(
+				source(PICTURE, VALUE, USAGE, OCCURS),
+				tree  (PICTURE, VALUE, USAGE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_VALUE_OCCURS_USAGE() {
+		helper.compileAndVerify(
+				source(PICTURE, VALUE, OCCURS, USAGE),
+				tree  (PICTURE, VALUE, OCCURS, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_OCCURS_USAGE_VALUE() {
+		helper.compileAndVerify(
+				source(PICTURE, OCCURS, USAGE, VALUE),
+				tree  (PICTURE, OCCURS, USAGE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_PICTURE_OCCURS_VALUE_USAGE() {
+		helper.compileAndVerify(
+				source(PICTURE, OCCURS, VALUE, USAGE),
+				tree  (PICTURE, OCCURS, VALUE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_PICTURE_VALUE_OCCURS() {
+		helper.compileAndVerify(
+				source(USAGE, PICTURE, VALUE, OCCURS),
+				tree  (USAGE, PICTURE, VALUE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_PICTURE_OCCURS_VALUE() {
+		helper.compileAndVerify(
+				source(USAGE, PICTURE, OCCURS, VALUE),
+				tree  (USAGE, PICTURE, OCCURS, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_VALUE_PICTURE_OCCURS() {
+		helper.compileAndVerify(
+				source(USAGE, VALUE, PICTURE, OCCURS),
+				tree  (USAGE, VALUE, PICTURE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_VALUE_OCCURS_PICTURE() {
+		helper.compileAndVerify(
+				source(USAGE, VALUE, OCCURS, PICTURE),
+				tree  (USAGE, VALUE, OCCURS, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_OCCURS_PICTURE_VALUE() {
+		helper.compileAndVerify(
+				source(USAGE, OCCURS, PICTURE, VALUE),
+				tree  (USAGE, OCCURS, PICTURE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_USAGE_OCCURS_VALUE_PICTURE() {
+		helper.compileAndVerify(
+				source(USAGE, OCCURS, VALUE, PICTURE),
+				tree  (USAGE, OCCURS, VALUE, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_PICTURE_USAGE_OCCURS() {
+		helper.compileAndVerify(
+				source(VALUE, PICTURE, USAGE, OCCURS),
+				tree  (VALUE, PICTURE, USAGE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_PICTURE_OCCURS_USAGE() {
+		helper.compileAndVerify(
+				source(VALUE, PICTURE, OCCURS, USAGE),
+				tree  (VALUE, PICTURE, OCCURS, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_USAGE_PICTURE_OCCURS() {
+		helper.compileAndVerify(
+				source(VALUE, USAGE, PICTURE, OCCURS),
+				tree  (VALUE, USAGE, PICTURE, OCCURS)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_USAGE_OCCURS_PICTURE() {
+		helper.compileAndVerify(
+				source(VALUE, USAGE, OCCURS, PICTURE),
+				tree  (VALUE, USAGE, OCCURS, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_OCCURS_PICTURE_USAGE() {
+		helper.compileAndVerify(
+				source(VALUE, OCCURS, PICTURE, USAGE),
+				tree  (VALUE, OCCURS, PICTURE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_VALUE_OCCURS_USAGE_PICTURE() {
+		helper.compileAndVerify(
+				source(VALUE, OCCURS, USAGE, PICTURE),
+				tree  (VALUE, OCCURS, USAGE, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_PICTURE_USAGE_VALUE() {
+		helper.compileAndVerify(
+				source(OCCURS, PICTURE, USAGE, VALUE),
+				tree  (OCCURS, PICTURE, USAGE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_PICTURE_VALUE_USAGE() {
+		helper.compileAndVerify(
+				source(OCCURS, PICTURE, VALUE, USAGE),
+				tree  (OCCURS, PICTURE, VALUE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_USAGE_PICTURE_VALUE() {
+		helper.compileAndVerify(
+				source(OCCURS, USAGE, PICTURE, VALUE),
+				tree  (OCCURS, USAGE, PICTURE, VALUE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_USAGE_VALUE_PICTURE() {
+		helper.compileAndVerify(
+				source(OCCURS, USAGE, VALUE, PICTURE),
+				tree  (OCCURS, USAGE, VALUE, PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_VALUE_PICTURE_USAGE() {
+		helper.compileAndVerify(
+				source(OCCURS, VALUE, PICTURE, USAGE),
+				tree  (OCCURS, VALUE, PICTURE, USAGE)
+			);
+	}
+
+	@Test public void DECL_X_OCCURS_VALUE_USAGE_PICTURE() {
+		helper.compileAndVerify(
+				source(OCCURS, VALUE, USAGE, PICTURE),
+				tree  (OCCURS, VALUE, USAGE, PICTURE)
+			);
 	}
 }
