@@ -35,7 +35,7 @@ public class RecordDescriptionEntryUnitTest {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.recordDescriptionEntry");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<WorkingStorageSectionContext> helper = new CompilerHelper<WorkingStorageSectionContext>() {
+	static CompilerHelper<WorkingStorageSectionContext> helper = new CompilerHelper<WorkingStorageSectionContext>() {
 		@Override protected WorkingStorageSectionContext parsePart() {
 			return parser.workingStorageSection();
 		}
