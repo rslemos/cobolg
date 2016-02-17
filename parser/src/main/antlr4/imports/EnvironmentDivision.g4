@@ -277,10 +277,15 @@ relativeFileControlEntryClause :
  */
 lineSequentialFileControlEntry :
 		selectClause assignClause
+		lineSequentialFileControlEntryClause*
 		organizationIsLineSequential
-		accessModeClause[0x0100]?
-		fileStatusClause?
+		lineSequentialFileControlEntryClause*
 		PERIOD
+	;
+
+lineSequentialFileControlEntryClause :
+		fileStatusClause
+	|	accessModeClause[0x0100]
 	;
 
 /*
