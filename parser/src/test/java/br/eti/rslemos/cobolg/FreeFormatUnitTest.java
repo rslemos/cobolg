@@ -30,6 +30,7 @@ import static org.junit.Assert.assertThat;
 
 import java.io.StringReader;
 import java.util.Iterator;
+import java.util.List;
 
 import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -189,11 +190,14 @@ public class FreeFormatUnitTest {
 		IndexedFileControlEntryContext selectEntry_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectEntry(2).indexedFileControlEntry();
 		assertThat(selectEntry_2.selectClause().fileName().getText(), is(equalTo("PROJEN-I")));
 		assertThat(selectEntry_2.assignClause().assignmentName(0).getText(), is(equalTo("D433131")));
-		
-		assertThat(selectEntry_2.recordKeyClause().refDataName().getText(), is(equalTo("CHAVE")));
-		assertThat(selectEntry_2.accessModeClause().accessMode().SEQUENTIAL(), is(not(nullValue(TerminalNode.class))));
-		assertThat(selectEntry_2.fileStatusClause().refDataName(0).getText(), is(equalTo("PROJ-STATUS")));
+
 		assertThat(selectEntry_2.organizationIsIndexed(), is(not(nullValue(RuleContext.class))));
+
+		List<IndexedFileControlEntryClauseContext> indexedClauses = selectEntry_2.indexedFileControlEntryClause();
+		assertThat(indexedClauses.size(), is(equalTo(3)));
+		assertThat(indexedClauses.get(0).recordKeyClause().refDataName().getText(), is(equalTo("CHAVE")));
+		assertThat(indexedClauses.get(1).accessModeClause().accessMode().SEQUENTIAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(indexedClauses.get(2).fileStatusClause().refDataName(0).getText(), is(equalTo("PROJ-STATUS")));
 	}
 
 	@Test

@@ -234,17 +234,20 @@ sequentialFileControlEntryClause :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=152&zoom=auto,-40,730
  */
-// TODO: may appear in any order, but at most once
-// (though this may be not a syntatic concern, but rather semantic one)
 indexedFileControlEntry :
 		selectClause assignClause
-		reserveClause?
-		recordKeyClause passwordClause?
-		(alternateRecordKeyClause passwordClause?)*
-		accessModeClause[0x0100 | 0x0200 | 0x0400]?
-		fileStatusClause?
+		indexedFileControlEntryClause*
 		organizationIsIndexed
+		indexedFileControlEntryClause*
 		PERIOD
+	;
+
+indexedFileControlEntryClause :
+		reserveClause
+	|	recordKeyClause passwordClause?
+	|	alternateRecordKeyClause passwordClause?
+	|	fileStatusClause
+	|	accessModeClause[0x0100 | 0x0200 | 0x0400]
 	;
 
 /**
