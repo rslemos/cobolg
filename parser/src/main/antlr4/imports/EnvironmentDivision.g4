@@ -210,18 +210,23 @@ assignClause :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=151&zoom=auto,-40,730
  */
-// TODO: may appear in any order, but at most once
-// (though this may be not a syntatic concern, but rather semantic one)
 sequentialFileControlEntry :
 		selectClause assignClause
-		reserveClause?
-		organizationIsSequential?
-		paddingCharacterClause?
-		recordDelimiterClause?
-		accessModeClause[0x0100]?
-		passwordClause?
-		fileStatusClause?
+		sequentialFileControlEntryClause*
+		(
+			organizationIsSequential
+			sequentialFileControlEntryClause*
+		)?
 		PERIOD
+	;
+
+sequentialFileControlEntryClause :
+		reserveClause
+	|	paddingCharacterClause
+	|	recordDelimiterClause
+	|	passwordClause
+	|	fileStatusClause
+	|	accessModeClause[0x100]
 	;
 
 /**
