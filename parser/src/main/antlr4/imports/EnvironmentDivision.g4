@@ -257,12 +257,17 @@ indexedFileControlEntryClause :
  */
 relativeFileControlEntry :
 		selectClause assignClause
-		reserveClause?
+		relativeFileControlEntryClause*
 		organizationIsRelative
-		accessModeClause[0x0100 | 0x0800 | 0x1000 | 0x2000]?
-		passwordClause?
-		fileStatusClause?
+		relativeFileControlEntryClause*
 		PERIOD
+	;
+
+relativeFileControlEntryClause :
+		reserveClause
+	|	passwordClause
+	|	fileStatusClause
+	|	accessModeClause[0x0100 | 0x0800 | 0x1000 | 0x2000]
 	;
 
 /**
