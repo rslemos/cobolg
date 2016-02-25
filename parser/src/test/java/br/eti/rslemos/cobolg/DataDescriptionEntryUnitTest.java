@@ -21,26 +21,26 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.DataDescriptionData.source;
-import static br.eti.rslemos.cobolg.DataDescriptionData.tree;
-import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.OCCURS;
-import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.PICTURE;
-import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.USAGE;
-import static br.eti.rslemos.cobolg.DataDescriptionData.DataDescriptionClause.VALUE;
+import static br.eti.rslemos.cobolg.DataDescriptionEntryData.source;
+import static br.eti.rslemos.cobolg.DataDescriptionEntryData.tree;
+import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.OCCURS;
+import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.PICTURE;
+import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.USAGE;
+import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.VALUE;
 
 import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionParagraphContext;
+import br.eti.rslemos.cobolg.COBOLParser.DataDescriptionEntryContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
-public class DataDescriptionUnitTest {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.dataDescriptionParagraph");
+public class DataDescriptionEntryUnitTest {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.dataDescriptionEntry");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<DataDescriptionParagraphContext> helper = new CompilerHelper<DataDescriptionParagraphContext>() {
-		@Override protected DataDescriptionParagraphContext parsePart() { return parser.dataDescriptionParagraph(); }
+	private static CompilerHelper<DataDescriptionEntryContext> helper = new CompilerHelper<DataDescriptionEntryContext>() {
+		@Override protected DataDescriptionEntryContext parsePart() { return parser.dataDescriptionEntry(); }
 	};
 
 	@Test public void EMPTYDECLARATION() {

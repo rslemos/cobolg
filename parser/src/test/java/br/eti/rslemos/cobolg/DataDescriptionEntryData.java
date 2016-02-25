@@ -21,8 +21,8 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-public class DataDescriptionData {
-	public static enum DataDescriptionClause {
+public class DataDescriptionEntryData {
+	public static enum DataDescriptionEntryClause {
 		PICTURE("PIC XXXX"       , "(pictureClause PIC XXXX)"                                    ),
 		USAGE  ("USAGE COMP-3"   , "(usageClause USAGE (usage COMP-3))"                          ),
 		VALUE  ("VALUE IS QUOTES", "(valueClause VALUE IS (literal (figurativeConstant QUOTES)))"),
@@ -31,7 +31,7 @@ public class DataDescriptionData {
 	
 		private final String source, tree;
 		
-		private DataDescriptionClause(String source, String tree) {
+		private DataDescriptionEntryClause(String source, String tree) {
 			this.source = source;
 			this.tree = tree;
 		}
@@ -41,12 +41,12 @@ public class DataDescriptionData {
 		
 	}
 
-	public static String source(DataDescriptionClause... clauses) {
+	public static String source(DataDescriptionEntryClause... clauses) {
 		return "77  DECL-X " + TextHelper.join0(" ", getSources(clauses)) + ".";
 	}
 
-	public static String tree(DataDescriptionClause... clauses) {
-		return "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-X) " + 
+	public static String tree(DataDescriptionEntryClause... clauses) {
+		return "(dataDescriptionEntry (levelNumber 77) (dataName DECL-X) " + 
 					(clauses.length > 0 
 							? "(dataDescriptionClauses " + TextHelper.join0(" ", getTrees(clauses)) + ") " 
 							: ""
@@ -56,7 +56,7 @@ public class DataDescriptionData {
 
 	// these could only be in better shape by lambda calculus
 	
-	private static String[] getSources(DataDescriptionClause... clauses) {
+	private static String[] getSources(DataDescriptionEntryClause... clauses) {
 		String[] inputs = new String[clauses.length];
 		
 		for (int i = 0; i < clauses.length; i++)
@@ -65,7 +65,7 @@ public class DataDescriptionData {
 		return inputs;
 	}
 
-	private static String[] getTrees(DataDescriptionClause... clauses) {
+	private static String[] getTrees(DataDescriptionEntryClause... clauses) {
 		String[] outputs = new String[clauses.length];
 		
 		for (int i = 0; i < clauses.length; i++)

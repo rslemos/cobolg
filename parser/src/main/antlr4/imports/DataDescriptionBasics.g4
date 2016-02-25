@@ -24,11 +24,30 @@ import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
-dataDescriptionParagraph :
-		levelNumber (dataName | FILLER)?
-		redefinesClause?
-		dataDescriptionClauses?
-		PERIOD
+/**
+ * Record-description-entry.
+ * 
+ * - is a set of data description entries (in the sense that a group data description entry encompasses a set of entries);
+ * - more than one record description entry can be specified; each is an alternative description of the same record storage area.
+ * 
+ * Data description entry is a single line of description.
+ * Record description entry is a data description entry and its children
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=179&zoom=auto,-100,700
+ */
+recordDescriptionEntry :
+		dataDescriptionEntry
+	;
+
+/**
+ * Data description entry.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=209&zoom=auto,-100,730
+ */
+dataDescriptionEntry :
+	levelNumber
+	(dataName | FILLER)? redefinesClause? dataDescriptionClauses? 
+	PERIOD
 	;
 
 // Waiting for correction or workaround to https://github.com/antlr/antlr4/issues/867 or http://stackoverflow.com/questions/30021472/antlr4-semantic-predicates-mess-with-error-recovery-why
@@ -101,10 +120,6 @@ occursClause :
 		OCCURS INTEGER TIMES?
 //		((ASCENDING | DESCENDING) KEY? IS? dataName+)*
 		(INDEXED BY? indexName+)?
-	;
-
-levelNumber :
-		INTEGER { $INTEGER.text.matches("^[0-9][0-9]$") }?
 	;
 
 indexName :

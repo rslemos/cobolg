@@ -23,6 +23,7 @@ parser grammar Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+levelNumber       : INTEGER { $INTEGER.text.matches("^(0?[1-9]|[1-4][0-9]|66|77|88)$") }?;
 priorityNumber    : INTEGER { $INTEGER.text.matches("^[0-9]?[0-9]$") }?;
 
 /* 

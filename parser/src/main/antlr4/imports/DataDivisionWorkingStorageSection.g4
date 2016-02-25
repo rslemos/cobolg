@@ -31,5 +31,5 @@ options { tokenVocab = COBOLLexer; }
  */
 workingStorageSection :
 		WORKING_STORAGE SECTION PERIOD
-		dataDescriptionParagraph*
+		recordDescriptionEntry*
 	;
