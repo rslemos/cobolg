@@ -22,7 +22,6 @@
 package br.eti.rslemos.cobolg;
 
 import java.io.IOException;
-
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,6 +36,7 @@ import org.antlr.v4.runtime.DefaultErrorStrategy;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.atn.PredictionMode;
 import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -48,7 +48,6 @@ import org.slf4j.LoggerFactory;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
-
 import static java.lang.String.format;
 
 public abstract class Compiler {
@@ -79,7 +78,7 @@ public abstract class Compiler {
 	private static <R extends Parser> R setup(R parser) {
 		parser.removeErrorListeners();
 		parser.setErrorHandler(new DefaultErrorStrategy());
-		//parser.getInterpreter().setPredictionMode(PredictionMode.LL);
+		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
 		parser.setBuildParseTree(true);
 		
 		return parser;
