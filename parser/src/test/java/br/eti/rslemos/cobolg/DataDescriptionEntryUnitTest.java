@@ -389,17 +389,45 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Test public void VALUECLAUSE() {
+	@Test public void DATA_ENTRY_VALUE_IS_0() {
 		helper.compileAndVerify(
-				get("VALUECLAUSE.source"),
-				get("VALUECLAUSE.tree")
+				get("DATA_ENTRY_VALUE_IS_0.source"),
+				get("DATA_ENTRY_VALUE_IS_0.tree")
 			);
 	}
 
-	@Test public void VALUECLAUSEWITHFIGURATIVECONSTANT() {
+	@Test public void DATA_ENTRY_VALUE_IS_ZERO() {
 		helper.compileAndVerify(
-				get("VALUECLAUSEWITHFIGURATIVECONSTANT.source"),
-				get("VALUECLAUSEWITHFIGURATIVECONSTANT.tree")
+				get("DATA_ENTRY_VALUE_IS_ZERO.source"),
+				get("DATA_ENTRY_VALUE_IS_ZERO.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_VALUE_IS_ABC() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_VALUE_IS_ABC.source"),
+				get("DATA_ENTRY_VALUE_IS_ABC.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_VALUES_ARE_0_1_2_3() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_VALUES_ARE_0_1_2_3.source"),
+				get("DATA_ENTRY_VALUES_ARE_0_1_2_3.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_VALUES_ARE_0_THROUGH_3() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_VALUES_ARE_0_THROUGH_3.source"),
+				get("DATA_ENTRY_VALUES_ARE_0_THROUGH_3.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_VALUES_ARE_0_THROUGH_3_ABC() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_VALUES_ARE_0_THROUGH_3_ABC.source"),
+				get("DATA_ENTRY_VALUES_ARE_0_THROUGH_3_ABC.tree")
 			);
 	}
 

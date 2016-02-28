@@ -323,7 +323,7 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG1")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 
 	@Test
@@ -376,7 +376,7 @@ public class FreeFormatUnitTest {
 		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG2")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
 		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
 	}

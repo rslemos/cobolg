@@ -182,6 +182,7 @@ UNIT                  : 'UNIT';
 USAGE                 : 'USAGE';
 USING                 : 'USING';
 VALUE                 : 'VALUE';
+VALUES                : 'VALUES';
 VARYING               : 'VARYING';
 WITH                  : 'WITH';
 WORDS                 : 'WORDS';

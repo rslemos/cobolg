@@ -104,8 +104,17 @@ usage :
 	|	FUNCTION_POINTER
 	;
 
+/**
+ * Value clause.
+ * 
+ * This embodies also the value clause format for level 88 (list of literals
+ * and/or literal ranges).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=261&zoom=auto,-40,735
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=263&zoom=auto,-40,430
+ */
 valueClause :
-		VALUE IS? literal
+		(VALUE IS? | VALUES ARE?) (literal ((THROUGH | THRU) literal)?)+
 	;
 
 occursClause :
