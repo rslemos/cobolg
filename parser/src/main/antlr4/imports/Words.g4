@@ -198,6 +198,7 @@ USING                 : 'USING';
 VALUE                 : 'VALUE';
 VALUES                : 'VALUES';
 VARYING               : 'VARYING';
+VOLATILE              : 'VOLATILE';
 WHEN                  : 'WHEN';
 WITH                  : 'WITH';
 WORDS                 : 'WORDS';

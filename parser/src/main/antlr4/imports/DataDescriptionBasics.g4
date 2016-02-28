@@ -66,6 +66,7 @@ dataDescriptionClause :
 	|	synchronizedClause
 	|	usageClause
 	|	valueClause
+	|	volatileClause
 	;
 
 /**
@@ -212,3 +213,9 @@ valueClause :
 		(VALUE IS? | VALUES ARE?) (literal ((THROUGH | THRU) literal)?)+
 	;
 
+/**
+ * Volatile clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=266&zoom=auto,-40,265
+ */
+volatileClause: VOLATILE;

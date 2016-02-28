@@ -1131,6 +1131,13 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_VOLATILE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_VOLATILE.source"),
+				get("DATA_ENTRY_VOLATILE.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -1216,6 +1223,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(VALUE),
 				tree  (VALUE)
+			);
+	}
+
+	@Test public void DECL_X_VOLATILE() {
+		helper.compileAndVerify(
+				source(VOLATILE),
+				tree  (VOLATILE)
 			);
 	}
 
