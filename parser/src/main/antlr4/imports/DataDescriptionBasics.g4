@@ -63,6 +63,7 @@ dataDescriptionClause :
 	|	occursClause
 	|	pictureClause
 	|	signClause
+	|	synchronizedClause
 	|	usageClause
 	|	valueClause
 	;
@@ -158,6 +159,13 @@ redefinesClause : REDEFINES dataName;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=245&zoom=auto,-40,220
  */
 signClause : (SIGN IS?)? (LEADING | TRAILING) (SEPARATE CHARACTER?)?;
+
+/**
+ * Synchronized clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=247&zoom=auto,-40,735
+ */
+synchronizedClause : (SYNCHRONIZED | SYNC) (LEFT | RIGHT)?;
 
 /**
  * Usage clause.

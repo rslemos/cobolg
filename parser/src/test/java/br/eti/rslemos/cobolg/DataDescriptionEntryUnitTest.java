@@ -1089,6 +1089,48 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_SYNC() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SYNC.source"),
+				get("DATA_ENTRY_SYNC.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SYNCHRONIZED() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SYNCHRONIZED.source"),
+				get("DATA_ENTRY_SYNCHRONIZED.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SYNC_LEFT() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SYNC_LEFT.source"),
+				get("DATA_ENTRY_SYNC_LEFT.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SYNCHRONIZED_LEFT() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SYNCHRONIZED_LEFT.source"),
+				get("DATA_ENTRY_SYNCHRONIZED_LEFT.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SYNC_RIGHT() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SYNC_RIGHT.source"),
+				get("DATA_ENTRY_SYNC_RIGHT.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SYNCHRONIZED_RIGHT() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SYNCHRONIZED_RIGHT.source"),
+				get("DATA_ENTRY_SYNCHRONIZED_RIGHT.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -1153,6 +1195,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(SIGN),
 				tree  (SIGN)
+			);
+	}
+
+	@Test public void DECL_X_SYNCHRONIZED() {
+		helper.compileAndVerify(
+				source(SYNCHRONIZED),
+				tree  (SYNCHRONIZED)
 			);
 	}
 
