@@ -963,6 +963,27 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_BLANK_WHEN_ZERO() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_BLANK_WHEN_ZERO.source"),
+				get("DATA_ENTRY_BLANK_WHEN_ZERO.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_BLANK_WHEN_ZEROS() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_BLANK_WHEN_ZEROS.source"),
+				get("DATA_ENTRY_BLANK_WHEN_ZEROS.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_BLANK_WHEN_ZEROES() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_BLANK_WHEN_ZEROES.source"),
+				get("DATA_ENTRY_BLANK_WHEN_ZEROES.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -978,6 +999,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(REDEFINES),
 				tree  (REDEFINES)
+			);
+	}
+
+	@Test public void DECL_X_BLANK_WHEN_ZERO() {
+		helper.compileAndVerify(
+				source(BLANK_WHEN_ZERO),
+				tree  (BLANK_WHEN_ZERO)
 			);
 	}
 
