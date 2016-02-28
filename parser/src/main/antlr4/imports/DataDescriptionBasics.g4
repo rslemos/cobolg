@@ -57,6 +57,7 @@ dataDescriptionClauses :
 dataDescriptionClause :
 		blankWhenZeroClause
 	|	externalClause
+	|	globalClause
 	|	occursClause
 	|	pictureClause
 	|	usageClause
@@ -70,7 +71,7 @@ dataDescriptionClause :
  */
 blankWhenZeroClause : BLANK WHEN (ZERO | ZEROS | ZEROES);
 
-// externalClause is doubly defined in FILE SECTION and in data descriptors.
+// externalClause and globalClause are doubly defined in FILE SECTION and in data descriptors.
 // fortunately both definitions are equal.
 
 /**
@@ -80,6 +81,14 @@ blankWhenZeroClause : BLANK WHEN (ZERO | ZEROS | ZEROES);
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=212&zoom=auto,-40,450
  */
 externalClause : IS? EXTERNAL;
+
+/**
+ * Global clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=199&zoom=auto,-100,675
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=213&zoom=auto,-40,735
+ */
+globalClause : IS? GLOBAL;
 
 /**
  * Occurs clause.
