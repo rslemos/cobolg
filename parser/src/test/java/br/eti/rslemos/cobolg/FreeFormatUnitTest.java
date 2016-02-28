@@ -314,7 +314,7 @@ public class FreeFormatUnitTest {
 		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().pictureClause_.PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
 		
 		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
@@ -327,9 +327,9 @@ public class FreeFormatUnitTest {
 		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG1")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().usageClause_.usage().COMP().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().valueClause_.literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 		
 		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
@@ -353,9 +353,9 @@ public class FreeFormatUnitTest {
 		dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("03")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TB-F-PRICE")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().INTEGER(0).getText(), is(equalTo("1000")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().occursClause_.INTEGER(0).getText(), is(equalTo("1000")));
 		
-		Iterator<IndexNameContext> it = dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().indexedByPhrase().indexName().iterator();
+		Iterator<IndexNameContext> it = dataDescriptionEntry.dataDescriptionClauses().occursClause_.indexedByPhrase().indexName().iterator();
 		for (String indexName : new String[] {"IPRICE", "IPRICEUM", "IPRICEMIL", "IPRICELIMLOG", "IPRICELIMLOGANT"}) {
 			assertThat(it.next().getText(), is(equalTo(indexName)));
 		}
@@ -370,8 +370,8 @@ public class FreeFormatUnitTest {
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("01")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL17V00")));
 		assertThat(dataDescriptionEntry.redefinesClause().dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL12V05")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(17)")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).usageClause().usage().COMP_3().getText(), is(equalTo("COMP-3")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(17)")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().usageClause_.usage().COMP_3().getText(), is(equalTo("COMP-3")));
 		
 		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
@@ -384,9 +384,9 @@ public class FreeFormatUnitTest {
 		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG2")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().valueClause_.literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().pictureClause_.PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().usageClause_.usage().COMP().getText(), is(equalTo("COMP")));
 		
 		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}

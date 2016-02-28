@@ -78,23 +78,36 @@ dataDescriptionEntry returns[int level] :
 	PERIOD
 	;
 
-dataDescriptionClauses :
+dataDescriptionClauses returns [
+	BlankWhenZeroClauseContext blankWhenZeroClause_,
+	ExternalClauseContext      externalClause_,
+	GlobalClauseContext        globalClause_,
+	GroupUsageClauseContext    groupUsageClause_,
+	JustifiedClauseContext     justifiedClause_,
+	OccursClauseContext        occursClause_,
+	PictureClauseContext       pictureClause_,
+	SignClauseContext          signClause_,
+	SynchronizedClauseContext  synchronizedClause_,
+	UsageClauseContext         usageClause_,
+	ValueClauseContext         valueClause_,
+	VolatileClauseContext      volatileClause_
+] :
 	dataDescriptionClause*
 	;
 
 dataDescriptionClause :
-		blankWhenZeroClause
-	|	externalClause
-	|	globalClause
-	|	groupUsageClause
-	|	justifiedClause
-	|	occursClause
-	|	pictureClause
-	|	signClause
-	|	synchronizedClause
-	|	usageClause
-	|	valueClause
-	|	volatileClause
+		blankWhenZeroClause { $dataDescriptionClauses::blankWhenZeroClause_ == null }?<fail={"Repeated BLANK WHEN ZERO clause"}> {$dataDescriptionClauses::blankWhenZeroClause_ = $blankWhenZeroClause.ctx;}
+	|	externalClause      { $dataDescriptionClauses::externalClause_      == null }?<fail={"Repeated EXTERNAL clause"       }> {$dataDescriptionClauses::externalClause_      = $externalClause.ctx;     }
+	|	globalClause        { $dataDescriptionClauses::globalClause_        == null }?<fail={"Repeated GLOBAL clause"         }> {$dataDescriptionClauses::globalClause_        = $globalClause.ctx;       }
+	|	groupUsageClause    { $dataDescriptionClauses::groupUsageClause_    == null }?<fail={"Repeated GROUP USAGE clause"    }> {$dataDescriptionClauses::groupUsageClause_    = $groupUsageClause.ctx;   }
+	|	justifiedClause     { $dataDescriptionClauses::justifiedClause_     == null }?<fail={"Repeated JUSTIFIED clause"      }> {$dataDescriptionClauses::justifiedClause_     = $justifiedClause.ctx;    }
+	|	occursClause        { $dataDescriptionClauses::occursClause_        == null }?<fail={"Repeated OCCURS clause"         }> {$dataDescriptionClauses::occursClause_        = $occursClause.ctx;       }
+	|	pictureClause       { $dataDescriptionClauses::pictureClause_       == null }?<fail={"Repeated PICTURE clause"        }> {$dataDescriptionClauses::pictureClause_       = $pictureClause.ctx;      }
+	|	signClause          { $dataDescriptionClauses::signClause_          == null }?<fail={"Repeated SIGN clause"           }> {$dataDescriptionClauses::signClause_          = $signClause.ctx;         }
+	|	synchronizedClause  { $dataDescriptionClauses::synchronizedClause_  == null }?<fail={"Repeated SYNCHRONIZED clause"   }> {$dataDescriptionClauses::synchronizedClause_  = $synchronizedClause.ctx; }
+	|	usageClause         { $dataDescriptionClauses::usageClause_         == null }?<fail={"Repeated USAGE clause"          }> {$dataDescriptionClauses::usageClause_         = $usageClause.ctx;        }
+	|	valueClause         { $dataDescriptionClauses::valueClause_         == null }?<fail={"Repeated VALUE clause"          }> {$dataDescriptionClauses::valueClause_         = $valueClause.ctx;        }
+	|	volatileClause      { $dataDescriptionClauses::volatileClause_      == null }?<fail={"Repeated VOLATILE clause"       }> {$dataDescriptionClauses::volatileClause_      = $volatileClause.ctx;     }
 	;
 
 /**
