@@ -26,6 +26,7 @@ public class DataDescriptionEntryData {
 		REDEFINES      ("REDEFINES Y"                        , "(redefinesClause REDEFINES (dataName Y))"                                            ),
 		
 		BLANK_WHEN_ZERO("BLANK WHEN ZERO"                    , "(dataDescriptionClause (blankWhenZeroClause BLANK WHEN ZERO))"                       ),
+		IS_EXTERNAL    ("IS EXTERNAL"                        , "(dataDescriptionClause (externalClause IS EXTERNAL))"                                ),
 		PICTURE        ("PIC XXXX"                           , "(dataDescriptionClause (pictureClause PIC XXXX))"                                    ),
 		USAGE          ("USAGE COMP-3"                       , "(dataDescriptionClause (usageClause USAGE (usage COMP-3)))"                          ),
 		VALUE          ("VALUE IS QUOTES"                    , "(dataDescriptionClause (valueClause VALUE IS (literal (figurativeConstant QUOTES))))"),
