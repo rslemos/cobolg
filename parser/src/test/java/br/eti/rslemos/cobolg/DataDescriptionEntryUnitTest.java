@@ -109,10 +109,283 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Test public void USAGECLAUSE() {
+	@Test public void DATA_ENTRY_USAGE_IS_BINARY() {
 		helper.compileAndVerify(
-				get("USAGECLAUSE.source"),
-				get("USAGECLAUSE.tree")
+				get("DATA_ENTRY_USAGE_IS_BINARY.source"),
+				get("DATA_ENTRY_USAGE_IS_BINARY.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_1() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_1.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_1.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_2() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_2.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_2.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_3() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_3.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_3.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_4() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_4.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_4.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_5() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_5.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_5.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_1() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_1.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_1.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_2() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_2.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_2.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_3() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_3.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_3.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_4() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_4.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_4.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_5() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_5.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_5.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_DISPLAY() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_DISPLAY.source"),
+				get("DATA_ENTRY_USAGE_IS_DISPLAY.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_DISPLAY_1() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_DISPLAY_1.source"),
+				get("DATA_ENTRY_USAGE_IS_DISPLAY_1.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_INDEX() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_INDEX.source"),
+				get("DATA_ENTRY_USAGE_IS_INDEX.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_NATIONAL() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_NATIONAL.source"),
+				get("DATA_ENTRY_USAGE_IS_NATIONAL.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_OBJECT_REFERENCE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_OBJECT_REFERENCE.source"),
+				get("DATA_ENTRY_USAGE_IS_OBJECT_REFERENCE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_PACKED_DECIMAL() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_PACKED_DECIMAL.source"),
+				get("DATA_ENTRY_USAGE_IS_PACKED_DECIMAL.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_POINTER() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_POINTER.source"),
+				get("DATA_ENTRY_USAGE_IS_POINTER.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_PROCEDURE_POINTER() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_PROCEDURE_POINTER.source"),
+				get("DATA_ENTRY_USAGE_IS_PROCEDURE_POINTER.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_FUNCTION_POINTER() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_FUNCTION_POINTER.source"),
+				get("DATA_ENTRY_USAGE_IS_FUNCTION_POINTER.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_BINARY_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_BINARY_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_BINARY_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_1_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_1_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_1_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_2_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_2_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_2_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_3_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_3_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_3_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_4_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_4_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_4_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMP_5_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMP_5_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMP_5_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_1_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_1_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_1_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_2_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_2_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_2_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_3_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_3_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_3_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_4_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_4_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_4_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_COMPUTATIONAL_5_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_5_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_COMPUTATIONAL_5_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_DISPLAY_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_DISPLAY_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_DISPLAY_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_DISPLAY_1_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_DISPLAY_1_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_DISPLAY_1_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_NATIONAL_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_NATIONAL_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_NATIONAL_NATIVE.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_OBJECT_REFERENCE_CLASS_X() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_OBJECT_REFERENCE_CLASS_X.source"),
+				get("DATA_ENTRY_USAGE_IS_OBJECT_REFERENCE_CLASS_X.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_USAGE_IS_PACKED_DECIMAL_NATIVE() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_USAGE_IS_PACKED_DECIMAL_NATIVE.source"),
+				get("DATA_ENTRY_USAGE_IS_PACKED_DECIMAL_NATIVE.tree")
 			);
 	}
 

@@ -72,24 +72,33 @@ redefinesClause :
  */
 pictureClause : (PICTURE | PIC) IS? PICTURESTRING;
 
-usageClause :
-		(USAGE IS?)? usage
-	;
+/**
+ * Usage clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=252&zoom=auto,-40,455
+ */
+usageClause : (USAGE IS?)? usage; 
 
 usage :
-		BINARY NATIVE?
-	|	(COMP   | COMPUTATIONAL  ) NATIVE?
-	|	(COMP_1 | COMPUTATIONAL_1) NATIVE?
-	|	(COMP_2 | COMPUTATIONAL_2) NATIVE?
-	|	(COMP_3 | COMPUTATIONAL_3) NATIVE?
-	|	(COMP_4 | COMPUTATIONAL_4) NATIVE?
-	|	(COMP_5 | COMPUTATIONAL_5) NATIVE?
-	|	DISPLAY NATIVE?
-	|	DISPLAY_1 NATIVE?
+		BINARY          NATIVE?
+	|	COMP            NATIVE?
+	|	COMP_1          NATIVE?
+	|	COMP_2          NATIVE?
+	|	COMP_3          NATIVE?
+	|	COMP_4          NATIVE?
+	|	COMP_5          NATIVE?
+	|	COMPUTATIONAL   NATIVE?
+	|	COMPUTATIONAL_1 NATIVE?
+	|	COMPUTATIONAL_2 NATIVE?
+	|	COMPUTATIONAL_3 NATIVE?
+	|	COMPUTATIONAL_4 NATIVE?
+	|	COMPUTATIONAL_5 NATIVE?
+	|	DISPLAY         NATIVE?
+	|	DISPLAY_1       NATIVE?
 	|	INDEX
-	|	NATIONAL NATIVE?
-//	|	OBJECT REFERENCE className
-	|	PACKED_DECIMAL NATIVE?
+	|	NATIONAL        NATIVE?
+	|	OBJECT REFERENCE className?
+	|	PACKED_DECIMAL  NATIVE?
 	|	POINTER
 	|	PROCEDURE_POINTER
 	|	FUNCTION_POINTER

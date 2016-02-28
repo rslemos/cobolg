@@ -121,7 +121,7 @@ MODULES               : 'MODULES';
 MULTIPLE              : 'MULTIPLE';
 NATIONAL              : 'NATIONAL';
 NATIVE                : 'NATIVE';
-// OBJECT                : 'OBJECT';
+OBJECT                : 'OBJECT';
 OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
 OCCURS                : 'OCCURS';
 OF                    : 'OF';
