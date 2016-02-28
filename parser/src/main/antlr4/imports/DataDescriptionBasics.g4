@@ -59,6 +59,7 @@ dataDescriptionClause :
 	|	externalClause
 	|	globalClause
 	|	groupUsageClause
+	|	justifiedClause
 	|	occursClause
 	|	pictureClause
 	|	usageClause
@@ -97,6 +98,13 @@ globalClause : IS? GLOBAL;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=214&zoom=auto,-40,510
  */
 groupUsageClause : GROUP_USAGE IS? NATIONAL;
+
+/**
+ * Justified clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=213&zoom=auto,-40,390
+ */
+justifiedClause : (JUSTIFIED | JUST) RIGHT?;
 
 /**
  * Occurs clause.

@@ -29,6 +29,7 @@ public class DataDescriptionEntryData {
 		IS_EXTERNAL    ("IS EXTERNAL"                        , "(dataDescriptionClause (externalClause IS EXTERNAL))"                                ),
 		IS_GLOBAL      ("IS GLOBAL"                          , "(dataDescriptionClause (globalClause IS GLOBAL))"                                    ),
 		GROUP_USAGE    ("GROUP-USAGE IS NATIONAL"            , "(dataDescriptionClause (groupUsageClause GROUP-USAGE IS NATIONAL))"                  ),
+		JUSTIFIED      ("JUSTIFIED RIGHT"                    , "(dataDescriptionClause (justifiedClause JUSTIFIED RIGHT))"                           ),
 		PICTURE        ("PIC XXXX"                           , "(dataDescriptionClause (pictureClause PIC XXXX))"                                    ),
 		USAGE          ("USAGE COMP-3"                       , "(dataDescriptionClause (usageClause USAGE (usage COMP-3)))"                          ),
 		VALUE          ("VALUE IS QUOTES"                    , "(dataDescriptionClause (valueClause VALUE IS (literal (figurativeConstant QUOTES))))"),
