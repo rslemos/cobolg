@@ -66,6 +66,37 @@ redefinesClause :
 	;
 
 /**
+ * Occurs clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=215&zoom=auto,-40,335
+ */
+occursClause :
+		OCCURS INTEGER TIMES? keyIsPhrase* indexedByPhrase?
+	|	OCCURS (INTEGER TO)? (INTEGER | UNBOUNDED) TIMES? dependingOnPhrase keyIsPhrase* indexedByPhrase?
+	;
+
+/**
+ * (Ascending/descending) key is phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=217&zoom=auto,-40,740
+ */
+keyIsPhrase : (ASCENDING | DESCENDING) KEY? IS? dataName+;
+
+/**
+ * Indexed by phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=218&zoom=auto,-40,400
+ */
+indexedByPhrase : INDEXED BY indexName+;
+
+/**
+ * Depending on phrase (clause).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=220&zoom=auto,-40,330
+ */
+dependingOnPhrase : DEPENDING ON? dataName;
+
+/**
  * Picture clause.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=222&zoom=auto,-40,140
@@ -117,12 +148,3 @@ valueClause :
 		(VALUE IS? | VALUES ARE?) (literal ((THROUGH | THRU) literal)?)+
 	;
 
-occursClause :
-		OCCURS INTEGER TIMES?
-//		((ASCENDING | DESCENDING) KEY? IS? dataName+)*
-		(INDEXED BY? indexName+)?
-	;
-
-indexName :
-		USERDEFINEDWORD
-	;

@@ -347,9 +347,9 @@ public class FreeFormatUnitTest {
 		
 		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("03")));
 		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TB-F-PRICE")));
-		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().INTEGER().getText(), is(equalTo("1000")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().INTEGER(0).getText(), is(equalTo("1000")));
 		
-		Iterator<IndexNameContext> it = dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().indexName().iterator();
+		Iterator<IndexNameContext> it = dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().indexedByPhrase().indexName().iterator();
 		for (String indexName : new String[] {"IPRICE", "IPRICEUM", "IPRICEMIL", "IPRICELIMLOG", "IPRICELIMLOGANT"}) {
 			assertThat(it.next().getText(), is(equalTo(indexName)));
 		}

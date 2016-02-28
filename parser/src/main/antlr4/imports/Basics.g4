@@ -36,6 +36,7 @@ conditionName     : USERDEFINEDWORD;
 dataClassName     : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
 fileName          : USERDEFINEDWORD;
+indexName         : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
