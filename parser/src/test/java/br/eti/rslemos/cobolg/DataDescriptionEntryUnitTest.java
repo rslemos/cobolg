@@ -998,6 +998,13 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_GROUP_USAGE_IS_NATIONAL() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_GROUP_USAGE_IS_NATIONAL.source"),
+				get("DATA_ENTRY_GROUP_USAGE_IS_NATIONAL.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -1034,6 +1041,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(IS_GLOBAL),
 				tree  (IS_GLOBAL)
+			);
+	}
+
+	@Test public void DECL_X_GROUP_USAGE() {
+		helper.compileAndVerify(
+				source(GROUP_USAGE),
+				tree  (GROUP_USAGE)
 			);
 	}
 
