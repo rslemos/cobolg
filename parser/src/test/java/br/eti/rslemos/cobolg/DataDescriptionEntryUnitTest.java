@@ -60,10 +60,52 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Test public void PICDECLARATION() {
+	@Test public void DATA_ENTRY_PIC_X() {
 		helper.compileAndVerify(
-				get("PICDECLARATION.source"),
-				get("PICDECLARATION.tree")
+				get("DATA_ENTRY_PIC_X.source"),
+				get("DATA_ENTRY_PIC_X.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_PIC_9() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_PIC_9.source"),
+				get("DATA_ENTRY_PIC_9.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_PIC_99V99() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_PIC_99V99.source"),
+				get("DATA_ENTRY_PIC_99V99.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_PIC_ZZZZZZZZZZ999V999999() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_PIC_ZZZZZZZZZZ999V999999.source"),
+				get("DATA_ENTRY_PIC_ZZZZZZZZZZ999V999999.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_PIC_Z$ABX09PPAAAVS____() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_PIC_Z$ABX09PPAAAVS____.source"),
+				get("DATA_ENTRY_PIC_Z$ABX09PPAAAVS____.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_PIC___ABEGNPSVXZCRDB90___$__012345678_9() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_PIC___ABEGNPSVXZCRDB90___$__012345678_9.source"),
+				get("DATA_ENTRY_PIC___ABEGNPSVXZCRDB90___$__012345678_9.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_PIC_____AABBEEGGNNPPSSVVXXZZCCRRDDBB9900______$$____001122334455667788__99() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_PIC_____AABBEEGGNNPPSSVVXXZZCCRRDDBB9900______$$____001122334455667788__99.source"),
+				get("DATA_ENTRY_PIC_____AABBEEGGNNPPSSVVXXZZCCRRDDBB9900______$$____001122334455667788__99.tree")
 			);
 	}
 

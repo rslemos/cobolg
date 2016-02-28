@@ -65,9 +65,12 @@ redefinesClause :
 		REDEFINES dataName
 	;
 
-pictureClause :
-		(PICTURE | PIC) IS? PICTURESTRING
-	;
+/**
+ * Picture clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=222&zoom=auto,-40,140
+ */
+pictureClause : (PICTURE | PIC) IS? PICTURESTRING;
 
 usageClause :
 		(USAGE IS?)? usage
