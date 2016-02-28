@@ -157,6 +157,7 @@ REDEFINES             : 'REDEFINES';
 REEL                  : 'REEL';
 REFERENCE             : 'REFERENCE';
 RELATIVE              : 'RELATIVE';
+RENAMES               : 'RENAMES';
 REPOSITORY            : 'REPOSITORY';
 RERUN                 : 'RERUN';
 RESERVE               : 'RESERVE';

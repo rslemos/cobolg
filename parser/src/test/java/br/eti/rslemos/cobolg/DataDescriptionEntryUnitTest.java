@@ -1138,6 +1138,20 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_RENAMES_OTHER_ENTRY_1() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_RENAMES_OTHER_ENTRY_1.source"),
+				get("DATA_ENTRY_RENAMES_OTHER_ENTRY_1.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_RENAMES_OTHER_ENTRY_1_THROUGH_OTHER_ENTRY_2() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_RENAMES_OTHER_ENTRY_1_THROUGH_OTHER_ENTRY_2.source"),
+				get("DATA_ENTRY_RENAMES_OTHER_ENTRY_1_THROUGH_OTHER_ENTRY_2.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
