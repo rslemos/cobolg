@@ -61,10 +61,6 @@ dataDescriptionClause :
 	|	valueClause
 	;
 
-redefinesClause :
-		REDEFINES dataName
-	;
-
 /**
  * Occurs clause.
  * 
@@ -102,6 +98,13 @@ dependingOnPhrase : DEPENDING ON? dataName;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=222&zoom=auto,-40,140
  */
 pictureClause : (PICTURE | PIC) IS? PICTURESTRING;
+
+/**
+ * Redefines clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=240&zoom=auto,-40,735
+ */
+redefinesClause : REDEFINES dataName;
 
 /**
  * Usage clause.

@@ -956,10 +956,10 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
-	@Test public void REDEFINESCLAUSE() {
+	@Test public void DATA_ENTRY_REDEFINES_PARENT_ENTRY() {
 		helper.compileAndVerify(
-				get("REDEFINESCLAUSE.source"),
-				get("REDEFINESCLAUSE.tree")
+				get("DATA_ENTRY_REDEFINES_PARENT_ENTRY.source"),
+				get("DATA_ENTRY_REDEFINES_PARENT_ENTRY.tree")
 			);
 	}
 
