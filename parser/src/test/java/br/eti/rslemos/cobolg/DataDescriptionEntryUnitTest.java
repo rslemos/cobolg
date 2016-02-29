@@ -23,10 +23,7 @@ package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.DataDescriptionEntryData.source;
 import static br.eti.rslemos.cobolg.DataDescriptionEntryData.tree;
-import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.OCCURS;
-import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.PICTURE;
-import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.USAGE;
-import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.VALUE;
+import static br.eti.rslemos.cobolg.DataDescriptionEntryData.DataDescriptionEntryClause.*;
 
 import java.util.ResourceBundle;
 
@@ -39,7 +36,7 @@ public class DataDescriptionEntryUnitTest {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.dataDescriptionEntry");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<DataDescriptionEntryContext> helper = new CompilerHelper<DataDescriptionEntryContext>() {
+	static CompilerHelper<DataDescriptionEntryContext> helper = new CompilerHelper<DataDescriptionEntryContext>() {
 		@Override protected DataDescriptionEntryContext parsePart() { return parser.dataDescriptionEntry(); }
 	};
 
@@ -117,6 +114,13 @@ public class DataDescriptionEntryUnitTest {
 	}
 
 	// 1
+	@Test public void DECL_X_REDEFINES() {
+		helper.compileAndVerify(
+				source(REDEFINES),
+				tree  (REDEFINES)
+			);
+	}
+
 	@Test public void DECL_X_PICTURE() {
 		helper.compileAndVerify(
 				source(PICTURE),

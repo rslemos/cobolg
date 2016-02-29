@@ -23,10 +23,12 @@ package br.eti.rslemos.cobolg;
 
 public class DataDescriptionEntryData {
 	public static enum DataDescriptionEntryClause {
-		PICTURE("PIC XXXX"       , "(pictureClause PIC XXXX)"                                    ),
-		USAGE  ("USAGE COMP-3"   , "(usageClause USAGE (usage COMP-3))"                          ),
-		VALUE  ("VALUE IS QUOTES", "(valueClause VALUE IS (literal (figurativeConstant QUOTES)))"),
-		OCCURS ("OCCURS 10 TIMES", "(occursClause OCCURS 10 TIMES)"                              ),
+		REDEFINES      ("REDEFINES Y"                        , "(redefinesClause REDEFINES (dataName Y))"                    ),
+		
+		PICTURE        ("PIC XXXX"                           , "(pictureClause PIC XXXX)"                                    ),
+		USAGE          ("USAGE COMP-3"                       , "(usageClause USAGE (usage COMP-3))"                          ),
+		VALUE          ("VALUE IS QUOTES"                    , "(valueClause VALUE IS (literal (figurativeConstant QUOTES)))"),
+		OCCURS         ("OCCURS 10 TIMES"                    , "(occursClause OCCURS 10 TIMES)"                              ),
 		;
 	
 		private final String source, tree;
@@ -46,7 +48,18 @@ public class DataDescriptionEntryData {
 	}
 
 	public static String tree(DataDescriptionEntryClause... clauses) {
-		return "(dataDescriptionEntry (levelNumber 77) (dataName DECL-X) " + 
+		// REDEFINES is special
+		DataDescriptionEntryClause redefinesClause = null;
+		
+		if (clauses.length > 0 && clauses[0] == DataDescriptionEntryClause.REDEFINES) {
+			DataDescriptionEntryClause[] clauses0 = new DataDescriptionEntryClause[clauses.length - 1];
+			System.arraycopy(clauses, 1, clauses0, 0, clauses0.length);
+			redefinesClause = clauses[0];
+			clauses = clauses0;
+		}
+		
+		return "(dataDescriptionEntry (levelNumber 77) (dataName DECL-X) " +
+					(redefinesClause != null ? redefinesClause.getTree() + " " : "") +
 					(clauses.length > 0 
 							? "(dataDescriptionClauses " + TextHelper.join0(" ", getTrees(clauses)) + ") " 
 							: ""
