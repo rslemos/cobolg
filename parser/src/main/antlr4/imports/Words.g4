@@ -19,6 +19,16 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
+/**
+ * This grammar is based on Enterprise COBOL for z/OS Language Reference Version 5.2
+ * (SC14-7381-03).
+ * 
+ * This COBOLKeywords lexer lists all available reserved words for COBOL. It
+ * includes the potential reserved words.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=621
+ */
 lexer grammar Words;
 
 PERIOD                : '.';
@@ -28,6 +38,7 @@ PERIOD                : '.';
 /* KEYWORDS */
 
 ACCESS                : 'ACCESS';
+ALL                   : 'ALL';
 ARE                   : 'ARE';
 ASSIGN                : 'ASSIGN';
 AT                    : 'AT';
@@ -90,6 +101,8 @@ ON                    : 'ON';
 OPTIONAL              : 'OPTIONAL';
 ORGANIZATION          : 'ORGANIZATION';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
+PIC                   : 'PIC';     // will be overridden on the main lexer
+PICTURE               : 'PICTURE'; // will be overridden on the main lexer
 POINTER               : 'POINTER';
 PROCEDURE             : 'PROCEDURE';
 PROCEDURE_POINTER     : 'PROCEDURE-POINTER';
@@ -118,14 +131,22 @@ WITH                  : 'WITH';
 WORKING_STORAGE       : 'WORKING-STORAGE';
 
 /* FIGURATIVE CONSTANTS */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160 */
 
-ALL                   : 'ALL';
-HIGH_VALUE            : 'HIGH-VALUES' | 'HIGH-VALUE';
-LOW_VALUE             : 'LOW-VALUES' | 'LOW-VALUE';
-NULL                  : 'NULLS' | 'NULL';
-QUOTE                 : 'QUOTES' | 'QUOTE';
-SPACE                 : 'SPACES' | 'SPACE';
-ZERO                  : 'ZEROES' | 'ZEROS' | 'ZERO';
+// ALL literal        : 'ALL' + ...;
+HIGH_VALUE            : 'HIGH-VALUE';
+HIGH_VALUES           : 'HIGH-VALUES';
+LOW_VALUE             : 'LOW-VALUE';
+LOW_VALUES            : 'LOW-VALUES';
+NULL                  : 'NULL';
+NULLS                 : 'NULLS';
+QUOTE                 : 'QUOTE';
+QUOTES                : 'QUOTES';
+SPACE                 : 'SPACE';
+SPACES                : 'SPACES';
+ZERO                  : 'ZERO';
+ZEROES                : 'ZEROES';
+ZEROS                 : 'ZEROS';
 
 /* COMPILER DIRECTING STATEMENTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */

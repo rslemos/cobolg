@@ -23,39 +23,59 @@ parser grammar Basics;
 
 options { tokenVocab = COBOLLexer; }
 
-dataName :
-		USERDEFINEDWORD
+/* 
+ * classes of user defined words.
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=32&zoom=auto,-100,194
+ */
+
+dataName          : USERDEFINEDWORD;
+
+/**
+ * Figurative constant.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160
+ */
+figurativeConstant :
+		ZERO | ZEROS | ZEROES
+	|	SPACE | SPACES
+	|	HIGH_VALUE | HIGH_VALUES
+	|	LOW_VALUE | LOW_VALUES
+	|	QUOTE | QUOTES
+	|	ALL literal
+//	|	symbolicCharacter
+	|	NULL | NULLS
 	;
 
+/**
+ * Literal.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,300
+ */
 literal :
 		numericLiteral
 	|	alphanumericLiteral
 	|	figurativeConstant
 	;
 
-numericLiteral :
-		INTEGER
-	|	FIXEDPOINT
-	|	HEXINTEGER
-	;
-
+/**
+ * Alphanumeric literal.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,120
+ */
 alphanumericLiteral :
-		quotedString
+		QUOTEDSTRING
+	|	QUOTEDSTRING_START QUOTEDSTRING_MID* QUOTEDSTRING_END
 	|	HEXSTRING
 	;
 
-figurativeConstant :
-		ZERO
-	|	SPACE
-	|	HIGH_VALUE
-	|	LOW_VALUE
-	|	QUOTE
-	|	ALL literal
-	|	NULL
-//	|	symbolicCharacter
-	;
-
-quotedString :
-		QUOTEDSTRING
-	|	QUOTEDSTRING_START QUOTEDSTRING_MID* QUOTEDSTRING_END
+/**
+ * Numeric literal.
+ * 
+ * http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=62&zoom=auto,-100,345
+ */
+numericLiteral :
+		INTEGER
+	|	FIXEDPOINT
+	|	FLOATINGPOINT
+//	|	HEXINTEGER
 	;

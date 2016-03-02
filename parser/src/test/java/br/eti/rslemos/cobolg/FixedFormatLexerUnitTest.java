@@ -96,6 +96,25 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 		
 		matchEOF();
 	}
+	
+	@Test
+	public void testInlineComment() throws Exception {
+		setSource("000001 X. *> INLINE COMMENT UNTIL END OF AREA B                         IGNORED+");
+		
+		matchToken(                  TO_SEQUENCE_MODE,          "\uEBA0",   MARK  );
+		matchToken(SEQUENCE_MODE,    SEQUENCE_NUMBER,           "000001",   HIDDEN);
+		matchToken(SEQUENCE_MODE,    TO_INDICATOR_MODE,         "\uEBA1",   MARK  );
+		matchToken(INDICATOR_MODE,   INDICATOR_BLANK,           " ",        HIDDEN);
+		matchToken(PRE_DEFAULT_MODE, TO_DEFAULT_MODE,           "\uEBA2",   MARK  );
+		matchToken(                  USERDEFINEDWORD,           "X"               );
+		matchToken(                  PERIOD,                    "."               );
+		matchToken(                  WS,                        " ",        HIDDEN);
+		matchToken(                  INLINECOMMENT,             "*> INLINE COMMENT UNTIL END OF AREA B                         ", HIDDEN);
+		matchToken(                  TO_SKIPTOEOL_MODE_DEFAULT, "\uEBA3",   MARK  );
+		matchToken(SKIPTOEOL_MODE,   SKIP_TO_EOL,               "IGNORED+", HIDDEN);
+		
+		matchEOF();
+	}
 
 	@Test
 	public void testDoubleQuotedStart() throws Exception {

@@ -19,10 +19,27 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
+/**
+ * This grammar is based on Enterprise COBOL for z/OS Language Reference Version 5.2
+ * (SC14-7381-03).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf
+ */
 lexer grammar COBOLLexer;
 import Words;
 
 channels { MARK, COMPILER_CHANNEL }
+
+/**
+ * Inline comment.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=67&zoom=auto,-100,160
+ */
+INLINECOMMENT : '*>' ~[\n\r\uEBA3]* -> channel(HIDDEN)
+	;
+
+/* separators */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=69&zoom=auto,-100,730 */
 
 WS : ' '+
 	-> channel(HIDDEN);
@@ -30,33 +47,89 @@ WS : ' '+
 NEWLINE : ('\n' '\r'? | '\r' '\n'?)
 	-> channel(HIDDEN);
 
-INTEGER : '-'? [0-9]+
+PERIOD    : '.'; // technically speaking, it should be '.' ( ' ' | '\n' | EOF )
+
+/**
+ * Integer.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,120
+ */
+INTEGER : [-+]? [0-9]+
 	;
 
-FIXEDPOINT : [0-9]+ '.' [0-9]+
+/**
+ * Fixed point.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,120
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,670
+ */
+FIXEDPOINT : [-+]? [0-9]+ ('.'|',') [0-9]+
 	;
 
-HEXINTEGER :
-		'H' ["] [0-9A-F]+ ["]
-	|	'H' ['] [0-9A-F]+ [']
+/**
+ * Floating point.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=63&zoom=auto,-100,675
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,670
+ */
+FLOATINGPOINT : [-+]? [0-9]+ ('.'|',') [0-9]+ 'E' [-+]? [0-9]?[0-9]
 	;
 
+///**
+// * Hexadecimal integer.
+// * 
+// * @see where is it defined?
+// */
+//HEXINTEGER :
+//		'H' ["] [0-9A-F]+ ["]
+//	|	'H' ['] [0-9A-F]+ [']
+//	;
+
+/**
+ * Basic alphanumeric literals.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=59&zoom=auto,-100,670
+ */
 QUOTEDSTRING :
 		["] ( ~["\n\r] | ["] ["] )* ["]
 	|	['] ( ~['\n\r] | ['] ['] )* [']
 	;
 
+/**
+ * Hexadecimal notation for alphanumeric literals.
+ *
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=61&zoom=auto,-100,665
+ */
 HEXSTRING :
 		'X' ["] ([0-9A-F][0-9A-F])+ ["]
 	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
 	;
 
+///**
+// * Null-terminated alphanumeric literals.
+// * 
+// * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=61&zoom=auto,-100,185
+// */
+//NULLTERMINATEDSTRING :
+//		'Z' ["] ([0-9A-F][0-9A-F])+ ["]
+//	|	'Z' ['] ([0-9A-F][0-9A-F])+ [']
+//	;
+//
+//
+
+/**
+ * Continuation of alphanumeric literals.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=79&zoom=auto,-100,740
+ * 
+ * TODO: do it right
+ */
 QUOTEDSTRING_START	:
 		["]  ( ~["\n\r\uEBA3] | ["] ["] )*
 	|	[']  ( ~['\n\r\uEBA3] | ['] ['] )*
 	;
 
-COMMENT			: ('*' | '/') .*? NEWLINE
+COMMENT			: ('*' | '/') ~[\n\r\uEBA3]*
                 { _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
 
 PICTURE : 'PICTURE'
@@ -99,7 +172,12 @@ PIC_IS : IS
 // accepts any string, even malformed picture strings
 // validation of picture strings is to be done elsewhere  
 // using only '$' as currency symbol
-PICTURESTRING : [-+ABEGNPSVXZCRDB90/,.*$()0-9]* [-+ABEGNPSVXZCRDB90/,*$()0-9] 
+/**
+ * PICTURE character-string
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=67&zoom=auto,-100,420
+ */
+PICTURESTRING : [-+ABEGNPSVXZCRDB90/,*$()0-9.]* [-+ABEGNPSVXZCRDB90/,*$()0-9]
 	-> popMode
 	;
 

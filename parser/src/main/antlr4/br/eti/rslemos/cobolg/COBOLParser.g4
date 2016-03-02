@@ -19,6 +19,12 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
+/**
+ * This grammar is based on Enterprise COBOL for z/OS Language Reference Version 5.2
+ * (SC14-7381-03).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf
+ */
 parser grammar COBOLParser;
 import IdentificationDivision, EnvironmentDivision, DataDivision, ProcedureDivision;
 

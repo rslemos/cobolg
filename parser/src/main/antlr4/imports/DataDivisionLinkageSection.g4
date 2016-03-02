@@ -24,6 +24,11 @@ import DataDescriptionBasics;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Linkage section.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=181&zoom=auto,-40,650
+ */		
 linkageSection :
 		LINKAGE SECTION PERIOD
 		dataDescriptionParagraph*
