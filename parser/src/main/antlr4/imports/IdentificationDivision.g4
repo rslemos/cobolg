@@ -20,14 +20,34 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 parser grammar IdentificationDivision;
+import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Identification division.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=121&zoom=auto,-40,710
+ */
 identificationDivision :
 		(IDENTIFICATION | ID) DIVISION PERIOD
-		PROGRAM_ID PERIOD programName PERIOD
+		PROGRAM_ID PERIOD? programName (IS? (RECURSIVE | INITIAL) PROGRAM?)? PERIOD?
+		(AUTHOR PERIOD? commentEntry*)?
+		(INSTALLATION PERIOD? commentEntry*)?
+		(DATE_WRITTEN PERIOD? commentEntry*)?
+		(DATE_COMPILED PERIOD? commentEntry*)?
+		(SECURITY PERIOD? commentEntry*)?
 	;
 
-programName :
-		USERDEFINEDWORD
-	;
+/**
+ * Comment entry.
+ * 
+ * Comment entry cyptically defined as: "any combination of characters from the 
+ * character set of the computer". Moreover "on one or more lines".
+ * 
+ * To implement this we'll have to fiddle with the lexer, but this is out of 
+ * scope right now. So sticking with the following poor definition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=129&zoom=auto,-40,190
+ */
+commentEntry : USERDEFINEDWORD | literal;

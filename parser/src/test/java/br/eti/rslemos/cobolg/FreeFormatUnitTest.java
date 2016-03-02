@@ -110,8 +110,7 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testIdentificationDivision() {
-		IdentificationDivisionContext idDivision = tree.identificationDivision();
-		assertThat(idDivision.programName().getText(), is(equalTo("HELLO-WORLD")));
+		assertThat(tree.identificationDivision().programName().getText(), is(equalTo("HELLO-WORLD")));
 	}
 
 	@Test

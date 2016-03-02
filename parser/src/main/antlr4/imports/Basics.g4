@@ -29,6 +29,7 @@ options { tokenVocab = COBOLLexer; }
  */
 
 dataName          : USERDEFINEDWORD;
+programName       : USERDEFINEDWORD;
 
 /**
  * Figurative constant.
