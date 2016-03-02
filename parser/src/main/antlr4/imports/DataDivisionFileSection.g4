@@ -20,87 +20,169 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 parser grammar DataDivisionFileSection;
-import Basics;
+import Basics, DataDescriptionBasics;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * File section.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=178&zoom=auto,-40,175
+ */
 fileSection :
 		FILE SECTION PERIOD
 		fileDescriptionParagraph*
 	;
 
 fileDescriptionParagraph :
-		FD fileName
-		fdIsClauses?
-		fdBlockClause?
-		fdRecordClause?
-		fdLabelRecordClause?
-		fdValueOfClause?
-		fdDataRecordClause?
-		fdLinageClause?
-		fdRecordingModeClause?
-		fdCodeSetClause?
-		PERIOD
+		fileDescriptionEntry PERIOD
+		recordDescriptionEntry* // the reference manual states recordDescriptionEntry+
 	;
 
-fdIsClauses :
-		IS? EXTERNAL (IS? GLOBAL)?
-	|	IS? GLOBAL
+/**
+ * File description entry.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=193&zoom=auto,-40,730
+ */
+fileDescriptionEntry :
+		FD fileName fileDescriptionEntryClauses
+	|	SD fileName sortDescriptionEntryClauses
 	;
 
-fdBlockClause :
-		BLOCK CONTAINS? (from=INTEGER TO)? to=INTEGER (CHARACTERS | RECORDS)
+fileDescriptionEntryClauses :
+		fileDescriptionEntryClause*
 	;
 
-fdRecordClause :
-		RECORD CONTAINS? (from=INTEGER TO)? to=INTEGER CHARACTERS?
-	|	RECORD IS? VARYING IN? SIZE? (FROM? from=INTEGER)? (TO to=INTEGER)? CHARACTERS? (DEPENDING ON? dependingOn=dataName)?
+fileDescriptionEntryClause :
+		externalClause
+	|	globalClause
+	|	blockContainsClause
+	|	recordClause
+	|	labelRecordClause
+	|	valueOfClause
+	|	dataRecordClause
+	|	linageClause
+	|	recordingModeClause
+	|	codeSetClause
 	;
 
-fdLabelRecordClause :
-		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName*) // why not dataName+?
+sortDescriptionEntryClauses :
+		sortDescriptionEntryClause*
 	;
 
-fdValueOfClause :
+sortDescriptionEntryClause :
+		recordClause
+	|	dataRecordClause
+	|	blockContainsClause
+	|	labelRecordClause
+	|	valueOfClause
+	|	linageClause
+	|	codeSetClause
+	;
+
+/**
+ * Block contains.
+ * 
+ * Main syntax diagram indicates that either CHARACTERS or RECORDS should be 
+ * used. But reference text says that "the CHARACTERS phrase is the default".
+ * Moreover sources were found where none of them is specified (look at NIST 
+ * COBOL-85 Test Suite's IX(IX216A), IX(IX108A)).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=199&zoom=auto,-100,390
+ */
+blockContainsClause :
+		BLOCK CONTAINS?
+		(INTEGER TO)?
+		INTEGER
+		(CHARACTERS | RECORDS)?
+	;
+
+/**
+ * Record clause.
+ * 
+ * TODO: check if the following constructions are valid:
+ * - RECORD VARYING
+ * - RECORD VARYING CHARACTERS
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=201&zoom=auto,-100,740
+ */
+recordClause :
+		RECORD CONTAINS? (INTEGER TO)? INTEGER CHARACTERS?
+	|	RECORD IS? VARYING IN? SIZE? (FROM? INTEGER)? (TO INTEGER)? CHARACTERS? (DEPENDING ON? dataName)?
+	;
+
+/**
+ * Label records clause.
+ * 
+ * Main syntax diagram specifies dataName* for FD (dataName+ for SD). We'll 
+ * keep that second definition, because it is saner.
+ * 
+ * TODO: check if the following constructions are valid:
+ * - LABEL RECORD IS
+ * - LABEL RECORDS ARE
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=203&zoom=auto,-100,260
+ */
+labelRecordClause :
+		LABEL (RECORD IS? | RECORDS ARE?) (STANDARD | OMITTED | dataName+)
+	;
+
+/**
+ * Value of clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=204&zoom=auto,-100,675
+ */
+valueOfClause :
 		VALUE OF (systemName IS? (dataName | literal))+
 	;
 
-fdDataRecordClause :
+/**
+ * Data records clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=204&zoom=auto,-100,480
+ */
+dataRecordClause :
 		DATA (RECORD IS? | RECORDS ARE?) dataName+
 	;
 
-fdLinageClause :
+/**
+ * Linage clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=204&zoom=auto,-100,360
+ */
+linageClause :
 		LINAGE IS? (dataName | INTEGER) LINES?
-		(WITH? FOOTING AT? footingAt)? 
-		(LINES? AT? TOP linesAtTop)?
-		(LINES? AT? BOTTOM linesAtBottom)?
+		footingAtPhrase?
+		linesAtTopPhrase?
+		linesAtBottomPhrase?
 	;
 
-footingAt :
-		(dataName | INTEGER)
+footingAtPhrase :
+		WITH? FOOTING AT? (dataName | INTEGER)
 	;
 
-linesAtTop :
-		(dataName | INTEGER)
+linesAtTopPhrase :
+		LINES? AT? TOP (dataName | INTEGER)
 	;
 
-linesAtBottom :
-		(dataName | INTEGER)
+linesAtBottomPhrase :
+		LINES? AT? BOTTOM (dataName | INTEGER)
 	;
 
-fdRecordingModeClause :
+/**
+ * Recording mode clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=206&zoom=auto,-100,530
+ */
+recordingModeClause :
 		RECORDING REC_MODE? REC_IS? (F | V | U | S)
 	;
 
-fdCodeSetClause :
+/**
+ * Code-set clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=207&zoom=auto,-100,340
+ */
+codeSetClause :
 		CODE_SET IS? alphabetName
 	;
-
-fileName :
-		USERDEFINEDWORD
-	;
-
-systemName :
-		USERDEFINEDWORD
-	;
-

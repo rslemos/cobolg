@@ -79,6 +79,14 @@ assignmentName    : USERDEFINEDWORD;
 className         : USERDEFINEDWORD;
 
 /**
+ * System name.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=34&zoom=auto,-100,656
+ * TODO: refine what a systemName is (get the list of available systemNames)
+ */
+systemName        : USERDEFINEDWORD;
+
+/**
  * Figurative constant.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160
