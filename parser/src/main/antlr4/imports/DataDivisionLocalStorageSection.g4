@@ -19,17 +19,17 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-parser grammar DataDivisionWorkingStorageSection;
+parser grammar DataDivisionLocalStorageSection;
 import DataDescriptionBasics;
 
 options { tokenVocab = COBOLLexer; }
 
 /**
- * Working-Storage section.
+ * Local-Storage section.
  * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=179&zoom=auto,-40,485
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=180&zoom=auto,-40,345
  */
-workingStorageSection :
-		WORKING_STORAGE SECTION PERIOD
+localStorageSection :
+		LOCAL_STORAGE SECTION PERIOD
 		recordDescriptionEntry*
 	;

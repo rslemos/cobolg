@@ -46,10 +46,12 @@ APPLY                 : 'APPLY';
 ARE                   : 'ARE';
 AREA                  : 'AREA';
 AREAS                 : 'AREAS';
+ASCENDING             : 'ASCENDING';
 ASSIGN                : 'ASSIGN';
 AT                    : 'AT';
 AUTHOR                : 'AUTHOR';
 BINARY                : 'BINARY';
+BLANK                 : 'BLANK';
 BLOCK                 : 'BLOCK';
 BOTTOM                : 'BOTTOM';
 BY                    : 'BY';
@@ -81,6 +83,7 @@ DEBUGGING             : 'DEBUGGING';
 DECIMAL_POINT         : 'DECIMAL-POINT';
 DELIMITER             : 'DELIMITER';
 DEPENDING             : 'DEPENDING';
+DESCENDING            : 'DESCENDING';
 DISPLAY               : 'DISPLAY';
 DISPLAY_1             : 'DISPLAY-1';
 DIVISION              : 'DIVISION';
@@ -99,6 +102,7 @@ FOR                   : 'FOR';
 FROM                  : 'FROM';
 FUNCTION_POINTER      : 'FUNCTION-POINTER';
 GLOBAL                : 'GLOBAL';
+GROUP_USAGE           : 'GROUP-USAGE';
 I_O_CONTROL           : 'I-O-CONTROL';
 ID                    : 'ID';
 IDENTIFICATION        : 'IDENTIFICATION';
@@ -109,19 +113,24 @@ INITIAL               : 'INITIAL';
 INPUT_OUTPUT          : 'INPUT-OUTPUT';
 INSTALLATION          : 'INSTALLATION';
 IS                    : 'IS';
+JUST                  : 'JUST';
+JUSTIFIED             : 'JUSTIFIED';
 KEY                   : 'KEY';
 LABEL                 : 'LABEL';
+LEADING               : 'LEADING';
+LEFT                  : 'LEFT';
 LINAGE                : 'LINAGE';
 LINE                  : 'LINE';
 LINES                 : 'LINES';
 LINKAGE               : 'LINKAGE';
+LOCAL_STORAGE         : 'LOCAL-STORAGE';
 MEMORY                : 'MEMORY';
 MODE                  : 'MODE';
 MODULES               : 'MODULES';
 MULTIPLE              : 'MULTIPLE';
 NATIONAL              : 'NATIONAL';
 NATIVE                : 'NATIVE';
-// OBJECT                : 'OBJECT';
+OBJECT                : 'OBJECT';
 OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
 OCCURS                : 'OCCURS';
 OF                    : 'OF';
@@ -149,15 +158,19 @@ REDEFINES             : 'REDEFINES';
 REEL                  : 'REEL';
 REFERENCE             : 'REFERENCE';
 RELATIVE              : 'RELATIVE';
+RENAMES               : 'RENAMES';
 REPOSITORY            : 'REPOSITORY';
 RERUN                 : 'RERUN';
 RESERVE               : 'RESERVE';
+RIGHT                 : 'RIGHT';
 RUN                   : 'RUN';
 SAME                  : 'SAME';
+SD                    : 'SD';
 SECTION               : 'SECTION';
 SECURITY              : 'SECURITY';
 SEGMENT_LIMIT         : 'SEGMENT-LIMIT';
 SELECT                : 'SELECT';
+SEPARATE              : 'SEPARATE';
 SEQUENCE              : 'SEQUENCE';
 SEQUENTIAL            : 'SEQUENTIAL';
 SIGN                  : 'SIGN';
@@ -172,17 +185,24 @@ STANDARD_2            : 'STANDARD-2';
 STATUS                : 'STATUS';
 STOP                  : 'STOP';
 SYMBOLIC              : 'SYMBOLIC';
+SYNC                  : 'SYNC';
+SYNCHRONIZED          : 'SYNCHRONIZED';
 TAPE                  : 'TAPE';
 THROUGH               : 'THROUGH';
 THRU                  : 'THRU';
 TIMES                 : 'TIMES';
 TO                    : 'TO';
 TOP                   : 'TOP';
+TRAILING              : 'TRAILING';
+UNBOUNDED             : 'UNBOUNDED';
 UNIT                  : 'UNIT';
 USAGE                 : 'USAGE';
 USING                 : 'USING';
 VALUE                 : 'VALUE';
+VALUES                : 'VALUES';
 VARYING               : 'VARYING';
+VOLATILE              : 'VOLATILE';
+WHEN                  : 'WHEN';
 WITH                  : 'WITH';
 WORDS                 : 'WORDS';
 WORKING_STORAGE       : 'WORKING-STORAGE';
@@ -207,6 +227,50 @@ ZERO                  : 'ZERO';
 ZEROES                : 'ZEROES';
 ZEROS                 : 'ZEROS';
 
+/* SPECIAL CHARACTER WORDS */
+
+/* arithmetic operators */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=279&zoom=auto,-100,185 */
+OP_PLUS               : '+';  // unary plus or addition
+OP_MINUS              : '-';  // unary minus or subtraction
+OP_STAR               : '*';  // multiplication
+OP_SLASH              : '/';  // division
+OP_STARSTAR           : '**'; // exponentiation
+
+/* SPECIAL REGISTERS */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=38&zoom=auto,-100,610 */
+
+// ADDRESS_OF         : 'ADDRESS OF';
+DEBUG_CONTENTS        : 'DEBUG-CONTENTS';
+DEBUG_ITEM            : 'DEBUG-ITEM';
+DEBUG_LINE            : 'DEBUG-LINE';
+DEBUG_NAME            : 'DEBUG-NAME';
+DEBUG_SUB_1           : 'DEBUG-SUB-1';
+DEBUG_SUB_2           : 'DEBUG-SUB-2';
+DEBUG_SUB_3           : 'DEBUG-SUB-3';
+JNIENVPTR             : 'JNIENVPTR';
+// LENGTH_OF          : 'LENGTH OF';
+LINAGE_COUNTER        : 'LINAGE-COUNTER';
+RETURN_CODE           : 'RETURN-CODE';
+SHIFT_IN              : 'SHIFT-IN';
+SHIFT_OUT             : 'SHIFT-OUT';
+SORT_CONTROL          : 'SORT-CONTROL';
+SORT_CORE_SIZE        : 'SORT-CORE-SIZE';
+SORT_FILE_SIZE        : 'SORT-FILE-SIZE';
+SORT_MESSAGE          : 'SORT-MESSAGE';
+SORT_MODE_SIZE        : 'SORT-MODE-SIZE';
+SORT_RETURN           : 'SORT-RETURN';
+TALLY                 : 'TALLY';
+WHEN_COMPILED         : 'WHEN-COMPILED';
+XML_CODE              : 'XML-CODE';
+XML_EVENT             : 'XML-EVENT';
+XML_INFORMATION       : 'XML-INFORMATION';
+XML_NAMESPACE         : 'XML-NAMESPACE';
+XML_NAMESPACE_PREFIX  : 'XML-NAMESPACE-PREFIX';
+XML_NNAMESPACE        : 'XML-NNAMESPACE';
+XML_NNAMESPACE_PREFIX : 'XML-NNAMESPACE-PREFIX';
+XML_NTEXT             : 'XML-NTEXT';
+XML_TEXT              : 'XML-TEXT';
 
 EBCDIC                : 'EBCDIC';
 //SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer

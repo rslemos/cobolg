@@ -213,35 +213,35 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testFileDescriptor0Presence() {
 		FileDescriptionParagraphContext fd0 = tree.dataDivision().fileSection().fileDescriptionParagraph(0);
-		assertThat(fd0.fileName().getText(), is(equalTo("FD0")));
-		assertThat(fd0.fdIsClauses().EXTERNAL(), is(not(nullValue(TerminalNode.class))));
-		assertThat(fd0.fdIsClauses().GLOBAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.fileDescriptionEntry().fileName().getText(), is(equalTo("FD0")));
+		assertThat(fd0.fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(0).externalClause().EXTERNAL(), is(not(nullValue(TerminalNode.class))));
+		assertThat(fd0.fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(1).globalClause().GLOBAL(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD0BlockClause() {
-		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdBlockClause();
-		assertThat(blockClause.from.getText(), is(equalTo("5")));
-		assertThat(blockClause.to.getText(), is(equalTo("100")));
+		BlockContainsClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(2).blockContainsClause();
+		assertThat(blockClause.INTEGER(0).getText(), is(equalTo("5")));
+		assertThat(blockClause.INTEGER(1).getText(), is(equalTo("100")));
 		assertThat(blockClause.RECORDS(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD0RecordClause() {
-		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdRecordClause();
-		assertThat(recordClause.from.getText(), is(equalTo("80")));
-		assertThat(recordClause.to.getText(), is(equalTo("120")));
+		RecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(3).recordClause();
+		assertThat(recordClause.INTEGER(0).getText(), is(equalTo("80")));
+		assertThat(recordClause.INTEGER(1).getText(), is(equalTo("120")));
 	}
 
 	@Test
 	public void testFD0LabelRecordClause() {
-		FdLabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdLabelRecordClause();
+		LabelRecordClauseContext labelRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(4).labelRecordClause();
 		assertThat(labelRecordClause.STANDARD(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD0ValueOfClause() {
-		FdValueOfClauseContext valueOfClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdValueOfClause();
+		ValueOfClauseContext valueOfClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(5).valueOfClause();
 		assertThat(valueOfClause.systemName(0).getText(), is(equalTo("SYSVAR1")));
 		assertThat(valueOfClause.literal(0).getText(), is(equalTo("'SYSVAR1'")));
 		assertThat(valueOfClause.systemName(1).getText(), is(equalTo("SYSVAR2")));
@@ -250,51 +250,51 @@ public class FreeFormatUnitTest {
 
 	@Test
 	public void testFD0DataRecordClause() {
-		FdDataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdDataRecordClause();
+		DataRecordClauseContext dataRecordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(6).dataRecordClause();
 		assertThat(dataRecordClause.dataName(0).getText(), is(equalTo("REC1")));
 		assertThat(dataRecordClause.dataName(1).getText(), is(equalTo("REC2")));
 	}
 
 	@Test
 	public void testFD0LinageClause() {
-		FdLinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdLinageClause();
+		LinageClauseContext linageClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(7).linageClause();
 		assertThat(linageClause.INTEGER().getText(), is(equalTo("2")));
-		assertThat(linageClause.footingAt().INTEGER().getText(), is(equalTo("2")));
-		assertThat(linageClause.linesAtBottom().INTEGER().getText(), is(equalTo("1")));
-		assertThat(linageClause.linesAtTop().INTEGER().getText(), is(equalTo("1")));
+		assertThat(linageClause.footingAtPhrase().INTEGER().getText(), is(equalTo("2")));
+		assertThat(linageClause.linesAtBottomPhrase().INTEGER().getText(), is(equalTo("1")));
+		assertThat(linageClause.linesAtTopPhrase().INTEGER().getText(), is(equalTo("1")));
 	}
 
 	@Test
 	public void testFD0RecordingModeClause() {
-		FdRecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdRecordingModeClause();
+		RecordingModeClauseContext recordingModeClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(8).recordingModeClause();
 		assertThat(recordingModeClause.V(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD0CodeSetClause() {
-		FdCodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdCodeSetClause();
+		CodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(9).codeSetClause();
 		assertThat(codeSetClause.alphabetName().USERDEFINEDWORD().getText(), is(equalTo("ALPHABET1")));
 	}
 
 	@Test
 	public void testFileDescriptor1Presence() {
 		FileDescriptionParagraphContext fd1 = tree.dataDivision().fileSection().fileDescriptionParagraph(1);
-		assertThat(fd1.fileName().getText(), is(equalTo("FD1")));
+		assertThat(fd1.fileDescriptionEntry().fileName().getText(), is(equalTo("FD1")));
 	}
 
 	@Test
 	public void testFD1BlockClause() {
-		FdBlockClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fdBlockClause();
-		assertThat(blockClause.to.getText(), is(equalTo("120")));
+		BlockContainsClauseContext blockClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(0).blockContainsClause();
+		assertThat(blockClause.INTEGER(0).getText(), is(equalTo("120")));
 		assertThat(blockClause.CHARACTERS(), is(not(nullValue(TerminalNode.class))));
 	}
 
 	@Test
 	public void testFD1RecordClause() {
-		FdRecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fdRecordClause();
-		assertThat(recordClause.from.getText(), is(equalTo("10")));
-		assertThat(recordClause.to.getText(), is(equalTo("120")));
-		assertThat(recordClause.dependingOn.getText(), is(equalTo("REC-SIZE")));
+		RecordClauseContext recordClause = tree.dataDivision().fileSection().fileDescriptionParagraph(1).fileDescriptionEntry().fileDescriptionEntryClauses().fileDescriptionEntryClause(1).recordClause();
+		assertThat(recordClause.INTEGER(0).getText(), is(equalTo("10")));
+		assertThat(recordClause.INTEGER(1).getText(), is(equalTo("120")));
+		assertThat(recordClause.dataName().getText(), is(equalTo("REC-SIZE")));
 	}
 
 	@Test
@@ -303,66 +303,88 @@ public class FreeFormatUnitTest {
 	}
 	
 	@Test
-	public void testDataDescriptionParagraph1() {
-		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(0);
-		
+	public void testRecordDescriptionEntry1() {
 		// 77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.
-		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
-		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
+		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(0);
+		
+		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
+		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
+		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 
 	@Test
-	public void testDataDescriptionParagraph2() {
-		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(1);
-		
+	public void testRecordDescriptionEntry2() {
 		// 77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.
-		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
-		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG1")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP().getText(), is(equalTo("COMP")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(1);
+		
+		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
+		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
+		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG1")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 
 	@Test
-	public void testDataDescriptionParagraph4() {
-		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(3);
+	public void testRecordDescriptionEntry3() {
+		// 01  WS-TAB-F-PRICE.
+		//     03  WS-TB-F-PRICE OCCURS 1000 TIMES
+		//         INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG
+		//                    IPRICELIMLOGANT.
+		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(2);
 		
-		//    03  WS-TB-F-PRICE OCCURS 1000 TIMES
-		//        INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG
-		//                   IPRICELIMLOGANT.
-		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("03")));
-		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TB-F-PRICE")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().occursClause().INTEGER().getText(), is(equalTo("1000")));
+		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
+		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TAB-F-PRICE")));
 		
-		Iterator<IndexNameContext> it = dataDescriptionParagraph.dataDescriptionClauses().occursClause().indexName().iterator();
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(1)));
+		
+		recordDescriptionEntry = recordDescriptionEntry.recordDescriptionEntry(0);
+		
+		dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
+		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("03")));
+		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TB-F-PRICE")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().INTEGER(0).getText(), is(equalTo("1000")));
+		
+		Iterator<IndexNameContext> it = dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).occursClause().indexedByPhrase().indexName().iterator();
 		for (String indexName : new String[] {"IPRICE", "IPRICEUM", "IPRICEMIL", "IPRICELIMLOG", "IPRICELIMLOGANT"}) {
-			assertThat(it.next().getText(), is(equalTo(indexName))); 
+			assertThat(it.next().getText(), is(equalTo(indexName)));
 		}
 	}
 
 	@Test
-	public void testDataDescriptionParagraph5() {
-		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(4);
-		
+	public void testRecordDescriptionEntry4() {
 		// 01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.
-		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL17V00")));
-		assertThat(dataDescriptionParagraph.redefinesClause().dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL12V05")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(17)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP_3().getText(), is(equalTo("COMP-3")));
+		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(3);
+		
+		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
+		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("01")));
+		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL17V00")));
+		assertThat(dataDescriptionEntry.redefinesClause().dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL12V05")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(17)")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).usageClause().usage().COMP_3().getText(), is(equalTo("COMP-3")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 
 	@Test
-	public void testDataDescriptionParagraph6() {
-		DataDescriptionParagraphContext dataDescriptionParagraph = tree.dataDivision().workingStorageSection().dataDescriptionParagraph(5);
-		
+	public void testRecordDescriptionEntry5() {
 		// 77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.
-		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
-		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG2")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP().getText(), is(equalTo("COMP")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		RecordDescriptionEntryContext recordDescriptionEntry = tree.dataDivision().workingStorageSection().recordDescriptionEntry(4);
+		
+		DataDescriptionEntryContext dataDescriptionEntry = recordDescriptionEntry.dataDescriptionEntry();
+		assertThat(dataDescriptionEntry.levelNumber().getText(), is(equalTo("77")));
+		assertThat(dataDescriptionEntry.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG2")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(0).valueClause().literal(0).figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(1).pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
+		assertThat(dataDescriptionEntry.dataDescriptionClauses().dataDescriptionClause(2).usageClause().usage().COMP().getText(), is(equalTo("COMP")));
+		
+		assertThat(recordDescriptionEntry.recordDescriptionEntry().size(), is(equalTo(0)));
 	}
 	
 	@Test
@@ -383,7 +405,7 @@ public class FreeFormatUnitTest {
 		// 0 - FD
 		// 1 - FD3
 		// 2 - COPY XZT0190.
-		CompilerStatementContext copyXZT0190 = (CompilerStatementContext) fd3.children.get(2);
+		CompilerStatementContext copyXZT0190 = (CompilerStatementContext) fd3.children.get(1);
 		assertThat(copyXZT0190.COPY().getText(), is(equalTo("COPY")));
 		assertThat(copyXZT0190.COMPILER_ID().getText(), is(equalTo("XZT0190")));
 		
