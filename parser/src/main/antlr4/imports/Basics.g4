@@ -34,6 +34,7 @@ alphabetName      : USERDEFINEDWORD;
 conditionName     : USERDEFINEDWORD;
 dataClassName     : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
+fileName          : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
@@ -58,6 +59,15 @@ environmentName   : USERDEFINEDWORD;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,610
  */
 externalFileId    : USERDEFINEDWORD;
+
+/**
+ * (File-control paragraph entries') Assignment name.
+ * 
+ * Further restrictions apply.
+ *  
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=150&zoom=auto,-40,240
+ */
+assignmentName    : USERDEFINEDWORD;
 
 /**
  * (character) Class name.
@@ -114,4 +124,19 @@ numericLiteral :
 	|	FIXEDPOINT
 	|	FLOATINGPOINT
 //	|	HEXINTEGER
+	;
+
+/*
+ * References
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=89&zoom=auto,-40,555
+ */
+
+/**
+ * Reference to data names.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
+ */
+refDataName :
+		dataName ((IN | OF) dataName)*
 	;
