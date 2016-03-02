@@ -25,6 +25,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.io.IOException;
+import java.io.Reader;
 import java.io.StringReader;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
@@ -37,7 +39,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 	protected abstract T parsePart();
 	
 	protected COBOLParser parser;
-	protected FreeFormatCompiler compiler;
+	protected Compiler compiler;
 	
 	public T compile(String source, ANTLRErrorListener... listeners) {
 		prepare(source, listeners);
@@ -59,7 +61,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 
 	private void prepare(String source, ANTLRErrorListener... listeners) {
 		try {
-			compiler = new FreeFormatCompiler(new StringReader(source));
+			compiler = createCompiler(new StringReader(source));
 			
 			for (ANTLRErrorListener listener : listeners)
 				compiler.addErrorListener(listener);
@@ -68,6 +70,10 @@ public abstract class CompilerHelper<T extends RuleContext> {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	protected Compiler createCompiler(Reader source) throws IOException {
+		return new FreeFormatCompiler(source);
 	}
 
 	

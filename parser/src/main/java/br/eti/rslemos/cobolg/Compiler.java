@@ -64,7 +64,7 @@ public abstract class Compiler {
 		this.lexer.removeErrorListeners();
 
 		lexer.reset();
-		CommonTokenStream preTokens = new CommonTokenStream(lexer, COBOLFreeFormatLexer.COMPILER_CHANNEL);
+		CommonTokenStream preTokens = new CommonTokenStream(lexer, COBOLLexer.COMPILER_CHANNEL);
 		preTokens.fill();
 		
 		lexer.reset();
@@ -306,13 +306,13 @@ public abstract class Compiler {
 	
 	public static class FreeFormatCompiler extends Compiler {
 		public FreeFormatCompiler(Reader source) throws IOException {
-			super(new COBOLFreeFormatLexer(forANTLR(source)));
+			super(new COBOLLexer(forANTLR(source)));
 		}
 	}
 
 	public static class FixedFormatCompiler extends Compiler {
 		public FixedFormatCompiler(Reader source) throws IOException {
-			super(new COBOLFixedFormatLexer(forANTLR(stuffFixedWidthChars(source))));
+			super(new COBOLLexer(forANTLR(stuffFixedWidthChars(source))));
 		}
 
 		private static StuffingReader stuffFixedWidthChars(Reader source) {

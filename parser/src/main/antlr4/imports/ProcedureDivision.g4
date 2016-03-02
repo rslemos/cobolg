@@ -19,37 +19,42 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-lexer grammar COBOLBasics;
+parser grammar ProcedureDivision;
+import Basics, Statements;
 
-WS : ' '+
-	-> channel(HIDDEN);
+options { tokenVocab = COBOLLexer; }
 
-NEWLINE : ('\n' '\r'? | '\r' '\n'?)
-	-> channel(HIDDEN);
-
-INTEGER : '-'? [0-9]+
+procedureDivision :
+		PROCEDURE DIVISION usingClause? PERIOD
+		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
 	;
 
-FIXEDPOINT : [0-9]+ '.' [0-9]+
+unnamedProceduralSection :
+		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
 	;
 
-ID	:
-		[A-Za-z0-9]+
-	|	[A-Za-z0-9][-A-Za-z0-9]*[A-Za-z0-9]
+namedProceduralSection :
+		sectionName SECTION PERIOD
+		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
 	;
 
-HEXINTEGER :
-		'H' ["] [0-9A-F]+ ["]
-	|	'H' ['] [0-9A-F]+ [']
+unnamedProceduralParagraph :
+		proceduralStatement+
 	;
 
-DOUBLEQUOTEDSTRING : ["] ( ~["\n\r] | ["] ["] )* ["]
+namedProceduralParagraph :
+		paragraphName PERIOD
+		proceduralStatement+
 	;
 
-SINGLEQUOTEDSTRING : ['] ( ~['\n\r] | ['] ['] )* [']
+usingClause :
+		USING ((BY? (REFERENCE|VALUE))? dataName)+
 	;
 
-HEXSTRING :
-		'X' ["] ([0-9A-F][0-9A-F])+ ["]
-	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
+sectionName :
+		USERDEFINEDWORD
+	;
+
+paragraphName :
+		USERDEFINEDWORD
 	;

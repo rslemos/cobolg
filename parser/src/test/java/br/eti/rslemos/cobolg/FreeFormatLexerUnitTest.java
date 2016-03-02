@@ -21,7 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.COBOLFreeFormatLexer.*;
+import static br.eti.rslemos.cobolg.COBOLLexer.*;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -102,24 +102,6 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	}
 
 	@Test
-	public void testDoubleQuotedString() throws Exception {
-		setSource("\"DOUBLE QUOTED STRING\"");
-		
-		matchToken(DOUBLEQUOTEDSTRING, "\"DOUBLE QUOTED STRING\"");
-		
-		matchEOF();
-	}
-
-	@Test
-	public void testDoubleQuotedWithDoubleQuotesString() throws Exception {
-		setSource("\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
-		
-		matchToken(DOUBLEQUOTEDSTRING, "\"DOUBLE QUOTED STRING WITH \"\"DOUBLE QUOTES\"\"\"");
-		
-		matchEOF();
-	}
-	
-	@Test
 	public void testProgramInFreeFormatUnitTest() throws Exception {
 		setSource(FreeFormatUnitTest.SOURCE);
 		
@@ -134,7 +116,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PROGRAM_ID, "PROGRAM-ID");
 		matchToken(PERIOD, ".");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "HELLO-WORLD");
+		matchToken(USERDEFINEDWORD, "HELLO-WORLD");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
@@ -160,7 +142,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(OBJECT_COMPUTER, "OBJECT-COMPUTER");
 		matchToken(PERIOD, ".");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "IBM-370-148");
+		matchToken(USERDEFINEDWORD, "IBM-370-148");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
@@ -171,11 +153,11 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		
 		//    C02 IS LCP-CH2.
 		matchToken(WS, "    ", HIDDEN);
-		matchToken(ID, "C02");
+		matchToken(USERDEFINEDWORD, "C02");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "LCP-CH2");
+		matchToken(USERDEFINEDWORD, "LCP-CH2");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
@@ -195,13 +177,13 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(SELECT, "SELECT");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "IMPRES");
+		matchToken(USERDEFINEDWORD, "IMPRES");
 		matchToken(WS, "      ", HIDDEN);
 		matchToken(ASSIGN, "ASSIGN");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(TO, "TO");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "UT-S-L439161");
+		matchToken(USERDEFINEDWORD, "UT-S-L439161");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
@@ -209,13 +191,13 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(SELECT, "SELECT");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "PRAMFIXO");
+		matchToken(USERDEFINEDWORD, "PRAMFIXO");
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(ASSIGN, "ASSIGN");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(TO, "TO");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "UT-S-D433135");
+		matchToken(USERDEFINEDWORD, "UT-S-D433135");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
@@ -223,13 +205,13 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(SELECT, "SELECT");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "PROJEN-I");
+		matchToken(USERDEFINEDWORD, "PROJEN-I");
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(ASSIGN, "ASSIGN");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(TO, "TO");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "D433131");
+		matchToken(USERDEFINEDWORD, "D433131");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//                        RECORD KEY CHAVE
@@ -238,7 +220,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(KEY, "KEY");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "CHAVE");
+		matchToken(USERDEFINEDWORD, "CHAVE");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//                        ACCESS SEQUENTIAL
@@ -254,7 +236,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "PROJ-STATUS");
+		matchToken(USERDEFINEDWORD, "PROJ-STATUS");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//                        ORGANIZATION INDEXED.
@@ -282,7 +264,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		//FD  FD0 IS EXTERNAL IS GLOBAL
 		matchToken(FD, "FD");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "FD0");
+		matchToken(USERDEFINEDWORD, "FD0");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
@@ -340,17 +322,17 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(OF, "OF");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "SYSVAR1");
+		matchToken(USERDEFINEDWORD, "SYSVAR1");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR1'");
+		matchToken(QUOTEDSTRING, "'SYSVAR1'");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "SYSVAR2");
+		matchToken(USERDEFINEDWORD, "SYSVAR2");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(SINGLEQUOTEDSTRING, "'SYSVAR2'");
+		matchToken(QUOTEDSTRING, "'SYSVAR2'");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//    DATA RECORDS ARE REC1 REC2
@@ -361,9 +343,9 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ARE, "ARE");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "REC1");
+		matchToken(USERDEFINEDWORD, "REC1");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "REC2");
+		matchToken(USERDEFINEDWORD, "REC2");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//    LINAGE IS 2 LINES
@@ -427,14 +409,14 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "ALPHABET1");
+		matchToken(USERDEFINEDWORD, "ALPHABET1");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//FD  FD1
 		matchToken(FD, "FD");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "FD1");
+		matchToken(USERDEFINEDWORD, "FD1");
 		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//    BLOCK CONTAINS 120 CHARACTERS
@@ -477,19 +459,19 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ON, "ON");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "REC-SIZE");
+		matchToken(USERDEFINEDWORD, "REC-SIZE");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//FD  FD3  COPY XZT0190.
 		matchToken(FD, "FD");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "FD3");
+		matchToken(USERDEFINEDWORD, "FD3");
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(COPY, "COPY", COMPILER_CHANNEL);
-		matchToken(COPY_MODE, COPY_WS, " ", HIDDEN);
-		matchToken(COPY_MODE, COPY_ID, "XZT0190", COMPILER_CHANNEL);
-		matchToken(COPY_MODE, COPY_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(COMPILER_ID_MODE, COMPILER_ID_WS, " ", HIDDEN);
+		matchToken(COMPILER_ID_MODE, COMPILER_ID, "XZT0190", COMPILER_CHANNEL);
+		matchToken(COMPILER_MODE, COMPILER_PERIOD, ".", COMPILER_CHANNEL);
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//WORKING-STORAGE SECTION.
@@ -502,9 +484,9 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		//77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.
 		matchToken(INTEGER, "77");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "WS-DEBUG");
+		matchToken(USERDEFINEDWORD, "WS-DEBUG");
 		matchToken(WS, "             ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "ZZZ.ZZZ.ZZZ.ZZ9,999999-");
 		matchToken(PERIOD, ".");
@@ -513,13 +495,13 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		//77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.
 		matchToken(INTEGER, "77");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "WS-DEBUG1");
+		matchToken(USERDEFINEDWORD, "WS-DEBUG1");
 		matchToken(WS, "            ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(COMPUTATIONAL, "COMP");
+		matchToken(COMP, "COMP");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(VALUE, "VALUE");
 		matchToken(WS, " ", HIDDEN);
@@ -532,7 +514,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		//01  WS-TAB-F-PRICE.
 		matchToken(INTEGER, "01");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "WS-TAB-F-PRICE");
+		matchToken(USERDEFINEDWORD, "WS-TAB-F-PRICE");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
@@ -540,7 +522,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(INTEGER, "03");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "WS-TB-F-PRICE");
+		matchToken(USERDEFINEDWORD, "WS-TB-F-PRICE");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(OCCURS, "OCCURS");		
 		matchToken(WS, " ", HIDDEN);
@@ -555,42 +537,42 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(BY, "BY");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "IPRICE");		
+		matchToken(USERDEFINEDWORD, "IPRICE");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "IPRICEUM");		
+		matchToken(USERDEFINEDWORD, "IPRICEUM");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "IPRICEMIL");		
+		matchToken(USERDEFINEDWORD, "IPRICEMIL");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "IPRICELIMLOG");		
+		matchToken(USERDEFINEDWORD, "IPRICELIMLOG");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//                   IPRICELIMLOGANT.
 		matchToken(WS, "                   ", HIDDEN);
-		matchToken(ID, "IPRICELIMLOGANT");
+		matchToken(USERDEFINEDWORD, "IPRICELIMLOGANT");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.
 		matchToken(INTEGER, "01");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "DESL17V00");
+		matchToken(USERDEFINEDWORD, "DESL17V00");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(REDEFINES, "REDEFINES");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(ID, "DESL12V05");
+		matchToken(USERDEFINEDWORD, "DESL12V05");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "S9(17)");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(COMPUTATIONAL_3, "COMP-3");
+		matchToken(COMP_3, "COMP-3");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.
 		matchToken(INTEGER, "77");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "WS-DEBUG2");
+		matchToken(USERDEFINEDWORD, "WS-DEBUG2");
 		matchToken(WS, "            ", HIDDEN);
 		matchToken(VALUE, "VALUE");
 		matchToken(WS, " ", HIDDEN);
@@ -598,24 +580,24 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, " ", HIDDEN);
 		matchToken(ZERO, "ZERO");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(PICTURE, "PIC");
+		matchToken(PIC, "PIC");
 		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
 		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(COMPUTATIONAL, "COMP");
+		matchToken(COMP, "COMP");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//01  LE-TABE.            COPY XZT0100.
 		matchToken(INTEGER, "01");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "LE-TABE");
+		matchToken(USERDEFINEDWORD, "LE-TABE");
 		matchToken(PERIOD, ".");
 		matchToken(WS, "            ", HIDDEN);
 		matchToken(COPY, "COPY", COMPILER_CHANNEL);
-		matchToken(COPY_MODE, COPY_WS, " ", HIDDEN);
-		matchToken(COPY_MODE, COPY_ID, "XZT0100", COMPILER_CHANNEL);
-		matchToken(COPY_MODE, COPY_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(COMPILER_ID_MODE, COMPILER_ID_WS, " ", HIDDEN);
+		matchToken(COMPILER_ID_MODE, COMPILER_ID, "XZT0100", COMPILER_CHANNEL);
+		matchToken(COMPILER_MODE, COMPILER_PERIOD, ".", COMPILER_CHANNEL);
 		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//LINKAGE SECTION.
@@ -628,13 +610,13 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		//01  LE-ENDI.            COPY XZT0009.
 		matchToken(INTEGER, "01");
 		matchToken(WS, "  ", HIDDEN);
-		matchToken(ID, "LE-ENDI");
+		matchToken(USERDEFINEDWORD, "LE-ENDI");
 		matchToken(PERIOD, ".");
 		matchToken(WS, "            ", HIDDEN);
 		matchToken(COPY, "COPY", COMPILER_CHANNEL);
-		matchToken(COPY_MODE, COPY_WS, " ", HIDDEN);
-		matchToken(COPY_MODE, COPY_ID, "XZT0009", COMPILER_CHANNEL);
-		matchToken(COPY_MODE, COPY_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(COMPILER_ID_MODE, COMPILER_ID_WS, " ", HIDDEN);
+		matchToken(COMPILER_ID_MODE, COMPILER_ID, "XZT0009", COMPILER_CHANNEL);
+		matchToken(COMPILER_MODE, COMPILER_PERIOD, ".", COMPILER_CHANNEL);
 		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//EJECT
@@ -652,7 +634,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(DISPLAY, "DISPLAY");
 		matchToken(WS, " ", HIDDEN);
-		matchToken(SINGLEQUOTEDSTRING, "'Hello, world'");
+		matchToken(QUOTEDSTRING, "'Hello, world'");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		

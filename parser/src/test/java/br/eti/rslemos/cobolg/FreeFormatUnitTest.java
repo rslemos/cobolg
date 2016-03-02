@@ -133,7 +133,7 @@ public class FreeFormatUnitTest {
 	public void testObjectComputerParagraph() {
 		ObjectComputerParagraphContext objCompParagraph = tree.environmentDivision().configurationSection().objectComputerParagraph();
 		
-		assertThat(objCompParagraph.ID().getText(), is(equalTo("IBM-370-148")));
+		assertThat(objCompParagraph.USERDEFINEDWORD().getText(), is(equalTo("IBM-370-148")));
 	}
 	
 	@Test
@@ -147,9 +147,9 @@ public class FreeFormatUnitTest {
 		assertThat(specNamesParagraph.specialNamesSentence().size(), is(equalTo(1)));
 		
 		SpecialNamesSentenceContext specNamesSentence_0 = specNamesParagraph.specialNamesSentence(0);
-		assertThat(specNamesSentence_0.ID(0).getText(), is(equalTo("C02")));
+		assertThat(specNamesSentence_0.USERDEFINEDWORD(0).getText(), is(equalTo("C02")));
 		assertThat(specNamesSentence_0.IS(), is(not(nullValue(TerminalNode.class))));
-		assertThat(specNamesSentence_0.ID(1).getText(), is(equalTo("LCP-CH2")));
+		assertThat(specNamesSentence_0.USERDEFINEDWORD(1).getText(), is(equalTo("LCP-CH2")));
 		
 	}
 	
@@ -170,12 +170,12 @@ public class FreeFormatUnitTest {
 		
 		// "    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
 		SelectFileSentenceContext selectFileSentence_0 = fileCtlParagraph.selectFileSentence(0);
-		assertThat(selectFileSentence_0.ID(0).getText(), is(equalTo("IMPRES")));
-		assertThat(selectFileSentence_0.ID(1).getText(), is(equalTo("UT-S-L439161")));
+		assertThat(selectFileSentence_0.USERDEFINEDWORD(0).getText(), is(equalTo("IMPRES")));
+		assertThat(selectFileSentence_0.USERDEFINEDWORD(1).getText(), is(equalTo("UT-S-L439161")));
 		// "    SELECT  PRAMFIXO    ASSIGN TO UT-S-D433135.",
 		SelectFileSentenceContext selectFileSentence_1 = fileCtlParagraph.selectFileSentence(1);
-		assertThat(selectFileSentence_1.ID(0).getText(), is(equalTo("PRAMFIXO")));
-		assertThat(selectFileSentence_1.ID(1).getText(), is(equalTo("UT-S-D433135")));
+		assertThat(selectFileSentence_1.USERDEFINEDWORD(0).getText(), is(equalTo("PRAMFIXO")));
+		assertThat(selectFileSentence_1.USERDEFINEDWORD(1).getText(), is(equalTo("UT-S-D433135")));
 		
 	}
 
@@ -187,14 +187,14 @@ public class FreeFormatUnitTest {
 		// "                        STATUS IS PROJ-STATUS",
 		// "                        ORGANIZATION INDEXED.",
 		SelectFileSentenceContext selectFileSentence_2 = tree.environmentDivision().inputOutputSection().fileControlParagraph().selectFileSentence(2);
-		assertThat(selectFileSentence_2.ID(0).getText(), is(equalTo("PROJEN-I")));
-		assertThat(selectFileSentence_2.ID(1).getText(), is(equalTo("D433131")));
+		assertThat(selectFileSentence_2.USERDEFINEDWORD(0).getText(), is(equalTo("PROJEN-I")));
+		assertThat(selectFileSentence_2.USERDEFINEDWORD(1).getText(), is(equalTo("D433131")));
 		
 		FileOrganizationIndexedContext fileOrganization = selectFileSentence_2.fileOrganizationIndexed();
 		assertThat(fileOrganization, is(not(nullValue(FileOrganizationIndexedContext.class))));
 
-		assertThat(fileOrganization.ID(0).getText(), is(equalTo("CHAVE")));
-		assertThat(fileOrganization.ID(1).getText(), is(equalTo("PROJ-STATUS")));
+		assertThat(fileOrganization.USERDEFINEDWORD(0).getText(), is(equalTo("CHAVE")));
+		assertThat(fileOrganization.USERDEFINEDWORD(1).getText(), is(equalTo("PROJ-STATUS")));
 	}
 
 	@Test
@@ -270,7 +270,7 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testFD0CodeSetClause() {
 		FdCodeSetClauseContext codeSetClause = tree.dataDivision().fileSection().fileDescriptionParagraph(0).fdCodeSetClause();
-		assertThat(codeSetClause.alphabetName().ID().getText(), is(equalTo("ALPHABET1")));
+		assertThat(codeSetClause.alphabetName().USERDEFINEDWORD().getText(), is(equalTo("ALPHABET1")));
 	}
 
 	@Test
@@ -305,7 +305,7 @@ public class FreeFormatUnitTest {
 		
 		// 77  WS-DEBUG             PIC ZZZ.ZZZ.ZZZ.ZZ9,999999-.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
-		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG")));
+		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("ZZZ.ZZZ.ZZZ.ZZ9,999999-")));
 	}
 
@@ -315,9 +315,9 @@ public class FreeFormatUnitTest {
 		
 		// 77  WS-DEBUG1            PIC S9(8) COMP VALUE IS ZERO.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
-		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG1")));
+		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG1")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP().getText(), is(equalTo("COMP")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 
@@ -329,7 +329,7 @@ public class FreeFormatUnitTest {
 		//        INDEXED BY IPRICE IPRICEUM IPRICEMIL IPRICELIMLOG
 		//                   IPRICELIMLOGANT.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("03")));
-		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-TB-F-PRICE")));
+		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-TB-F-PRICE")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().occursClause().INTEGER().getText(), is(equalTo("1000")));
 		
 		Iterator<IndexNameContext> it = dataDescriptionParagraph.dataDescriptionClauses().occursClause().indexName().iterator();
@@ -344,10 +344,10 @@ public class FreeFormatUnitTest {
 		
 		// 01  DESL17V00 REDEFINES DESL12V05 PIC S9(17) COMP-3.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("01")));
-		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("DESL17V00")));
-		assertThat(dataDescriptionParagraph.redefinesClause().dataName().ID().getText(), is(equalTo("DESL12V05")));
+		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL17V00")));
+		assertThat(dataDescriptionParagraph.redefinesClause().dataName().USERDEFINEDWORD().getText(), is(equalTo("DESL12V05")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(17)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL_3().getText(), is(equalTo("COMP-3")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP_3().getText(), is(equalTo("COMP-3")));
 	}
 
 	@Test
@@ -356,9 +356,9 @@ public class FreeFormatUnitTest {
 		
 		// 77  WS-DEBUG2            VALUE IS ZERO PIC S9(8) COMP.
 		assertThat(dataDescriptionParagraph.levelNumber().getText(), is(equalTo("77")));
-		assertThat(dataDescriptionParagraph.dataName().ID().getText(), is(equalTo("WS-DEBUG2")));
+		assertThat(dataDescriptionParagraph.dataName().USERDEFINEDWORD().getText(), is(equalTo("WS-DEBUG2")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().pictureClause().PICTURESTRING().getText(), is(equalTo("S9(8)")));
-		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMPUTATIONAL().getText(), is(equalTo("COMP")));
+		assertThat(dataDescriptionParagraph.dataDescriptionClauses().usageClause().usage().COMP().getText(), is(equalTo("COMP")));
 		assertThat(dataDescriptionParagraph.dataDescriptionClauses().valueClause().literal().figurativeConstant().ZERO().getText(), is(equalTo("ZERO")));
 	}
 	
@@ -382,7 +382,7 @@ public class FreeFormatUnitTest {
 		// 2 - COPY XZT0190.
 		CompilerStatementContext copyXZT0190 = (CompilerStatementContext) fd3.children.get(2);
 		assertThat(copyXZT0190.COPY().getText(), is(equalTo("COPY")));
-		assertThat(copyXZT0190.COPY_ID().getText(), is(equalTo("XZT0190")));
+		assertThat(copyXZT0190.COMPILER_ID().getText(), is(equalTo("XZT0190")));
 		
 		//  0 - DATA
 		//  1 - DIVISION
@@ -392,7 +392,7 @@ public class FreeFormatUnitTest {
 		// 5 - COPY XZT0100.
 		CompilerStatementContext copyXZT0100 = (CompilerStatementContext) tree.dataDivision().children.get(5);
 		assertThat(copyXZT0100.COPY().getText(), is(equalTo("COPY")));
-		assertThat(copyXZT0100.COPY_ID().getText(), is(equalTo("XZT0100")));
+		assertThat(copyXZT0100.COMPILER_ID().getText(), is(equalTo("XZT0100")));
 		
 		// 0 - IDENTIFICATION DIVISION
 		// 1 - ENVIRONMENT DIVISION
@@ -402,7 +402,7 @@ public class FreeFormatUnitTest {
 		// 5 - PROCEDURE DIVISION
 		CompilerStatementContext copyXZT0009 = (CompilerStatementContext) tree.children.get(3);
 		assertThat(copyXZT0009.COPY().getText(), is(equalTo("COPY")));
-		assertThat(copyXZT0009.COPY_ID().getText(), is(equalTo("XZT0009")));
+		assertThat(copyXZT0009.COMPILER_ID().getText(), is(equalTo("XZT0009")));
 	}
 
 	@Test

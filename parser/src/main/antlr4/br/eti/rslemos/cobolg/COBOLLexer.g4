@@ -19,38 +19,51 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-lexer grammar COBOLFixedFormatLexer;
-import COBOLKeywords, COBOLBasics;
+lexer grammar COBOLLexer;
+import Words;
 
-options {
-	// to avoid token collision
-	tokenVocab = COBOLFreeFormatLexer;
-}
+channels { MARK, COMPILER_CHANNEL }
 
-tokens { 
-	MARK // a channel instead
-}
+WS : ' '+
+	-> channel(HIDDEN);
 
-fragment MARK0	: '\uEBA0';
-fragment MARK1	: '\uEBA1';
-fragment MARK2	: '\uEBA2';
-fragment MARK3	: '\uEBA3';
+NEWLINE : ('\n' '\r'? | '\r' '\n'?)
+	-> channel(HIDDEN);
 
-DOUBLEQUOTEDSTRING_START	:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ;
-SINGLEQUOTEDSTRING_START	:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ;
+INTEGER : '-'? [0-9]+
+	;
 
-TO_SEQUENCE_MODE	: MARK0 -> channel(MARK), mode(SEQUENCE_MODE);
-TO_SKIPTOEOL_MODE_DEFAULT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
+FIXEDPOINT : [0-9]+ '.' [0-9]+
+	;
 
-/* 
- * This block should really be part of COBOLBasics, but as of 2015-04-25
- * ANTLR4 cannot import multi-mode Lexers: https://github.com/antlr/antlr4/issues/160
- * 
- * These rules are replicated in
- *  - COBOLFreeFormatLexer; and
- *  - COBOLFixedFormatLexer.
- */
-PICTURE : 'PIC' 'TURE'?
+HEXINTEGER :
+		'H' ["] [0-9A-F]+ ["]
+	|	'H' ['] [0-9A-F]+ [']
+	;
+
+QUOTEDSTRING :
+		["] ( ~["\n\r] | ["] ["] )* ["]
+	|	['] ( ~['\n\r] | ['] ['] )* [']
+	;
+
+HEXSTRING :
+		'X' ["] ([0-9A-F][0-9A-F])+ ["]
+	|	'X' ['] ([0-9A-F][0-9A-F])+ [']
+	;
+
+QUOTEDSTRING_START	:
+		["]  ( ~["\n\r\uEBA3] | ["] ["] )*
+	|	[']  ( ~['\n\r\uEBA3] | ['] ['] )*
+	;
+
+COMMENT			: ('*' | '/') .*? NEWLINE
+                { _tokenStartCharPositionInLine == 0 }?	-> channel(HIDDEN);
+
+PICTURE : 'PICTURE'
+	-> pushMode(PICTURE_MODE)
+	;
+
+PIC : 'PIC'
 	-> pushMode(PICTURE_MODE)
 	;
 
@@ -59,8 +72,20 @@ RECORDING : 'RECORDING'
 	;
 
 COPY : 'COPY'
-	-> channel(COMPILER_CHANNEL), pushMode(COPY_MODE)
+	-> channel(COMPILER_CHANNEL), pushMode(COMPILER_MODE), pushMode(COMPILER_ID_MODE)
 	;
+
+EJECT : 'EJECT'
+	-> channel(COMPILER_CHANNEL), pushMode(COMPILER_MODE)
+	;
+
+fragment MARK0	: '\uEBA0';
+fragment MARK1	: '\uEBA1';
+fragment MARK2	: '\uEBA2';
+fragment MARK3	: '\uEBA3';
+
+TO_SEQUENCE_MODE	: MARK0 -> channel(MARK), mode(SEQUENCE_MODE);
+TO_SKIPTOEOL_MODE_DEFAULT	: MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
 
 mode PICTURE_MODE;
 
@@ -105,29 +130,39 @@ S : 'S'
 	-> popMode
 	;
 
-mode COPY_MODE;
+mode COMPILER_MODE;
 
-COPY_WS : WS
-	-> channel(HIDDEN);
+COMPILER_WS : ' '+
+	-> channel(HIDDEN)
+	;
 
-COPY_ID : ID
-	-> channel(COMPILER_CHANNEL), mode(COPY_MODE2);
+COMPILER_PERIOD : PERIOD
+	-> channel(COMPILER_CHANNEL), popMode
+	;
 
-COPY_ELSE : .
-	-> more, popMode;
+COMPILER_ELSE : 
+	-> more, popMode
+	;
 
-mode COPY_MODE2;
+mode COMPILER_ID_MODE;
 
-COPY2_WS : WS
-	-> channel(HIDDEN);
+COMPILER_ID_WS : ' '+
+	-> channel(HIDDEN)
+	;
 
-COPY_PERIOD : PERIOD
-	-> channel(COMPILER_CHANNEL), popMode;
+COMPILER_ID : USERDEFINEDWORD
+	-> channel(COMPILER_CHANNEL), popMode
+	;
 
-COPY2_ELSE : .
-	-> more, popMode;
+COMPILER_STRING : QUOTEDSTRING
+	-> channel(COMPILER_CHANNEL), popMode
+	;
 
-/* common block ends here */
+COMPILER_ID_ELSE :
+	-> more, popMode
+	;
+
+/* basic block ends here */
 
 mode SEQUENCE_MODE;
 SEQUENCE_MODE_NL	: NEWLINE 	-> channel(HIDDEN), mode(DEFAULT_MODE);
@@ -164,11 +199,8 @@ CONTINUATION_MODE_NL		: NEWLINE	-> channel(HIDDEN), mode(DEFAULT_MODE);
 
 WS_CONT						: ' '+ -> channel(HIDDEN);
 
-DOUBLEQUOTEDSTRING_MID		:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ;
-DOUBLEQUOTEDSTRING_END		:  ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ["] -> mode(DEFAULT_MODE);
-
-SINGLEQUOTEDSTRING_MID		:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ;
-SINGLEQUOTEDSTRING_END		:  [']  ( ~['\n\r\uEBA3] | ['] ['] )* ['] -> mode(DEFAULT_MODE);
+QUOTEDSTRING_MID            :  ( ["]  ( ~["\n\r\uEBA3] | ["] ["] )*     | [']  ( ~['\n\r\uEBA3] | ['] ['] )*     );
+QUOTEDSTRING_END			:  ( ["]  ( ~["\n\r\uEBA3] | ["] ["] )* ["] | [']  ( ~['\n\r\uEBA3] | ['] ['] )* ['] ) -> mode(DEFAULT_MODE);
 
 TO_SKIPTOEOL_MODE_CONTINUATION : MARK3 -> channel(MARK), mode(SKIPTOEOL_MODE);
 												

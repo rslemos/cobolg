@@ -2,7 +2,7 @@
  * BEGIN COPYRIGHT NOTICE
  * 
  * This file is part of program "cobolg"
- * Copyright 2013  Rodrigo Lemos
+ * Copyright 2015  Rodrigo Lemos
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,26 +19,15 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-parser grammar COBOLParser;
-import IdentificationDivision, EnvironmentDivision, DataDivision, ProcedureDivision;
+parser grammar IdentificationDivision;
 
 options { tokenVocab = COBOLLexer; }
 
-program :
-		identificationDivision
-		environmentDivision?
-		dataDivision?
-		procedureDivision
+identificationDivision :
+		(IDENTIFICATION | ID) DIVISION PERIOD
+		PROGRAM_ID PERIOD programName PERIOD
 	;
 
-compilerStatements :
-		compilerStatement*
-	;
-
-// unfortunately single token deletion is tried before single token insertion
-// so EJECT is deleted before COMPILER_PERIOD is injected
-// that is why they are all optional (so never injected)
-compilerStatement :
-		EJECT COMPILER_PERIOD?
-	|	COPY (COMPILER_ID | COMPILER_STRING) COMPILER_PERIOD?
+programName :
+		USERDEFINEDWORD
 	;
