@@ -23,13 +23,58 @@ parser grammar Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+priorityNumber    : INTEGER { $INTEGER.text.matches("^[0-9]?[0-9]$") }?;
+
 /* 
  * classes of user defined words.
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=32&zoom=auto,-100,194
  */
 
+alphabetName      : USERDEFINEDWORD;
+conditionName     : USERDEFINEDWORD;
+dataClassName     : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
+fileName          : USERDEFINEDWORD;
+mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
+symbolicCharacter : USERDEFINEDWORD;
+xmlSchemaName     : USERDEFINEDWORD;
+
+// this is not formally defined, but used elsewhere
+computerName      : USERDEFINEDWORD;
+
+/**
+ * Environment name.
+ * 
+ * Further restrictions may apply:
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=138&zoom=auto,-40,330
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=139&zoom=auto,-40,670
+ */
+environmentName   : USERDEFINEDWORD;
+
+/**
+ * External file ID.
+ * 
+ * Further restrictions apply.
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,610
+ */
+externalFileId    : USERDEFINEDWORD;
+
+/**
+ * (File-control paragraph entries') Assignment name.
+ * 
+ * Further restrictions apply.
+ *  
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=150&zoom=auto,-40,240
+ */
+assignmentName    : USERDEFINEDWORD;
+
+/**
+ * (character) Class name.
+ * 
+ * @see publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=142&zoom=auto,-40,670
+ */
+className         : USERDEFINEDWORD;
 
 /**
  * Figurative constant.
@@ -79,4 +124,19 @@ numericLiteral :
 	|	FIXEDPOINT
 	|	FLOATINGPOINT
 //	|	HEXINTEGER
+	;
+
+/*
+ * References
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=89&zoom=auto,-40,555
+ */
+
+/**
+ * Reference to data names.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
+ */
+refDataName :
+		dataName ((IN | OF) dataName)*
 	;
