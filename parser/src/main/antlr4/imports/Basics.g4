@@ -23,6 +23,7 @@ parser grammar Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+levelNumber returns [int value] : INTEGER { $INTEGER.text.matches("^(0?[1-9]|[1-4][0-9]|66|77|88)$") }? { $value = $INTEGER.int; };
 priorityNumber    : INTEGER { $INTEGER.text.matches("^[0-9]?[0-9]$") }?;
 
 /* 
@@ -35,6 +36,7 @@ conditionName     : USERDEFINEDWORD;
 dataClassName     : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
 fileName          : USERDEFINEDWORD;
+indexName         : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;

@@ -31,5 +31,5 @@ options { tokenVocab = COBOLLexer; }
  */		
 linkageSection :
 		LINKAGE SECTION PERIOD
-		dataDescriptionParagraph*
+		recordDescriptionEntry*
 	;
