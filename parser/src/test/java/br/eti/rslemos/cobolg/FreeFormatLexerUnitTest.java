@@ -167,16 +167,25 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
-		//    C02 IS LCP-CH2.
+		//    C02 IS LCP-CH2
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(USERDEFINEDWORD, "C02");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(IS, "IS");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(USERDEFINEDWORD, "LCP-CH2");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
+		//    DECIMAL-POINT IS COMMA.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(DECIMAL_POINT, "DECIMAL-POINT");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(IS, "IS");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(COMMA, "COMMA");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
-
+		
 		//INPUT-OUTPUT SECTION.
 		matchToken(INPUT_OUTPUT, "INPUT-OUTPUT");
 		matchToken(WS, " ", HIDDEN);

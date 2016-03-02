@@ -169,6 +169,11 @@ PIC_WS : WS
 PIC_IS : IS
 	;
 
+// "PICTURE SYMBOL" for CURRENCY SIGN sentence inside SPECIAL-NAMES paragraph
+SYMBOL : 'SYMBOL'
+	-> popMode
+	;
+
 // accepts any string, even malformed picture strings
 // validation of picture strings is to be done elsewhere  
 // using only '$' as currency symbol

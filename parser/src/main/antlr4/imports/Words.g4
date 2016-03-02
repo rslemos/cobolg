@@ -39,6 +39,8 @@ PERIOD                : '.';
 
 ACCESS                : 'ACCESS';
 ALL                   : 'ALL';
+ALPHABET              : 'ALPHABET';
+ALSO                  : 'ALSO';
 ARE                   : 'ARE';
 ASSIGN                : 'ASSIGN';
 AT                    : 'AT';
@@ -48,7 +50,10 @@ BLOCK                 : 'BLOCK';
 BOTTOM                : 'BOTTOM';
 BY                    : 'BY';
 CHARACTERS            : 'CHARACTERS';
+CLASS                 : 'CLASS';
 CODE_SET              : 'CODE-SET';
+COLLATING             : 'COLLATING';
+COMMA                 : 'COMMA';
 COMP                  : 'COMP';
 COMP_1                : 'COMP-1';
 COMP_2                : 'COMP-2';
@@ -63,9 +68,12 @@ COMPUTATIONAL_4       : 'COMPUTATIONAL-4';
 COMPUTATIONAL_5       : 'COMPUTATIONAL-5';
 CONFIGURATION         : 'CONFIGURATION';
 CONTAINS              : 'CONTAINS';
+CURRENCY              : 'CURRENCY';
 DATA                  : 'DATA';
 DATE_COMPILED         : 'DATE-COMPILED';
 DATE_WRITTEN          : 'DATE-WRITTEN';
+DEBUGGING             : 'DEBUGGING';
+DECIMAL_POINT         : 'DECIMAL-POINT';
 DEPENDING             : 'DEPENDING';
 DISPLAY               : 'DISPLAY';
 DISPLAY_1             : 'DISPLAY-1';
@@ -94,13 +102,16 @@ LABEL                 : 'LABEL';
 LINAGE                : 'LINAGE';
 LINES                 : 'LINES';
 LINKAGE               : 'LINKAGE';
+MEMORY                : 'MEMORY';
 MODE                  : 'MODE';
+MODULES               : 'MODULES';
 NATIONAL              : 'NATIONAL';
 NATIVE                : 'NATIVE';
 // OBJECT                : 'OBJECT';
 OBJECT_COMPUTER       : 'OBJECT-COMPUTER';
 OCCURS                : 'OCCURS';
 OF                    : 'OF';
+OFF                   : 'OFF';
 OMITTED               : 'OMITTED';
 ON                    : 'ON';
 OPTIONAL              : 'OPTIONAL';
@@ -118,16 +129,26 @@ RECORDS               : 'RECORDS';
 RECURSIVE             : 'RECURSIVE';
 REDEFINES             : 'REDEFINES';
 REFERENCE             : 'REFERENCE';
+REPOSITORY            : 'REPOSITORY';
 RUN                   : 'RUN';
 SECTION               : 'SECTION';
 SECURITY              : 'SECURITY';
+SEGMENT_LIMIT         : 'SEGMENT-LIMIT';
 SELECT                : 'SELECT';
+SEQUENCE              : 'SEQUENCE';
 SEQUENTIAL            : 'SEQUENTIAL';
+SIGN                  : 'SIGN';
 SIZE                  : 'SIZE';
+SOURCE_COMPUTER       : 'SOURCE-COMPUTER';
 SPECIAL_NAMES         : 'SPECIAL-NAMES';
 STANDARD              : 'STANDARD';
+STANDARD_1            : 'STANDARD-1';
+STANDARD_2            : 'STANDARD-2';
 STATUS                : 'STATUS';
 STOP                  : 'STOP';
+SYMBOLIC              : 'SYMBOLIC';
+THROUGH               : 'THROUGH';
+THRU                  : 'THRU';
 TIMES                 : 'TIMES';
 TO                    : 'TO';
 TOP                   : 'TOP';
@@ -136,7 +157,9 @@ USING                 : 'USING';
 VALUE                 : 'VALUE';
 VARYING               : 'VARYING';
 WITH                  : 'WITH';
+WORDS                 : 'WORDS';
 WORKING_STORAGE       : 'WORKING-STORAGE';
+XML_SCHEMA            : 'XML-SCHEMA';
 
 /* FIGURATIVE CONSTANTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160 */
@@ -155,6 +178,11 @@ SPACES                : 'SPACES';
 ZERO                  : 'ZERO';
 ZEROES                : 'ZEROES';
 ZEROS                 : 'ZEROS';
+
+
+EBCDIC                : 'EBCDIC';
+//SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer
+//SYMBOL                : 'SYMBOL';
 
 /* COMPILER DIRECTING STATEMENTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */

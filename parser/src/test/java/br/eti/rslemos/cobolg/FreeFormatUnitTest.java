@@ -47,7 +47,8 @@ public class FreeFormatUnitTest {
 			"CONFIGURATION SECTION.",
 			"OBJECT-COMPUTER. IBM-370-148.",
 			"SPECIAL-NAMES.",
-			"    C02 IS LCP-CH2.",
+			"    C02 IS LCP-CH2",
+			"    DECIMAL-POINT IS COMMA.",
 			"INPUT-OUTPUT SECTION.",
 			"FILE-CONTROL.",
 			"    SELECT  IMPRES      ASSIGN TO UT-S-L439161.",
@@ -132,7 +133,7 @@ public class FreeFormatUnitTest {
 	public void testObjectComputerParagraph() {
 		ObjectComputerParagraphContext objCompParagraph = tree.environmentDivision().configurationSection().objectComputerParagraph();
 		
-		assertThat(objCompParagraph.USERDEFINEDWORD().getText(), is(equalTo("IBM-370-148")));
+		assertThat(objCompParagraph.computerName().getText(), is(equalTo("IBM-370-148")));
 	}
 	
 	@Test
@@ -143,12 +144,12 @@ public class FreeFormatUnitTest {
 	@Test
 	public void testSpecialNamesParagraph() {
 		SpecialNamesParagraphContext specNamesParagraph = tree.environmentDivision().configurationSection().specialNamesParagraph();
-		assertThat(specNamesParagraph.specialNamesSentence().size(), is(equalTo(1)));
+		assertThat(specNamesParagraph.specialNamesClause().size(), is(equalTo(2)));
 		
-		SpecialNamesSentenceContext specNamesSentence_0 = specNamesParagraph.specialNamesSentence(0);
-		assertThat(specNamesSentence_0.USERDEFINEDWORD(0).getText(), is(equalTo("C02")));
-		assertThat(specNamesSentence_0.IS(), is(not(nullValue(TerminalNode.class))));
-		assertThat(specNamesSentence_0.USERDEFINEDWORD(1).getText(), is(equalTo("LCP-CH2")));
+		EnvironmentAssignmentClauseContext environmentAssignmentClause_0 = specNamesParagraph.specialNamesClause(0).environmentAssignmentClause();
+		assertThat(environmentAssignmentClause_0.environmentName().getText(), is(equalTo("C02")));
+		assertThat(environmentAssignmentClause_0.IS(), is(not(nullValue(TerminalNode.class))));
+		assertThat(environmentAssignmentClause_0.mnemonicName().getText(), is(equalTo("LCP-CH2")));
 		
 	}
 	

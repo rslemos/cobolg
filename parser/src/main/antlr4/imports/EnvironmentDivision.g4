@@ -20,6 +20,7 @@
  * END COPYRIGHT NOTICE
  ******************************************************************************/
 parser grammar EnvironmentDivision;
+import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
@@ -29,26 +30,144 @@ environmentDivision :
 		inputOutputSection?
 	;
 
+/**
+ * Configuration section.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=133&zoom=auto,-40,710
+ */
 configurationSection :
 		CONFIGURATION SECTION PERIOD
+		sourceComputerParagraph?
 		objectComputerParagraph?
 		specialNamesParagraph?
+		repositoryParagraph?
 	;
 
+/**
+ * Source-computer paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=134&zoom=auto,-40,670
+ */
+sourceComputerParagraph : 
+		SOURCE_COMPUTER PERIOD (computerName (WITH? DEBUGGING MODE)? PERIOD)?
+	;
+
+/**
+ * Object-computer paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=134&zoom=auto,-40,135
+ */
 objectComputerParagraph :
-		OBJECT_COMPUTER PERIOD
-		USERDEFINEDWORD
-		PERIOD
+		OBJECT_COMPUTER PERIOD (
+			computerName
+			(MEMORY SIZE? INTEGER (WORDS | CHARACTERS | MODULES))?
+			(PROGRAM? COLLATING? SEQUENCE IS? alphabetName)?
+			(SEGMENT_LIMIT IS? priorityNumber)?
+			PERIOD
+		)?
 	;
 
+/**
+ * Special-names paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=136&zoom=auto,-40,620
+ */
 specialNamesParagraph :
 		SPECIAL_NAMES PERIOD
-		specialNamesSentence+
-		PERIOD
+		specialNamesClause*
+		PERIOD?
 	;
 
-specialNamesSentence :
-		USERDEFINEDWORD IS? USERDEFINEDWORD
+specialNamesClause :
+		environmentAssignmentClause
+	|	alphabetClause
+	|	symbolicCharactersClause
+	|	classClause
+	|	currencySignClause
+	|	decimalPointClause
+	|	xmlSchemaClause
+	;
+
+environmentAssignmentClause :
+		environmentName IS? mnemonicName environmentStatusPhrase?
+	|	environmentName environmentStatusPhrase
+	;
+
+environmentStatusPhrase :
+		ON  STATUS? IS? conditionName (OFF STATUS? IS? conditionName)?
+	|	OFF STATUS? IS? conditionName (ON  STATUS? IS? conditionName)?
+	;
+
+/**
+ * Alphabet clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=139&zoom=auto,-40,280
+ */
+alphabetClause :
+		ALPHABET alphabetName IS? 
+		(STANDARD_1 | STANDARD_2 | NATIVE | EBCDIC | (literal ((THROUGH | THRU) literal | (ALSO literal)+)?)+)
+	;
+
+/**
+ * Symbolic characters clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=141&zoom=auto,-40,360
+ */
+symbolicCharactersClause :
+		SYMBOLIC CHARACTERS? (symbolicCharacter+ (ARE | IS)? numericLiteral+)+ (IN alphabetName)?
+	;
+
+/**
+ * Class clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=142&zoom=auto,-40,670
+ */
+classClause :
+		CLASS className IS? (literal ((THROUGH | THRU) literal)?)+
+	;
+
+/**
+ * Currency sign clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=142&zoom=auto,-40,210
+ */
+currencySignClause :
+		CURRENCY SIGN? IS? literal (WITH? PICTURE SYMBOL literal)?
+	;
+
+/**
+ * Decimal-point is comma clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,680
+ */
+decimalPointClause :
+		DECIMAL_POINT IS? COMMA
+	;
+
+/**
+ * XML-schema clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=144&zoom=auto,-40,615
+ */
+xmlSchemaClause :
+		XML_SCHEMA xmlSchemaName IS? (externalFileId | literal)
+	;
+/**
+ * Repository paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=145&zoom=auto,-40,275
+ *
+ * The final PERIOD is not in reference manual. But samples collected on the 
+ * Internet show it (needs further testing in a COBOL compiler).
+ */
+repositoryParagraph :
+		REPOSITORY PERIOD
+		repositoryClassSentence*
+		PERIOD?
+	;
+
+repositoryClassSentence :
+		CLASS dataClassName (IS? alphanumericLiteral)?
 	;
 
 inputOutputSection :

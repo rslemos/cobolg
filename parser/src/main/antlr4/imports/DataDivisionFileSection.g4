@@ -104,6 +104,3 @@ systemName :
 		USERDEFINEDWORD
 	;
 
-alphabetName :
-		USERDEFINEDWORD
-	;
