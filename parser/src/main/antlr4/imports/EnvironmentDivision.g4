@@ -173,6 +173,7 @@ repositoryClassSentence :
 inputOutputSection :
 		INPUT_OUTPUT SECTION PERIOD
 		fileControlParagraph?
+		ioControlParagraph?
 	;
 
 /**
@@ -411,4 +412,66 @@ relativeKeyClause :
  */
 fileStatusClause :
 		FILE? STATUS IS? refDataName refDataName?
+	;
+
+/**
+ * I-O-Control paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=168&zoom=auto,-40,250
+ */
+ioControlParagraph :
+		I_O_CONTROL PERIOD
+		ioControlEntry+
+		PERIOD
+	;
+
+ioControlEntry :
+		rerunClause
+	|	sameAreaClause
+	|	multipleFileTapeClause
+	|	applyWriteOnlyClause
+	;
+
+/**
+ * Rerun clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=170&zoom=auto,-40,300
+ * 
+ * Note: reference documentation defines rerun clause over assignmentName and 
+ * fileName. But ANTLR won't be able to decide which one to take (because both 
+ * are defined the same), unless we keep track of which files were defined on 
+ * the FILE-CONTROL paragraph.
+ */
+rerunClause :
+		RERUN ON? (/*assignmentName | */fileName) (EVERY? (INTEGER RECORDS | END OF? (REEL | UNIT)) OF? fileName)?
+	;
+
+/**
+ * Same area clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=171&zoom=auto,-40,150
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=172&zoom=auto,-40,470 (RECORD)
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,660 (SORT)
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,330 (SORT-MERGE)
+ */
+sameAreaClause :
+		SAME (RECORD | SORT | SORT_MERGE)? AREA? FOR? fileName+
+	;
+
+/**
+ * Multiple file tape clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,240
+ */
+multipleFileTapeClause :
+		MULTIPLE FILE TAPE? CONTAINS? (fileName (POSITION INTEGER)?)+
+	;
+
+/**
+ * Apply write-only clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=173&zoom=auto,-40,140
+ */
+applyWriteOnlyClause :
+		APPLY WRITE_ONLY ON? fileName+
 	;
