@@ -226,6 +226,50 @@ ZERO                  : 'ZERO';
 ZEROES                : 'ZEROES';
 ZEROS                 : 'ZEROS';
 
+/* SPECIAL CHARACTER WORDS */
+
+/* arithmetic operators */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=279&zoom=auto,-100,185 */
+OP_PLUS               : '+';  // unary plus or addition
+OP_MINUS              : '-';  // unary minus or subtraction
+OP_STAR               : '*';  // multiplication
+OP_SLASH              : '/';  // division
+OP_STARSTAR           : '**'; // exponentiation
+
+/* SPECIAL REGISTERS */
+/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=38&zoom=auto,-100,610 */
+
+// ADDRESS_OF         : 'ADDRESS OF';
+DEBUG_CONTENTS        : 'DEBUG-CONTENTS';
+DEBUG_ITEM            : 'DEBUG-ITEM';
+DEBUG_LINE            : 'DEBUG-LINE';
+DEBUG_NAME            : 'DEBUG-NAME';
+DEBUG_SUB_1           : 'DEBUG-SUB-1';
+DEBUG_SUB_2           : 'DEBUG-SUB-2';
+DEBUG_SUB_3           : 'DEBUG-SUB-3';
+JNIENVPTR             : 'JNIENVPTR';
+// LENGTH_OF          : 'LENGTH OF';
+LINAGE_COUNTER        : 'LINAGE-COUNTER';
+RETURN_CODE           : 'RETURN-CODE';
+SHIFT_IN              : 'SHIFT-IN';
+SHIFT_OUT             : 'SHIFT-OUT';
+SORT_CONTROL          : 'SORT-CONTROL';
+SORT_CORE_SIZE        : 'SORT-CORE-SIZE';
+SORT_FILE_SIZE        : 'SORT-FILE-SIZE';
+SORT_MESSAGE          : 'SORT-MESSAGE';
+SORT_MODE_SIZE        : 'SORT-MODE-SIZE';
+SORT_RETURN           : 'SORT-RETURN';
+TALLY                 : 'TALLY';
+WHEN_COMPILED         : 'WHEN-COMPILED';
+XML_CODE              : 'XML-CODE';
+XML_EVENT             : 'XML-EVENT';
+XML_INFORMATION       : 'XML-INFORMATION';
+XML_NAMESPACE         : 'XML-NAMESPACE';
+XML_NAMESPACE_PREFIX  : 'XML-NAMESPACE-PREFIX';
+XML_NNAMESPACE        : 'XML-NNAMESPACE';
+XML_NNAMESPACE_PREFIX : 'XML-NNAMESPACE-PREFIX';
+XML_NTEXT             : 'XML-NTEXT';
+XML_TEXT              : 'XML-TEXT';
 
 EBCDIC                : 'EBCDIC';
 //SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer

@@ -103,6 +103,45 @@ figurativeConstant :
 	;
 
 /**
+ * Special register.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=38&zoom=auto,-100,610
+ */
+specialRegister :
+//		ADDRESS OF what
+		DEBUG_CONTENTS
+	|	DEBUG_ITEM
+	|	DEBUG_LINE
+	|	DEBUG_NAME
+	|	DEBUG_SUB_1
+	|	DEBUG_SUB_2
+	|	DEBUG_SUB_3
+	|	JNIENVPTR
+//	|	LENGTH OF what
+	|	LINAGE_COUNTER
+	|	RETURN_CODE
+	|	SHIFT_IN
+	|	SHIFT_OUT
+	|	SORT_CONTROL
+	|	SORT_CORE_SIZE
+	|	SORT_FILE_SIZE
+	|	SORT_MESSAGE
+	|	SORT_MODE_SIZE
+	|	SORT_RETURN
+	|	TALLY
+	|	WHEN_COMPILED
+	|	XML_CODE
+	|	XML_EVENT
+	|	XML_INFORMATION
+	|	XML_NAMESPACE
+	|	XML_NAMESPACE_PREFIX
+	|	XML_NNAMESPACE
+	|	XML_NNAMESPACE_PREFIX
+	|	XML_NTEXT
+	|	XML_TEXT
+	;
+
+/**
  * Literal.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=58&zoom=auto,-100,300
@@ -136,6 +175,28 @@ numericLiteral :
 //	|	HEXINTEGER
 	;
 
+identifier :
+		USERDEFINEDWORD
+	|	USERDEFINEDWORD LPAREN identifier+ RPAREN
+	|	USERDEFINEDWORD LPAREN INTEGER RPAREN
+	|	specialRegister
+	;
+
+/**
+ * Arithmetic expression.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=279&zoom=auto,-40,185
+ */
+arithmeticExpression :
+		LPAREN arithmeticExpression RPAREN
+	|	(OP_PLUS | OP_MINUS) arithmeticExpression
+	|	arithmeticExpression OP_STARSTAR arithmeticExpression
+	|	arithmeticExpression (OP_STAR | OP_SLASH) arithmeticExpression
+	|	arithmeticExpression (OP_PLUS | OP_MINUS) arithmeticExpression
+	|	literal
+	|	identifier
+	;
+
 /*
  * References
  * 
@@ -148,5 +209,16 @@ numericLiteral :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
  */
 refDataName :
-		dataName ((IN | OF) dataName)*
+		dataName ((IN | OF) dataName)* ((IN | OF) fileName)? (LPAREN subscript+ RPAREN)? (LPAREN arithmeticExpression COLON arithmeticExpression? RPAREN)?
+	;
+
+/**
+ * Subscripting.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=95&zoom=auto,-40,270
+ */
+subscript :
+		INTEGER
+	|	ALL
+	|	refDataName ((OP_PLUS | OP_MINUS) INTEGER)?
 	;
