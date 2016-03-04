@@ -25,7 +25,7 @@ import Basics, Statements;
 options { tokenVocab = COBOLLexer; }
 
 procedureDivision :
-		PROCEDURE DIVISION usingPhrase? PERIOD
+		PROCEDURE DIVISION usingPhrase? returningPhrase? PERIOD
 		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
 	;
 
@@ -39,6 +39,14 @@ usingPhrase : USING (byReferencePhrase | byValuePhrase)+;
 
 byReferencePhrase : (BY? REFERENCE)? dataName+;
 byValuePhrase : BY? VALUE dataName+;
+
+/**
+ * Returning phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=273&zoom=auto,-40,470
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=276&zoom=auto,-40,600
+ */
+returningPhrase : RETURNING dataName;
 
 unnamedProceduralSection :
 		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )

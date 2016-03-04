@@ -162,6 +162,7 @@ RENAMES               : 'RENAMES';
 REPOSITORY            : 'REPOSITORY';
 RERUN                 : 'RERUN';
 RESERVE               : 'RESERVE';
+RETURNING             : 'RETURNING';
 RIGHT                 : 'RIGHT';
 RUN                   : 'RUN';
 SAME                  : 'SAME';
