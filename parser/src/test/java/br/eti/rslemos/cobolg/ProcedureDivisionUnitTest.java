@@ -86,6 +86,7 @@ public class ProcedureDivisionUnitTest {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void PROCEDURE_DIVISION_USING_DATA_1_DATA_2_STOP_RUN() {
 		helper.compileAndVerify(
 				get("PROCEDURE_DIVISION_USING_DATA_1_DATA_2_STOP_RUN.source"),
@@ -93,6 +94,7 @@ public class ProcedureDivisionUnitTest {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void PROCEDURE_DIVISION_USING_BY_VALUE_DATA_1_DATA_2_STOP_RUN() {
 		helper.compileAndVerify(
 				get("PROCEDURE_DIVISION_USING_BY_VALUE_DATA_1_DATA_2_STOP_RUN.source"),
@@ -100,6 +102,7 @@ public class ProcedureDivisionUnitTest {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void PROCEDURE_DIVISION_USING_BY_REFERENCE_DATA_1_DATA_2_STOP_RUN() {
 		helper.compileAndVerify(
 				get("PROCEDURE_DIVISION_USING_BY_REFERENCE_DATA_1_DATA_2_STOP_RUN.source"),
