@@ -65,11 +65,3 @@ namedProceduralParagraph :
 		paragraphName PERIOD
 		proceduralStatement+
 	;
-
-sectionName :
-		USERDEFINEDWORD
-	;
-
-paragraphName :
-		USERDEFINEDWORD
-	;

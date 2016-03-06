@@ -38,7 +38,9 @@ dataName          : USERDEFINEDWORD;
 fileName          : USERDEFINEDWORD;
 indexName         : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
+paragraphName     : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
+sectionName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
 xmlSchemaName     : USERDEFINEDWORD;
 
