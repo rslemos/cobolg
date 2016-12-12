@@ -136,7 +136,8 @@ conditionalStatement :
  */
 delimitedScopeStatement :
 		/* explicit scope terminator */
-		stmtDELETEdelimitedScope
+		stmtADDdelimitedScope
+	|	stmtDELETEdelimitedScope
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
@@ -251,6 +252,8 @@ stmtADDimperative :
 	;
 
 stmtADDconditional : stmtADDimperative sizeErrorPhrases;
+
+stmtADDdelimitedScope : stmtADDconditional END_ADD;
 
 /**
  * ALTER statement.
