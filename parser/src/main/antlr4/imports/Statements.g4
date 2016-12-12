@@ -98,6 +98,7 @@ conditionalStatement :
 		stmtDELETEconditional
 	|	stmtSequentialREADconditional
 	|	stmtRandomREADconditional
+	|	stmtREWRITEconditional
 	;
 
 /**
@@ -441,6 +442,8 @@ stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
+
+stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
 
 /**
  * SET statement.
