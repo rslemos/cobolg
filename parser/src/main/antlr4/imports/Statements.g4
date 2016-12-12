@@ -150,6 +150,7 @@ delimitedScopeStatement :
 	|	stmtRandomREADdelimitedScope
 	|	stmtRETURNdelimitedScope
 	|	stmtREWRITEdelimitedScope
+	|	stmtSEARCHdelimitedScope
 	|	stmtSTARTdelimitedScope
 	|	stmtSTRINGdelimitedScope
 	|	stmtSUBTRACTdelimitedScope
@@ -577,6 +578,8 @@ stmtSEARCHconditional :
 		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (imperativeStatement | NEXT SENTENCE))+
 	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (imperativeStatement | NEXT SENTENCE)
 	;
+
+stmtSEARCHdelimitedScope : stmtSEARCHconditional END_SEARCH;
 
 searchWhenPhrase :
 		dataName IS? (EQUAL TO? | OP_EQUAL) (identifier | literal | arithmeticExpression)

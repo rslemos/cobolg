@@ -138,6 +138,7 @@ END_PERFORM           : 'END-PERFORM';
 END_READ              : 'END-READ';
 END_RETURN            : 'END-RETURN';
 END_REWRITE           : 'END-REWRITE';
+END_SEARCH            : 'END-SEARCH';
 END_START             : 'END-START';
 END_STRING            : 'END-STRING';
 END_SUBTRACT          : 'END-SUBTRACT';
