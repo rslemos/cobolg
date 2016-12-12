@@ -145,6 +145,7 @@ delimitedScopeStatement :
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
 	|	stmtSTARTdelimitedScope
+	|	stmtSUBTRACTdelimitedScope
 	|	stmtPageWRITEdelimitedScope
 	|	stmtSequentialWRITEdelimitedScope
 	;
@@ -628,6 +629,8 @@ stmtSUBTRACTimperative :
 	;
 
 stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
+
+stmtSUBTRACTdelimitedScope : stmtSUBTRACTconditional END_SUBTRACT;
 
 /**
  * UNSTRING statement.

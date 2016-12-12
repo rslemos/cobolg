@@ -25,284 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSUBTRACTdelimitedScopeContext;
 
-public class StmtSUBTRACT {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSUBTRACT");
+public class StmtSUBTRACTdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSUBTRACTdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSUBTRACTdelimitedScopeContext> helper = new CompilerHelper<StmtSUBTRACTdelimitedScopeContext>() {
+		@Override protected StmtSUBTRACTdelimitedScopeContext parsePart() { return parser.stmtSUBTRACTdelimitedScope(); }
 	};
 	
-	@Test public void SUBTRACT_10_FROM_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_FROM_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_FROM_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_20_FROM_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_20_FROM_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_20_FROM_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_Z_FROM_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_Z_FROM_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_Z_FROM_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_FROM_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_FROM_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_FROM_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_W_FROM_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_W_FROM_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_W_FROM_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_10_FROM_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_10_FROM_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_10_FROM_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED.source"),
-				get("SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_CORR_X_FROM_Y_ROUNDED() {
-		helper.compileAndVerify(
-				get("SUBTRACT_CORR_X_FROM_Y_ROUNDED.source"),
-				get("SUBTRACT_CORR_X_FROM_Y_ROUNDED.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_20_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_20_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_20_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_W_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_W_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_W_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void SUBTRACT_CORR_X_FROM_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("SUBTRACT_CORR_X_FROM_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
-				get("SUBTRACT_CORR_X_FROM_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_FROM_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_FROM_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -310,7 +42,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_20_FROM_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_20_FROM_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -318,7 +49,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_Z_FROM_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_Z_FROM_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -326,7 +56,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_FROM_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_FROM_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -334,7 +63,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_W_FROM_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_W_FROM_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -342,7 +70,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_10_FROM_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_10_FROM_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -350,7 +77,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -358,7 +84,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -366,7 +91,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -374,7 +98,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -382,7 +105,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -390,7 +112,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -398,7 +119,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -406,7 +126,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -414,7 +133,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -422,7 +140,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -430,7 +147,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -438,7 +154,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED_END_SUBTRACT.source"),
@@ -446,7 +161,6 @@ public class StmtSUBTRACT {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_CORR_X_FROM_Y_ROUNDED_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_CORR_X_FROM_Y_ROUNDED_END_SUBTRACT.source"),
