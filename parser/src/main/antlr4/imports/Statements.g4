@@ -74,6 +74,7 @@ imperativeStatement :
 	|	stmtSequentialWRITEimperative
 	|	stmtMERGE
 	|	stmtRELEASE
+	|	stmtRETURNimperative
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
@@ -349,6 +350,13 @@ stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dat
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=431&zoom=auto,-40,735
  */
 stmtRELEASE : RELEASE recordName (FROM identifier)?;
+
+/**
+ * RETURN statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=433&zoom=auto,-40,735
+ */
+stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
 /**
  * REWRITE statement.

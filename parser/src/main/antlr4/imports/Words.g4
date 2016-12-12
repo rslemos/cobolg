@@ -237,6 +237,7 @@ REPLACING             : 'REPLACING';
 REPOSITORY            : 'REPOSITORY';
 RERUN                 : 'RERUN';
 RESERVE               : 'RESERVE';
+RETURN                : 'RETURN';
 RETURNING             : 'RETURNING';
 REVERSED              : 'REVERSED';
 REWIND                : 'REWIND';
