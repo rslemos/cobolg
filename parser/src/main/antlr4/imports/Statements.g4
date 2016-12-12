@@ -136,6 +136,7 @@ conditionalStatement :
  */
 delimitedScopeStatement :
 		/* explicit scope terminator */
+		stmtDELETEdelimitedScope
 	;
 
 /**
@@ -305,6 +306,8 @@ stmtCONTINUE : CONTINUE;
 stmtDELETEimperative : DELETE fileName RECORD?;
 
 stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
+
+stmtDELETEdelimitedScope : stmtDELETEconditional END_DELETE;
 
 /**
  * DISPLAY statement.

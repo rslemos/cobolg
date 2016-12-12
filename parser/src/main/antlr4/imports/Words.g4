@@ -124,6 +124,7 @@ DYNAMIC               : 'DYNAMIC';
 EGCS                  : 'EGCS';
 ELSE                  : 'ELSE';
 END                   : 'END';
+END_DELETE            : 'END-DELETE';
 END_OF_PAGE           : 'END-OF-PAGE';
 ENTRY                 : 'ENTRY';
 ENVIRONMENT           : 'ENVIRONMENT';
