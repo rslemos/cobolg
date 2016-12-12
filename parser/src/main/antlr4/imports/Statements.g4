@@ -99,6 +99,7 @@ conditionalStatement :
 	|	stmtCOMPUTEconditional
 	|	stmtDIVIDEconditional
 	|	stmtMULTIPLYconditional
+	|	stmtSUBTRACTconditional
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -523,6 +524,8 @@ stmtSUBTRACTimperative :
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
 	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
 	;
+
+stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
 
 /**
  * UNSTRING statement.
