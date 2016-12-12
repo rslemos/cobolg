@@ -41,6 +41,7 @@ proceduralStatement :
 imperativeStatement :
 		/* unknown statements */
 		stmtSTOPRUN
+	|	stmtADDimperative
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -87,6 +88,17 @@ givingPhrase : GIVING roundedPhrase+;
  */
 stmtACCEPT :
 		ACCEPT identifier (FROM (mnemonicName | environmentName))?
+	;
+
+/**
+ * ADD statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=326&zoom=auto,-40,735
+ */
+stmtADDimperative :
+		ADD (identifier | literal)+ TO roundedPhrase+
+	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
+	|	ADD correspondingPhrase identifier TO roundedPhrase
 	;
 
 /**

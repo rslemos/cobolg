@@ -39,6 +39,7 @@ PERIOD                : '.';
 
 ACCEPT                : 'ACCEPT';
 ACCESS                : 'ACCESS';
+ADD                   : 'ADD';
 ADDRESS               : 'ADDRESS';
 ADVANCING             : 'ADVANCING';
 AFTER                 : 'AFTER';
