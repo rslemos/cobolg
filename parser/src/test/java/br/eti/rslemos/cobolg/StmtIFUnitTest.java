@@ -23,6 +23,8 @@ package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.StmtIFData.IF;
 import static br.eti.rslemos.cobolg.StmtIFData.IFELSE;
+import static br.eti.rslemos.cobolg.StmtIFData.IFELSEENDIF;
+import static br.eti.rslemos.cobolg.StmtIFData.IFENDIF;
 import static br.eti.rslemos.cobolg.StmtIFData.flatten;
 
 import org.junit.Ignore;
@@ -45,6 +47,13 @@ public class StmtIFUnitTest {
 			);
 	}
 
+	@Test public void IFENDIF1() {
+		helper.compileAndVerify(
+				IFENDIF.source(1), 
+				flatten(IFENDIF.tree(1))
+			);
+	}
+
 	@Test public void IFELSE1() {
 		helper.compileAndVerify(
 				IFELSE.source(1), 
@@ -52,10 +61,23 @@ public class StmtIFUnitTest {
 			);
 	}
 
+	@Test public void IFELSEENDIF1() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(1), 
+				flatten(IFELSEENDIF.tree(1))
+			);
+	}
 	@Test public void IF2() {
 		helper.compileAndVerify(
 				IF.source(2), 
 				flatten(IF.tree(2))
+			);
+	}
+
+	@Test public void IFENDIF2() {
+		helper.compileAndVerify(
+				IFENDIF.source(2), 
+				flatten(IFENDIF.tree(2))
 			);
 	}
 
@@ -66,10 +88,24 @@ public class StmtIFUnitTest {
 			);
 	}
 
+	@Test public void IFELSEENDIF2() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(2), 
+				flatten(IFELSEENDIF.tree(2))
+			);
+	}
+
 	@Test public void IF3() {
 		helper.compileAndVerify(
 				IF.source(3), 
 				flatten(IF.tree(3))
+			);
+	}
+
+	@Test public void IFENDIF3() {
+		helper.compileAndVerify(
+				IFENDIF.source(3), 
+				flatten(IFENDIF.tree(3))
 			);
 	}
 
@@ -80,6 +116,13 @@ public class StmtIFUnitTest {
 			);
 	}
 
+	@Test public void IFELSEENDIF3() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(3), 
+				flatten(IFELSEENDIF.tree(3))
+			);
+	}
+
 	@Test public void IF4() {
 		helper.compileAndVerify(
 				IF.source(4), 
@@ -87,10 +130,24 @@ public class StmtIFUnitTest {
 			);
 	}
 
+	@Test public void IFENDIF4() {
+		helper.compileAndVerify(
+				IFENDIF.source(4), 
+				flatten(IFENDIF.tree(4))
+			);
+	}
+
 	@Test public void IFELSE4() {
 		helper.compileAndVerify(
 				IFELSE.source(4), 
 				flatten(IFELSE.tree(4))
+			);
+	}
+
+	@Test public void IFELSEENDIF4() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(4), 
+				flatten(IFELSEENDIF.tree(4))
 			);
 	}
 
@@ -103,10 +160,26 @@ public class StmtIFUnitTest {
 	}
 
 	@Ignore
+	@Test public void IFENDIF5() {
+		helper.compileAndVerify(
+				IFENDIF.source(5), 
+				flatten(IFENDIF.tree(5))
+			);
+	}
+
+	@Ignore
 	@Test public void IFELSE5() {
 		helper.compileAndVerify(
 				IFELSE.source(5), 
 				flatten(IFELSE.tree(5))
+			);
+	}
+
+	@Ignore
+	@Test public void IFELSEENDIF5() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(5), 
+				flatten(IFELSEENDIF.tree(5))
 			);
 	}
 
@@ -119,10 +192,26 @@ public class StmtIFUnitTest {
 	}
 
 	@Ignore
+	@Test public void IFENDIF6() {
+		helper.compileAndVerify(
+				IFENDIF.source(6), 
+				flatten(IFENDIF.tree(6))
+			);
+	}
+
+	@Ignore
 	@Test public void IFELSE6() {
 		helper.compileAndVerify(
 				IFELSE.source(6), 
 				flatten(IFELSE.tree(6))
+			);
+	}
+
+	@Ignore
+	@Test public void IFELSEENDIF6() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(6), 
+				flatten(IFELSEENDIF.tree(6))
 			);
 	}
 
@@ -135,10 +224,26 @@ public class StmtIFUnitTest {
 	}
 
 	@Ignore
+	@Test public void IFENDIF7() {
+		helper.compileAndVerify(
+				IFENDIF.source(7), 
+				flatten(IFENDIF.tree(7))
+			);
+	}
+
+	@Ignore
 	@Test public void IFELSE7() {
 		helper.compileAndVerify(
 				IFELSE.source(7), 
 				flatten(IFELSE.tree(7))
+			);
+	}
+
+	@Ignore
+	@Test public void IFELSEENDIF7() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(7), 
+				flatten(IFELSEENDIF.tree(7))
 			);
 	}
 
@@ -151,10 +256,26 @@ public class StmtIFUnitTest {
 	}
 
 	@Ignore
+	@Test public void IFENDIF8() {
+		helper.compileAndVerify(
+				IFENDIF.source(8), 
+				flatten(IFENDIF.tree(8))
+			);
+	}
+
+	@Ignore
 	@Test public void IFELSE8() {
 		helper.compileAndVerify(
 				IFELSE.source(8), 
 				flatten(IFELSE.tree(8))
+			);
+	}
+
+	@Ignore
+	@Test public void IFELSEENDIF8() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(8), 
+				flatten(IFELSEENDIF.tree(8))
 			);
 	}
 
@@ -167,10 +288,26 @@ public class StmtIFUnitTest {
 	}
 
 	@Ignore
+	@Test public void IFENDIF9() {
+		helper.compileAndVerify(
+				IFENDIF.source(9), 
+				flatten(IFENDIF.tree(9))
+			);
+	}
+
+	@Ignore
 	@Test public void IFELSE9() {
 		helper.compileAndVerify(
 				IFELSE.source(9), 
 				flatten(IFELSE.tree(9))
+			);
+	}
+
+	@Ignore
+	@Test public void IFELSEENDIF9() {
+		helper.compileAndVerify(
+				IFELSEENDIF.source(9), 
+				flatten(IFELSEENDIF.tree(9))
 			);
 	}
 }

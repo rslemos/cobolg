@@ -141,6 +141,7 @@ delimitedScopeStatement :
 	|	stmtDELETEdelimitedScope
 	|	stmtDIVIDEdelimitedScope
 	|	stmtEVALUATEdelimitedScope
+	|	stmtIFdelimitedScope
 	|	stmtMULTIPLYdelimitedScope
 	|	stmtPERFORMdelimitedScope
 	|	stmtSequentialREADdelimitedScope
@@ -402,6 +403,8 @@ stmtGOBACK : GOBACK;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
 stmtIF : IF conditionalExpression THEN? (proceduralStatement+ | NEXT SENTENCE) (ELSE (proceduralStatement+ | NEXT SENTENCE))?;
+
+stmtIFdelimitedScope : stmtIF END_IF;
 
 /**
  * INITIALIZE statement.
