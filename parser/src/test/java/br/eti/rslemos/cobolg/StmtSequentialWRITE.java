@@ -23,6 +23,7 @@ package br.eti.rslemos.cobolg;
 
 import java.util.ResourceBundle;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
@@ -35,6 +36,7 @@ public class StmtSequentialWRITE {
 		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
 	};
 	
+	@Ignore
 	@Test public void WRITE_RECNAME() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME.source"),
@@ -42,6 +44,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 	
+	@Ignore
 	@Test public void WRITE_RECNAME_FROM_X() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X.source"),

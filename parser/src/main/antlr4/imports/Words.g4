@@ -41,6 +41,7 @@ ACCEPT                : 'ACCEPT';
 ACCESS                : 'ACCESS';
 ADDRESS               : 'ADDRESS';
 ADVANCING             : 'ADVANCING';
+AFTER                 : 'AFTER';
 ALL                   : 'ALL';
 ALPHABET              : 'ALPHABET';
 ALPHABETIC            : 'ALPHABETIC';
@@ -57,6 +58,7 @@ ASCENDING             : 'ASCENDING';
 ASSIGN                : 'ASSIGN';
 AT                    : 'AT';
 AUTHOR                : 'AUTHOR';
+BEFORE                : 'BEFORE';
 BINARY                : 'BINARY';
 BLANK                 : 'BLANK';
 BLOCK                 : 'BLOCK';
@@ -166,6 +168,7 @@ ORGANIZATION          : 'ORGANIZATION';
 OUTPUT                : 'OUTPUT';
 PACKED_DECIMAL        : 'PACKED-DECIMAL';
 PADDING               : 'PADDING';
+PAGE                  : 'PAGE';
 PASSWORD              : 'PASSWORD';
 PIC                   : 'PIC';     // will be overridden on the main lexer
 PICTURE               : 'PICTURE'; // will be overridden on the main lexer

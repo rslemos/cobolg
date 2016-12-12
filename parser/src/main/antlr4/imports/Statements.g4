@@ -51,6 +51,7 @@ imperativeStatement :
 	|	stmtREWRITEimperative
 	|	stmtSTARTimperative
 	|	stmtSTOP
+	|	stmtPageWRITEimperative
 	|	stmtSequentialWRITEimperative
 	;
 
@@ -140,4 +141,6 @@ stmtSTOPRUN : STOP RUN;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=482&zoom=auto,-40,735
  */
+stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
+
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
