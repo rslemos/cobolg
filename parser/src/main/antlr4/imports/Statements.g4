@@ -77,6 +77,7 @@ imperativeStatement :
 	|	stmtGOTO
 	|	stmtPERFORMimperative
 	|	stmtCONTINUE
+	|	stmtCALLimperative
 	;
 
 /**
@@ -133,6 +134,19 @@ stmtADDimperative :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=329&zoom=auto,-40,735
  */
 stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
+
+/**
+ * CALL statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=331&zoom=auto,-40,735
+ */
+stmtCALLimperative : CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)?;
+
+callUsing :
+		(BY? REFERENCE)? ((ADDRESS OF)? identifier /* | fileName */| OMITTED)+
+	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
+	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
+	;
 
 /**
  * CLOSE statement.
