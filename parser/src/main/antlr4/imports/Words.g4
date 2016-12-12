@@ -229,6 +229,7 @@ STANDARD_2            : 'STANDARD-2';
 START                 : 'START';
 STATUS                : 'STATUS';
 STOP                  : 'STOP';
+SUBTRACT              : 'SUBTRACT';
 SYMBOLIC              : 'SYMBOLIC';
 SYNC                  : 'SYNC';
 SYNCHRONIZED          : 'SYNCHRONIZED';
