@@ -25,14 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtRandomREADconditionalContext;
 
-public class StmtRandomREAD {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRandomREAD");
+public class StmtRandomREADconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRandomREADconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtRandomREADconditionalContext> helper = new CompilerHelper<StmtRandomREADconditionalContext>() {
+		@Override protected StmtRandomREADconditionalContext parsePart() { return parser.stmtRandomREADconditional(); }
 	};
 	
 	@Test public void READ_FILENAME_KEY_K() {

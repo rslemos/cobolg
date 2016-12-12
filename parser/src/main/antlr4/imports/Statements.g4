@@ -97,6 +97,7 @@ imperativeStatement :
 conditionalStatement :
 		stmtDELETEconditional
 	|	stmtSequentialREADconditional
+	|	stmtRandomREADconditional
 	;
 
 /**
@@ -417,6 +418,8 @@ stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
 stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
+
+stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
 
 /**
  * RELEASE statement.
