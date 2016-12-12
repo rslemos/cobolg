@@ -107,6 +107,7 @@ conditionalStatement :
 	|	stmtXMLGENERATEconditional
 	|	stmtXMLPARSEconditional
 	|	stmtEVALUATEconditional
+	|	stmtIF
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -344,6 +345,13 @@ stmtGOTO :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=367&zoom=auto,-40,735
  */
 stmtGOBACK : GOBACK;
+
+/**
+ * IF statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
+ */
+stmtIF : IF conditionalExpression THEN? (proceduralStatement+ | NEXT SENTENCE) (ELSE (proceduralStatement+ | NEXT SENTENCE))?;
 
 /**
  * INITIALIZE statement.
