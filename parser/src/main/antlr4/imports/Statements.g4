@@ -138,6 +138,7 @@ delimitedScopeStatement :
 		/* explicit scope terminator */
 		stmtDELETEdelimitedScope
 	|	stmtSequentialREADdelimitedScope
+	|	stmtRandomREADdelimitedScope
 	;
 
 /**
@@ -498,6 +499,8 @@ stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
 stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
 
 stmtSequentialREADdelimitedScope : stmtSequentialREADconditional END_READ;
+
+stmtRandomREADdelimitedScope : stmtRandomREADconditional END_READ;
 
 /**
  * RELEASE statement.

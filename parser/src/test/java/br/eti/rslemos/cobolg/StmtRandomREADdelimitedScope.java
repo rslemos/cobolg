@@ -25,74 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtRandomREADdelimitedScopeContext;
 
-public class StmtRandomREAD {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRandomREAD");
+public class StmtRandomREADdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRandomREADdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtRandomREADdelimitedScopeContext> helper = new CompilerHelper<StmtRandomREADdelimitedScopeContext>() {
+		@Override protected StmtRandomREADdelimitedScopeContext parsePart() { return parser.stmtRandomREADdelimitedScope(); }
 	};
 	
-	@Test public void READ_FILENAME_KEY_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_KEY_K.source"),
-				get("READ_FILENAME_KEY_K.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_INTO_X_KEY_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_INTO_X_KEY_K.source"),
-				get("READ_FILENAME_INTO_X_KEY_K.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_RECORD_KEY_IS_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_RECORD_KEY_IS_K.source"),
-				get("READ_FILENAME_RECORD_KEY_IS_K.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_RECORD_INTO_X_KEY_IS_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K.source"),
-				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
-				get("READ_FILENAME_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_INTO_X_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_INTO_X_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
-				get("READ_FILENAME_INTO_X_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_RECORD_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_RECORD_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
-				get("READ_FILENAME_RECORD_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_RECORD_INTO_X_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
-				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_KEY_K_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_KEY_K_END_READ.source"),
@@ -100,7 +42,6 @@ public class StmtRandomREAD {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_INTO_X_KEY_K_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X_KEY_K_END_READ.source"),
@@ -108,7 +49,6 @@ public class StmtRandomREAD {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_RECORD_KEY_IS_K_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_RECORD_KEY_IS_K_END_READ.source"),
@@ -116,7 +56,6 @@ public class StmtRandomREAD {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_RECORD_INTO_X_KEY_IS_K_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K_END_READ.source"),
