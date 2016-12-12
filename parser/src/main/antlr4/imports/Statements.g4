@@ -46,6 +46,7 @@ imperativeStatement :
 	|	stmtDELETEimperative
 	|	stmtDISPLAY
 	|	stmtOPEN
+	|	stmtSequentialREADimperative
 	;
 
 /* here come the actual statements (all prefixed by stmt) */
@@ -94,5 +95,12 @@ openObject :
 	|	I_O (fileName)+
 	|	EXTEND (fileName)+
 	;
+
+/**
+ * READ statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=424&zoom=auto,-40,735
+ */
+stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtSTOPRUN : STOP RUN;
