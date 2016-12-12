@@ -103,6 +103,7 @@ conditionalStatement :
 	|	stmtSUBTRACTconditional
 	|	stmtSTRINGconditional
 	|	stmtUNSTRINGconditional
+	|	stmtXMLGENERATEconditional
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -578,6 +579,8 @@ stmtXMLGENERATEimperative :
 		(TYPE OF? (identifier IS? (ATTRIBUTE | ELEMENT | CONTENT))+)?
 		(SUPPRESS (identifier xmlGenerateWhenPhrase? | genericSupressionPhrase)+)?
 	;
+
+stmtXMLGENERATEconditional : stmtXMLGENERATEimperative exceptionPhrases;
 
 xmlGenerateWhenPhrase :
 		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
