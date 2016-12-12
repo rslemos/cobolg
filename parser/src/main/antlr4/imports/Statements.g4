@@ -148,6 +148,7 @@ delimitedScopeStatement :
 	|	stmtPERFORMdelimitedScope
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
+	|	stmtRETURNdelimitedScope
 	|	stmtREWRITEdelimitedScope
 	|	stmtSTARTdelimitedScope
 	|	stmtSTRINGdelimitedScope
@@ -553,6 +554,8 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
 stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
 stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
+
+stmtRETURNdelimitedScope : stmtRETURNconditional END_RETURN;
 
 /**
  * REWRITE statement.

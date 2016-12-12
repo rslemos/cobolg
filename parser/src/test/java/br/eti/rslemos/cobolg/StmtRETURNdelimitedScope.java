@@ -25,74 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtRETURNdelimitedScopeContext;
 
-public class StmtRETURN {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRETURN");
+public class StmtRETURNdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRETURNdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtRETURNdelimitedScopeContext> helper = new CompilerHelper<StmtRETURNdelimitedScopeContext>() {
+		@Override protected StmtRETURNdelimitedScopeContext parsePart() { return parser.stmtRETURNdelimitedScope(); }
 	};
 	
-	@Test public void RETURN_FILE_1() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1.source"),
-				get("RETURN_FILE_1.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_RECORD() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD.source"),
-				get("RETURN_FILE_1_RECORD.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_INTO_ID_1() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_INTO_ID_1.source"),
-				get("RETURN_FILE_1_INTO_ID_1.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD_INTO_ID_1.source"),
-				get("RETURN_FILE_1_RECORD_INTO_ID_1.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1.source"),
-				get("RETURN_FILE_1.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_RECORD_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD.source"),
-				get("RETURN_FILE_1_RECORD.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_INTO_ID_1.source"),
-				get("RETURN_FILE_1_INTO_ID_1.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD_INTO_ID_1.source"),
-				get("RETURN_FILE_1_RECORD_INTO_ID_1.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_END_RETURN.source"),
@@ -100,7 +42,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_END_RETURN.source"),
@@ -108,7 +49,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_INTO_ID_1_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_INTO_ID_1_END_RETURN.source"),
@@ -116,7 +56,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_INTO_ID_1_END_RETURN.source"),
@@ -124,7 +63,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_END_RETURN.source"),
@@ -132,7 +70,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_END_RETURN.source"),
@@ -140,7 +77,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_INTO_ID_1_END_RETURN.source"),
@@ -148,7 +84,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_INTO_ID_1_END_RETURN.source"),

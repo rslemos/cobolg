@@ -136,6 +136,7 @@ END_MULTIPLY          : 'END-MULTIPLY';
 END_OF_PAGE           : 'END-OF-PAGE';
 END_PERFORM           : 'END-PERFORM';
 END_READ              : 'END-READ';
+END_RETURN            : 'END-RETURN';
 END_REWRITE           : 'END-REWRITE';
 END_START             : 'END-START';
 END_STRING            : 'END-STRING';
