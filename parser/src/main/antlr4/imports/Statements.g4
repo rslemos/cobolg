@@ -100,6 +100,7 @@ conditionalStatement :
 	|	stmtRandomREADconditional
 	|	stmtREWRITEconditional
 	|	stmtSTARTconditional
+	|	stmtSequentialWRITEconditional
 	;
 
 /**
@@ -532,6 +533,8 @@ stmtUNSTRINGimperative :
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
+
+stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
 
 /**
  * XML GENERATE statement.

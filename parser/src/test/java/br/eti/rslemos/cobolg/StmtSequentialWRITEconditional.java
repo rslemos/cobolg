@@ -23,20 +23,18 @@ package br.eti.rslemos.cobolg;
 
 import java.util.ResourceBundle;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialWRITEconditionalContext;
 
-public class StmtSequentialWRITE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialWRITE");
+public class StmtSequentialWRITEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialWRITEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSequentialWRITEconditionalContext> helper = new CompilerHelper<StmtSequentialWRITEconditionalContext>() {
+		@Override protected StmtSequentialWRITEconditionalContext parsePart() { return parser.stmtSequentialWRITEconditional(); }
 	};
 	
-	@Ignore
 	@Test public void WRITE_RECNAME() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME.source"),
@@ -44,14 +42,13 @@ public class StmtSequentialWRITE {
 			);
 	}
 	
-	@Ignore
 	@Test public void WRITE_RECNAME_FROM_X() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X.source"),
 				get("WRITE_RECNAME_FROM_X.tree")
 			);
 	}
-
+	
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
