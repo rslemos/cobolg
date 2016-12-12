@@ -79,6 +79,7 @@ imperativeStatement :
 	|	stmtCONTINUE
 	|	stmtCALLimperative
 	|	stmtCANCEL
+	|	stmtINVOKEimperative
 	;
 
 /**
@@ -256,6 +257,17 @@ inspectTallyingFor :
 inspectReplacingObject :
 		CHARACTERS BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*
 	|	(ALL | LEADING | FIRST) ((identifier | literal) BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*)+
+	;
+
+/**
+ * INVOKE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=385&zoom=auto,-40,735
+ */
+stmtINVOKEimperative :
+		INVOKE (identifier | className | SELF | SUPER) (literal | identifier | NEW)
+		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
+		(RETURNING identifier)?
 	;
 
 /**
