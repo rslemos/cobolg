@@ -147,6 +147,7 @@ delimitedScopeStatement :
 	|	stmtSTARTdelimitedScope
 	|	stmtSTRINGdelimitedScope
 	|	stmtSUBTRACTdelimitedScope
+	|	stmtUNSTRINGdelimitedScope
 	|	stmtPageWRITEdelimitedScope
 	|	stmtSequentialWRITEdelimitedScope
 	;
@@ -649,6 +650,8 @@ stmtUNSTRINGimperative :
 	;
 
 stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
+
+stmtUNSTRINGdelimitedScope : stmtUNSTRINGconditional END_UNSTRING;
 
 /**
  * WRITE statement.

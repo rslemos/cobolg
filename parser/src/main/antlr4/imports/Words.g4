@@ -135,6 +135,7 @@ END_REWRITE           : 'END-REWRITE';
 END_START             : 'END-START';
 END_STRING            : 'END-STRING';
 END_SUBTRACT          : 'END-SUBTRACT';
+END_UNSTRING          : 'END-UNSTRING';
 END_WRITE             : 'END-WRITE';
 ENTRY                 : 'ENTRY';
 ENVIRONMENT           : 'ENVIRONMENT';
