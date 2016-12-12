@@ -96,6 +96,7 @@ imperativeStatement :
  */
 conditionalStatement :
 		stmtDELETEconditional
+	|	stmtSequentialREADconditional
 	;
 
 /**
@@ -414,6 +415,8 @@ performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | ind
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
+
+stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
 
 /**
  * RELEASE statement.
