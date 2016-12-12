@@ -214,6 +214,7 @@ SPECIAL_NAMES         : 'SPECIAL-NAMES';
 STANDARD              : 'STANDARD';
 STANDARD_1            : 'STANDARD-1';
 STANDARD_2            : 'STANDARD-2';
+START                 : 'START';
 STATUS                : 'STATUS';
 STOP                  : 'STOP';
 SYMBOLIC              : 'SYMBOLIC';
