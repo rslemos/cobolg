@@ -137,6 +137,7 @@ conditionalStatement :
 delimitedScopeStatement :
 		/* explicit scope terminator */
 		stmtDELETEdelimitedScope
+	|	stmtSequentialREADdelimitedScope
 	;
 
 /**
@@ -495,6 +496,8 @@ stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dat
 stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
 
 stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
+
+stmtSequentialREADdelimitedScope : stmtSequentialREADconditional END_READ;
 
 /**
  * RELEASE statement.

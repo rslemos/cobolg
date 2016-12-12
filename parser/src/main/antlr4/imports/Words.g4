@@ -126,6 +126,7 @@ ELSE                  : 'ELSE';
 END                   : 'END';
 END_DELETE            : 'END-DELETE';
 END_OF_PAGE           : 'END-OF-PAGE';
+END_READ              : 'END-READ';
 ENTRY                 : 'ENTRY';
 ENVIRONMENT           : 'ENVIRONMENT';
 EOP                   : 'EOP';

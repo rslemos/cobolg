@@ -25,126 +25,65 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialREADdelimitedScopeContext;
 
-public class StmtSequentialREAD {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialREAD");
+public class StmtSequentialREADdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialREADdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSequentialREADdelimitedScopeContext> helper = new CompilerHelper<StmtSequentialREADdelimitedScopeContext>() {
+		@Override protected StmtSequentialREADdelimitedScopeContext parsePart() { return parser.stmtSequentialREADdelimitedScope(); }
 	};
 	
-	@Test public void READ_FILENAME() {
-		helper.compileAndVerify(
-				get("READ_FILENAME.source"),
-				get("READ_FILENAME.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_NEXT_RECORD() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_NEXT_RECORD.source"),
-				get("READ_FILENAME_NEXT_RECORD.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_INTO_X() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_INTO_X.source"),
-				get("READ_FILENAME_INTO_X.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_NEXT_RECORD_INTO_X.source"),
-				get("READ_FILENAME_NEXT_RECORD_INTO_X.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
-				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
-				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
-				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
-				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_END_READ.source"),
 				get("READ_FILENAME_END_READ.tree")
 			);
 	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+
 	@Test public void READ_FILENAME_NEXT_RECORD_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_END_READ.source"),
 				get("READ_FILENAME_NEXT_RECORD_END_READ.tree")
 			);
 	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+
 	@Test public void READ_FILENAME_INTO_X_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X_END_READ.source"),
 				get("READ_FILENAME_INTO_X_END_READ.tree")
 			);
 	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+
 	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_INTO_X_END_READ.source"),
 				get("READ_FILENAME_NEXT_RECORD_INTO_X_END_READ.tree")
 			);
 	}
-	
+
 	@Test public void READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
 				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.tree")
 			);
 	}
-	
+
 	@Test public void READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
 				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.tree")
 			);
 	}
-	
+
 	@Test public void READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
 				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.tree")
 			);
 	}
-	
+
 	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
