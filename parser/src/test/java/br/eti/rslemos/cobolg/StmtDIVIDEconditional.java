@@ -25,15 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtDIVIDEconditionalContext;
 
-public class StmtDIVIDE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDIVIDE");
+public class StmtDIVIDEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDIVIDEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtDIVIDEconditionalContext> helper = new CompilerHelper<StmtDIVIDEconditionalContext>() {
+		@Override protected StmtDIVIDEconditionalContext parsePart() { return parser.stmtDIVIDEconditional(); }
 	};
 	
 	@Test public void DIVIDE_X_INTO_Y_ROUNDED_W() {

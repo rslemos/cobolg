@@ -97,6 +97,7 @@ imperativeStatement :
 conditionalStatement :
 		stmtADDconditional
 	|	stmtCOMPUTEconditional
+	|	stmtDIVIDEconditional
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -290,6 +291,8 @@ stmtDIVIDEimperative :
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
 	;
+
+stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
 
 /**
  * EXIT statement.
