@@ -25,32 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtREWRITEdelimitedScopeContext;
 
-public class StmtREWRITE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtREWRITE");
+public class StmtREWRITEdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtREWRITEdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtREWRITEdelimitedScopeContext> helper = new CompilerHelper<StmtREWRITEdelimitedScopeContext>() {
+		@Override protected StmtREWRITEdelimitedScopeContext parsePart() { return parser.stmtREWRITEdelimitedScope(); }
 	};
 	
-	@Test public void REWRITE_REC_FROM_X() {
-		helper.compileAndVerify(
-				get("REWRITE_REC_FROM_X.source"),
-				get("REWRITE_REC_FROM_X.tree")
-			);
-	}
-	
-	@Test public void REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
-		helper.compileAndVerify(
-				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
-				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void REWRITE_REC_FROM_X_END_REWRITE() {
 		helper.compileAndVerify(
 				get("REWRITE_REC_FROM_X_END_REWRITE.source"),

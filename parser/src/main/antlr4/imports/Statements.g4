@@ -139,6 +139,7 @@ delimitedScopeStatement :
 		stmtDELETEdelimitedScope
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
+	|	stmtREWRITEdelimitedScope
 	;
 
 /**
@@ -526,6 +527,8 @@ stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
+
+stmtREWRITEdelimitedScope : stmtREWRITEconditional END_REWRITE;
 
 /**
  * SEARCH statement.
