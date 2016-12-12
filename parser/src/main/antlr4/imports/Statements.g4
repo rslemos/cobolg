@@ -143,6 +143,7 @@ delimitedScopeStatement :
 	|	stmtDIVIDEdelimitedScope
 	|	stmtEVALUATEdelimitedScope
 	|	stmtIFdelimitedScope
+	|	stmtINVOKEdelimitedScope
 	|	stmtMULTIPLYdelimitedScope
 	|	stmtPERFORMdelimitedScope
 	|	stmtSequentialREADdelimitedScope
@@ -450,6 +451,8 @@ stmtINVOKEimperative :
 	;
 
 stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
+
+stmtINVOKEdelimitedScope : stmtINVOKEconditional END_INVOKE;
 
 /**
  * MERGE statement.

@@ -131,6 +131,7 @@ END_DELETE            : 'END-DELETE';
 END_DIVIDE            : 'END-DIVIDE';
 END_EVALUATE          : 'END-EVALUATE';
 END_IF                : 'END-IF';
+END_INVOKE            : 'END-INVOKE';
 END_MULTIPLY          : 'END-MULTIPLY';
 END_OF_PAGE           : 'END-OF-PAGE';
 END_PERFORM           : 'END-PERFORM';
