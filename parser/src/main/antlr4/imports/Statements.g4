@@ -141,6 +141,7 @@ delimitedScopeStatement :
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
 	|	stmtSTARTdelimitedScope
+	|	stmtSequentialWRITEdelimitedScope
 	;
 
 /**
@@ -644,6 +645,8 @@ stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
 stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
 
 stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
+
+stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEconditional END_WRITE;
 
 /**
  * XML GENERATE statement.

@@ -23,51 +23,18 @@ package br.eti.rslemos.cobolg;
 
 import java.util.ResourceBundle;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialWRITEdelimitedScopeContext;
 
-public class StmtSequentialWRITE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialWRITE");
+public class StmtSequentialWRITEdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialWRITEdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSequentialWRITEdelimitedScopeContext> helper = new CompilerHelper<StmtSequentialWRITEdelimitedScopeContext>() {
+		@Override protected StmtSequentialWRITEdelimitedScopeContext parsePart() { return parser.stmtSequentialWRITEdelimitedScope(); }
 	};
 	
-	@Ignore
-	@Test public void WRITE_RECNAME() {
-		helper.compileAndVerify(
-				get("WRITE_RECNAME.source"),
-				get("WRITE_RECNAME.tree")
-			);
-	}
-	
-	@Ignore
-	@Test public void WRITE_RECNAME_FROM_X() {
-		helper.compileAndVerify(
-				get("WRITE_RECNAME_FROM_X.source"),
-				get("WRITE_RECNAME_FROM_X.tree")
-			);
-	}
-
-	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_END_WRITE.source"),
@@ -75,14 +42,13 @@ public class StmtSequentialWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_FROM_X_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X_END_WRITE.source"),
 				get("WRITE_RECNAME_FROM_X_END_WRITE.tree")
 			);
 	}
-
+	
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE.source"),
