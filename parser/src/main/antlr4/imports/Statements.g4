@@ -74,6 +74,7 @@ imperativeStatement :
 	|	stmtSequentialWRITEimperative
 	|	stmtALTER
 	|	stmtGOTO
+	|	stmtPERFORMimperative
 	;
 
 /**
@@ -259,6 +260,21 @@ openObject :
 	|	I_O (fileName)+
 	|	EXTEND (fileName)+
 	;
+
+/**
+ * PERFORM statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=413&zoom=auto,-40,735
+ */
+stmtPERFORMimperative : PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?;
+
+performTimes : (identifier | INTEGER) TIMES;
+
+performUntil : (WITH? TEST (BEFORE|AFTER))? UNTIL conditionalExpression;
+
+performVarying : (WITH? TEST (BEFORE|AFTER))? VARYING (identifier | indexName) FROM (identifier | indexName | literal) BY (identifier | literal) UNTIL conditionalExpression;
+
+performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | indexName | literal) BY (identifier | literal) UNTIL conditionalExpression;
 
 /**
  * READ statement.
