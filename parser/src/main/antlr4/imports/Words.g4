@@ -137,6 +137,7 @@ END_STRING            : 'END-STRING';
 END_SUBTRACT          : 'END-SUBTRACT';
 END_UNSTRING          : 'END-UNSTRING';
 END_WRITE             : 'END-WRITE';
+END_XML               : 'END-XML';
 ENTRY                 : 'ENTRY';
 ENVIRONMENT           : 'ENVIRONMENT';
 EOP                   : 'EOP';

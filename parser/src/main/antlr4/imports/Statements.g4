@@ -150,6 +150,7 @@ delimitedScopeStatement :
 	|	stmtUNSTRINGdelimitedScope
 	|	stmtPageWRITEdelimitedScope
 	|	stmtSequentialWRITEdelimitedScope
+	|	stmtXMLGENERATEdelimitedScope
 	;
 
 /**
@@ -690,6 +691,8 @@ stmtXMLGENERATEimperative :
 	;
 
 stmtXMLGENERATEconditional : stmtXMLGENERATEimperative exceptionPhrases;
+
+stmtXMLGENERATEdelimitedScope : stmtXMLGENERATEconditional END_XML;
 
 xmlGenerateWhenPhrase :
 		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
