@@ -104,6 +104,7 @@ conditionalStatement :
 	|	stmtSTRINGconditional
 	|	stmtUNSTRINGconditional
 	|	stmtXMLGENERATEconditional
+	|	stmtXMLPARSEconditional
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -601,3 +602,5 @@ stmtXMLPARSEimperative :
 		(VALIDATING WITH? (identifier | FILE xmlSchemaName))?
 		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
 	;
+
+stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;

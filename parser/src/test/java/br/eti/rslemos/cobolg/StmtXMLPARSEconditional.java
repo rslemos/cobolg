@@ -25,16 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtXMLPARSEconditionalContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 @Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
-public class StmtXMLPARSE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtXMLPARSE");
+public class StmtXMLPARSEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtXMLPARSEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtXMLPARSEconditionalContext> helper = new CompilerHelper<StmtXMLPARSEconditionalContext>() {
+		@Override protected StmtXMLPARSEconditionalContext parsePart() { return parser.stmtXMLPARSEconditional(); }
 	};
 	
 	@Test public void XML_PARSE_XML_1_PROCESSING_PROCEDURE_IS_SAX_0() {
