@@ -204,6 +204,7 @@ POSITION              : 'POSITION';
 POSITIVE              : 'POSITIVE';
 PROCEDURE             : 'PROCEDURE';
 PROCEDURE_POINTER     : 'PROCEDURE-POINTER';
+PROCESSING            : 'PROCESSING';
 PROGRAM               : 'PROGRAM';
 PROGRAM_ID            : 'PROGRAM-ID';
 RANDOM                : 'RANDOM';
@@ -376,8 +377,10 @@ NAME                  : 'NAME';
 NAMESPACE             : 'NAMESPACE';
 NAMESPACE_PREFIX      : 'NAMESPACE-PREFIX';
 NONNUMERIC            : 'NONNUMERIC';
+PARSE                 : 'PARSE';
 //SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer
 //SYMBOL                : 'SYMBOL';
+VALIDATING            : 'VALIDATING';
 XML_DECLARATION       : 'XML-DECLARATION';
 YYYYDDD               : 'YYYYDDD';
 YYYYMMDD              : 'YYYYMMDD';

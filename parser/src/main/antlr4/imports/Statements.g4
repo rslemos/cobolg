@@ -55,6 +55,7 @@ imperativeStatement :
 	|	stmtSTRINGimperative
 	|	stmtUNSTRINGimperative
 	|	stmtXMLGENERATEimperative
+	|	stmtXMLPARSEimperative
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -332,3 +333,16 @@ xmlGenerateWhenPhrase :
 	;
 
 genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT | ELEMENT) | NUMERIC | NONNUMERIC))? xmlGenerateWhenPhrase;
+
+/**
+ * XML PARSE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=502&zoom=auto,-40,735
+ */
+stmtXMLPARSEimperative :
+		XML PARSE identifier
+		(WITH? ENCODING (identifier | literal))?
+		(RETURNING NATIONAL)?
+		(VALIDATING WITH? (identifier | FILE xmlSchemaName))?
+		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
+	;
