@@ -25,270 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtDIVIDEdelimitedScopeContext;
 
-public class StmtDIVIDE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDIVIDE");
+public class StmtDIVIDEdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDIVIDEdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtDIVIDEdelimitedScopeContext> helper = new CompilerHelper<StmtDIVIDEdelimitedScopeContext>() {
+		@Override protected StmtDIVIDEdelimitedScopeContext parsePart() { return parser.stmtDIVIDEdelimitedScope(); }
 	};
 	
-	@Test public void DIVIDE_X_INTO_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_Y_ROUNDED_W.source"),
-				get("DIVIDE_X_INTO_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_Y_ROUNDED_W.source"),
-				get("DIVIDE_20_INTO_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W.source"),
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -296,7 +42,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -304,7 +49,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -312,7 +56,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -320,7 +63,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -328,7 +70,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -336,7 +77,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -344,7 +84,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -352,7 +91,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -360,7 +98,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_END_DIVIDE.source"),
@@ -368,7 +105,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),
@@ -376,7 +112,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),
@@ -384,7 +119,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),
@@ -392,7 +126,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),
@@ -400,7 +133,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),
@@ -408,7 +140,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),
@@ -416,7 +147,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),
@@ -424,7 +154,6 @@ public class StmtDIVIDE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_END_DIVIDE.source"),

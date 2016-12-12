@@ -139,6 +139,7 @@ delimitedScopeStatement :
 		stmtADDdelimitedScope
 	|	stmtCOMPUTEdelimitedScope
 	|	stmtDELETEdelimitedScope
+	|	stmtDIVIDEdelimitedScope
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
@@ -340,6 +341,8 @@ stmtDIVIDEimperative :
 	;
 
 stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
+
+stmtDIVIDEdelimitedScope : stmtDIVIDEconditional END_DIVIDE;
 
 /**
  * EVALUATE statement.
