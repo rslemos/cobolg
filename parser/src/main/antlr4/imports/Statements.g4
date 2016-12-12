@@ -137,6 +137,7 @@ conditionalStatement :
 delimitedScopeStatement :
 		/* explicit scope terminator */
 		stmtADDdelimitedScope
+	|	stmtCALLdelimitedScope
 	|	stmtCOMPUTEdelimitedScope
 	|	stmtDELETEdelimitedScope
 	|	stmtDIVIDEdelimitedScope
@@ -287,6 +288,8 @@ callUsing :
 	;
 
 stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
+
+stmtCALLdelimitedScope : stmtCALLconditional END_CALL;
 
 /**
  * CANCEL statement.
