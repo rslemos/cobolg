@@ -57,6 +57,7 @@ imperativeStatement :
 	|	stmtUNSTRINGimperative
 	|	stmtXMLGENERATEimperative
 	|	stmtXMLPARSEimperative
+	|	stmtEXIT
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -157,6 +158,15 @@ stmtDIVIDEimperative :
 		DIVIDE (identifier | literal) INTO roundedPhrase+
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
+	;
+
+/**
+ * EXIT statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=363&zoom=auto,-40,735
+ */
+stmtEXIT :
+		EXIT (PROGRAM | METHOD)
 	;
 
 /**
