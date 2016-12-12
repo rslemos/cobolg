@@ -43,6 +43,7 @@ imperativeStatement :
 		stmtSTOPRUN
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
+	|	stmtDELETEimperative
 	|	stmtDISPLAY
 	;
 
@@ -64,6 +65,13 @@ stmtACCEPT :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=341&zoom=auto,-40,735
  */
 stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WITH? (NO REWIND | LOCK))?)+;
+
+/**
+ * DELETE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=348&zoom=auto,-40,735
+ */
+stmtDELETEimperative : DELETE fileName RECORD?;
 
 stmtDISPLAY : DISPLAY literal;
 

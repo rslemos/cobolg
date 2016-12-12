@@ -88,6 +88,7 @@ DATE_COMPILED         : 'DATE-COMPILED';
 DATE_WRITTEN          : 'DATE-WRITTEN';
 DEBUGGING             : 'DEBUGGING';
 DECIMAL_POINT         : 'DECIMAL-POINT';
+DELETE                : 'DELETE';
 DELIMITER             : 'DELIMITER';
 DEPENDING             : 'DEPENDING';
 DESCENDING            : 'DESCENDING';
