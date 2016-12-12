@@ -153,6 +153,7 @@ MEMORY                : 'MEMORY';
 MODE                  : 'MODE';
 MODULES               : 'MODULES';
 MULTIPLE              : 'MULTIPLE';
+MULTIPLY              : 'MULTIPLY';
 NATIONAL              : 'NATIONAL';
 NATIVE                : 'NATIVE';
 NEGATIVE              : 'NEGATIVE';
