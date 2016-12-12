@@ -48,6 +48,7 @@ imperativeStatement :
 	|	stmtOPEN
 	|	stmtSequentialREADimperative
 	|	stmtRandomREADimperative
+	|	stmtREWRITEimperative
 	;
 
 /* here come the actual statements (all prefixed by stmt) */
@@ -105,5 +106,12 @@ openObject :
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
+
+/**
+ * REWRITE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
+ */
+stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtSTOPRUN : STOP RUN;

@@ -193,6 +193,7 @@ RESERVE               : 'RESERVE';
 RETURNING             : 'RETURNING';
 REVERSED              : 'REVERSED';
 REWIND                : 'REWIND';
+REWRITE               : 'REWRITE';
 RIGHT                 : 'RIGHT';
 RUN                   : 'RUN';
 SAME                  : 'SAME';
