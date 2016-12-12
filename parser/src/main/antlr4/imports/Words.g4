@@ -131,6 +131,7 @@ END_DIVIDE            : 'END-DIVIDE';
 END_EVALUATE          : 'END-EVALUATE';
 END_MULTIPLY          : 'END-MULTIPLY';
 END_OF_PAGE           : 'END-OF-PAGE';
+END_PERFORM           : 'END-PERFORM';
 END_READ              : 'END-READ';
 END_REWRITE           : 'END-REWRITE';
 END_START             : 'END-START';
