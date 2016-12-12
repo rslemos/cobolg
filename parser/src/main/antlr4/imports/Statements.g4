@@ -137,6 +137,7 @@ conditionalStatement :
 delimitedScopeStatement :
 		/* explicit scope terminator */
 		stmtADDdelimitedScope
+	|	stmtCOMPUTEdelimitedScope
 	|	stmtDELETEdelimitedScope
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
@@ -299,6 +300,8 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
 stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
 
 stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
+
+stmtCOMPUTEdelimitedScope : stmtCOMPUTEconditional END_COMPUTE;
 
 /**
  * CONTINUE statement.

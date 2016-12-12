@@ -25,46 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtCOMPUTEdelimitedScopeContext;
 
-public class StmtCOMPUTE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCOMPUTE");
+public class StmtCOMPUTEdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCOMPUTEdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtCOMPUTEdelimitedScopeContext> helper = new CompilerHelper<StmtCOMPUTEdelimitedScopeContext>() {
+		@Override protected StmtCOMPUTEdelimitedScopeContext parsePart() { return parser.stmtCOMPUTEdelimitedScope(); }
 	};
 	
-	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W() {
-		helper.compileAndVerify(
-				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W.source"),
-				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W.tree")
-			);
-	}
-	
-	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W() {
-		helper.compileAndVerify(
-				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W.source"),
-				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W.tree")
-			);
-	}
-	
-	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_END_COMPUTE() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_END_COMPUTE.source"),
@@ -72,7 +42,6 @@ public class StmtCOMPUTE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_END_COMPUTE() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_END_COMPUTE.source"),
