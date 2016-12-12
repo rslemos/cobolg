@@ -2,7 +2,7 @@
  * BEGIN COPYRIGHT NOTICE
  * 
  * This file is part of program "cobolg"
- * Copyright 2015  Rodrigo Lemos
+ * Copyright 2016  Rodrigo Lemos
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,33 +19,26 @@
  * 
  * END COPYRIGHT NOTICE
  ******************************************************************************/
-parser grammar Statements;
-import Basics;
+package br.eti.rslemos.cobolg;
 
-options { tokenVocab = COBOLLexer; }
+import java.util.ResourceBundle;
 
-/**
- * Procedural statements.
- * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,185
- */
-proceduralStatement :
-		imperativeStatement
-	;
+import org.junit.Test;
 
-/**
- * Imperative statement.
- * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,120
- */
-imperativeStatement :
-		/* unknown statements */
-		stmtSTOPRUN
-	|	stmtDISPLAY
-	;
+import br.eti.rslemos.cobolg.COBOLParser.StmtDISPLAYContext;
 
-/* here come the actual statements (all prefixed by stmt) */
+public class StmtDISPLAY {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDISPLAY");
+	public static String get(String key) { return TEST_DATA.getString(key); }
 
-stmtDISPLAY : DISPLAY literal;
-
-stmtSTOPRUN : STOP RUN;
+	private static CompilerHelper<StmtDISPLAYContext> helper = new CompilerHelper<StmtDISPLAYContext>() {
+		@Override protected StmtDISPLAYContext parsePart() { return parser.stmtDISPLAY(); }
+	};
+	
+	@Test public void DISPLAY_QUOTED_STRING() {
+		helper.compileAndVerify(
+				get("DISPLAY_QUOTED_STRING.source"),
+				get("DISPLAY_QUOTED_STRING.tree")
+			);
+	}
+}

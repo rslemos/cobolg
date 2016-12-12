@@ -453,9 +453,9 @@ public class FreeFormatUnitTest {
 		assertThat(unnamedProceduralParagraph.proceduralSentence().size(), is(equalTo(2)));
 		
 		ProceduralStatementContext statement_0 = unnamedProceduralParagraph.proceduralSentence(0).proceduralStatement(0);
-		assertThat(statement_0.DISPLAY(), is(not(nullValue(TerminalNode.class))));
+		assertThat(statement_0.imperativeStatement().stmtDISPLAY().DISPLAY(), is(not(nullValue(TerminalNode.class))));
 		
 		ProceduralStatementContext statement_1 = unnamedProceduralParagraph.proceduralSentence(1).proceduralStatement(0);
-		assertThat(statement_1.STOP(), is(not(nullValue(TerminalNode.class))));
+		assertThat(statement_1.imperativeStatement().stmtSTOPRUN().STOP(), is(not(nullValue(TerminalNode.class))));
 	}
 }
