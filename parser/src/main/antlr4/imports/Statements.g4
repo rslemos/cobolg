@@ -122,6 +122,7 @@ conditionalStatement :
 		/* program or method linkage */
 	|	stmtCALLconditional
 	|	stmtINVOKEconditional
+	|	stmtSEARCHconditional
 	;
 
 /**
@@ -503,6 +504,21 @@ stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
+
+/**
+ * SEARCH statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=438&zoom=auto,-40,735
+ */
+stmtSEARCHconditional :
+		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (imperativeStatement | NEXT SENTENCE))+
+	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (imperativeStatement | NEXT SENTENCE)
+	;
+
+searchWhenPhrase :
+		dataName IS? (EQUAL TO? | OP_EQUAL) (identifier | literal | arithmeticExpression)
+	|	conditionalExpression
+	;
 
 /**
  * SET statement.

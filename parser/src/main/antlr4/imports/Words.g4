@@ -260,6 +260,7 @@ ROUNDED               : 'ROUNDED';
 RUN                   : 'RUN';
 SAME                  : 'SAME';
 SD                    : 'SD';
+SEARCH                : 'SEARCH';
 SECTION               : 'SECTION';
 SECURITY              : 'SECURITY';
 SEGMENT_LIMIT         : 'SEGMENT-LIMIT';
