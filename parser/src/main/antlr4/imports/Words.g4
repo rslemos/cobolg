@@ -128,6 +128,7 @@ END_ADD               : 'END-ADD';
 END_COMPUTE           : 'END-COMPUTE';
 END_DELETE            : 'END-DELETE';
 END_DIVIDE            : 'END-DIVIDE';
+END_MULTIPLY          : 'END-MULTIPLY';
 END_OF_PAGE           : 'END-OF-PAGE';
 END_READ              : 'END-READ';
 END_REWRITE           : 'END-REWRITE';

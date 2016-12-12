@@ -25,102 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtMULTIPLYdelimitedScopeContext;
 
-public class StmtMULTIPLY {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtMULTIPLY");
+public class StmtMULTIPLYdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtMULTIPLYdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtMULTIPLYdelimitedScopeContext> helper = new CompilerHelper<StmtMULTIPLYdelimitedScopeContext>() {
+		@Override protected StmtMULTIPLYdelimitedScopeContext parsePart() { return parser.stmtMULTIPLYdelimitedScope(); }
 	};
 	
-	@Test public void MULTIPLY_X_BY_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_Y_ROUNDED_W.source"),
-				get("MULTIPLY_X_BY_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_Y_ROUNDED_W.source"),
-				get("MULTIPLY_20_BY_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_X_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("MULTIPLY_X_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("MULTIPLY_20_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
-				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void MULTIPLY_X_BY_Y_ROUNDED_W_END_MULTIPLY() {
 		helper.compileAndVerify(
 				get("MULTIPLY_X_BY_Y_ROUNDED_W_END_MULTIPLY.source"),
@@ -128,7 +42,6 @@ public class StmtMULTIPLY {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void MULTIPLY_20_BY_Y_ROUNDED_W_END_MULTIPLY() {
 		helper.compileAndVerify(
 				get("MULTIPLY_20_BY_Y_ROUNDED_W_END_MULTIPLY.source"),
@@ -136,7 +49,6 @@ public class StmtMULTIPLY {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_END_MULTIPLY() {
 		helper.compileAndVerify(
 				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_END_MULTIPLY.source"),
@@ -144,7 +56,6 @@ public class StmtMULTIPLY {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_END_MULTIPLY() {
 		helper.compileAndVerify(
 				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_END_MULTIPLY.source"),
@@ -152,7 +63,6 @@ public class StmtMULTIPLY {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_END_MULTIPLY() {
 		helper.compileAndVerify(
 				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_END_MULTIPLY.source"),
@@ -160,7 +70,6 @@ public class StmtMULTIPLY {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_END_MULTIPLY() {
 		helper.compileAndVerify(
 				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_END_MULTIPLY.source"),

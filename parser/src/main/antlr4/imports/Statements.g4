@@ -140,6 +140,7 @@ delimitedScopeStatement :
 	|	stmtCOMPUTEdelimitedScope
 	|	stmtDELETEdelimitedScope
 	|	stmtDIVIDEdelimitedScope
+	|	stmtMULTIPLYdelimitedScope
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
@@ -468,6 +469,8 @@ stmtMULTIPLYimperative :
 	;
 
 stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
+
+stmtMULTIPLYdelimitedScope : stmtMULTIPLYconditional END_MULTIPLY;
 
 /**
  * OPEN statement.
