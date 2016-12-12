@@ -102,6 +102,7 @@ conditionalStatement :
 	|	stmtMULTIPLYconditional
 	|	stmtSUBTRACTconditional
 	|	stmtSTRINGconditional
+	|	stmtUNSTRINGconditional
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -543,6 +544,8 @@ stmtUNSTRINGimperative :
 		(WITH? POINTER identifier)?
 		(TALLYING IN? identifier)?
 	;
+
+stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
 
 /**
  * WRITE statement.
