@@ -47,6 +47,7 @@ imperativeStatement :
 	|	stmtDISPLAY
 	|	stmtOPEN
 	|	stmtSequentialREADimperative
+	|	stmtRandomREADimperative
 	;
 
 /* here come the actual statements (all prefixed by stmt) */
@@ -102,5 +103,7 @@ openObject :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=424&zoom=auto,-40,735
  */
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
+
+stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
 stmtSTOPRUN : STOP RUN;
