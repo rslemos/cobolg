@@ -53,6 +53,7 @@ imperativeStatement :
 	|	stmtMOVE
 	|	stmtSET
 	|	stmtSTRINGimperative
+	|	stmtUNSTRINGimperative
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -281,6 +282,19 @@ stmtSUBTRACTimperative :
 		SUBTRACT (identifier | literal)+ FROM roundedPhrase+
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
 	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
+	;
+
+/**
+ * UNSTRING statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=474&zoom=auto,-40,735
+ */
+stmtUNSTRINGimperative :
+		UNSTRING identifier
+		(DELIMITED BY? ALL? (identifier | literal) (OR ALL? (identifier | literal))*)?
+		INTO (identifier (DELIMITER IN? identifier)? (COUNT IN? identifier))+
+		(WITH? POINTER identifier)?
+		(TALLYING IN? identifier)?
 	;
 
 /**
