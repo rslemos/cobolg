@@ -201,6 +201,7 @@ PACKED_DECIMAL        : 'PACKED-DECIMAL';
 PADDING               : 'PADDING';
 PAGE                  : 'PAGE';
 PASSWORD              : 'PASSWORD';
+PERFORM               : 'PERFORM';
 PIC                   : 'PIC';     // will be overridden on the main lexer
 PICTURE               : 'PICTURE'; // will be overridden on the main lexer
 POINTER               : 'POINTER';
@@ -375,6 +376,7 @@ XML_TEXT              : 'XML-TEXT';
 // for backward compatibility
 ATTRIBUTE             : 'ATTRIBUTE';
 ATTRIBUTES            : 'ATTRIBUTES';
+CYCLE                 : 'CYCLE';
 EBCDIC                : 'EBCDIC';
 ELEMENT               : 'ELEMENT';
 ENCODING              : 'ENCODING';
@@ -382,6 +384,7 @@ NAME                  : 'NAME';
 NAMESPACE             : 'NAMESPACE';
 NAMESPACE_PREFIX      : 'NAMESPACE-PREFIX';
 NONNUMERIC            : 'NONNUMERIC';
+PARAGRAPH             : 'PARAGRAPH';
 PARSE                 : 'PARSE';
 //SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer
 //SYMBOL                : 'SYMBOL';

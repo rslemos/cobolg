@@ -23,6 +23,7 @@ package br.eti.rslemos.cobolg;
 
 import java.util.ResourceBundle;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtEXITContext;
@@ -35,6 +36,14 @@ public class StmtEXIT {
 		@Override protected StmtEXITContext parsePart() { return parser.stmtEXIT(); }
 	};
 	
+	@Ignore
+	@Test public void EXIT() {
+		helper.compileAndVerify(
+				get("EXIT.source"),
+				get("EXIT.tree")
+			);
+	}
+	
 	@Test public void EXIT_PROGRAM() {
 		helper.compileAndVerify(
 				get("EXIT_PROGRAM.source"),
@@ -46,6 +55,34 @@ public class StmtEXIT {
 		helper.compileAndVerify(
 				get("EXIT_METHOD.source"),
 				get("EXIT_METHOD.tree")
+			);
+	}
+
+	@Test public void EXIT_PERFORM() {
+		helper.compileAndVerify(
+				get("EXIT_PERFORM.source"),
+				get("EXIT_PERFORM.tree")
+			);
+	}
+	
+	@Test public void EXIT_PERFORM_CYCLE() {
+		helper.compileAndVerify(
+				get("EXIT_PERFORM_CYCLE.source"),
+				get("EXIT_PERFORM_CYCLE.tree")
+			);
+	}
+	
+	@Test public void EXIT_PARAGRAPH() {
+		helper.compileAndVerify(
+				get("EXIT_PARAGRAPH.source"),
+				get("EXIT_PARAGRAPH.tree")
+			);
+	}
+	
+	@Test public void EXIT_SECTION() {
+		helper.compileAndVerify(
+				get("EXIT_SECTION.source"),
+				get("EXIT_SECTION.tree")
 			);
 	}
 }

@@ -175,7 +175,7 @@ stmtDIVIDEimperative :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=363&zoom=auto,-40,735
  */
 stmtEXIT :
-		EXIT (PROGRAM | METHOD)
+		EXIT (PROGRAM | METHOD | PARAGRAPH | SECTION | PERFORM CYCLE?)?
 	;
 
 /**
