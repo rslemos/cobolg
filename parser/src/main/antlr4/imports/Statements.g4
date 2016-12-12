@@ -141,6 +141,7 @@ delimitedScopeStatement :
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
 	|	stmtSTARTdelimitedScope
+	|	stmtPageWRITEdelimitedScope
 	|	stmtSequentialWRITEdelimitedScope
 	;
 
@@ -645,6 +646,8 @@ stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
 stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
 
 stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
+
+stmtPageWRITEdelimitedScope : stmtPageWRITEconditional END_WRITE;
 
 stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEconditional END_WRITE;
 
