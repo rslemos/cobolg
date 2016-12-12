@@ -54,6 +54,7 @@ imperativeStatement :
 	|	stmtSET
 	|	stmtSTRINGimperative
 	|	stmtUNSTRINGimperative
+	|	stmtXMLGENERATEimperative
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -307,3 +308,27 @@ stmtUNSTRINGimperative :
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
+
+/**
+ * XML GENERATE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=490&zoom=auto,-40,735
+ */
+stmtXMLGENERATEimperative :
+		XML GENERATE identifier FROM identifier
+		(COUNT IN? identifier)?
+		(WITH? ENCODING (identifier | literal))?
+		(WITH? XML_DECLARATION)?
+		(WITH? ATTRIBUTES)?
+		(NAMESPACE IS? (identifier | literal) (NAMESPACE_PREFIX IS? (identifier | literal))?)?
+		(NAME OF? (identifier IS? literal)+)?
+		(TYPE OF? (identifier IS? (ATTRIBUTE | ELEMENT | CONTENT))+)?
+		(SUPPRESS (identifier xmlGenerateWhenPhrase? | genericSupressionPhrase)+)?
+	;
+
+xmlGenerateWhenPhrase :
+		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
+		(OR? (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES))*
+	;
+
+genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT | ELEMENT) | NUMERIC | NONNUMERIC))? xmlGenerateWhenPhrase;

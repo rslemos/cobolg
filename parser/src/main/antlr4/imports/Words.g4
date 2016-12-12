@@ -89,6 +89,7 @@ COMPUTATIONAL_5       : 'COMPUTATIONAL-5';
 COMPUTE               : 'COMPUTE';
 CONFIGURATION         : 'CONFIGURATION';
 CONTAINS              : 'CONTAINS';
+CONTENT               : 'CONTENT';
 CONVERTING            : 'CONVERTING';
 CORR                  : 'CORR';
 CORRESPONDING         : 'CORRESPONDING';
@@ -132,6 +133,7 @@ FOOTING               : 'FOOTING';
 FOR                   : 'FOR';
 FROM                  : 'FROM';
 FUNCTION_POINTER      : 'FUNCTION-POINTER';
+GENERATE              : 'GENERATE';
 GIVING                : 'GIVING';
 GLOBAL                : 'GLOBAL';
 GREATER               : 'GREATER';
@@ -251,6 +253,7 @@ STATUS                : 'STATUS';
 STOP                  : 'STOP';
 STRING                : 'STRING';
 SUBTRACT              : 'SUBTRACT';
+SUPPRESS              : 'SUPPRESS';
 SYMBOLIC              : 'SYMBOLIC';
 SYNC                  : 'SYNC';
 SYNCHRONIZED          : 'SYNCHRONIZED';
@@ -265,6 +268,7 @@ TO                    : 'TO';
 TOP                   : 'TOP';
 TRAILING              : 'TRAILING';
 TRUE                  : 'TRUE';
+TYPE                  : 'TYPE';
 UNBOUNDED             : 'UNBOUNDED';
 UNIT                  : 'UNIT';
 UNSTRING              : 'UNSTRING';
@@ -282,6 +286,7 @@ WORDS                 : 'WORDS';
 WORKING_STORAGE       : 'WORKING-STORAGE';
 WRITE                 : 'WRITE';
 WRITE_ONLY            : 'WRITE-ONLY';
+XML                   : 'XML';
 XML_SCHEMA            : 'XML-SCHEMA';
 
 /* FIGURATIVE CONSTANTS */
@@ -362,9 +367,18 @@ XML_TEXT              : 'XML-TEXT';
 /* the following keywords are missing from reference */
 // perhaps they are not reserved words; maybe they are allowed as identifiers
 // for backward compatibility
+ATTRIBUTE             : 'ATTRIBUTE';
+ATTRIBUTES            : 'ATTRIBUTES';
 EBCDIC                : 'EBCDIC';
+ELEMENT               : 'ELEMENT';
+ENCODING              : 'ENCODING';
+NAME                  : 'NAME';
+NAMESPACE             : 'NAMESPACE';
+NAMESPACE_PREFIX      : 'NAMESPACE-PREFIX';
+NONNUMERIC            : 'NONNUMERIC';
 //SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer
 //SYMBOL                : 'SYMBOL';
+XML_DECLARATION       : 'XML-DECLARATION';
 YYYYDDD               : 'YYYYDDD';
 YYYYMMDD              : 'YYYYMMDD';
 
