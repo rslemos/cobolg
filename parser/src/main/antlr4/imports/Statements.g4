@@ -140,6 +140,7 @@ delimitedScopeStatement :
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
+	|	stmtSTARTdelimitedScope
 	;
 
 /**
@@ -580,6 +581,8 @@ stmtSORT :
 stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)?;
 
 stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
+
+stmtSTARTdelimitedScope : stmtSTARTconditional END_START;
 
 /**
  * STOP statement.

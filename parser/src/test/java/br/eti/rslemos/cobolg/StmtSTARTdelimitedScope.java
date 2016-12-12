@@ -25,200 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSTARTdelimitedScopeContext;
 
-public class StmtSTART {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSTART");
+public class StmtSTARTdelimitedScope {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSTARTdelimitedScope");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSTARTdelimitedScopeContext> helper = new CompilerHelper<StmtSTARTdelimitedScopeContext>() {
+		@Override protected StmtSTARTdelimitedScopeContext parsePart() { return parser.stmtSTARTdelimitedScope(); }
 	};
 	
-	@Test public void START_FILENAME() {
-		helper.compileAndVerify(
-				get("START_FILENAME.source"),
-				get("START_FILENAME.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_EQUAL_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_EQUAL_K.source"),
-				get("START_FILENAME_KEY_EQUAL_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_OP_EQUAL_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_OP_EQUAL_K.source"),
-				get("START_FILENAME_KEY_OP_EQUAL_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_GREATER_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_GREATER_K.source"),
-				get("START_FILENAME_KEY_GREATER_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_OP_GREATER_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_OP_GREATER_K.source"),
-				get("START_FILENAME_KEY_OP_GREATER_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_NOT_LESS_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_NOT_LESS_K.source"),
-				get("START_FILENAME_KEY_NOT_LESS_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_NOT_OP_LESS_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_NOT_OP_LESS_K.source"),
-				get("START_FILENAME_KEY_NOT_OP_LESS_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_GREATER_OR_EQUAL_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_GREATER_OR_EQUAL_K.source"),
-				get("START_FILENAME_KEY_GREATER_OR_EQUAL_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_OP_NOTLESS_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_OP_NOTLESS_K.source"),
-				get("START_FILENAME_KEY_OP_NOTLESS_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_EQUAL_TO_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_EQUAL_TO_K.source"),
-				get("START_FILENAME_KEY_IS_EQUAL_TO_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_GREATER_THAN_K.source"),
-				get("START_FILENAME_KEY_IS_GREATER_THAN_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_NOT_LESS_THAN_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_NOT_LESS_THAN_K.source"),
-				get("START_FILENAME_KEY_IS_NOT_LESS_THAN_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K.source"),
-				get("START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_OP_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_OP_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_OP_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_OP_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_OP_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_OP_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_NOT_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_NOT_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_NOT_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_NOT_OP_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_NOT_OP_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_NOT_OP_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_GREATER_OR_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_GREATER_OR_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_GREATER_OR_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_OP_NOTLESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_OP_NOTLESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_OP_NOTLESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_IS_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_GREATER_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_IS_GREATER_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_NOT_LESS_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_NOT_LESS_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_IS_NOT_LESS_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
-		helper.compileAndVerify(
-				get("START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
-				get("START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
-			);
-	}
-	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_END_START.source"),
@@ -226,7 +42,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_EQUAL_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_EQUAL_K_END_START.source"),
@@ -234,7 +49,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_EQUAL_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_EQUAL_K_END_START.source"),
@@ -242,7 +56,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_GREATER_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_GREATER_K_END_START.source"),
@@ -250,7 +63,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_GREATER_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_GREATER_K_END_START.source"),
@@ -258,7 +70,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_NOT_LESS_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_NOT_LESS_K_END_START.source"),
@@ -266,7 +77,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_NOT_OP_LESS_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_NOT_OP_LESS_K_END_START.source"),
@@ -274,7 +84,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_GREATER_OR_EQUAL_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_GREATER_OR_EQUAL_K_END_START.source"),
@@ -282,7 +91,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_NOTLESS_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_NOTLESS_K_END_START.source"),
@@ -290,7 +98,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_EQUAL_TO_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_EQUAL_TO_K_END_START.source"),
@@ -298,7 +105,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_GREATER_THAN_K_END_START.source"),
@@ -306,7 +112,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_NOT_LESS_THAN_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_NOT_LESS_THAN_K_END_START.source"),
@@ -314,7 +119,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K_END_START.source"),
