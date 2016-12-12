@@ -241,6 +241,7 @@ WHEN                  : 'WHEN';
 WITH                  : 'WITH';
 WORDS                 : 'WORDS';
 WORKING_STORAGE       : 'WORKING-STORAGE';
+WRITE                 : 'WRITE';
 WRITE_ONLY            : 'WRITE-ONLY';
 XML_SCHEMA            : 'XML-SCHEMA';
 

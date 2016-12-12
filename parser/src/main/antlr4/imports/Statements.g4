@@ -51,6 +51,7 @@ imperativeStatement :
 	|	stmtREWRITEimperative
 	|	stmtSTARTimperative
 	|	stmtSTOP
+	|	stmtSequentialWRITEimperative
 	;
 
 /* here come the actual statements (all prefixed by stmt) */
@@ -131,3 +132,12 @@ stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER TH
 stmtSTOP : STOP literal;
 
 stmtSTOPRUN : STOP RUN;
+
+/**
+ * WRITE statement.
+ * 
+ * Reference manual does not mention 'LINE' (only 'LINES').
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=482&zoom=auto,-40,735
+ */
+stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
