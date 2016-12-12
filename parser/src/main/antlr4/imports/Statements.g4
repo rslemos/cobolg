@@ -52,6 +52,7 @@ imperativeStatement :
 	|	stmtINSPECT
 	|	stmtMOVE
 	|	stmtSET
+	|	stmtSTRINGimperative
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -263,6 +264,13 @@ stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER TH
 stmtSTOP : STOP literal;
 
 stmtSTOPRUN : STOP RUN;
+
+/**
+ * STRING statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=466&zoom=auto,-40,735
+ */
+stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
 
 /**
  * SUBTRACT statement.
