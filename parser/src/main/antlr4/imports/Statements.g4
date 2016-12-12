@@ -145,6 +145,7 @@ delimitedScopeStatement :
 	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEdelimitedScope
 	|	stmtSTARTdelimitedScope
+	|	stmtSTRINGdelimitedScope
 	|	stmtSUBTRACTdelimitedScope
 	|	stmtPageWRITEdelimitedScope
 	|	stmtSequentialWRITEdelimitedScope
@@ -616,6 +617,8 @@ stmtSTOPRUN : STOP RUN;
 stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
 
 stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
+
+stmtSTRINGdelimitedScope : stmtSTRINGconditional END_STRING;
 
 /**
  * SUBTRACT statement.
