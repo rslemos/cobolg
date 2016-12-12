@@ -25,14 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtMULTIPLYconditionalContext;
 
-public class StmtMULTIPLY {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtMULTIPLY");
+public class StmtMULTIPLYconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtMULTIPLYconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtMULTIPLYconditionalContext> helper = new CompilerHelper<StmtMULTIPLYconditionalContext>() {
+		@Override protected StmtMULTIPLYconditionalContext parsePart() { return parser.stmtMULTIPLYconditional(); }
 	};
 	
 	@Test public void MULTIPLY_X_BY_Y_ROUNDED_W() {

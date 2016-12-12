@@ -98,6 +98,7 @@ conditionalStatement :
 		stmtADDconditional
 	|	stmtCOMPUTEconditional
 	|	stmtDIVIDEconditional
+	|	stmtMULTIPLYconditional
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -392,6 +393,8 @@ stmtMULTIPLYimperative :
 		MULTIPLY (identifier | literal) BY roundedPhrase+
 	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
 	;
+
+stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
 
 /**
  * OPEN statement.
