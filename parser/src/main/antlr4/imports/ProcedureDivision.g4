@@ -29,16 +29,7 @@ procedureDivision :
 		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
 	;
 
-/**
- * Using phrase.
- * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=273&zoom=auto,-40,470
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=274&zoom=auto,-40,410
- */
-usingPhrase : USING (byReferencePhrase | byValuePhrase)+;
-
-byReferencePhrase : (BY? REFERENCE)? dataName+;
-byValuePhrase : BY? VALUE dataName+;
+// usingPhrase declared in Statements, as it is used by stmtENTRY
 
 /**
  * Returning phrase.
