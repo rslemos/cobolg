@@ -50,4 +50,46 @@ public class StmtACCEPT {
 				get("ACCEPT_PARAM_FROM_SOURCE.tree")
 			);
 	}
+	
+	@Test public void ACCEPT_ST_FROM_DATE() {
+		helper.compileAndVerify(
+				get("ACCEPT_ST_FROM_DATE.source"),
+				get("ACCEPT_ST_FROM_DATE.tree")
+			);
+	}
+	
+	@Test public void ACCEPT_ST_FROM_DATE_YYYYMMDD() {
+		helper.compileAndVerify(
+				get("ACCEPT_ST_FROM_DATE_YYYYMMDD.source"),
+				get("ACCEPT_ST_FROM_DATE_YYYYMMDD.tree")
+			);
+	}
+	
+	@Test public void ACCEPT_ST_FROM_DAY() {
+		helper.compileAndVerify(
+				get("ACCEPT_ST_FROM_DAY.source"),
+				get("ACCEPT_ST_FROM_DAY.tree")
+			);
+	}
+	
+	@Test public void ACCEPT_ST_FROM_DAY_YYYYDDD() {
+		helper.compileAndVerify(
+				get("ACCEPT_ST_FROM_DAY_YYYYDDD.source"),
+				get("ACCEPT_ST_FROM_DAY_YYYYDDD.tree")
+			);
+	}
+	
+	@Test public void ACCEPT_ST_FROM_DAY_OF_WEEK() {
+		helper.compileAndVerify(
+				get("ACCEPT_ST_FROM_DAY_OF_WEEK.source"),
+				get("ACCEPT_ST_FROM_DAY_OF_WEEK.tree")
+			);
+	}
+	
+	@Test public void ACCEPT_ST_FROM_TIME() {
+		helper.compileAndVerify(
+				get("ACCEPT_ST_FROM_TIME.source"),
+				get("ACCEPT_ST_FROM_TIME.tree")
+			);
+	}
 }

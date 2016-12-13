@@ -91,8 +91,11 @@ CORR                  : 'CORR';
 CORRESPONDING         : 'CORRESPONDING';
 CURRENCY              : 'CURRENCY';
 DATA                  : 'DATA';
+DATE                  : 'DATE';
 DATE_COMPILED         : 'DATE-COMPILED';
 DATE_WRITTEN          : 'DATE-WRITTEN';
+DAY                   : 'DAY';
+DAY_OF_WEEK           : 'DAY-OF-WEEK';
 DEBUGGING             : 'DEBUGGING';
 DECIMAL_POINT         : 'DECIMAL-POINT';
 DELETE                : 'DELETE';
@@ -237,6 +240,7 @@ TAPE                  : 'TAPE';
 THAN                  : 'THAN';
 THROUGH               : 'THROUGH';
 THRU                  : 'THRU';
+TIME                  : 'TIME';
 TIMES                 : 'TIMES';
 TO                    : 'TO';
 TOP                   : 'TOP';
@@ -333,9 +337,14 @@ XML_NNAMESPACE_PREFIX : 'XML-NNAMESPACE-PREFIX';
 XML_NTEXT             : 'XML-NTEXT';
 XML_TEXT              : 'XML-TEXT';
 
+/* the following keywords are missing from reference */
+// perhaps they are not reserved words; maybe they are allowed as identifiers
+// for backward compatibility
 EBCDIC                : 'EBCDIC';
 //SYMBOL comes after PICTURE, so it should be treated specially inside PICTURE_MODE on main lexer
 //SYMBOL                : 'SYMBOL';
+YYYYDDD               : 'YYYYDDD';
+YYYYMMDD              : 'YYYYMMDD';
 
 /* COMPILER DIRECTING STATEMENTS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=561&zoom=auto,,770 */

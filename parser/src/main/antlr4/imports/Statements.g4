@@ -47,6 +47,7 @@ imperativeStatement :
 	|	stmtDIVIDEimperative
 	|	stmtMULTIPLYimperative
 	|	stmtSUBTRACTimperative
+//	|	ACCEPT // format 2
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -90,9 +91,13 @@ givingPhrase : GIVING roundedPhrase+;
  * 
  * Format 1:
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=322&zoom=auto,-40,735
+ * 
+ * Format 2:
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=323&zoom=auto,-40,105
  */
 stmtACCEPT :
 		ACCEPT identifier (FROM (mnemonicName | environmentName))?
+	|	ACCEPT identifier FROM (DATE YYYYMMDD?| DAY YYYYDDD? | DAY_OF_WEEK | TIME)
 	;
 
 /**
