@@ -73,6 +73,7 @@ imperativeStatement :
 	|	stmtPageWRITEimperative
 	|	stmtSequentialWRITEimperative
 	|	stmtALTER
+	|	stmtGOTO
 	;
 
 /**
@@ -176,6 +177,17 @@ stmtDIVIDEimperative :
  */
 stmtEXIT :
 		EXIT (PROGRAM | METHOD | PARAGRAPH | SECTION | PERFORM CYCLE?)?
+	;
+
+/**
+ * GO TO statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=368&zoom=auto,-40,735
+ */
+stmtGOTO :
+		GO TO?
+	|	GO TO? procedureName
+	|	GO TO? procedureName+ DEPENDING ON? identifier
 	;
 
 /**
