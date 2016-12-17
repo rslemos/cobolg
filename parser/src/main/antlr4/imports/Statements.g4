@@ -118,6 +118,7 @@ conditionalStatement :
 	|	stmtPageWRITEconditional
 	|	stmtSequentialWRITEconditional
 	|	stmtCALLconditional
+	|	stmtINVOKEconditional
 	;
 
 /**
@@ -396,6 +397,8 @@ stmtINVOKEimperative :
 		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
 		(RETURNING identifier)?
 	;
+
+stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
 
 /**
  * MERGE statement.
