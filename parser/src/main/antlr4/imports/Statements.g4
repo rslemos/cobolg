@@ -151,6 +151,7 @@ delimitedScopeStatement :
 	|	stmtPageWRITEdelimitedScope
 	|	stmtSequentialWRITEdelimitedScope
 	|	stmtXMLGENERATEdelimitedScope
+	|	stmtXMLPARSEdelimitedScope
 	;
 
 /**
@@ -715,3 +716,5 @@ stmtXMLPARSEimperative :
 	;
 
 stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;
+
+stmtXMLPARSEdelimitedScope : stmtXMLPARSEconditional END_XML;
