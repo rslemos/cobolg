@@ -140,6 +140,7 @@ delimitedScopeStatement :
 	|	stmtCOMPUTEdelimitedScope
 	|	stmtDELETEdelimitedScope
 	|	stmtDIVIDEdelimitedScope
+	|	stmtEVALUATEdelimitedScope
 	|	stmtMULTIPLYdelimitedScope
 	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADdelimitedScope
@@ -362,6 +363,8 @@ stmtEVALUATEconditional :
 		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* imperativeStatement)+
 		(WHEN OTHER imperativeStatement)?
 	;
+
+stmtEVALUATEdelimitedScope : stmtEVALUATEconditional END_EVALUATE;
 
 evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
 
