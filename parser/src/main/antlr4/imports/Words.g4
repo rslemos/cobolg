@@ -129,6 +129,7 @@ RECORDS               : 'RECORDS';
 RECURSIVE             : 'RECURSIVE';
 REDEFINES             : 'REDEFINES';
 REFERENCE             : 'REFERENCE';
+REPOSITORY            : 'REPOSITORY';
 RUN                   : 'RUN';
 SECTION               : 'SECTION';
 SECURITY              : 'SECURITY';

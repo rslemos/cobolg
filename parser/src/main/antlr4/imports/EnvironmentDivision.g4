@@ -35,6 +35,7 @@ configurationSection :
 		sourceComputerParagraph?
 		objectComputerParagraph?
 		specialNamesParagraph?
+		repositoryParagraph?
 	;
 
 /**
@@ -140,6 +141,23 @@ decimalPointClause :
  */
 xmlSchemaClause :
 		XML_SCHEMA xmlSchemaName IS? (externalFileId | literal)
+	;
+/**
+ * Repository paragraph.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=145&zoom=auto,-40,275
+ *
+ * The final PERIOD is not in reference manual. But samples collected on the 
+ * Internet show it (needs further testing in a COBOL compiler).
+ */
+repositoryParagraph :
+		REPOSITORY PERIOD
+		repositoryClassSentence*
+		PERIOD?
+	;
+
+repositoryClassSentence :
+		CLASS dataClassName (IS? alphanumericLiteral)?
 	;
 
 inputOutputSection :
