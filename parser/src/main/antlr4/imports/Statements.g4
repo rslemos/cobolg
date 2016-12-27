@@ -95,8 +95,9 @@ imperativeStatement :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
  */
 conditionalStatement :
+		stmtADDconditional
 		/* input-output */
-		stmtDELETEconditional
+	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
 	|	stmtRandomREADconditional
 	|	stmtREWRITEconditional
@@ -209,6 +210,8 @@ stmtADDimperative :
 	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
 	|	ADD correspondingPhrase identifier TO roundedPhrase
 	;
+
+stmtADDconditional : stmtADDimperative sizeErrorPhrases;
 
 /**
  * ALTER statement.
