@@ -95,6 +95,7 @@ imperativeStatement :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
  */
 conditionalStatement :
+		stmtDELETEconditional
 	;
 
 /**
@@ -256,6 +257,8 @@ stmtCONTINUE : CONTINUE;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=348&zoom=auto,-40,735
  */
 stmtDELETEimperative : DELETE fileName RECORD?;
+
+stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
 
 /**
  * DISPLAY statement.

@@ -25,14 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtDELETEconditionalContext;
 
-public class StmtDELETE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDELETE");
+public class StmtDELETEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDELETEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtDELETEconditionalContext> helper = new CompilerHelper<StmtDELETEconditionalContext>() {
+		@Override protected StmtDELETEconditionalContext parsePart() { return parser.stmtDELETEconditional(); }
 	};
 	
 	@Test public void DELETE_FILENAME_1() {
