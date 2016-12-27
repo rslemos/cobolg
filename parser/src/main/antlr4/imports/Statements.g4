@@ -101,6 +101,7 @@ conditionalStatement :
 	|	stmtDIVIDEconditional
 	|	stmtMULTIPLYconditional
 	|	stmtSUBTRACTconditional
+	|	stmtSTRINGconditional
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -514,6 +515,8 @@ stmtSTOPRUN : STOP RUN;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=466&zoom=auto,-40,735
  */
 stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
+
+stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
 
 /**
  * SUBTRACT statement.
