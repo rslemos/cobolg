@@ -117,6 +117,7 @@ conditionalStatement :
 	|	stmtSTARTconditional
 	|	stmtPageWRITEconditional
 	|	stmtSequentialWRITEconditional
+	|	stmtCALLconditional
 	;
 
 /**
@@ -245,6 +246,8 @@ callUsing :
 	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
 	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
 	;
+
+stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
 
 /**
  * CANCEL statement.
