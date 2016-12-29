@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtREWRITE {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtREWRITE");
@@ -46,6 +47,21 @@ public class StmtREWRITE {
 		helper.compileAndVerify(
 				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
 				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
+			);
+	}
+	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Test public void REWRITE_REC_FROM_X_END_REWRITE() {
+		helper.compileAndVerify(
+				get("REWRITE_REC_FROM_X_END_REWRITE.source"),
+				get("REWRITE_REC_FROM_X_END_REWRITE.tree")
+			);
+	}
+	
+	@Test public void REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_REWRITE() {
+		helper.compileAndVerify(
+				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_REWRITE.source"),
+				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_REWRITE.tree")
 			);
 	}
 }

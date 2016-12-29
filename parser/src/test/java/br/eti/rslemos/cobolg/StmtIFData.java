@@ -23,7 +23,9 @@ package br.eti.rslemos.cobolg;
 
 public enum StmtIFData {
 	IF         (Source.FMT_IF         , Tree.FMT_IF         , false),
+	IFENDIF    (Source.FMT_IFENDIF    , Tree.FMT_IFENDIF    , false),
 	IFELSE     (Source.FMT_IFELSE     , Tree.FMT_IFELSE     , true ),
+	IFELSEENDIF(Source.FMT_IFELSEENDIF, Tree.FMT_IFELSEENDIF, true ),
 	;
 	
 	private final String sourceFormat;
@@ -66,10 +68,13 @@ public enum StmtIFData {
 		
 		private static final String FMT_IFTHEN = INDENT + "IF X%2$04d THEN" + NEWLINE + "%3$s";
 		private static final String FMT_ELSE   = INDENT + "ELSE" + NEWLINE + "%4$s";
+		private static final String FMT_ENDIF  = INDENT + "END-IF";
 		private static final String FMT_LEAF   = INDENT + "NEXT SENTENCE";
 
 		private static final String FMT_IF          = FMT_IFTHEN;
+		private static final String FMT_IFENDIF     = FMT_IFTHEN + NEWLINE + FMT_ENDIF;
 		private static final String FMT_IFELSE      = FMT_IFTHEN + NEWLINE + FMT_ELSE;
+		private static final String FMT_IFELSEENDIF = FMT_IFTHEN + NEWLINE + FMT_ELSE + NEWLINE + FMT_ENDIF;
 	}
 	
 	private static class Tree {
@@ -89,6 +94,13 @@ public enum StmtIFData {
 				PINDENT + TAB + TAB + ")" + NEWLINE + 
 				PINDENT + TAB + ")" + NEWLINE + 
 				PINDENT + ")";
+		private static final String FMT_STMTIFENDIF = 
+				PINDENT + "(proceduralStatement " + NEWLINE + 
+				PINDENT + TAB + "(imperativeStatement (delimitedScopeStatement (stmtIFdelimitedScope " + NEWLINE + 
+				PINDENT + TAB + TAB + "(stmtIF %s" + NEWLINE + 
+				PINDENT + TAB + TAB + ") " + NEWLINE + 
+				PINDENT + TAB + "END-IF)))" + NEWLINE + 
+				PINDENT + ")";
 		private static final String FMT_ELSE = " " + NEWLINE + 
 				INDENT + TAB + TAB + "ELSE " + NEWLINE + 
 				"%4$s";
@@ -96,7 +108,9 @@ public enum StmtIFData {
 		private static final String FMT_LEAF = INDENT + "NEXT SENTENCE";
 
 		private static final String FMT_IF          = String.format(FMT_STMTIF,      String.format(FMT_STMTIF0, ""      ));
+		private static final String FMT_IFENDIF     = String.format(FMT_STMTIFENDIF, String.format(FMT_STMTIF0, ""      ));
 		private static final String FMT_IFELSE      = String.format(FMT_STMTIF,      String.format(FMT_STMTIF0, FMT_ELSE));
+		private static final String FMT_IFELSEENDIF = String.format(FMT_STMTIFENDIF, String.format(FMT_STMTIF0, FMT_ELSE));
 	}
 
 	public static String flatten(String pretty) {

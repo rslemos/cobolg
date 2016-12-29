@@ -87,6 +87,9 @@ imperativeStatement :
 	|	stmtCALLimperative
 	|	stmtCANCEL
 	|	stmtINVOKEimperative
+		/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670 */
+		/* [...] a delimited scope statement can be specified wherever an imperative statement is allowed [...] */
+	|	delimitedScopeStatement
 	;
 
 /**
@@ -124,6 +127,38 @@ conditionalStatement :
 	|	stmtINVOKEconditional
 		/* table-handling */
 	|	stmtSEARCHconditional
+	;
+
+/**
+ * Delimited scope statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670
+ */
+delimitedScopeStatement :
+		/* explicit scope terminator */
+		stmtADDdelimitedScope
+	|	stmtCALLdelimitedScope
+	|	stmtCOMPUTEdelimitedScope
+	|	stmtDELETEdelimitedScope
+	|	stmtDIVIDEdelimitedScope
+	|	stmtEVALUATEdelimitedScope
+	|	stmtIFdelimitedScope
+	|	stmtINVOKEdelimitedScope
+	|	stmtMULTIPLYdelimitedScope
+	|	stmtPERFORMdelimitedScope
+	|	stmtSequentialREADdelimitedScope
+	|	stmtRandomREADdelimitedScope
+	|	stmtRETURNdelimitedScope
+	|	stmtREWRITEdelimitedScope
+	|	stmtSEARCHdelimitedScope
+	|	stmtSTARTdelimitedScope
+	|	stmtSTRINGdelimitedScope
+	|	stmtSUBTRACTdelimitedScope
+	|	stmtUNSTRINGdelimitedScope
+	|	stmtPageWRITEdelimitedScope
+	|	stmtSequentialWRITEdelimitedScope
+	|	stmtXMLGENERATEdelimitedScope
+	|	stmtXMLPARSEdelimitedScope
 	;
 
 /**
@@ -233,6 +268,8 @@ stmtADDimperative :
 
 stmtADDconditional : stmtADDimperative sizeErrorPhrases;
 
+stmtADDdelimitedScope : stmtADDconditional END_ADD;
+
 /**
  * ALTER statement.
  * 
@@ -254,6 +291,8 @@ callUsing :
 	;
 
 stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
+
+stmtCALLdelimitedScope : stmtCALLconditional END_CALL;
 
 /**
  * CANCEL statement.
@@ -278,6 +317,8 @@ stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpr
 
 stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
 
+stmtCOMPUTEdelimitedScope : stmtCOMPUTEconditional END_COMPUTE;
+
 /**
  * CONTINUE statement.
  * 
@@ -293,6 +334,8 @@ stmtCONTINUE : CONTINUE;
 stmtDELETEimperative : DELETE fileName RECORD?;
 
 stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
+
+stmtDELETEdelimitedScope : stmtDELETEconditional END_DELETE;
 
 /**
  * DISPLAY statement.
@@ -314,6 +357,8 @@ stmtDIVIDEimperative :
 
 stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
 
+stmtDIVIDEdelimitedScope : stmtDIVIDEconditional END_DIVIDE;
+
 /**
  * EVALUATE statement.
  * 
@@ -326,6 +371,8 @@ stmtEVALUATEconditional :
 		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* imperativeStatement)+
 		(WHEN OTHER imperativeStatement)?
 	;
+
+stmtEVALUATEdelimitedScope : stmtEVALUATEconditional END_EVALUATE;
 
 evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
 
@@ -362,6 +409,8 @@ stmtGOBACK : GOBACK;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
 stmtIF : IF conditionalExpression THEN? (proceduralStatement+ | NEXT SENTENCE) (ELSE (proceduralStatement+ | NEXT SENTENCE))?;
+
+stmtIFdelimitedScope : stmtIF END_IF;
 
 /**
  * INITIALIZE statement.
@@ -405,6 +454,8 @@ stmtINVOKEimperative :
 
 stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
 
+stmtINVOKEdelimitedScope : stmtINVOKEconditional END_INVOKE;
+
 /**
  * MERGE statement.
  * 
@@ -439,6 +490,8 @@ stmtMULTIPLYimperative :
 
 stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
 
+stmtMULTIPLYdelimitedScope : stmtMULTIPLYconditional END_MULTIPLY;
+
 /**
  * OPEN statement.
  * 
@@ -459,6 +512,8 @@ openObject :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=413&zoom=auto,-40,735
  */
 stmtPERFORMimperative : PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?;
+
+stmtPERFORMdelimitedScope : PERFORM (performTimes | performUntil | performVarying)? proceduralStatement+ END_PERFORM;
 
 performTimes : (identifier | INTEGER) TIMES;
 
@@ -481,6 +536,10 @@ stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
 
 stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
 
+stmtSequentialREADdelimitedScope : stmtSequentialREADconditional END_READ;
+
+stmtRandomREADdelimitedScope : stmtRandomREADconditional END_READ;
+
 /**
  * RELEASE statement.
  * 
@@ -497,6 +556,8 @@ stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
 stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
 
+stmtRETURNdelimitedScope : stmtRETURNconditional END_RETURN;
+
 /**
  * REWRITE statement.
  * 
@@ -505,6 +566,8 @@ stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
+
+stmtREWRITEdelimitedScope : stmtREWRITEconditional END_REWRITE;
 
 /**
  * SEARCH statement.
@@ -515,6 +578,8 @@ stmtSEARCHconditional :
 		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (imperativeStatement | NEXT SENTENCE))+
 	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (imperativeStatement | NEXT SENTENCE)
 	;
+
+stmtSEARCHdelimitedScope : stmtSEARCHconditional END_SEARCH;
 
 searchWhenPhrase :
 		dataName IS? (EQUAL TO? | OP_EQUAL) (identifier | literal | arithmeticExpression)
@@ -557,6 +622,8 @@ stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER TH
 
 stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
 
+stmtSTARTdelimitedScope : stmtSTARTconditional END_START;
+
 /**
  * STOP statement.
  * 
@@ -575,6 +642,8 @@ stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier
 
 stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
 
+stmtSTRINGdelimitedScope : stmtSTRINGconditional END_STRING;
+
 /**
  * SUBTRACT statement.
  * 
@@ -587,6 +656,8 @@ stmtSUBTRACTimperative :
 	;
 
 stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
+
+stmtSUBTRACTdelimitedScope : stmtSUBTRACTconditional END_SUBTRACT;
 
 /**
  * UNSTRING statement.
@@ -603,6 +674,8 @@ stmtUNSTRINGimperative :
 
 stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
 
+stmtUNSTRINGdelimitedScope : stmtUNSTRINGconditional END_UNSTRING;
+
 /**
  * WRITE statement.
  * 
@@ -617,6 +690,10 @@ stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
 stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
 
 stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
+
+stmtPageWRITEdelimitedScope : stmtPageWRITEconditional END_WRITE;
+
+stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEconditional END_WRITE;
 
 /**
  * XML GENERATE statement.
@@ -636,6 +713,8 @@ stmtXMLGENERATEimperative :
 	;
 
 stmtXMLGENERATEconditional : stmtXMLGENERATEimperative exceptionPhrases;
+
+stmtXMLGENERATEdelimitedScope : stmtXMLGENERATEconditional END_XML;
 
 xmlGenerateWhenPhrase :
 		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
@@ -658,3 +737,5 @@ stmtXMLPARSEimperative :
 	;
 
 stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;
+
+stmtXMLPARSEdelimitedScope : stmtXMLPARSEconditional END_XML;
