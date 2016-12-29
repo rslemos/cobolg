@@ -68,6 +68,8 @@ BLANK                 : 'BLANK';
 BLOCK                 : 'BLOCK';
 BOTTOM                : 'BOTTOM';
 BY                    : 'BY';
+CALL                  : 'CALL';
+CANCEL                : 'CANCEL';
 CHARACTER             : 'CHARACTER';
 CHARACTERS            : 'CHARACTERS';
 CLASS                 : 'CLASS';
@@ -157,6 +159,7 @@ INPUT_OUTPUT          : 'INPUT-OUTPUT';
 INSPECT               : 'INSPECT';
 INSTALLATION          : 'INSTALLATION';
 INTO                  : 'INTO';
+INVOKE                : 'INVOKE';
 IS                    : 'IS';
 JUST                  : 'JUST';
 JUSTIFIED             : 'JUSTIFIED';
@@ -164,6 +167,7 @@ KEY                   : 'KEY';
 LABEL                 : 'LABEL';
 LEADING               : 'LEADING';
 LEFT                  : 'LEFT';
+LENGTH                : 'LENGTH';
 LESS                  : 'LESS';
 LINAGE                : 'LINAGE';
 LINE                  : 'LINE';
@@ -339,6 +343,7 @@ OP_NOTGREATER         : '<='; // less than or equal
 /* SPECIAL OBJECT IDENTIFIERS */
 
 SELF                  : 'SELF';
+SUPER                 : 'SUPER';
 
 /* SPECIAL REGISTERS */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=38&zoom=auto,-100,610 */
@@ -387,6 +392,7 @@ ENCODING              : 'ENCODING';
 NAME                  : 'NAME';
 NAMESPACE             : 'NAMESPACE';
 NAMESPACE_PREFIX      : 'NAMESPACE-PREFIX';
+NEW                   : 'NEW';
 NONNUMERIC            : 'NONNUMERIC';
 PARAGRAPH             : 'PARAGRAPH';
 PARSE                 : 'PARSE';

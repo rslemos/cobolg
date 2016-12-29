@@ -77,6 +77,10 @@ imperativeStatement :
 	|	stmtGOTO
 	|	stmtPERFORMimperative
 	|	stmtCONTINUE
+		/* program or method linkage (without the ON OVERFLOW phrase, and without the ON EXCEPTION or NOT ON EXCEPTION phrase) */
+	|	stmtCALLimperative
+	|	stmtCANCEL
+	|	stmtINVOKEimperative
 	;
 
 /**
@@ -133,6 +137,26 @@ stmtADDimperative :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=329&zoom=auto,-40,735
  */
 stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
+
+/**
+ * CALL statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=331&zoom=auto,-40,735
+ */
+stmtCALLimperative : CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)?;
+
+callUsing :
+		(BY? REFERENCE)? ((ADDRESS OF)? identifier /* | fileName */| OMITTED)+
+	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
+	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
+	;
+
+/**
+ * CANCEL statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=339&zoom=auto,-40,735
+ */
+stmtCANCEL : CANCEL (identifier | literal)+;
 
 /**
  * CLOSE statement.
@@ -234,6 +258,17 @@ inspectTallyingFor :
 inspectReplacingObject :
 		CHARACTERS BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*
 	|	(ALL | LEADING | FIRST) ((identifier | literal) BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*)+
+	;
+
+/**
+ * INVOKE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=385&zoom=auto,-40,735
+ */
+stmtINVOKEimperative :
+		INVOKE (identifier | className | SELF | SUPER) (literal | identifier | NEW)
+		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
+		(RETURNING identifier)?
 	;
 
 /**
