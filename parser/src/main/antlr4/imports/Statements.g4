@@ -39,10 +39,8 @@ proceduralStatement :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,120
  */
 imperativeStatement :
-		/* unknown statements */
-		stmtSTOPRUN
 		/* arithmetic (without the ON SIZE ERROR or the NOT ON SIZE ERROR phrase) */
-	|	stmtADDimperative
+		stmtADDimperative
 	|	stmtCOMPUTEimperative
 	|	stmtDIVIDEimperative
 	|	stmtMULTIPLYimperative
@@ -57,6 +55,10 @@ imperativeStatement :
 	|	stmtUNSTRINGimperative
 	|	stmtXMLGENERATEimperative
 	|	stmtXMLPARSEimperative
+		/* ending */
+	|	stmtEXIT
+	|	stmtSTOPRUN
+	|	stmtGOBACK
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -158,6 +160,22 @@ stmtDIVIDEimperative :
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
 	;
+
+/**
+ * EXIT statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=363&zoom=auto,-40,735
+ */
+stmtEXIT :
+		EXIT (PROGRAM | METHOD)
+	;
+
+/**
+ * GOBACK statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=367&zoom=auto,-40,735
+ */
+stmtGOBACK : GOBACK;
 
 /**
  * INITIALIZE statement.
