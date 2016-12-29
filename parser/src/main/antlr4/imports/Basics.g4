@@ -40,6 +40,7 @@ indexName         : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 paragraphName     : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
+recordName        : USERDEFINEDWORD;
 sectionName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
 xmlSchemaName     : USERDEFINEDWORD;

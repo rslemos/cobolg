@@ -26,7 +26,9 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtDISPLAYContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
+@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 public class StmtDISPLAY {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDISPLAY");
 	public static String get(String key) { return TEST_DATA.getString(key); }
@@ -35,10 +37,171 @@ public class StmtDISPLAY {
 		@Override protected StmtDISPLAYContext parsePart() { return parser.stmtDISPLAY(); }
 	};
 	
-	@Test public void DISPLAY_QUOTED_STRING() {
+	@Test public void DISPLAY_QUOTED_HELLO_WORLD() {
 		helper.compileAndVerify(
-				get("DISPLAY_QUOTED_STRING.source"),
-				get("DISPLAY_QUOTED_STRING.tree")
+				get("DISPLAY_QUOTED_HELLO_WORLD.source"),
+				get("DISPLAY_QUOTED_HELLO_WORLD.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLOWORLD() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLOWORLD.source"),
+				get("DISPLAY_HELLOWORLD.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD.source"),
+				get("DISPLAY_HELLO_WORLD.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_QUOTED_EXMARK() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK.source"),
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2() {
+		helper.compileAndVerify(
+				get("DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2.source"),
+				get("DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLOWORLD_UPON_LCP_CH2() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLOWORLD_UPON_LCP_CH2.source"),
+				get("DISPLAY_HELLOWORLD_UPON_LCP_CH2.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_UPON_LCP_CH2() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_UPON_LCP_CH2.source"),
+				get("DISPLAY_HELLO_WORLD_UPON_LCP_CH2.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2.source"),
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_QUOTED_HELLO_WORLD_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_QUOTED_HELLO_WORLD_NO_ADVANCING.source"),
+				get("DISPLAY_QUOTED_HELLO_WORLD_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLOWORLD_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLOWORLD_NO_ADVANCING.source"),
+				get("DISPLAY_HELLOWORLD_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_QUOTED_EXMARK_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2_NO_ADVANCING.source"),
+				get("DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLOWORLD_UPON_LCP_CH2_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLOWORLD_UPON_LCP_CH2_NO_ADVANCING.source"),
+				get("DISPLAY_HELLOWORLD_UPON_LCP_CH2_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_UPON_LCP_CH2_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_UPON_LCP_CH2_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_UPON_LCP_CH2_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_QUOTED_HELLO_WORLD_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_QUOTED_HELLO_WORLD_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_QUOTED_HELLO_WORLD_WITH_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLOWORLD_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLOWORLD_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_HELLOWORLD_WITH_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_WITH_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_QUOTED_EXMARK_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_WITH_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_QUOTED_HELLO_WORLD_UPON_LCP_CH2_WITH_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLOWORLD_UPON_LCP_CH2_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLOWORLD_UPON_LCP_CH2_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_HELLOWORLD_UPON_LCP_CH2_WITH_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_UPON_LCP_CH2_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_UPON_LCP_CH2_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_UPON_LCP_CH2_WITH_NO_ADVANCING.tree")
+			);
+	}
+	
+	@Test public void DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2_WITH_NO_ADVANCING() {
+		helper.compileAndVerify(
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2_WITH_NO_ADVANCING.source"),
+				get("DISPLAY_HELLO_WORLD_QUOTED_EXMARK_UPON_LCP_CH2_WITH_NO_ADVANCING.tree")
 			);
 	}
 }
