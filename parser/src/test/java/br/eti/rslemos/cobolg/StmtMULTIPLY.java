@@ -76,4 +76,46 @@ public class StmtMULTIPLY {
 				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W.tree")
 			);
 	}
+	
+	@Test public void MULTIPLY_X_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("MULTIPLY_X_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("MULTIPLY_X_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void MULTIPLY_20_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("MULTIPLY_20_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("MULTIPLY_20_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
 }

@@ -41,4 +41,11 @@ public class StmtREWRITE {
 				get("REWRITE_REC_FROM_X.tree")
 			);
 	}
+	
+	@Test public void REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
+		helper.compileAndVerify(
+				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
+				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
+			);
+	}
 }

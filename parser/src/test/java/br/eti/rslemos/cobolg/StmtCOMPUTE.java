@@ -48,4 +48,18 @@ public class StmtCOMPUTE {
 				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W.tree")
 			);
 	}
+	
+	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN() {
+		helper.compileAndVerify(
+				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN.source"),
+				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN.tree")
+			);
+	}
 }

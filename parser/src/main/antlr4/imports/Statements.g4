@@ -31,6 +31,7 @@ options { tokenVocab = COBOLLexer; }
  */
 proceduralStatement :
 		imperativeStatement
+	|	conditionalStatement
 	;
 
 /**
@@ -89,6 +90,43 @@ imperativeStatement :
 	;
 
 /**
+ * Conditional statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
+ */
+conditionalStatement :
+		/* arithmetic */
+		stmtADDconditional
+	|	stmtCOMPUTEconditional
+	|	stmtDIVIDEconditional
+	|	stmtMULTIPLYconditional
+	|	stmtSUBTRACTconditional
+		/* data movement */
+	|	stmtSTRINGconditional
+	|	stmtUNSTRINGconditional
+	|	stmtXMLGENERATEconditional
+	|	stmtXMLPARSEconditional
+		/* decision */
+	|	stmtEVALUATEconditional
+	|	stmtIF
+		/* input-output */
+	|	stmtDELETEconditional
+	|	stmtSequentialREADconditional
+	|	stmtRandomREADconditional
+	|	stmtREWRITEconditional
+	|	stmtSTARTconditional
+	|	stmtPageWRITEconditional
+	|	stmtSequentialWRITEconditional
+		/* ordering */
+	|	stmtRETURNconditional
+		/* program or method linkage */
+	|	stmtCALLconditional
+	|	stmtINVOKEconditional
+		/* table-handling */
+	|	stmtSEARCHconditional
+	;
+
+/**
  * CORRESPONDING phrase.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=307&zoom=auto,-40,290
@@ -108,6 +146,63 @@ roundedPhrase : identifier ROUNDED?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=308&zoom=auto,-40,140
  */
 givingPhrase : GIVING roundedPhrase+;
+
+/**
+ * SIZE ERROR phrases.
+ * 
+ * (should allow any order?)
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=309&zoom=auto,-40,340
+ */
+sizeErrorPhrases : onSizeErrorPhrase? notOnSizeErrorPhrase?;
+onSizeErrorPhrase    :     ON? SIZE ERROR imperativeStatement;
+notOnSizeErrorPhrase : NOT ON? SIZE ERROR imperativeStatement;
+
+/**
+ * EXCEPTION phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,410
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,230
+ */
+exceptionPhrases : onExceptionPhrase? notOnExceptionPhrase?;
+onExceptionPhrase    :     ON? EXCEPTION imperativeStatement;
+notOnExceptionPhrase : NOT ON? EXCEPTION imperativeStatement;
+
+/**
+ * OVERFLOW phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=338&zoom=auto,-40,700
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=468&zoom=auto,-40,630
+ */
+overflowPhrases : onOverflowPhrase? notOnOverflowPhrase?;
+onOverflowPhrase    :     ON? OVERFLOW imperativeStatement;
+notOnOverflowPhrase : NOT ON? OVERFLOW imperativeStatement;
+
+/**
+ * INVALID KEY phrases.
+ * 
+ */
+invalidKeyPhrases : invalidKeyPhrase? notInvalidKeyPhrase?;
+invalidKeyPhrase    :     INVALID KEY? imperativeStatement;
+notInvalidKeyPhrase : NOT INVALID KEY? imperativeStatement;
+
+/**
+ * AT END phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=425&zoom=auto,-40,190
+ */
+atEndPhrases : atEndPhrase? notAtEndPhrase?;
+atEndPhrase    :     AT? END imperativeStatement;
+notAtEndPhrase : NOT AT? END imperativeStatement;
+
+/**
+ * AT END-OF-PAGE phrases.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=485&zoom=auto,-40,335
+ */
+atEndOfPagePhrases : atEndOfPagePhrase? notAtEndOfPagePhrase?;
+atEndOfPagePhrase    :     AT? (END_OF_PAGE | EOP) imperativeStatement;
+notAtEndOfPagePhrase : NOT AT? (END_OF_PAGE | EOP) imperativeStatement;
 
 /* here come the actual statements (all prefixed by stmt) */
 
@@ -136,6 +231,8 @@ stmtADDimperative :
 	|	ADD correspondingPhrase identifier TO roundedPhrase
 	;
 
+stmtADDconditional : stmtADDimperative sizeErrorPhrases;
+
 /**
  * ALTER statement.
  * 
@@ -155,6 +252,8 @@ callUsing :
 	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
 	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
 	;
+
+stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
 
 /**
  * CANCEL statement.
@@ -177,6 +276,8 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  */
 stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
 
+stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
+
 /**
  * CONTINUE statement.
  * 
@@ -190,6 +291,8 @@ stmtCONTINUE : CONTINUE;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=348&zoom=auto,-40,735
  */
 stmtDELETEimperative : DELETE fileName RECORD?;
+
+stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
 
 /**
  * DISPLAY statement.
@@ -208,6 +311,23 @@ stmtDIVIDEimperative :
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
 	;
+
+stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
+
+/**
+ * EVALUATE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=359&zoom=auto,-40,735
+ */
+stmtEVALUATEconditional :
+		EVALUATE
+		      (identifier | literal | arithmeticExpression | TRUE | FALSE)
+		(ALSO (identifier | literal | arithmeticExpression | TRUE | FALSE))*
+		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* imperativeStatement)+
+		(WHEN OTHER imperativeStatement)?
+	;
+
+evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
 
 /**
  * EXIT statement.
@@ -235,6 +355,13 @@ stmtGOTO :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=367&zoom=auto,-40,735
  */
 stmtGOBACK : GOBACK;
+
+/**
+ * IF statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
+ */
+stmtIF : IF conditionalExpression THEN? (proceduralStatement+ | NEXT SENTENCE) (ELSE (proceduralStatement+ | NEXT SENTENCE))?;
 
 /**
  * INITIALIZE statement.
@@ -276,6 +403,8 @@ stmtINVOKEimperative :
 		(RETURNING identifier)?
 	;
 
+stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
+
 /**
  * MERGE statement.
  * 
@@ -307,6 +436,8 @@ stmtMULTIPLYimperative :
 		MULTIPLY (identifier | literal) BY roundedPhrase+
 	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
 	;
+
+stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
 
 /**
  * OPEN statement.
@@ -346,6 +477,10 @@ stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
+stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
+
+stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
+
 /**
  * RELEASE statement.
  * 
@@ -360,12 +495,31 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
  */
 stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
+stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
+
 /**
  * REWRITE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
+
+stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
+
+/**
+ * SEARCH statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=438&zoom=auto,-40,735
+ */
+stmtSEARCHconditional :
+		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (imperativeStatement | NEXT SENTENCE))+
+	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (imperativeStatement | NEXT SENTENCE)
+	;
+
+searchWhenPhrase :
+		dataName IS? (EQUAL TO? | OP_EQUAL) (identifier | literal | arithmeticExpression)
+	|	conditionalExpression
+	;
 
 /**
  * SET statement.
@@ -401,6 +555,8 @@ stmtSORT :
  */
 stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)?;
 
+stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
+
 /**
  * STOP statement.
  * 
@@ -417,6 +573,8 @@ stmtSTOPRUN : STOP RUN;
  */
 stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
 
+stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
+
 /**
  * SUBTRACT statement.
  * 
@@ -427,6 +585,8 @@ stmtSUBTRACTimperative :
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
 	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
 	;
+
+stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
 
 /**
  * UNSTRING statement.
@@ -441,6 +601,8 @@ stmtUNSTRINGimperative :
 		(TALLYING IN? identifier)?
 	;
 
+stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
+
 /**
  * WRITE statement.
  * 
@@ -451,6 +613,10 @@ stmtUNSTRINGimperative :
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
+
+stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
+
+stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
 
 /**
  * XML GENERATE statement.
@@ -468,6 +634,8 @@ stmtXMLGENERATEimperative :
 		(TYPE OF? (identifier IS? (ATTRIBUTE | ELEMENT | CONTENT))+)?
 		(SUPPRESS (identifier xmlGenerateWhenPhrase? | genericSupressionPhrase)+)?
 	;
+
+stmtXMLGENERATEconditional : stmtXMLGENERATEimperative exceptionPhrases;
 
 xmlGenerateWhenPhrase :
 		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
@@ -488,3 +656,5 @@ stmtXMLPARSEimperative :
 		(VALIDATING WITH? (identifier | FILE xmlSchemaName))?
 		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
 	;
+
+stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;

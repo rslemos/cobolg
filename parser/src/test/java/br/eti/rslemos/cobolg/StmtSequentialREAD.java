@@ -62,4 +62,32 @@ public class StmtSequentialREAD {
 				get("READ_FILENAME_NEXT_RECORD_INTO_X.tree")
 			);
 	}
+	
+	@Test public void READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
+		helper.compileAndVerify(
+				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
+				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
+		helper.compileAndVerify(
+				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
+				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
+		helper.compileAndVerify(
+				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
+				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
+		helper.compileAndVerify(
+				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
+				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.tree")
+			);
+	}
 }
