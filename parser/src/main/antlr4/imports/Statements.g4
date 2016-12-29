@@ -117,6 +117,8 @@ conditionalStatement :
 	|	stmtSTARTconditional
 	|	stmtPageWRITEconditional
 	|	stmtSequentialWRITEconditional
+		/* ordering */
+	|	stmtRETURNconditional
 		/* program or method linkage */
 	|	stmtCALLconditional
 	|	stmtINVOKEconditional
@@ -490,6 +492,8 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=433&zoom=auto,-40,735
  */
 stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
+
+stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
 
 /**
  * REWRITE statement.

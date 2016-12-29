@@ -25,14 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtRETURNconditionalContext;
 
-public class StmtRETURN {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRETURN");
+public class StmtRETURNconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRETURNconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtRETURNconditionalContext> helper = new CompilerHelper<StmtRETURNconditionalContext>() {
+		@Override protected StmtRETURNconditionalContext parsePart() { return parser.stmtRETURNconditional(); }
 	};
 	
 	@Test public void RETURN_FILE_1() {
