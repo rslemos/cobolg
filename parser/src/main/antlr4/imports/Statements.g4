@@ -117,6 +117,9 @@ conditionalStatement :
 	|	stmtSTARTconditional
 	|	stmtPageWRITEconditional
 	|	stmtSequentialWRITEconditional
+		/* program or method linkage */
+	|	stmtCALLconditional
+	|	stmtINVOKEconditional
 	;
 
 /**
@@ -245,6 +248,8 @@ callUsing :
 	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
 	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
 	;
+
+stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
 
 /**
  * CANCEL statement.
@@ -393,6 +398,8 @@ stmtINVOKEimperative :
 		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
 		(RETURNING identifier)?
 	;
+
+stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
 
 /**
  * MERGE statement.

@@ -23,18 +23,17 @@ package br.eti.rslemos.cobolg;
 
 import java.util.ResourceBundle;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtCALLconditionalContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
-public class StmtCALL {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCALL");
+public class StmtCALLconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCALLconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtCALLconditionalContext> helper = new CompilerHelper<StmtCALLconditionalContext>() {
+		@Override protected StmtCALLconditionalContext parsePart() { return parser.stmtCALLconditional(); }
 	};
 	
 	@Test public void CALL_PROC_1() {
@@ -58,8 +57,6 @@ public class StmtCALL {
 			);
 	}
 	
-	@Ignore
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_VALUE_ADDRESS_OF_ARG_1_CONTENT_LENGTH_OF_ARG_2_ARG_3_ARG_4() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_VALUE_ADDRESS_OF_ARG_1_CONTENT_LENGTH_OF_ARG_2_ARG_3_ARG_4.source"),

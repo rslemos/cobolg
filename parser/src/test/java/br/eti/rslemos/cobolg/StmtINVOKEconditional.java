@@ -25,16 +25,16 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtINVOKEconditionalContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 @Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
-public class StmtINVOKE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtINVOKE");
+public class StmtINVOKEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtINVOKEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtINVOKEconditionalContext> helper = new CompilerHelper<StmtINVOKEconditionalContext>() {
+		@Override protected StmtINVOKEconditionalContext parsePart() { return parser.stmtINVOKEconditional(); }
 	};
 	
 	@Test public void INVOKE_CLS_1_QUOTED_METHOD() {
