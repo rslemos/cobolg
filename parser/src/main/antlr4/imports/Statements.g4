@@ -106,6 +106,9 @@ conditionalStatement :
 	|	stmtUNSTRINGconditional
 	|	stmtXMLGENERATEconditional
 	|	stmtXMLPARSEconditional
+		/* decision */
+	|	stmtEVALUATEconditional
+	|	stmtIF
 		/* input-output */
 	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
@@ -303,6 +306,21 @@ stmtDIVIDEimperative :
 stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
 
 /**
+ * EVALUATE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=359&zoom=auto,-40,735
+ */
+stmtEVALUATEconditional :
+		EVALUATE
+		      (identifier | literal | arithmeticExpression | TRUE | FALSE)
+		(ALSO (identifier | literal | arithmeticExpression | TRUE | FALSE))*
+		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* imperativeStatement)+
+		(WHEN OTHER imperativeStatement)?
+	;
+
+evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
+
+/**
  * EXIT statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=363&zoom=auto,-40,735
@@ -328,6 +346,13 @@ stmtGOTO :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=367&zoom=auto,-40,735
  */
 stmtGOBACK : GOBACK;
+
+/**
+ * IF statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
+ */
+stmtIF : IF conditionalExpression THEN? (proceduralStatement+ | NEXT SENTENCE) (ELSE (proceduralStatement+ | NEXT SENTENCE))?;
 
 /**
  * INITIALIZE statement.
