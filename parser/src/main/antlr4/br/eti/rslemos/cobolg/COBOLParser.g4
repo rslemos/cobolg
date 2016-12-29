@@ -31,6 +31,13 @@ import Basics, IdentificationDivision, EnvironmentDivision, DataDivision, Proced
 options { tokenVocab = COBOLLexer; }
 
 /**
+ * Batch.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=109&zoom=auto,-40,760
+ */
+batch : program+;
+
+/**
  * Program.
  * 
  * Per reference manual identificationDivision ought to be required.

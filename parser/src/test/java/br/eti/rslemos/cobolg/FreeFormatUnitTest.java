@@ -104,7 +104,9 @@ public class FreeFormatUnitTest {
 	@BeforeClass
 	public static void compile() throws Exception {
 		FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(SOURCE));
-		tree = compiler.compile();
+		BatchContext tree0 = compiler.compile();
+		assertThat(tree0, is(not(nullValue(BatchContext.class))));
+		tree = tree0.program(0);
 		assertThat(tree, is(not(nullValue(ProgramContext.class))));
 	}
 	
