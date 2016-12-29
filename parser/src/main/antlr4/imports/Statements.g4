@@ -72,6 +72,11 @@ imperativeStatement :
 	|	stmtSTOP
 	|	stmtPageWRITEimperative
 	|	stmtSequentialWRITEimperative
+		/* ordering (without the AT END or NOT AT END phrase) */
+	|	stmtMERGE
+	|	stmtRELEASE
+	|	stmtRETURNimperative
+	|	stmtSORT
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
@@ -272,6 +277,18 @@ stmtINVOKEimperative :
 	;
 
 /**
+ * MERGE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=393&zoom=auto,-40,735
+ */
+stmtMERGE :
+		MERGE fileName (ON? (ASCENDING | DESCENDING) KEY? dataName+)+
+		(COLLATING? SEQUENCE IS? alphabetName)?
+		USING fileName fileName+
+		(OUTPUT PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)? | GIVING fileName+)
+	;
+
+/**
  * MOVE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=398&zoom=auto,-40,735
@@ -330,6 +347,20 @@ stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
 /**
+ * RELEASE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=431&zoom=auto,-40,735
+ */
+stmtRELEASE : RELEASE recordName (FROM identifier)?;
+
+/**
+ * RETURN statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=433&zoom=auto,-40,735
+ */
+stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
+
+/**
  * REWRITE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
@@ -349,6 +380,18 @@ stmtSET :
 	|	SET (identifier | ADDRESS OF identifier)+ TO (identifier | ADDRESS OF identifier | NULL | NULLS)
 //	|	SET (procedurePointer | functionPointer)+ TO (procedurePointer | functionPointer | ENTRY (identifier | literal) | NULL | NULLS | pointerDataItem)
 //	|	SET objectReference TO (objectReference | SELF | NULL)
+	;
+
+/**
+ * SORT statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=452&zoom=auto,-40,735
+ */
+stmtSORT :
+		SORT dataName (ON? (ASCENDING | DESCENDING) KEY? dataName+)* (WITH? DUPLICATES IN? ORDER?)? (COLLATING? SEQUENCE IS? alphabetName)?
+	|	SORT fileName (ON? (ASCENDING | DESCENDING) KEY? dataName+)+ (WITH? DUPLICATES IN? ORDER?)? (COLLATING? SEQUENCE IS? alphabetName)?
+		(USING fileName+ | INPUT PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?)
+		(GIVING fileName+ | OUTPUT PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?)
 	;
 
 /**
