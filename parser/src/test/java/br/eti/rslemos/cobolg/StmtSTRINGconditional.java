@@ -25,16 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSTRINGconditionalContext;
 
-@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
-public class StmtSTRING {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSTRING");
+public class StmtSTRINGconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSTRINGconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSTRINGconditionalContext> helper = new CompilerHelper<StmtSTRINGconditionalContext>() {
+		@Override protected StmtSTRINGconditionalContext parsePart() { return parser.stmtSTRINGconditional(); }
 	};
 	
 	@Test public void STRING_X_A_DELIMITED_D_1_INTO_T() {
