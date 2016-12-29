@@ -95,8 +95,14 @@ imperativeStatement :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
  */
 conditionalStatement :
+		/* arithmetic */
+		stmtADDconditional
+	|	stmtCOMPUTEconditional
+	|	stmtDIVIDEconditional
+	|	stmtMULTIPLYconditional
+	|	stmtSUBTRACTconditional
 		/* input-output */
-		stmtDELETEconditional
+	|	stmtDELETEconditional
 	|	stmtSequentialREADconditional
 	|	stmtRandomREADconditional
 	|	stmtREWRITEconditional
@@ -210,6 +216,8 @@ stmtADDimperative :
 	|	ADD correspondingPhrase identifier TO roundedPhrase
 	;
 
+stmtADDconditional : stmtADDimperative sizeErrorPhrases;
+
 /**
  * ALTER statement.
  * 
@@ -251,6 +259,8 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  */
 stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
 
+stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
+
 /**
  * CONTINUE statement.
  * 
@@ -284,6 +294,8 @@ stmtDIVIDEimperative :
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
 	;
+
+stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
 
 /**
  * EXIT statement.
@@ -383,6 +395,8 @@ stmtMULTIPLYimperative :
 		MULTIPLY (identifier | literal) BY roundedPhrase+
 	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
 	;
+
+stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
 
 /**
  * OPEN statement.
@@ -511,6 +525,8 @@ stmtSUBTRACTimperative :
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
 	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
 	;
+
+stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
 
 /**
  * UNSTRING statement.

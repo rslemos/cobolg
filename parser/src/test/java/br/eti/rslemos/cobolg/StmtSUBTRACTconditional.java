@@ -25,14 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSUBTRACTconditionalContext;
 
-public class StmtSUBTRACT {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSUBTRACT");
+public class StmtSUBTRACTconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSUBTRACTconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSUBTRACTconditionalContext> helper = new CompilerHelper<StmtSUBTRACTconditionalContext>() {
+		@Override protected StmtSUBTRACTconditionalContext parsePart() { return parser.stmtSUBTRACTconditional(); }
 	};
 	
 	@Test public void SUBTRACT_10_FROM_X_Y_ROUNDED() {
