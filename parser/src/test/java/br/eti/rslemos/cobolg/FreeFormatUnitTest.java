@@ -38,6 +38,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.*;
+import br.eti.rslemos.cobolg.COBOLParser.StmtMOVEContext;
 import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatUnitTest {
@@ -93,6 +94,7 @@ public class FreeFormatUnitTest {
 			"01  LE-ENDI.            COPY XZT0009.",
 			"EJECT",
 			"PROCEDURE DIVISION.\r",
+			"    MOVE -1 TO WS-DEBUG1.",
 			"    DISPLAY 'Hello, world'.",
 			"    STOP RUN.\r"
 		);
@@ -449,13 +451,16 @@ public class FreeFormatUnitTest {
 
 		assertThat(unnamedProceduralSection.namedProceduralParagraph().size(), is(equalTo(0)));
 		UnnamedProceduralParagraphContext unnamedProceduralParagraph = unnamedProceduralSection.unnamedProceduralParagraph();
+
+		assertThat(unnamedProceduralParagraph.proceduralSentence().size(), is(equalTo(3)));
+
+		ProceduralStatementContext statement_0 = unnamedProceduralParagraph.proceduralSentence(0).proceduralStatement(0);
+		StmtMOVEContext stmtMOVE = statement_0.imperativeStatement().stmtMOVE();
 		
-		assertThat(unnamedProceduralParagraph.proceduralStatement().size(), is(equalTo(2)));
+		ProceduralStatementContext statement_1 = unnamedProceduralParagraph.proceduralSentence(1).proceduralStatement(0);
+		assertThat(statement_1.imperativeStatement().stmtDISPLAY().DISPLAY(), is(not(nullValue(TerminalNode.class))));
 		
-		ProceduralStatementContext statement_0 = unnamedProceduralParagraph.proceduralStatement(0);
-		assertThat(statement_0.DISPLAY(), is(not(nullValue(TerminalNode.class))));
-		
-		ProceduralStatementContext statement_1 = unnamedProceduralParagraph.proceduralStatement(1);
-		assertThat(statement_1.STOP(), is(not(nullValue(TerminalNode.class))));
+		ProceduralStatementContext statement_2 = unnamedProceduralParagraph.proceduralSentence(2).proceduralStatement(0);
+		assertThat(statement_2.imperativeStatement().stmtSTOPRUN().STOP(), is(not(nullValue(TerminalNode.class))));
 	}
 }

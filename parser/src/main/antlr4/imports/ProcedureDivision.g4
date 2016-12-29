@@ -24,10 +24,25 @@ import Basics, Statements;
 
 options { tokenVocab = COBOLLexer; }
 
+/**
+ * Procedure division.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=269&zoom=auto,-40,740
+ */
 procedureDivision :
-		PROCEDURE DIVISION usingClause? PERIOD
+		PROCEDURE DIVISION usingPhrase? returningPhrase? PERIOD
 		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
 	;
+
+// usingPhrase declared in Statements, as it is used by stmtENTRY
+
+/**
+ * Returning phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=273&zoom=auto,-40,470
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=276&zoom=auto,-40,600
+ */
+returningPhrase : RETURNING dataName;
 
 unnamedProceduralSection :
 		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
@@ -39,22 +54,12 @@ namedProceduralSection :
 	;
 
 unnamedProceduralParagraph :
-		proceduralStatement+
+		proceduralSentence+
 	;
 
 namedProceduralParagraph :
 		paragraphName PERIOD
-		proceduralStatement+
+		proceduralSentence+
 	;
 
-usingClause :
-		USING ((BY? (REFERENCE|VALUE))? dataName)+
-	;
-
-sectionName :
-		USERDEFINEDWORD
-	;
-
-paragraphName :
-		USERDEFINEDWORD
-	;
+proceduralSentence : proceduralStatement+ PERIOD;

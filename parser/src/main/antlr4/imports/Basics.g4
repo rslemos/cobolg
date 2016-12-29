@@ -38,7 +38,10 @@ dataName          : USERDEFINEDWORD;
 fileName          : USERDEFINEDWORD;
 indexName         : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
+paragraphName     : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
+recordName        : USERDEFINEDWORD;
+sectionName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
 xmlSchemaName     : USERDEFINEDWORD;
 
@@ -197,6 +200,79 @@ arithmeticExpression :
 	|	identifier
 	;
 
+/**
+ * Conditional expression.
+ * 
+ * Simple and complex conditions are expressed directly here.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=282&zoom=auto,-40,735
+ */
+conditionalExpression :
+		classCondition
+	|	conditionNameCondition
+	|	relationCondition
+	|	signCondition
+	|	NOT conditionalExpression
+	|	conditionalExpression AND conditionalExpression
+	|	conditionalExpression OR conditionalExpression
+	|	LPAREN conditionalExpression RPAREN
+//	|	complexCondition
+	;
+
+/**
+ * Class condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=282&zoom=auto,-40,440
+ */
+classCondition : identifier IS? NOT? (NUMERIC | ALPHABETIC | ALPHABETIC_LOWER | ALPHABETIC_UPPER);
+
+/**
+ * Condition-name condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=284&zoom=auto,-40,320
+ */
+conditionNameCondition : conditionName;
+
+/**
+ * Relation condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=285&zoom=auto,-40,390
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=300&zoom=auto,-40,650
+ */
+relationCondition :
+		operand IS? relation operand ((AND|OR) NOT? relation? operand)*
+	|	((ADDRESS OF)? identifier | NULL) IS? NOT? (EQUAL TO? | OP_EQUAL) ((ADDRESS OF)? identifier | NULL)
+	|	(identifier | SELF | NULL) IS? NOT? (EQUAL TO? | OP_EQUAL) (identifier | SELF | NULL)
+	;
+
+operand :
+		identifier
+	|	literal
+//	|	functionId
+	|	arithmeticExpression
+	|	indexName
+	;
+
+relation :
+		NOT? GREATER THAN?
+	|	NOT? OP_GREATER
+	|	NOT? LESS THAN?
+	|	NOT? OP_LESS
+	|	NOT? EQUAL TO?
+	|	NOT? OP_EQUAL
+	|	GREATER THAN? OR EQUAL TO?
+	|	OP_NOTLESS
+	|	LESS THAN? OR EQUAL TO?
+	|	OP_NOTGREATER
+	;
+
+/**
+ * Sign condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=296&zoom=auto,-40,700
+ */
+signCondition : operand IS? NOT? (POSITIVE | NEGATIVE | ZERO);
+
 /*
  * References
  * 
@@ -221,4 +297,9 @@ subscript :
 		INTEGER
 	|	ALL
 	|	refDataName ((OP_PLUS | OP_MINUS) INTEGER)?
+	;
+
+procedureName :
+		sectionName
+	|	paragraphName
 	;
