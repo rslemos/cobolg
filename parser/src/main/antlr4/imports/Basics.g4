@@ -40,6 +40,7 @@ indexName         : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
 paragraphName     : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
+recordName        : USERDEFINEDWORD;
 sectionName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
 xmlSchemaName     : USERDEFINEDWORD;
@@ -296,4 +297,9 @@ subscript :
 		INTEGER
 	|	ALL
 	|	refDataName ((OP_PLUS | OP_MINUS) INTEGER)?
+	;
+
+procedureName :
+		sectionName
+	|	paragraphName
 	;
