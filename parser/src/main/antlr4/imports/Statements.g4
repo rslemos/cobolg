@@ -41,6 +41,12 @@ proceduralStatement :
 imperativeStatement :
 		/* unknown statements */
 		stmtSTOPRUN
+		/* arithmetic (without the ON SIZE ERROR or the NOT ON SIZE ERROR phrase) */
+	|	stmtADDimperative
+	|	stmtCOMPUTEimperative
+	|	stmtDIVIDEimperative
+	|	stmtMULTIPLYimperative
+	|	stmtSUBTRACTimperative
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -56,6 +62,27 @@ imperativeStatement :
 	|	stmtSequentialWRITEimperative
 	;
 
+/**
+ * CORRESPONDING phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=307&zoom=auto,-40,290
+ */
+correspondingPhrase : (CORR | CORRESPONDING);
+
+/**
+ * ROUNDED phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=309&zoom=auto,-40,735
+ */
+roundedPhrase : identifier ROUNDED?;
+
+/**
+ * GIVING phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=308&zoom=auto,-40,140
+ */
+givingPhrase : GIVING roundedPhrase+;
+
 /* here come the actual statements (all prefixed by stmt) */
 
 /**
@@ -69,11 +96,29 @@ stmtACCEPT :
 	;
 
 /**
+ * ADD statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=326&zoom=auto,-40,735
+ */
+stmtADDimperative :
+		ADD (identifier | literal)+ TO roundedPhrase+
+	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
+	|	ADD correspondingPhrase identifier TO roundedPhrase
+	;
+
+/**
  * CLOSE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=341&zoom=auto,-40,735
  */
 stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WITH? (NO REWIND | LOCK))?)+;
+
+/**
+ * COMPUTE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=345&zoom=auto,-40,735
+ */
+stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
 
 /**
  * DELETE statement.
@@ -88,6 +133,27 @@ stmtDELETEimperative : DELETE fileName RECORD?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=350&zoom=auto,-40,735
  */
 stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentName))? (WITH? NO ADVANCING)?;
+
+/**
+ * DIVIDE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=353&zoom=auto,-40,735
+ */
+stmtDIVIDEimperative :
+		DIVIDE (identifier | literal) INTO roundedPhrase+
+	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
+	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
+	;
+
+/**
+ * MULTIPLY statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=405&zoom=auto,-40,735
+ */
+stmtMULTIPLYimperative :
+		MULTIPLY (identifier | literal) BY roundedPhrase+
+	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
+	;
 
 /**
  * OPEN statement.
@@ -134,6 +200,17 @@ stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER TH
 stmtSTOP : STOP literal;
 
 stmtSTOPRUN : STOP RUN;
+
+/**
+ * SUBTRACT statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=471&zoom=auto,-40,735
+ */
+stmtSUBTRACTimperative :
+		SUBTRACT (identifier | literal)+ FROM roundedPhrase+
+	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
+	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
+	;
 
 /**
  * WRITE statement.
