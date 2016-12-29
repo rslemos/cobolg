@@ -47,6 +47,16 @@ imperativeStatement :
 	|	stmtDIVIDEimperative
 	|	stmtMULTIPLYimperative
 	|	stmtSUBTRACTimperative
+		/* data movement (without the ON OVERFLOW or the NOT ON OVERFLOW phrase or the ON EXCEPTION or NOT ON EXCEPTION phrase) */
+//	|	ACCEPT // format 2
+	|	stmtINITIALIZE
+	|	stmtINSPECT
+	|	stmtMOVE
+	|	stmtSET
+	|	stmtSTRINGimperative
+	|	stmtUNSTRINGimperative
+	|	stmtXMLGENERATEimperative
+	|	stmtXMLPARSEimperative
 		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
@@ -90,9 +100,13 @@ givingPhrase : GIVING roundedPhrase+;
  * 
  * Format 1:
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=322&zoom=auto,-40,735
+ * 
+ * Format 2:
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=323&zoom=auto,-40,105
  */
 stmtACCEPT :
 		ACCEPT identifier (FROM (mnemonicName | environmentName))?
+	|	ACCEPT identifier FROM (DATE YYYYMMDD?| DAY YYYYDDD? | DAY_OF_WEEK | TIME)
 	;
 
 /**
@@ -146,6 +160,45 @@ stmtDIVIDEimperative :
 	;
 
 /**
+ * INITIALIZE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=372&zoom=auto,-40,735
+ */
+stmtINITIALIZE : INITIALIZE identifier+ (REPLACING ((ALPHABETIC | ALPHANUMERIC | ALPHANUMERIC_EDITED | NATIONAL | NATIONAL_EDITED | NUMERIC | NUMERIC_EDITED | DBCS | EGCS) DATA? BY (identifier | literal))+)?;
+
+/**
+ * INSPECT statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=375&zoom=auto,-40,735
+ */
+stmtINSPECT :
+		INSPECT identifier TALLYING (identifier FOR inspectTallyingFor+)+
+	|	INSPECT identifier REPLACING inspectReplacingObject+
+	|	INSPECT identifier TALLYING (identifier FOR inspectTallyingFor+)+ REPLACING inspectReplacingObject+
+	|	INSPECT identifier CONVERTING (identifier | literal) TO (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))+
+	;
+
+inspectTallyingFor :
+		CHARACTERS ((BEFORE | AFTER) INITIAL? (identifier | literal))*
+	|	(ALL | LEADING) ((identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*)+
+	;
+
+inspectReplacingObject :
+		CHARACTERS BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*
+	|	(ALL | LEADING | FIRST) ((identifier | literal) BY (identifier | literal) ((BEFORE | AFTER) INITIAL? (identifier | literal))*)+
+	;
+
+/**
+ * MOVE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=398&zoom=auto,-40,735
+ */
+stmtMOVE :
+		MOVE (identifier | literal) TO identifier+
+	|	MOVE (CORRESPONDING | CORR) identifier TO identifier
+	;
+
+/**
  * MULTIPLY statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=405&zoom=auto,-40,735
@@ -186,6 +239,21 @@ stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dat
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 /**
+ * SET statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=445&zoom=auto,-40,735
+ */
+stmtSET :
+		SET (indexName | identifier)+ TO (indexName | identifier | INTEGER)
+	|	SET indexName+ (UP | DOWN) BY (identifier | INTEGER)
+	|	SET (mnemonicName+ TO (ON | OFF))+
+	|	SET conditionName+ TO TRUE
+	|	SET (identifier | ADDRESS OF identifier)+ TO (identifier | ADDRESS OF identifier | NULL | NULLS)
+//	|	SET (procedurePointer | functionPointer)+ TO (procedurePointer | functionPointer | ENTRY (identifier | literal) | NULL | NULLS | pointerDataItem)
+//	|	SET objectReference TO (objectReference | SELF | NULL)
+	;
+
+/**
  * START statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=462&zoom=auto,-40,735
@@ -202,6 +270,13 @@ stmtSTOP : STOP literal;
 stmtSTOPRUN : STOP RUN;
 
 /**
+ * STRING statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=466&zoom=auto,-40,735
+ */
+stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
+
+/**
  * SUBTRACT statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=471&zoom=auto,-40,735
@@ -210,6 +285,19 @@ stmtSUBTRACTimperative :
 		SUBTRACT (identifier | literal)+ FROM roundedPhrase+
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
 	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
+	;
+
+/**
+ * UNSTRING statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=474&zoom=auto,-40,735
+ */
+stmtUNSTRINGimperative :
+		UNSTRING identifier
+		(DELIMITED BY? ALL? (identifier | literal) (OR ALL? (identifier | literal))*)?
+		INTO (identifier (DELIMITER IN? identifier)? (COUNT IN? identifier))+
+		(WITH? POINTER identifier)?
+		(TALLYING IN? identifier)?
 	;
 
 /**
@@ -222,3 +310,40 @@ stmtSUBTRACTimperative :
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
+
+/**
+ * XML GENERATE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=490&zoom=auto,-40,735
+ */
+stmtXMLGENERATEimperative :
+		XML GENERATE identifier FROM identifier
+		(COUNT IN? identifier)?
+		(WITH? ENCODING (identifier | literal))?
+		(WITH? XML_DECLARATION)?
+		(WITH? ATTRIBUTES)?
+		(NAMESPACE IS? (identifier | literal) (NAMESPACE_PREFIX IS? (identifier | literal))?)?
+		(NAME OF? (identifier IS? literal)+)?
+		(TYPE OF? (identifier IS? (ATTRIBUTE | ELEMENT | CONTENT))+)?
+		(SUPPRESS (identifier xmlGenerateWhenPhrase? | genericSupressionPhrase)+)?
+	;
+
+xmlGenerateWhenPhrase :
+		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
+		(OR? (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES))*
+	;
+
+genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT | ELEMENT) | NUMERIC | NONNUMERIC))? xmlGenerateWhenPhrase;
+
+/**
+ * XML PARSE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=502&zoom=auto,-40,735
+ */
+stmtXMLPARSEimperative :
+		XML PARSE identifier
+		(WITH? ENCODING (identifier | literal))?
+		(RETURNING NATIONAL)?
+		(VALIDATING WITH? (identifier | FILE xmlSchemaName))?
+		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
+	;

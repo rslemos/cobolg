@@ -298,3 +298,8 @@ subscript :
 	|	ALL
 	|	refDataName ((OP_PLUS | OP_MINUS) INTEGER)?
 	;
+
+procedureName :
+		sectionName
+	|	paragraphName
+	;
