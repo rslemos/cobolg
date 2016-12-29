@@ -122,7 +122,8 @@
 						<org.slf4j.simpleLogger.defaultLogLevel>info</org.slf4j.simpleLogger.defaultLogLevel>
 					</systemPropertyVariables>
 					<includes>
-						<include>**/Stmt*</include>
+						<include>**/*Test.java</include>
+						<include>**/Stmt*.java</include>
 					</includes>
 				</configuration>
 			</plugin>
