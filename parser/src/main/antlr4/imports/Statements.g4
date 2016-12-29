@@ -95,6 +95,14 @@ imperativeStatement :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
  */
 conditionalStatement :
+		/* input-output */
+		stmtDELETEconditional
+	|	stmtSequentialREADconditional
+	|	stmtRandomREADconditional
+	|	stmtREWRITEconditional
+	|	stmtSTARTconditional
+	|	stmtPageWRITEconditional
+	|	stmtSequentialWRITEconditional
 	;
 
 /**
@@ -257,6 +265,8 @@ stmtCONTINUE : CONTINUE;
  */
 stmtDELETEimperative : DELETE fileName RECORD?;
 
+stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
+
 /**
  * DISPLAY statement.
  * 
@@ -412,6 +422,10 @@ stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
+stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
+
+stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
+
 /**
  * RELEASE statement.
  * 
@@ -432,6 +446,8 @@ stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
+
+stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
 
 /**
  * SET statement.
@@ -466,6 +482,8 @@ stmtSORT :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=462&zoom=auto,-40,735
  */
 stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)?;
+
+stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
 
 /**
  * STOP statement.
@@ -517,6 +535,10 @@ stmtUNSTRINGimperative :
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
+
+stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
+
+stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
 
 /**
  * XML GENERATE statement.

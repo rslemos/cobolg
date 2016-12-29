@@ -25,14 +25,14 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtREWRITEconditionalContext;
 
-public class StmtREWRITE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtREWRITE");
+public class StmtREWRITEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtREWRITEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtREWRITEconditionalContext> helper = new CompilerHelper<StmtREWRITEconditionalContext>() {
+		@Override protected StmtREWRITEconditionalContext parsePart() { return parser.stmtREWRITEconditional(); }
 	};
 	
 	@Test public void REWRITE_REC_FROM_X() {

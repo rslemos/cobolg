@@ -51,4 +51,18 @@ public class StmtSequentialWRITE {
 				get("WRITE_RECNAME_FROM_X.tree")
 			);
 	}
+
+	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
+		helper.compileAndVerify(
+				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
+				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
+			);
+	}
+	
+	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
+		helper.compileAndVerify(
+				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
+				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
+			);
+	}
 }

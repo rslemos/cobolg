@@ -25,41 +25,41 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialWRITEconditionalContext;
 
-public class StmtDELETE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDELETE");
+public class StmtSequentialWRITEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialWRITEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSequentialWRITEconditionalContext> helper = new CompilerHelper<StmtSequentialWRITEconditionalContext>() {
+		@Override protected StmtSequentialWRITEconditionalContext parsePart() { return parser.stmtSequentialWRITEconditional(); }
 	};
 	
-	@Test public void DELETE_FILENAME_1() {
+	@Test public void WRITE_RECNAME() {
 		helper.compileAndVerify(
-				get("DELETE_FILENAME_1.source"),
-				get("DELETE_FILENAME_1.tree")
+				get("WRITE_RECNAME.source"),
+				get("WRITE_RECNAME.tree")
 			);
 	}
 	
-	@Test public void DELETE_FILENAME_1_RECORD() {
+	@Test public void WRITE_RECNAME_FROM_X() {
 		helper.compileAndVerify(
-				get("DELETE_FILENAME_1_RECORD.source"),
-				get("DELETE_FILENAME_1_RECORD.tree")
+				get("WRITE_RECNAME_FROM_X.source"),
+				get("WRITE_RECNAME_FROM_X.tree")
 			);
 	}
 	
-	@Test public void DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
+	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
-				get("DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
-				get("DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
+				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
+				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
 			);
 	}
 	
-	@Test public void DELETE_FILENAME_1_RECORD_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
+	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
-				get("DELETE_FILENAME_1_RECORD_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
-				get("DELETE_FILENAME_1_RECORD_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.tree")
+				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
+				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.tree")
 			);
 	}
 }

@@ -23,22 +23,18 @@ package br.eti.rslemos.cobolg;
 
 import java.util.ResourceBundle;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
+import br.eti.rslemos.cobolg.COBOLParser.StmtPageWRITEconditionalContext;
 
-public class StmtPageWRITE {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtPageWRITE");
+public class StmtPageWRITEconditional {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtPageWRITEconditional");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtPageWRITEconditionalContext> helper = new CompilerHelper<StmtPageWRITEconditionalContext>() {
+		@Override protected StmtPageWRITEconditionalContext parsePart() { return parser.stmtPageWRITEconditional(); }
 	};
 	
-	@Ignore
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC() {
 		helper.compileAndVerify(
 				get("WRITE_REC.source"),
@@ -46,8 +42,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Ignore
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X.source"),
