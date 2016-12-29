@@ -10,7 +10,7 @@
  * (at your option) any later version.
  * 
  * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * but WITHOUT GOTO WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
@@ -23,66 +23,59 @@ package br.eti.rslemos.cobolg;
 
 import java.util.ResourceBundle;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.StmtEXITContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtGOTOContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
-public class StmtEXIT {
-	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtEXIT");
+@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+public class StmtGOTO {
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtGOTO");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<StmtEXITContext> helper = new CompilerHelper<StmtEXITContext>() {
-		@Override protected StmtEXITContext parsePart() { return parser.stmtEXIT(); }
+	private static CompilerHelper<StmtGOTOContext> helper = new CompilerHelper<StmtGOTOContext>() {
+		@Override protected StmtGOTOContext parsePart() { return parser.stmtGOTO(); }
 	};
 	
-	@Ignore
-	@Test public void EXIT() {
+	@Test public void GO() {
 		helper.compileAndVerify(
-				get("EXIT.source"),
-				get("EXIT.tree")
-			);
-	}
-	
-	@Test public void EXIT_PROGRAM() {
-		helper.compileAndVerify(
-				get("EXIT_PROGRAM.source"),
-				get("EXIT_PROGRAM.tree")
-			);
-	}
-	
-	@Test public void EXIT_METHOD() {
-		helper.compileAndVerify(
-				get("EXIT_METHOD.source"),
-				get("EXIT_METHOD.tree")
+				get("GO.source"),
+				get("GO.tree")
 			);
 	}
 
-	@Test public void EXIT_PERFORM() {
+	@Test public void GO_PROC_1() {
 		helper.compileAndVerify(
-				get("EXIT_PERFORM.source"),
-				get("EXIT_PERFORM.tree")
+				get("GO_PROC_1.source"),
+				get("GO_PROC_1.tree")
 			);
 	}
-	
-	@Test public void EXIT_PERFORM_CYCLE() {
+
+	@Test public void GO_PROC_1_PROC_2_DEPENDING_ID_1() {
 		helper.compileAndVerify(
-				get("EXIT_PERFORM_CYCLE.source"),
-				get("EXIT_PERFORM_CYCLE.tree")
+				get("GO_PROC_1_PROC_2_DEPENDING_ID_1.source"),
+				get("GO_PROC_1_PROC_2_DEPENDING_ID_1.tree")
 			);
 	}
-	
-	@Test public void EXIT_PARAGRAPH() {
+
+	@Test public void GO_TO() {
 		helper.compileAndVerify(
-				get("EXIT_PARAGRAPH.source"),
-				get("EXIT_PARAGRAPH.tree")
+				get("GO_TO.source"),
+				get("GO_TO.tree")
 			);
 	}
-	
-	@Test public void EXIT_SECTION() {
+
+	@Test public void GO_TO_PROC_1() {
 		helper.compileAndVerify(
-				get("EXIT_SECTION.source"),
-				get("EXIT_SECTION.tree")
+				get("GO_TO_PROC_1.source"),
+				get("GO_TO_PROC_1.tree")
+			);
+	}
+
+	@Test public void GO_TO_PROC_1_PROC_2_DEPENDING_ON_ID_1() {
+		helper.compileAndVerify(
+				get("GO_TO_PROC_1_PROC_2_DEPENDING_ON_ID_1.source"),
+				get("GO_TO_PROC_1_PROC_2_DEPENDING_ON_ID_1.tree")
 			);
 	}
 }

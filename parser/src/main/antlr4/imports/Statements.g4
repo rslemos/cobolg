@@ -72,6 +72,11 @@ imperativeStatement :
 	|	stmtSTOP
 	|	stmtPageWRITEimperative
 	|	stmtSequentialWRITEimperative
+		/* procedure-branching */
+	|	stmtALTER
+	|	stmtGOTO
+	|	stmtPERFORMimperative
+	|	stmtCONTINUE
 	;
 
 /**
@@ -123,6 +128,13 @@ stmtADDimperative :
 	;
 
 /**
+ * ALTER statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=329&zoom=auto,-40,735
+ */
+stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
+
+/**
  * CLOSE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=341&zoom=auto,-40,735
@@ -135,6 +147,13 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=345&zoom=auto,-40,735
  */
 stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
+
+/**
+ * CONTINUE statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=347&zoom=auto,-40,735
+ */
+stmtCONTINUE : CONTINUE;
 
 /**
  * DELETE statement.
@@ -167,7 +186,18 @@ stmtDIVIDEimperative :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=363&zoom=auto,-40,735
  */
 stmtEXIT :
-		EXIT (PROGRAM | METHOD)
+		EXIT (PROGRAM | METHOD | PARAGRAPH | SECTION | PERFORM CYCLE?)?
+	;
+
+/**
+ * GO TO statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=368&zoom=auto,-40,735
+ */
+stmtGOTO :
+		GO TO?
+	|	GO TO? procedureName
+	|	GO TO? procedureName+ DEPENDING ON? identifier
 	;
 
 /**
@@ -239,6 +269,21 @@ openObject :
 	|	I_O (fileName)+
 	|	EXTEND (fileName)+
 	;
+
+/**
+ * PERFORM statement.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=413&zoom=auto,-40,735
+ */
+stmtPERFORMimperative : PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?;
+
+performTimes : (identifier | INTEGER) TIMES;
+
+performUntil : (WITH? TEST (BEFORE|AFTER))? UNTIL conditionalExpression;
+
+performVarying : (WITH? TEST (BEFORE|AFTER))? VARYING (identifier | indexName) FROM (identifier | indexName | literal) BY (identifier | literal) UNTIL conditionalExpression;
+
+performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | indexName | literal) BY (identifier | literal) UNTIL conditionalExpression;
 
 /**
  * READ statement.
