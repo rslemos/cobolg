@@ -26,7 +26,7 @@
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf
  */
 parser grammar COBOLParser;
-import IdentificationDivision, EnvironmentDivision, DataDivision, ProcedureDivision;
+import Basics, IdentificationDivision, EnvironmentDivision, DataDivision, ProcedureDivision;
 
 options { tokenVocab = COBOLLexer; }
 
@@ -42,6 +42,11 @@ program :
 		environmentDivision?
 		dataDivision?
 		procedureDivision?
+		programTail?
+	;
+
+programTail :
+		END PROGRAM programName PERIOD
 	;
 
 compilerStatements :
