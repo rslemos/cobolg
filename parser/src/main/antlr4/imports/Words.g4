@@ -78,6 +78,7 @@ CLOSE                 : 'CLOSE';
 CODE_SET              : 'CODE-SET';
 COLLATING             : 'COLLATING';
 COMMA                 : 'COMMA';
+COMMON                : 'COMMON';
 COMP                  : 'COMP';
 COMP_1                : 'COMP-1';
 COMP_2                : 'COMP-2';

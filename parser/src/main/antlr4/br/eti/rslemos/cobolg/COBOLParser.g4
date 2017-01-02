@@ -46,7 +46,16 @@ program :
 	;
 
 programTail :
+		nestedProgram*
 		END PROGRAM programName PERIOD
+	;
+
+nestedProgram :
+		nestedIdentificationDivision
+		environmentDivision?
+		dataDivision?
+		procedureDivision?
+		programTail
 	;
 
 compilerStatements :
