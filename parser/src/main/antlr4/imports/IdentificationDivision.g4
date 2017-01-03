@@ -32,6 +32,10 @@ options { tokenVocab = COBOLLexer; }
 identificationDivision :
 		(IDENTIFICATION | ID) DIVISION PERIOD
 		PROGRAM_ID PERIOD? programName (IS? (RECURSIVE | INITIAL) PROGRAM?)? PERIOD?
+		identificationDivisionContent?
+	;
+
+identificationDivisionContent :
 		(AUTHOR PERIOD? commentEntry*)?
 		(INSTALLATION PERIOD? commentEntry*)?
 		(DATE_WRITTEN PERIOD? commentEntry*)?

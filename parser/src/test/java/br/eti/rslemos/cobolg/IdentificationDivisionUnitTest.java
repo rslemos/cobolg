@@ -28,7 +28,7 @@ import org.junit.Test;
 import br.eti.rslemos.cobolg.COBOLParser.IdentificationDivisionContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
-@Waive({CompilationError.NON_EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 public class IdentificationDivisionUnitTest {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.identificationDivision");
 	public static String get(String key) { return TEST_DATA.getString(key); }
