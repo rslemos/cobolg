@@ -31,6 +31,7 @@ options { tokenVocab = COBOLLexer; }
  */
 procedureDivision :
 		PROCEDURE DIVISION usingPhrase? returningPhrase? PERIOD
+		// (DECLARATIVES PERIOD (sectionName SECTION priorityNumber? PERIOD useStatement ...)+ END DECLARATIVES PERIOD)?
 		procedureDivisionContent
 	;
 

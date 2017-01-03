@@ -37,12 +37,15 @@ dataClassName     : USERDEFINEDWORD;
 dataName          : USERDEFINEDWORD;
 fileName          : USERDEFINEDWORD;
 indexName         : USERDEFINEDWORD;
+libraryName       : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
+ooClassName       : USERDEFINEDWORD;
 paragraphName     : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
 recordName        : USERDEFINEDWORD;
 sectionName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
+textName          : USERDEFINEDWORD;
 xmlSchemaName     : USERDEFINEDWORD;
 
 // this is not formally defined, but used elsewhere
@@ -88,6 +91,13 @@ className         : USERDEFINEDWORD;
  * TODO: refine what a systemName is (get the list of available systemNames)
  */
 systemName        : USERDEFINEDWORD;
+
+/**
+ * Function name.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=34&zoom=auto,-100,385
+ */
+functionName      : USERDEFINEDWORD;
 
 /**
  * Figurative constant.
@@ -179,9 +189,9 @@ numericLiteral :
 	;
 
 identifier :
-		USERDEFINEDWORD
-	|	USERDEFINEDWORD LPAREN identifier+ RPAREN
-	|	USERDEFINEDWORD LPAREN INTEGER RPAREN
+		refDataName
+	|	refDataName LPAREN identifier+ RPAREN
+	|	refDataName LPAREN INTEGER RPAREN
 	|	specialRegister
 	;
 
@@ -273,11 +283,34 @@ relation :
  */
 signCondition : operand IS? NOT? (POSITIVE | NEGATIVE | ZERO);
 
+// these rules should be defined in ProceduralBasics, because they cannot (?)
+// be used outside PROCEDURE DIVISION (neither arithmetic expressions over
+// literals?), but various rules above use many of the following definitions;
+// so the above must be checked whether they can be used outside PROCEDURE
+// DIVISION; if not, they must also be move to ProceduralBasics.
+
 /*
  * References
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=89&zoom=auto,-40,555
  */
+
+/**
+ * Reference to text names.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=90&zoom=auto,-40,330
+ */
+refTextName : textName ((IN | OF) libraryName)?;
+
+/**
+ * Reference to procedure names.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=90&zoom=auto,-40,135
+ */
+refProcedureName : 
+		paragraphName ((IN | OF) sectionName)?
+	|	sectionName
+	;
 
 /**
  * Reference to data names.
@@ -286,7 +319,38 @@ signCondition : operand IS? NOT? (POSITIVE | NEGATIVE | ZERO);
  */
 refDataName :
 		dataName ((IN | OF) dataName)* ((IN | OF) fileName)? (LPAREN subscript+ RPAREN)? (LPAREN arithmeticExpression COLON arithmeticExpression? RPAREN)?
+	|	LINAGE_COUNTER ((IN | OF) fileName)
 	;
+
+/**
+ * Reference to condition names.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=94&zoom=auto,-40,650
+ */
+refConditionName : conditionName ((IN | OF) dataName)* ((IN | OF) fileName)? (LPAREN subscript+ RPAREN)?;
+refConditionNameSpecial : conditionName ((IN | OF) mnemonicName)*;
+
+/**
+ * Reference to index names.
+ * 
+ * @see ??
+ */
+refIndexName : indexName;
+
+/**
+ * Reference to function names.
+ * 
+ * @see ??
+ */
+refFunctionName : FUNCTION functionName (LPAREN argument+ RPAREN)? (LPAREN arithmeticExpression COLON arithmeticExpression? RPAREN)? referenceModifier?;
+
+/**
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=101&zoom=auto,-40,520
+ */
+argument : identifier | literal | arithmeticExpression; 
+
+// @see ??
+referenceModifier:;
 
 /**
  * Subscripting.
@@ -297,6 +361,7 @@ subscript :
 		INTEGER
 	|	ALL
 	|	refDataName ((OP_PLUS | OP_MINUS) INTEGER)?
+	|	refIndexName ((OP_PLUS | OP_MINUS) INTEGER)?
 	;
 
 procedureName :

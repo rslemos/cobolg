@@ -65,6 +65,9 @@ nestedProgram :
 		programTail
 	;
 
+/* skipping class definition @ http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=113&zoom=auto,-40,710 */
+/* skipping method definition @ http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=117&zoom=auto,-40,710 */
+
 compilerStatements :
 		compilerStatement*
 	;

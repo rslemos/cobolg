@@ -29,6 +29,8 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
 
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.Token;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
@@ -106,7 +108,18 @@ public class Cobolg {
 			input = System.in;
 		}
 
-		collect = new CollectErrorListener(basename);
+		collect = new CollectErrorListener(basename) {
+
+			@Override
+			public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
+				if (msg.startsWith("missing '.'"))
+					// omit
+					return;
+				
+				super.syntaxError(recognizer, offendingSymbol, line, charPositionInLine, msg, e);
+			}
+			
+		};
 
 		createCompiler(new InputStreamReader(input));
 

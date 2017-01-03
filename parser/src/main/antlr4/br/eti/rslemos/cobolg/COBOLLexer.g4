@@ -48,7 +48,9 @@ NEWLINE : ('\n' '\r'? | '\r' '\n'?)
 	-> channel(HIDDEN);
 
 PERIOD    : '.'; // technically speaking, it should be '.' ( ' ' | '\n' | EOF )
+// COMMA     : ','; // clash with COMMA : 'COMMA';
 COLON     : ':';
+SEMICOLON : ';';
 LPAREN    : '(';
 RPAREN    : ')';
 
@@ -87,6 +89,14 @@ FLOATINGPOINT : [-+]? [0-9]+ ('.'|',') [0-9]+ 'E' [-+]? [0-9]?[0-9]
 //		'H' ["] [0-9A-F]+ ["]
 //	|	'H' ['] [0-9A-F]+ [']
 //	;
+
+// FD and SD got their own keywords
+///**
+// * Level indicator.
+// * 
+// * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=77&zoom=auto,-100,700
+// */
+//LEVELINDICATOR : 'FD' | 'SD';
 
 /**
  * Basic alphanumeric literals.
