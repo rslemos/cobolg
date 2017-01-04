@@ -984,6 +984,13 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_IS_EXTERNAL() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_IS_EXTERNAL.source"),
+				get("DATA_ENTRY_IS_EXTERNAL.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -1006,6 +1013,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(BLANK_WHEN_ZERO),
 				tree  (BLANK_WHEN_ZERO)
+			);
+	}
+
+	@Test public void DECL_X_IS_EXTERNAL() {
+		helper.compileAndVerify(
+				source(IS_EXTERNAL),
+				tree  (IS_EXTERNAL)
 			);
 	}
 
