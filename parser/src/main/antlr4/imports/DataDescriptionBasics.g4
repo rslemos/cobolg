@@ -46,82 +46,108 @@ recordDescriptionEntry :
  */
 dataDescriptionEntry :
 	levelNumber
-	(dataName | FILLER)? redefinesClause? dataDescriptionClauses? 
+	(dataName | FILLER)? redefinesClause? dataDescriptionClauses
 	PERIOD
 	;
 
-// Waiting for correction or workaround to https://github.com/antlr/antlr4/issues/867 or http://stackoverflow.com/questions/30021472/antlr4-semantic-predicates-mess-with-error-recovery-why
-// This rather small permutation set covers all "variations" of 4 distinct
-// objects and was found by trial and error (after some algorithmic foundation).
-// (see also http://oeis.org/A007526)
 dataDescriptionClauses :
-		pictureClause usageClause    valueClause    occursClause
-	|	pictureClause usageClause    occursClause   valueClause?
-	|	pictureClause valueClause    usageClause    occursClause
-	|	pictureClause valueClause    occursClause?  usageClause?
-	|	pictureClause occursClause   valueClause    usageClause
-	|	pictureClause occursClause?  usageClause?   valueClause?
-	|	usageClause   pictureClause  valueClause    occursClause
-	|	usageClause   pictureClause  occursClause   valueClause?
-	|	usageClause   valueClause    pictureClause  occursClause
-	|	usageClause   valueClause    occursClause?  pictureClause?
-	|	usageClause   occursClause   valueClause    pictureClause
-	|	usageClause   occursClause?  pictureClause? valueClause?
-	|	valueClause   pictureClause  usageClause    occursClause
-	|	valueClause   pictureClause  occursClause   usageClause?
-	|	valueClause   usageClause    pictureClause  occursClause
-	|	valueClause   usageClause    occursClause?  pictureClause?
-	|	valueClause   occursClause   usageClause    pictureClause
-	|	valueClause   occursClause?  pictureClause? usageClause?
-	|	occursClause  pictureClause  usageClause    valueClause
-	|	occursClause  pictureClause  valueClause    usageClause?
-	|	occursClause  usageClause    pictureClause  valueClause
-	|	occursClause  usageClause    valueClause?   pictureClause?
-	|	occursClause  valueClause    usageClause    pictureClause
-	|	occursClause  valueClause?   pictureClause? usageClause?
+	dataDescriptionClause*
 	;
 
-redefinesClause :
-		REDEFINES dataName
+dataDescriptionClause :
+		occursClause
+	|	pictureClause
+	|	usageClause
+	|	valueClause
 	;
 
-pictureClause :
-		(PICTURE | PIC) IS? PICTURESTRING
+/**
+ * Occurs clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=215&zoom=auto,-40,335
+ */
+occursClause :
+		OCCURS INTEGER TIMES? keyIsPhrase* indexedByPhrase?
+	|	OCCURS (INTEGER TO)? (INTEGER | UNBOUNDED) TIMES? dependingOnPhrase keyIsPhrase* indexedByPhrase?
 	;
 
-usageClause :
-		(USAGE IS?)? usage
-	;
+/**
+ * (Ascending/descending) key is phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=217&zoom=auto,-40,740
+ */
+keyIsPhrase : (ASCENDING | DESCENDING) KEY? IS? dataName+;
+
+/**
+ * Indexed by phrase.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=218&zoom=auto,-40,400
+ */
+indexedByPhrase : INDEXED BY indexName+;
+
+/**
+ * Depending on phrase (clause).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=220&zoom=auto,-40,330
+ */
+dependingOnPhrase : DEPENDING ON? dataName;
+
+/**
+ * Picture clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=222&zoom=auto,-40,140
+ */
+pictureClause : (PICTURE | PIC) IS? PICTURESTRING;
+
+/**
+ * Redefines clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=240&zoom=auto,-40,735
+ */
+redefinesClause : REDEFINES dataName;
+
+/**
+ * Usage clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=252&zoom=auto,-40,455
+ */
+usageClause : (USAGE IS?)? usage; 
 
 usage :
-		BINARY NATIVE?
-	|	(COMP   | COMPUTATIONAL  ) NATIVE?
-	|	(COMP_1 | COMPUTATIONAL_1) NATIVE?
-	|	(COMP_2 | COMPUTATIONAL_2) NATIVE?
-	|	(COMP_3 | COMPUTATIONAL_3) NATIVE?
-	|	(COMP_4 | COMPUTATIONAL_4) NATIVE?
-	|	(COMP_5 | COMPUTATIONAL_5) NATIVE?
-	|	DISPLAY NATIVE?
-	|	DISPLAY_1 NATIVE?
+		BINARY          NATIVE?
+	|	COMP            NATIVE?
+	|	COMP_1          NATIVE?
+	|	COMP_2          NATIVE?
+	|	COMP_3          NATIVE?
+	|	COMP_4          NATIVE?
+	|	COMP_5          NATIVE?
+	|	COMPUTATIONAL   NATIVE?
+	|	COMPUTATIONAL_1 NATIVE?
+	|	COMPUTATIONAL_2 NATIVE?
+	|	COMPUTATIONAL_3 NATIVE?
+	|	COMPUTATIONAL_4 NATIVE?
+	|	COMPUTATIONAL_5 NATIVE?
+	|	DISPLAY         NATIVE?
+	|	DISPLAY_1       NATIVE?
 	|	INDEX
-	|	NATIONAL NATIVE?
-//	|	OBJECT REFERENCE className
-	|	PACKED_DECIMAL NATIVE?
+	|	NATIONAL        NATIVE?
+	|	OBJECT REFERENCE className?
+	|	PACKED_DECIMAL  NATIVE?
 	|	POINTER
 	|	PROCEDURE_POINTER
 	|	FUNCTION_POINTER
 	;
 
+/**
+ * Value clause.
+ * 
+ * This embodies also the value clause format for level 88 (list of literals
+ * and/or literal ranges).
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=261&zoom=auto,-40,735
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=263&zoom=auto,-40,430
+ */
 valueClause :
-		VALUE IS? literal
+		(VALUE IS? | VALUES ARE?) (literal ((THROUGH | THRU) literal)?)+
 	;
 
-occursClause :
-		OCCURS INTEGER TIMES?
-//		((ASCENDING | DESCENDING) KEY? IS? dataName+)*
-		(INDEXED BY? indexName+)?
-	;
-
-indexName :
-		USERDEFINEDWORD
-	;

@@ -23,12 +23,12 @@ package br.eti.rslemos.cobolg;
 
 public class DataDescriptionEntryData {
 	public static enum DataDescriptionEntryClause {
-		REDEFINES      ("REDEFINES Y"                        , "(redefinesClause REDEFINES (dataName Y))"                    ),
+		REDEFINES      ("REDEFINES Y"                        , "(redefinesClause REDEFINES (dataName Y))"                                            ),
 		
-		PICTURE        ("PIC XXXX"                           , "(pictureClause PIC XXXX)"                                    ),
-		USAGE          ("USAGE COMP-3"                       , "(usageClause USAGE (usage COMP-3))"                          ),
-		VALUE          ("VALUE IS QUOTES"                    , "(valueClause VALUE IS (literal (figurativeConstant QUOTES)))"),
-		OCCURS         ("OCCURS 10 TIMES"                    , "(occursClause OCCURS 10 TIMES)"                              ),
+		PICTURE        ("PIC XXXX"                           , "(dataDescriptionClause (pictureClause PIC XXXX))"                                    ),
+		USAGE          ("USAGE COMP-3"                       , "(dataDescriptionClause (usageClause USAGE (usage COMP-3)))"                          ),
+		VALUE          ("VALUE IS QUOTES"                    , "(dataDescriptionClause (valueClause VALUE IS (literal (figurativeConstant QUOTES))))"),
+		OCCURS         ("OCCURS 10 TIMES"                    , "(dataDescriptionClause (occursClause OCCURS 10 TIMES))"                              ),
 		;
 	
 		private final String source, tree;
@@ -61,10 +61,10 @@ public class DataDescriptionEntryData {
 		return "(dataDescriptionEntry (levelNumber 77) (dataName DECL-X) " +
 					(redefinesClause != null ? redefinesClause.getTree() + " " : "") +
 					(clauses.length > 0 
-							? "(dataDescriptionClauses " + TextHelper.join0(" ", getTrees(clauses)) + ") " 
-							: ""
+							? "(dataDescriptionClauses " + TextHelper.join0(" ", getTrees(clauses)) + ")"
+							: "dataDescriptionClauses"
 					) + 
-				".)";
+				" .)";
 	}
 
 	// these could only be in better shape by lambda calculus
