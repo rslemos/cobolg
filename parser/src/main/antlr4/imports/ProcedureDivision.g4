@@ -45,16 +45,18 @@ procedureDivision :
 returningPhrase : RETURNING dataName;
 
 procedureDivisionContent :
-		( unnamedProceduralSection namedProceduralSection* | namedProceduralSection+ )
+		unnamedProceduralSection?
+		namedProceduralSection*
 	;
 
 unnamedProceduralSection :
-		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
+		( unnamedProceduralParagraph | namedProceduralParagraph )
+		namedProceduralParagraph*
 	;
 
 namedProceduralSection :
 		sectionName SECTION PERIOD
-		( unnamedProceduralParagraph namedProceduralParagraph* | namedProceduralParagraph+ )
+		namedProceduralParagraph*
 	;
 
 unnamedProceduralParagraph :
@@ -63,7 +65,7 @@ unnamedProceduralParagraph :
 
 namedProceduralParagraph :
 		paragraphName PERIOD
-		proceduralSentence+
+		proceduralSentence*
 	;
 
 proceduralSentence : proceduralStatement+ PERIOD;
