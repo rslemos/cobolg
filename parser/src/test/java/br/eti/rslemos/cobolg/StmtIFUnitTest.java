@@ -35,7 +35,7 @@ import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 @Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 public class StmtIFUnitTest {
-	private static CompilerHelper<ProceduralSentenceContext> helper = new CompilerHelper<ProceduralSentenceContext>() {
+	static CompilerHelper<ProceduralSentenceContext> helper = new CompilerHelper<ProceduralSentenceContext>() {
 		@Override protected ProceduralSentenceContext parsePart() { return parser.proceduralSentence(); }
 	};
 
