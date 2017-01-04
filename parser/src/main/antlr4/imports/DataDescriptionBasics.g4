@@ -62,6 +62,7 @@ dataDescriptionClause :
 	|	justifiedClause
 	|	occursClause
 	|	pictureClause
+	|	signClause
 	|	usageClause
 	|	valueClause
 	;
@@ -150,6 +151,13 @@ pictureClause : (PICTURE | PIC) IS? PICTURESTRING;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=240&zoom=auto,-40,735
  */
 redefinesClause : REDEFINES dataName;
+
+/**
+ * Sign clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=245&zoom=auto,-40,220
+ */
+signClause : (SIGN IS?)? (LEADING | TRAILING) (SEPARATE CHARACTER?)?;
 
 /**
  * Usage clause.

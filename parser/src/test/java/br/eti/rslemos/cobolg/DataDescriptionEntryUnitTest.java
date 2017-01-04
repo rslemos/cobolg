@@ -1033,6 +1033,62 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_SIGN_IS_LEADING_SEPARATE_CHARACTER() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SIGN_IS_LEADING_SEPARATE_CHARACTER.source"),
+				get("DATA_ENTRY_SIGN_IS_LEADING_SEPARATE_CHARACTER.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SIGN_IS_TRAILING_SEPARATE_CHARACTER() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SIGN_IS_TRAILING_SEPARATE_CHARACTER.source"),
+				get("DATA_ENTRY_SIGN_IS_TRAILING_SEPARATE_CHARACTER.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SIGN_IS_LEADING() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SIGN_IS_LEADING.source"),
+				get("DATA_ENTRY_SIGN_IS_LEADING.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_SIGN_IS_TRAILING() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_SIGN_IS_TRAILING.source"),
+				get("DATA_ENTRY_SIGN_IS_TRAILING.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_LEADING_SEPARATE_CHARACTER() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_LEADING_SEPARATE_CHARACTER.source"),
+				get("DATA_ENTRY_LEADING_SEPARATE_CHARACTER.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_TRAILING_SEPARATE_CHARACTER() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_TRAILING_SEPARATE_CHARACTER.source"),
+				get("DATA_ENTRY_TRAILING_SEPARATE_CHARACTER.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_LEADING() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_LEADING.source"),
+				get("DATA_ENTRY_LEADING.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_TRAILING() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_TRAILING.source"),
+				get("DATA_ENTRY_TRAILING.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -1090,6 +1146,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(PICTURE),
 				tree  (PICTURE)
+			);
+	}
+
+	@Test public void DECL_X_SIGN() {
+		helper.compileAndVerify(
+				source(SIGN),
+				tree  (SIGN)
 			);
 	}
 

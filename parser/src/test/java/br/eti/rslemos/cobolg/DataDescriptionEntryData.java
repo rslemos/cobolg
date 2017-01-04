@@ -31,6 +31,7 @@ public class DataDescriptionEntryData {
 		GROUP_USAGE    ("GROUP-USAGE IS NATIONAL"            , "(dataDescriptionClause (groupUsageClause GROUP-USAGE IS NATIONAL))"                  ),
 		JUSTIFIED      ("JUSTIFIED RIGHT"                    , "(dataDescriptionClause (justifiedClause JUSTIFIED RIGHT))"                           ),
 		PICTURE        ("PIC XXXX"                           , "(dataDescriptionClause (pictureClause PIC XXXX))"                                    ),
+		SIGN           ("SIGN IS TRAILING SEPARATE CHARACTER", "(dataDescriptionClause (signClause SIGN IS TRAILING SEPARATE CHARACTER))"            ),
 		USAGE          ("USAGE COMP-3"                       , "(dataDescriptionClause (usageClause USAGE (usage COMP-3)))"                          ),
 		VALUE          ("VALUE IS QUOTES"                    , "(dataDescriptionClause (valueClause VALUE IS (literal (figurativeConstant QUOTES))))"),
 		OCCURS         ("OCCURS 10 TIMES"                    , "(dataDescriptionClause (occursClause OCCURS 10 TIMES))"                              ),
