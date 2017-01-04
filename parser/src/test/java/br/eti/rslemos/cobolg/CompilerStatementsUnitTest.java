@@ -21,14 +21,10 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import java.util.ResourceBundle;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
-
+import org.antlr.v4.runtime.ANTLRErrorListener;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
@@ -36,459 +32,201 @@ import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class CompilerStatementsUnitTest {
-	private FreeFormatCompiler compiler;
+	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.compilerStatements");
+	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	@Test
-	public void testNoCompilerStatements () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"PROCEDURE DIVISION.",
-				"    STOP RUN."
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
-	}
-
-	@Test
-	public void testEJECTBetweenDivisions () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"EJECT",
-				"PROCEDURE DIVISION.",
-				"    STOP RUN."
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(compilerStatement EJECT) "
-				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
-	}
-
-	@Test
-	public void testEJECTInsideDivision () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"PROCEDURE DIVISION.",
-				"EJECT",
-				"    STOP RUN."
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(procedureDivision PROCEDURE DIVISION . "
-					+ "(compilerStatement EJECT) "
-					+ "(unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
-
-	}
-
-	@Test
-	public void testDoubleEJECTBetweenDivisions () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"EJECT",
-				"EJECT",
-				"PROCEDURE DIVISION.",
-				"    STOP RUN."
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(compilerStatement EJECT) "
-				+ "(compilerStatement EJECT) "
-				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
-	}
-
-	@Test
-	public void testDoubleEJECTInsideDivision () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"PROCEDURE DIVISION.",
-				"EJECT",
-				"EJECT",
-				"    STOP RUN."
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(procedureDivision PROCEDURE DIVISION . "
-					+ "(compilerStatement EJECT) "
-					+ "(compilerStatement EJECT) "
-					+ "(unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));		
-
+	private static abstract class PreCompilerHelper<T extends ParserRuleContext> extends CompilerHelper<T> {
+		@Override public T compile(String source, ANTLRErrorListener... listeners) {
+			T mainTree = super.compile(source/*, listeners*/); // to ignore "missing '.'" errors
+			CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+			compiler.preProcess(preTree, mainTree);
+			return mainTree;
+		}
 	}
 	
-	@Test
-	public void testCOPYStatementOutsideDataDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"WORKING-STORAGE SECTION.",
-				"77  DECL-1. COPY COPY-LIB-FOR-DECL-1.",
-				"77  DECL-2."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
+	private static CompilerHelper<ProgramContext> programHelper = new PreCompilerHelper<ProgramContext>() {
+		@Override protected ProgramContext parsePart() { return compiler.mainParser.program(); }
+	};
 
-		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
-				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) .) "
-				+ "(compilerStatement COPY COPY-LIB-FOR-DECL-1 .) "
-				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-2) .))")));
+	private static CompilerHelper<WorkingStorageSectionContext> wssHelper = new PreCompilerHelper<WorkingStorageSectionContext>() {
+		@Override protected WorkingStorageSectionContext parsePart() { return compiler.mainParser.workingStorageSection(); }
+	};
+
+	private static CompilerHelper<FileSectionContext> fsHelper = new PreCompilerHelper<FileSectionContext>() {
+		@Override protected FileSectionContext parsePart() { return compiler.mainParser.fileSection(); }
+	};
+
+	private static CompilerHelper<ProceduralStatementContext> psHelper = new PreCompilerHelper<ProceduralStatementContext>() {
+		@Override protected ProceduralStatementContext parsePart() { return compiler.mainParser.proceduralStatement(); }
+	};
+	
+	@Test public void NoCompilerStatements () {
+		programHelper.compileAndVerify(
+				get("NoCompilerStatements.source"),
+				get("NoCompilerStatements.tree")
+			);
+	}
+
+	@Test public void EJECTBetweenDivisions () {
+		programHelper.compileAndVerify(
+				get("EJECTBetweenDivisions.source"),
+				get("EJECTBetweenDivisions.tree")
+			);
+	}
+
+	@Test public void EJECTInsideDivision () {
+		programHelper.compileAndVerify(
+				get("EJECTInsideDivision.source"),
+				get("EJECTInsideDivision.tree")
+			);
+	}
+
+	@Test public void DoubleEJECTBetweenDivisions () {
+		programHelper.compileAndVerify(
+				get("DoubleEJECTBetweenDivisions.source"),
+				get("DoubleEJECTBetweenDivisions.tree")
+			);
+	}
+
+	@Test public void DoubleEJECTInsideDivision () {
+		programHelper.compileAndVerify(
+				get("DoubleEJECTInsideDivision.source"),
+				get("DoubleEJECTInsideDivision.tree")
+			);
+	}
+
+	@Test public void COPYStatementOutsideDataDeclaration () {
+		wssHelper.compileAndVerify(
+				get("COPYStatementOutsideDataDeclaration.source"),
+				get("COPYStatementOutsideDataDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementOutsideFileDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0. COPY COPY-LIB-FOR-FD0.",
-				"FD  FD1."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) .) "
-				+ "(compilerStatement COPY COPY-LIB-FOR-FD0 .) "
-				+ "(fileDescriptionParagraph FD (fileName FD1) .))")));
+	@Test public void COPYStatementOutsideFileDeclaration () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementOutsideFileDeclaration.source"),
+				get("COPYStatementOutsideFileDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testEJECTAtTheEnd () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"PROCEDURE DIVISION.",
-				"    STOP RUN.",
-				"EJECT"
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))) "
-				+ "(compilerStatement EJECT))")));		
+	@Test public void COPYStatementWithString () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementWithString.source"),
+				get("COPYStatementWithString.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementOutsideLastDataDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"WORKING-STORAGE SECTION.",
-				"77  DECL-1. COPY COPY-LIB-FOR-DECL-1."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
-				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) .) "
-				+ "(compilerStatement COPY COPY-LIB-FOR-DECL-1 .))")));
+	@Test public void EJECTAtTheEnd () {
+		programHelper.compileAndVerify(
+				get("EJECTAtTheEnd.source"),
+				get("EJECTAtTheEnd.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementOutsideLastFileDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0. COPY COPY-LIB-FOR-FD0."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) .) "
-				+ "(compilerStatement COPY COPY-LIB-FOR-FD0 .))")));
+	@Test public void COPYStatementOutsideLastDataDeclaration () {
+		wssHelper.compileAndVerify(
+				get("COPYStatementOutsideLastDataDeclaration.source"),
+				get("COPYStatementOutsideLastDataDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testSoleCOPYStatement () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"COPY ENTIRE-PROGRAM."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		ProgramContext mainTree = compiler.mainParser.program();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(program (compilerStatement COPY ENTIRE-PROGRAM .) "
-				+ "identificationDivision procedureDivision)")));
+	@Test public void COPYStatementOutsideLastFileDeclaration () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementOutsideLastFileDeclaration.source"),
+				get("COPYStatementOutsideLastFileDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testDoubleEJECTAtTheEnd () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"PROCEDURE DIVISION.",
-				"    STOP RUN.",
-				"EJECT",
-				"EJECT"
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))) "
-				+ "(compilerStatement EJECT) "
-				+ "(compilerStatement EJECT))")));
+	@Test public void SoleCOPYStatement () {
+		programHelper.compileAndVerify(
+				get("SoleCOPYStatement.source"),
+				get("SoleCOPYStatement.tree")
+			);
 	}
 	
-	@Test
-	public void testEJECTAtTheBeginning () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"EJECT",
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"PROCEDURE DIVISION.",
-				"    STOP RUN."
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(compilerStatement EJECT) "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));
-	}
-
-	@Test
-	public void testDoubleEJECTAtTheBeginning () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"EJECT",
-				"EJECT",
-				"IDENTIFICATION DIVISION.",
-				"PROGRAM-NAME. X.",
-				"PROCEDURE DIVISION.",
-				"    STOP RUN."
-			)));
-		
-		ProgramContext mainTree = compiler.compile();
-		String toString = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(toString, is(equalTo("(program "
-				+ "(compilerStatement EJECT) "
-				+ "(compilerStatement EJECT) "
-				+ "(identificationDivision IDENTIFICATION DIVISION . PROGRAM-NAME . X .) "
-				+ "(procedureDivision PROCEDURE DIVISION . (unnamedProceduralSection (unnamedProceduralParagraph (proceduralStatement STOP RUN .)))))")));
+	@Test public void DoubleEJECTAtTheEnd () {
+		programHelper.compileAndVerify(
+				get("DoubleEJECTAtTheEnd.source"),
+				get("DoubleEJECTAtTheEnd.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementWithMissingPERIOD () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"DISPLAY '' COPY STRING."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		ProceduralStatementContext mainTree = compiler.mainParser.proceduralStatement();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
+	@Test public void EJECTAtTheBeginning () {
+		programHelper.compileAndVerify(
+				get("EJECTAtTheBeginning.source"),
+				get("EJECTAtTheBeginning.tree")
+			);
+	}
 
-		assertThat(string, is(equalTo("(proceduralStatement DISPLAY "
-				+ "(literal (alphanumericLiteral (quotedString ''))) "
-				+ "(compilerStatement COPY STRING .) "
-				+ "<missing PERIOD>)")));
+	@Test public void DoubleEJECTAtTheBeginning () {
+		programHelper.compileAndVerify(
+				get("DoubleEJECTAtTheBeginning.source"),
+				get("DoubleEJECTAtTheBeginning.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementInsideFileDeclarationWithValueMissingOf () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0 VALUE COPY VALUE-OF. SYSTEM-NAME 10."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) "
-					+ "(fdValueOfClause VALUE <missing OF> (compilerStatement COPY VALUE-OF .) "
-					+ "(systemName SYSTEM-NAME) (literal (numericLiteral 10))) .))")));
+	@Test public void COPYStatementWithMissingPERIOD () {
+		psHelper.compileAndVerify(
+				get("COPYStatementWithMissingPERIOD.source"),
+				get("COPYStatementWithMissingPERIOD.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementInsideDataDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"WORKING-STORAGE SECTION.",
-				"77  DECL-1 COPY COPY-LIB-FOR-DECL-1.",
-				"77  DECL-2."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
-				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) (compilerStatement COPY COPY-LIB-FOR-DECL-1 .) <missing PERIOD>) "
-				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-2) .))")));
+	@Test public void COPYStatementInsideFileDeclarationWithValueMissingOf () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementInsideFileDeclarationWithValueMissingOf.source"),
+				get("COPYStatementInsideFileDeclarationWithValueMissingOf.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementInsideLastDataDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"WORKING-STORAGE SECTION.",
-				"77  DECL-1 COPY COPY-LIB-FOR-DECL-1."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		WorkingStorageSectionContext mainTree = compiler.mainParser.workingStorageSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(workingStorageSection WORKING-STORAGE SECTION . "
-				+ "(dataDescriptionParagraph (levelNumber 77) (dataName DECL-1) (compilerStatement COPY COPY-LIB-FOR-DECL-1 .) <missing PERIOD>))")));
+	@Test public void COPYStatementInsideDataDeclaration () {
+		wssHelper.compileAndVerify(
+				get("COPYStatementInsideDataDeclaration.source"),
+				get("COPYStatementInsideDataDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementInsideFileDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0 COPY COPY-LIB-FOR-FD0.",
-				"FD  FD1."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) (compilerStatement COPY COPY-LIB-FOR-FD0 .) <missing PERIOD>) "
-				+ "(fileDescriptionParagraph FD (fileName FD1) .))")));
+	@Test public void COPYStatementInsideLastDataDeclaration () {
+		wssHelper.compileAndVerify(
+				get("COPYStatementInsideLastDataDeclaration.source"),
+				get("COPYStatementInsideLastDataDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementInsideLastFileDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0 COPY COPY-LIB-FOR-FD0."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) (compilerStatement COPY COPY-LIB-FOR-FD0 .) <missing PERIOD>))")));
+	@Test public void COPYStatementInsideFileDeclaration () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementInsideFileDeclaration.source"),
+				get("COPYStatementInsideFileDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testTwoCOPYStatementsInsideFileDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0 COPY FD-ACCESS. COPY FD-REG."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) "
-					+ "(compilerStatement COPY FD-ACCESS .) "
-					+ "(compilerStatement COPY FD-REG .) "
-				+ "<missing PERIOD>))")));
+	@Test public void COPYStatementInsideLastFileDeclaration () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementInsideLastFileDeclaration.source"),
+				get("COPYStatementInsideLastFileDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testCOPYStatementInsideFileDeclarationWithMissingFilename () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0 COPY FD-ACCESS. COPY FD-REG.",
-				"FD  COPY FD-AFTER-MISSING-TOKEN."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) "
-					+ "(compilerStatement COPY FD-ACCESS .) "
-					+ "(compilerStatement COPY FD-REG .) "
-				+ "<missing PERIOD>) "
-				+ "(fileDescriptionParagraph FD "
-					+ "(compilerStatement COPY FD-AFTER-MISSING-TOKEN .) "
-					+ "fileName "
-				+ "<missing PERIOD>))")));
+	@Test public void TwoCOPYStatementsInsideFileDeclaration () {
+		fsHelper.compileAndVerify(
+				get("TwoCOPYStatementsInsideFileDeclaration.source"),
+				get("TwoCOPYStatementsInsideFileDeclaration.tree")
+			);
 	}
 	
-	@Test
-	public void testUnterminatedCOPYStatementsInsideFileDeclaration () throws IOException {
-		setSource(new StringReader(TextHelper.join(
-				"FILE SECTION.",
-				"FD  FD0 COPY COPY-LIB-FOR-FD0",
-				"FD  FD1."
-			)));
-		
-		CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-		FileSectionContext mainTree = compiler.mainParser.fileSection();
-		compiler.preProcess(preTree, mainTree);
-		
-		String string = mainTree.toStringTree(compiler.mainParser);
-
-		// still facing difficulties with \n before FD (shouldn't be a problem though)
-		assertThat(string, is(equalTo("(fileSection FILE SECTION . "
-				+ "(fileDescriptionParagraph FD (fileName FD0) (compilerStatement COPY COPY-LIB-FOR-FD0 <missing COPY_PERIOD>) <missing PERIOD>) "
-				+ "(fileDescriptionParagraph \\nFD (fileName FD1) .))")));
+	@Test public void COPYStatementInsideFileDeclarationWithMissingFilename () {
+		fsHelper.compileAndVerify(
+				get("COPYStatementInsideFileDeclarationWithMissingFilename.source"),
+				get("COPYStatementInsideFileDeclarationWithMissingFilename.tree")
+			);
 	}
 	
-	private void setSource(Reader source) throws IOException {
-		compiler = new FreeFormatCompiler(source);
+	@Test public void UnterminatedCOPYStatementsInsideFileDeclaration () {
+		fsHelper.compileAndVerify(
+				get("UnterminatedCOPYStatementsInsideFileDeclaration.source"),
+				get("UnterminatedCOPYStatementsInsideFileDeclaration.tree")
+			);
 	}
 }
