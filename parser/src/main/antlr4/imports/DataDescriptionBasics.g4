@@ -42,11 +42,24 @@ recordDescriptionEntry :
 /**
  * Data description entry.
  * 
+ * Not all accepted inputs (by grammar definition) are to be accepted.
+ * 
+ * renamesClause, valueClause (format for level 88) and redefinesClause +
+ * dataDescriptionClauses are all mutually exclusive.
+ * 
+ * Also FILLER cannot be used with neither renamesClause nor valueClause88.
+ * These cases also do not support anonymous data entry. These requirements
+ * could be conveyed in the grammar itself, were not for ANTLR issue #687
+ * {@link https://github.com/antlr/antlr4/issues/867}: these constructions
+ * would trigger another way of predicting the viable alternative, a way that
+ * is incompatible with error recovery by missing token inject, which is
+ * crucial for the COPY compiler statement.
+ * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=209&zoom=auto,-100,730
  */
 dataDescriptionEntry :
 	levelNumber
-	(dataName | FILLER)? redefinesClause? dataDescriptionClauses
+	(dataName | FILLER)? redefinesClause? renamesClause? dataDescriptionClauses
 	PERIOD
 	;
 
@@ -153,6 +166,13 @@ pictureClause : (PICTURE | PIC) IS? PICTURESTRING;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=240&zoom=auto,-40,735
  */
 redefinesClause : REDEFINES dataName;
+
+/**
+ * Renames clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=243&zoom=auto,-40,290
+ */
+renamesClause : RENAMES dataName ((THROUGH | THRU) dataName)?;
 
 /**
  * Sign clause.
