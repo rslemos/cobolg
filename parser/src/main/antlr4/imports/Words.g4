@@ -102,6 +102,7 @@ FOR                   : 'FOR';
 FROM                  : 'FROM';
 FUNCTION_POINTER      : 'FUNCTION-POINTER';
 GLOBAL                : 'GLOBAL';
+GROUP_USAGE           : 'GROUP-USAGE';
 I_O_CONTROL           : 'I-O-CONTROL';
 ID                    : 'ID';
 IDENTIFICATION        : 'IDENTIFICATION';

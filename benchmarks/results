@@ -10,97 +10,97 @@
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X)
 
-# Run progress: 0.00% complete, ETA 00:13:20
+# Run progress: 0.00% complete, ETA 00:14:40
 # Fork: 1 of 2
-# Warmup Iteration   1: 33.194 us/op
-# Warmup Iteration   2: 6.228 us/op
-# Warmup Iteration   3: 5.228 us/op
-# Warmup Iteration   4: 4.836 us/op
-# Warmup Iteration   5: 4.850 us/op
-# Warmup Iteration   6: 4.897 us/op
-# Warmup Iteration   7: 4.916 us/op
-# Warmup Iteration   8: 4.858 us/op
-# Warmup Iteration   9: 4.969 us/op
-# Warmup Iteration  10: 4.912 us/op
-# Warmup Iteration  11: 4.955 us/op
-# Warmup Iteration  12: 4.916 us/op
-# Warmup Iteration  13: 4.886 us/op
-# Warmup Iteration  14: 4.829 us/op
-# Warmup Iteration  15: 4.949 us/op
-# Warmup Iteration  16: 4.955 us/op
-# Warmup Iteration  17: 4.922 us/op
-# Warmup Iteration  18: 4.861 us/op
-# Warmup Iteration  19: 4.857 us/op
-# Warmup Iteration  20: 4.841 us/op
-Iteration   1: 4.937 us/op
-Iteration   2: 4.934 us/op
-Iteration   3: 4.988 us/op
-Iteration   4: 4.932 us/op
-Iteration   5: 4.896 us/op
-Iteration   6: 4.872 us/op
-Iteration   7: 4.943 us/op
-Iteration   8: 4.902 us/op
-Iteration   9: 4.842 us/op
-Iteration  10: 4.923 us/op
-Iteration  11: 4.914 us/op
-Iteration  12: 4.841 us/op
-Iteration  13: 4.856 us/op
-Iteration  14: 4.911 us/op
-Iteration  15: 4.877 us/op
-Iteration  16: 4.948 us/op
-Iteration  17: 4.966 us/op
-Iteration  18: 4.814 us/op
-Iteration  19: 4.815 us/op
-Iteration  20: 4.821 us/op
+# Warmup Iteration   1: 34.402 us/op
+# Warmup Iteration   2: 6.850 us/op
+# Warmup Iteration   3: 5.143 us/op
+# Warmup Iteration   4: 4.896 us/op
+# Warmup Iteration   5: 4.896 us/op
+# Warmup Iteration   6: 4.989 us/op
+# Warmup Iteration   7: 4.985 us/op
+# Warmup Iteration   8: 4.943 us/op
+# Warmup Iteration   9: 4.963 us/op
+# Warmup Iteration  10: 4.941 us/op
+# Warmup Iteration  11: 4.944 us/op
+# Warmup Iteration  12: 4.978 us/op
+# Warmup Iteration  13: 4.879 us/op
+# Warmup Iteration  14: 4.891 us/op
+# Warmup Iteration  15: 4.915 us/op
+# Warmup Iteration  16: 4.872 us/op
+# Warmup Iteration  17: 4.876 us/op
+# Warmup Iteration  18: 4.997 us/op
+# Warmup Iteration  19: 4.911 us/op
+# Warmup Iteration  20: 4.964 us/op
+Iteration   1: 5.054 us/op
+Iteration   2: 4.920 us/op
+Iteration   3: 4.987 us/op
+Iteration   4: 5.008 us/op
+Iteration   5: 4.913 us/op
+Iteration   6: 4.989 us/op
+Iteration   7: 4.941 us/op
+Iteration   8: 4.920 us/op
+Iteration   9: 5.020 us/op
+Iteration  10: 4.927 us/op
+Iteration  11: 4.963 us/op
+Iteration  12: 4.908 us/op
+Iteration  13: 4.936 us/op
+Iteration  14: 4.936 us/op
+Iteration  15: 4.959 us/op
+Iteration  16: 4.939 us/op
+Iteration  17: 4.961 us/op
+Iteration  18: 4.887 us/op
+Iteration  19: 4.890 us/op
+Iteration  20: 4.876 us/op
 
-# Run progress: 5.00% complete, ETA 00:12:48
+# Run progress: 4.55% complete, ETA 00:14:09
 # Fork: 2 of 2
-# Warmup Iteration   1: 32.403 us/op
-# Warmup Iteration   2: 6.542 us/op
-# Warmup Iteration   3: 5.552 us/op
-# Warmup Iteration   4: 4.962 us/op
-# Warmup Iteration   5: 4.919 us/op
-# Warmup Iteration   6: 4.955 us/op
-# Warmup Iteration   7: 5.034 us/op
-# Warmup Iteration   8: 4.950 us/op
-# Warmup Iteration   9: 5.128 us/op
-# Warmup Iteration  10: 5.016 us/op
-# Warmup Iteration  11: 5.015 us/op
-# Warmup Iteration  12: 4.957 us/op
-# Warmup Iteration  13: 4.998 us/op
-# Warmup Iteration  14: 5.035 us/op
-# Warmup Iteration  15: 5.114 us/op
-# Warmup Iteration  16: 5.034 us/op
-# Warmup Iteration  17: 5.015 us/op
-# Warmup Iteration  18: 5.091 us/op
-# Warmup Iteration  19: 5.027 us/op
-# Warmup Iteration  20: 4.998 us/op
-Iteration   1: 4.988 us/op
-Iteration   2: 5.017 us/op
-Iteration   3: 5.008 us/op
-Iteration   4: 4.989 us/op
-Iteration   5: 4.958 us/op
-Iteration   6: 5.081 us/op
-Iteration   7: 5.048 us/op
-Iteration   8: 5.026 us/op
-Iteration   9: 5.051 us/op
-Iteration  10: 5.027 us/op
-Iteration  11: 5.021 us/op
-Iteration  12: 4.974 us/op
-Iteration  13: 5.018 us/op
-Iteration  14: 4.935 us/op
-Iteration  15: 4.900 us/op
-Iteration  16: 5.046 us/op
-Iteration  17: 5.001 us/op
-Iteration  18: 5.009 us/op
-Iteration  19: 5.022 us/op
-Iteration  20: 4.958 us/op
+# Warmup Iteration   1: 28.200 us/op
+# Warmup Iteration   2: 6.912 us/op
+# Warmup Iteration   3: 5.345 us/op
+# Warmup Iteration   4: 4.799 us/op
+# Warmup Iteration   5: 4.811 us/op
+# Warmup Iteration   6: 4.891 us/op
+# Warmup Iteration   7: 4.898 us/op
+# Warmup Iteration   8: 4.850 us/op
+# Warmup Iteration   9: 4.859 us/op
+# Warmup Iteration  10: 4.874 us/op
+# Warmup Iteration  11: 4.866 us/op
+# Warmup Iteration  12: 4.853 us/op
+# Warmup Iteration  13: 4.779 us/op
+# Warmup Iteration  14: 4.830 us/op
+# Warmup Iteration  15: 4.833 us/op
+# Warmup Iteration  16: 4.834 us/op
+# Warmup Iteration  17: 4.897 us/op
+# Warmup Iteration  18: 4.881 us/op
+# Warmup Iteration  19: 4.843 us/op
+# Warmup Iteration  20: 4.961 us/op
+Iteration   1: 4.809 us/op
+Iteration   2: 4.863 us/op
+Iteration   3: 4.899 us/op
+Iteration   4: 4.903 us/op
+Iteration   5: 4.845 us/op
+Iteration   6: 4.857 us/op
+Iteration   7: 4.889 us/op
+Iteration   8: 4.886 us/op
+Iteration   9: 4.862 us/op
+Iteration  10: 4.911 us/op
+Iteration  11: 4.838 us/op
+Iteration  12: 4.925 us/op
+Iteration  13: 4.888 us/op
+Iteration  14: 4.962 us/op
+Iteration  15: 4.837 us/op
+Iteration  16: 4.930 us/op
+Iteration  17: 4.819 us/op
+Iteration  18: 4.879 us/op
+Iteration  19: 4.924 us/op
+Iteration  20: 4.879 us/op
 
 
 Result "compile":
-  4.950 ±(99.9%) 0.040 us/op [Average]
-  (min, avg, max) = (4.814, 4.950, 5.081), stdev = 0.072
-  CI (99.9%): [4.910, 4.991] (assumes normal distribution)
+  4.913 ±(99.9%) 0.031 us/op [Average]
+  (min, avg, max) = (4.809, 4.913, 5.054), stdev = 0.054
+  CI (99.9%): [4.883, 4.944] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -115,97 +115,97 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_REDEFINES)
 
-# Run progress: 10.00% complete, ETA 00:12:07
+# Run progress: 9.09% complete, ETA 00:13:28
 # Fork: 1 of 2
-# Warmup Iteration   1: 39.203 us/op
-# Warmup Iteration   2: 8.121 us/op
-# Warmup Iteration   3: 6.051 us/op
-# Warmup Iteration   4: 5.759 us/op
-# Warmup Iteration   5: 5.682 us/op
-# Warmup Iteration   6: 5.773 us/op
-# Warmup Iteration   7: 5.835 us/op
-# Warmup Iteration   8: 5.806 us/op
-# Warmup Iteration   9: 5.849 us/op
-# Warmup Iteration  10: 5.844 us/op
-# Warmup Iteration  11: 5.811 us/op
-# Warmup Iteration  12: 5.849 us/op
-# Warmup Iteration  13: 5.939 us/op
-# Warmup Iteration  14: 5.770 us/op
-# Warmup Iteration  15: 5.799 us/op
-# Warmup Iteration  16: 5.692 us/op
-# Warmup Iteration  17: 5.771 us/op
-# Warmup Iteration  18: 5.796 us/op
-# Warmup Iteration  19: 5.838 us/op
-# Warmup Iteration  20: 5.783 us/op
-Iteration   1: 5.817 us/op
-Iteration   2: 5.896 us/op
-Iteration   3: 5.781 us/op
-Iteration   4: 5.778 us/op
-Iteration   5: 5.789 us/op
-Iteration   6: 5.753 us/op
-Iteration   7: 5.747 us/op
-Iteration   8: 5.813 us/op
-Iteration   9: 5.847 us/op
-Iteration  10: 5.820 us/op
-Iteration  11: 5.805 us/op
-Iteration  12: 5.888 us/op
-Iteration  13: 5.831 us/op
-Iteration  14: 5.827 us/op
-Iteration  15: 5.754 us/op
-Iteration  16: 5.718 us/op
-Iteration  17: 5.702 us/op
-Iteration  18: 5.801 us/op
-Iteration  19: 5.881 us/op
-Iteration  20: 5.868 us/op
+# Warmup Iteration   1: 27.077 us/op
+# Warmup Iteration   2: 7.557 us/op
+# Warmup Iteration   3: 7.606 us/op
+# Warmup Iteration   4: 11.619 us/op
+# Warmup Iteration   5: 11.638 us/op
+# Warmup Iteration   6: 11.670 us/op
+# Warmup Iteration   7: 11.649 us/op
+# Warmup Iteration   8: 11.611 us/op
+# Warmup Iteration   9: 11.651 us/op
+# Warmup Iteration  10: 11.644 us/op
+# Warmup Iteration  11: 11.627 us/op
+# Warmup Iteration  12: 11.664 us/op
+# Warmup Iteration  13: 11.665 us/op
+# Warmup Iteration  14: 11.732 us/op
+# Warmup Iteration  15: 11.705 us/op
+# Warmup Iteration  16: 11.708 us/op
+# Warmup Iteration  17: 11.806 us/op
+# Warmup Iteration  18: 11.787 us/op
+# Warmup Iteration  19: 11.763 us/op
+# Warmup Iteration  20: 11.786 us/op
+Iteration   1: 11.846 us/op
+Iteration   2: 11.784 us/op
+Iteration   3: 11.698 us/op
+Iteration   4: 11.719 us/op
+Iteration   5: 11.781 us/op
+Iteration   6: 11.743 us/op
+Iteration   7: 11.748 us/op
+Iteration   8: 11.752 us/op
+Iteration   9: 11.727 us/op
+Iteration  10: 11.784 us/op
+Iteration  11: 11.790 us/op
+Iteration  12: 11.777 us/op
+Iteration  13: 11.790 us/op
+Iteration  14: 11.813 us/op
+Iteration  15: 11.788 us/op
+Iteration  16: 11.701 us/op
+Iteration  17: 11.705 us/op
+Iteration  18: 11.776 us/op
+Iteration  19: 11.871 us/op
+Iteration  20: 11.739 us/op
 
-# Run progress: 15.00% complete, ETA 00:11:27
+# Run progress: 13.64% complete, ETA 00:12:48
 # Fork: 2 of 2
-# Warmup Iteration   1: 26.687 us/op
-# Warmup Iteration   2: 7.233 us/op
-# Warmup Iteration   3: 6.136 us/op
-# Warmup Iteration   4: 5.732 us/op
-# Warmup Iteration   5: 5.742 us/op
-# Warmup Iteration   6: 5.792 us/op
-# Warmup Iteration   7: 5.895 us/op
-# Warmup Iteration   8: 5.833 us/op
-# Warmup Iteration   9: 5.834 us/op
-# Warmup Iteration  10: 5.880 us/op
-# Warmup Iteration  11: 5.860 us/op
-# Warmup Iteration  12: 5.815 us/op
-# Warmup Iteration  13: 5.940 us/op
-# Warmup Iteration  14: 5.787 us/op
-# Warmup Iteration  15: 5.803 us/op
-# Warmup Iteration  16: 5.796 us/op
-# Warmup Iteration  17: 5.937 us/op
-# Warmup Iteration  18: 5.783 us/op
-# Warmup Iteration  19: 5.743 us/op
-# Warmup Iteration  20: 5.743 us/op
-Iteration   1: 5.812 us/op
-Iteration   2: 5.825 us/op
-Iteration   3: 5.754 us/op
-Iteration   4: 5.871 us/op
-Iteration   5: 5.815 us/op
-Iteration   6: 5.816 us/op
-Iteration   7: 5.758 us/op
-Iteration   8: 5.701 us/op
-Iteration   9: 5.756 us/op
-Iteration  10: 5.756 us/op
-Iteration  11: 5.784 us/op
-Iteration  12: 5.856 us/op
-Iteration  13: 5.756 us/op
-Iteration  14: 5.795 us/op
-Iteration  15: 5.714 us/op
-Iteration  16: 5.775 us/op
-Iteration  17: 5.694 us/op
-Iteration  18: 5.700 us/op
-Iteration  19: 5.790 us/op
-Iteration  20: 5.848 us/op
+# Warmup Iteration   1: 250.335 us/op
+# Warmup Iteration   2: 39.994 us/op
+# Warmup Iteration   3: 13.819 us/op
+# Warmup Iteration   4: 12.990 us/op
+# Warmup Iteration   5: 13.697 us/op
+# Warmup Iteration   6: 11.427 us/op
+# Warmup Iteration   7: 11.469 us/op
+# Warmup Iteration   8: 11.471 us/op
+# Warmup Iteration   9: 11.460 us/op
+# Warmup Iteration  10: 11.485 us/op
+# Warmup Iteration  11: 11.546 us/op
+# Warmup Iteration  12: 11.475 us/op
+# Warmup Iteration  13: 11.527 us/op
+# Warmup Iteration  14: 11.521 us/op
+# Warmup Iteration  15: 11.670 us/op
+# Warmup Iteration  16: 11.574 us/op
+# Warmup Iteration  17: 11.527 us/op
+# Warmup Iteration  18: 11.501 us/op
+# Warmup Iteration  19: 11.611 us/op
+# Warmup Iteration  20: 11.946 us/op
+Iteration   1: 11.584 us/op
+Iteration   2: 11.531 us/op
+Iteration   3: 11.524 us/op
+Iteration   4: 11.546 us/op
+Iteration   5: 11.496 us/op
+Iteration   6: 7.303 us/op
+Iteration   7: 5.876 us/op
+Iteration   8: 5.830 us/op
+Iteration   9: 5.729 us/op
+Iteration  10: 5.737 us/op
+Iteration  11: 5.809 us/op
+Iteration  12: 5.784 us/op
+Iteration  13: 5.773 us/op
+Iteration  14: 5.736 us/op
+Iteration  15: 5.925 us/op
+Iteration  16: 5.845 us/op
+Iteration  17: 5.934 us/op
+Iteration  18: 5.900 us/op
+Iteration  19: 5.805 us/op
+Iteration  20: 5.895 us/op
 
 
 Result "compile":
-  5.792 ±(99.9%) 0.031 us/op [Average]
-  (min, avg, max) = (5.694, 5.792, 5.896), stdev = 0.054
-  CI (99.9%): [5.762, 5.823] (assumes normal distribution)
+  9.547 ±(99.9%) 1.604 us/op [Average]
+  (min, avg, max) = (5.729, 9.547, 11.871), stdev = 2.852
+  CI (99.9%): [7.943, 11.152] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -220,97 +220,97 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_BLANK_WHEN_ZERO)
 
-# Run progress: 20.00% complete, ETA 00:10:47
+# Run progress: 18.18% complete, ETA 00:12:09
 # Fork: 1 of 2
-# Warmup Iteration   1: 36.935 us/op
-# Warmup Iteration   2: 8.229 us/op
-# Warmup Iteration   3: 6.775 us/op
-# Warmup Iteration   4: 6.410 us/op
-# Warmup Iteration   5: 6.376 us/op
-# Warmup Iteration   6: 6.360 us/op
-# Warmup Iteration   7: 6.448 us/op
-# Warmup Iteration   8: 6.471 us/op
-# Warmup Iteration   9: 6.602 us/op
-# Warmup Iteration  10: 6.643 us/op
-# Warmup Iteration  11: 6.478 us/op
-# Warmup Iteration  12: 6.394 us/op
-# Warmup Iteration  13: 6.531 us/op
-# Warmup Iteration  14: 6.517 us/op
-# Warmup Iteration  15: 6.500 us/op
-# Warmup Iteration  16: 6.475 us/op
-# Warmup Iteration  17: 6.502 us/op
-# Warmup Iteration  18: 6.472 us/op
-# Warmup Iteration  19: 6.444 us/op
-# Warmup Iteration  20: 6.596 us/op
-Iteration   1: 6.344 us/op
-Iteration   2: 6.368 us/op
-Iteration   3: 6.430 us/op
-Iteration   4: 6.422 us/op
-Iteration   5: 6.519 us/op
-Iteration   6: 6.504 us/op
-Iteration   7: 6.426 us/op
-Iteration   8: 6.453 us/op
-Iteration   9: 6.375 us/op
-Iteration  10: 9.026 us/op
-Iteration  11: 12.918 us/op
-Iteration  12: 12.937 us/op
-Iteration  13: 13.106 us/op
-Iteration  14: 13.022 us/op
-Iteration  15: 12.971 us/op
-Iteration  16: 12.973 us/op
-Iteration  17: 12.979 us/op
-Iteration  18: 13.029 us/op
-Iteration  19: 13.021 us/op
-Iteration  20: 12.980 us/op
+# Warmup Iteration   1: 27.604 us/op
+# Warmup Iteration   2: 8.167 us/op
+# Warmup Iteration   3: 6.929 us/op
+# Warmup Iteration   4: 6.436 us/op
+# Warmup Iteration   5: 6.413 us/op
+# Warmup Iteration   6: 6.446 us/op
+# Warmup Iteration   7: 6.525 us/op
+# Warmup Iteration   8: 6.529 us/op
+# Warmup Iteration   9: 6.684 us/op
+# Warmup Iteration  10: 6.507 us/op
+# Warmup Iteration  11: 6.512 us/op
+# Warmup Iteration  12: 6.526 us/op
+# Warmup Iteration  13: 6.563 us/op
+# Warmup Iteration  14: 6.611 us/op
+# Warmup Iteration  15: 6.575 us/op
+# Warmup Iteration  16: 6.446 us/op
+# Warmup Iteration  17: 6.591 us/op
+# Warmup Iteration  18: 6.505 us/op
+# Warmup Iteration  19: 6.381 us/op
+# Warmup Iteration  20: 6.437 us/op
+Iteration   1: 6.518 us/op
+Iteration   2: 6.584 us/op
+Iteration   3: 6.393 us/op
+Iteration   4: 6.506 us/op
+Iteration   5: 7.213 us/op
+Iteration   6: 13.038 us/op
+Iteration   7: 13.078 us/op
+Iteration   8: 13.101 us/op
+Iteration   9: 13.109 us/op
+Iteration  10: 13.064 us/op
+Iteration  11: 13.133 us/op
+Iteration  12: 13.119 us/op
+Iteration  13: 13.075 us/op
+Iteration  14: 13.027 us/op
+Iteration  15: 13.059 us/op
+Iteration  16: 13.081 us/op
+Iteration  17: 13.053 us/op
+Iteration  18: 13.066 us/op
+Iteration  19: 13.048 us/op
+Iteration  20: 13.159 us/op
 
-# Run progress: 25.00% complete, ETA 00:10:06
+# Run progress: 22.73% complete, ETA 00:11:28
 # Fork: 2 of 2
-# Warmup Iteration   1: 235.249 us/op
-# Warmup Iteration   2: 40.298 us/op
-# Warmup Iteration   3: 15.807 us/op
-# Warmup Iteration   4: 15.800 us/op
-# Warmup Iteration   5: 14.366 us/op
-# Warmup Iteration   6: 12.721 us/op
-# Warmup Iteration   7: 12.766 us/op
-# Warmup Iteration   8: 12.848 us/op
-# Warmup Iteration   9: 12.774 us/op
-# Warmup Iteration  10: 12.792 us/op
-# Warmup Iteration  11: 12.799 us/op
-# Warmup Iteration  12: 12.860 us/op
-# Warmup Iteration  13: 12.826 us/op
-# Warmup Iteration  14: 12.780 us/op
-# Warmup Iteration  15: 12.813 us/op
-# Warmup Iteration  16: 12.844 us/op
-# Warmup Iteration  17: 12.984 us/op
-# Warmup Iteration  18: 12.872 us/op
-# Warmup Iteration  19: 12.911 us/op
-# Warmup Iteration  20: 12.873 us/op
-Iteration   1: 12.898 us/op
-Iteration   2: 12.883 us/op
-Iteration   3: 12.888 us/op
-Iteration   4: 12.872 us/op
-Iteration   5: 13.036 us/op
-Iteration   6: 12.928 us/op
-Iteration   7: 12.912 us/op
-Iteration   8: 12.929 us/op
-Iteration   9: 12.916 us/op
-Iteration  10: 12.978 us/op
-Iteration  11: 12.941 us/op
-Iteration  12: 11.235 us/op
-Iteration  13: 6.441 us/op
-Iteration  14: 6.480 us/op
-Iteration  15: 6.424 us/op
-Iteration  16: 6.515 us/op
-Iteration  17: 6.485 us/op
-Iteration  18: 6.399 us/op
-Iteration  19: 6.431 us/op
-Iteration  20: 6.426 us/op
+# Warmup Iteration   1: 258.320 us/op
+# Warmup Iteration   2: 29.476 us/op
+# Warmup Iteration   3: 16.069 us/op
+# Warmup Iteration   4: 14.119 us/op
+# Warmup Iteration   5: 15.351 us/op
+# Warmup Iteration   6: 12.783 us/op
+# Warmup Iteration   7: 12.652 us/op
+# Warmup Iteration   8: 12.733 us/op
+# Warmup Iteration   9: 12.758 us/op
+# Warmup Iteration  10: 12.670 us/op
+# Warmup Iteration  11: 12.759 us/op
+# Warmup Iteration  12: 12.722 us/op
+# Warmup Iteration  13: 12.795 us/op
+# Warmup Iteration  14: 12.952 us/op
+# Warmup Iteration  15: 12.770 us/op
+# Warmup Iteration  16: 12.768 us/op
+# Warmup Iteration  17: 12.935 us/op
+# Warmup Iteration  18: 12.976 us/op
+# Warmup Iteration  19: 12.955 us/op
+# Warmup Iteration  20: 12.988 us/op
+Iteration   1: 12.953 us/op
+Iteration   2: 12.935 us/op
+Iteration   3: 12.979 us/op
+Iteration   4: 12.982 us/op
+Iteration   5: 12.874 us/op
+Iteration   6: 12.968 us/op
+Iteration   7: 12.859 us/op
+Iteration   8: 12.906 us/op
+Iteration   9: 12.953 us/op
+Iteration  10: 12.922 us/op
+Iteration  11: 12.918 us/op
+Iteration  12: 12.894 us/op
+Iteration  13: 12.913 us/op
+Iteration  14: 12.969 us/op
+Iteration  15: 12.984 us/op
+Iteration  16: 12.986 us/op
+Iteration  17: 12.936 us/op
+Iteration  18: 12.935 us/op
+Iteration  19: 12.889 us/op
+Iteration  20: 12.898 us/op
 
 
 Result "compile":
-  10.046 ±(99.9%) 1.806 us/op [Average]
-  (min, avg, max) = (6.344, 10.046, 13.106), stdev = 3.210
-  CI (99.9%): [8.239, 11.852] (assumes normal distribution)
+  12.202 ±(99.9%) 1.199 us/op [Average]
+  (min, avg, max) = (6.393, 12.202, 13.159), stdev = 2.132
+  CI (99.9%): [11.003, 13.401] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -325,97 +325,97 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_IS_EXTERNAL)
 
-# Run progress: 30.00% complete, ETA 00:09:26
+# Run progress: 27.27% complete, ETA 00:10:48
 # Fork: 1 of 2
-# Warmup Iteration   1: 31.389 us/op
-# Warmup Iteration   2: 8.311 us/op
-# Warmup Iteration   3: 6.613 us/op
-# Warmup Iteration   4: 6.061 us/op
-# Warmup Iteration   5: 6.022 us/op
-# Warmup Iteration   6: 6.123 us/op
-# Warmup Iteration   7: 6.207 us/op
-# Warmup Iteration   8: 6.166 us/op
-# Warmup Iteration   9: 6.261 us/op
-# Warmup Iteration  10: 6.182 us/op
-# Warmup Iteration  11: 6.178 us/op
-# Warmup Iteration  12: 6.276 us/op
-# Warmup Iteration  13: 6.170 us/op
-# Warmup Iteration  14: 6.186 us/op
-# Warmup Iteration  15: 6.230 us/op
-# Warmup Iteration  16: 6.285 us/op
-# Warmup Iteration  17: 6.222 us/op
-# Warmup Iteration  18: 6.300 us/op
-# Warmup Iteration  19: 6.294 us/op
-# Warmup Iteration  20: 6.180 us/op
-Iteration   1: 6.175 us/op
-Iteration   2: 6.064 us/op
-Iteration   3: 6.105 us/op
-Iteration   4: 6.114 us/op
-Iteration   5: 6.162 us/op
-Iteration   6: 6.209 us/op
-Iteration   7: 6.112 us/op
-Iteration   8: 6.143 us/op
-Iteration   9: 6.328 us/op
-Iteration  10: 6.293 us/op
-Iteration  11: 6.194 us/op
-Iteration  12: 6.186 us/op
-Iteration  13: 6.116 us/op
-Iteration  14: 6.093 us/op
-Iteration  15: 6.164 us/op
-Iteration  16: 6.082 us/op
-Iteration  17: 6.242 us/op
-Iteration  18: 6.089 us/op
-Iteration  19: 6.103 us/op
-Iteration  20: 6.357 us/op
+# Warmup Iteration   1: 268.766 us/op
+# Warmup Iteration   2: 39.607 us/op
+# Warmup Iteration   3: 15.401 us/op
+# Warmup Iteration   4: 14.577 us/op
+# Warmup Iteration   5: 13.412 us/op
+# Warmup Iteration   6: 11.785 us/op
+# Warmup Iteration   7: 11.772 us/op
+# Warmup Iteration   8: 11.746 us/op
+# Warmup Iteration   9: 11.754 us/op
+# Warmup Iteration  10: 11.804 us/op
+# Warmup Iteration  11: 11.848 us/op
+# Warmup Iteration  12: 11.855 us/op
+# Warmup Iteration  13: 11.834 us/op
+# Warmup Iteration  14: 11.916 us/op
+# Warmup Iteration  15: 11.916 us/op
+# Warmup Iteration  16: 12.014 us/op
+# Warmup Iteration  17: 9.125 us/op
+# Warmup Iteration  18: 6.113 us/op
+# Warmup Iteration  19: 5.879 us/op
+# Warmup Iteration  20: 6.035 us/op
+Iteration   1: 6.032 us/op
+Iteration   2: 6.009 us/op
+Iteration   3: 6.041 us/op
+Iteration   4: 5.985 us/op
+Iteration   5: 5.938 us/op
+Iteration   6: 5.937 us/op
+Iteration   7: 5.945 us/op
+Iteration   8: 5.977 us/op
+Iteration   9: 5.984 us/op
+Iteration  10: 5.912 us/op
+Iteration  11: 5.947 us/op
+Iteration  12: 5.972 us/op
+Iteration  13: 6.023 us/op
+Iteration  14: 5.996 us/op
+Iteration  15: 5.871 us/op
+Iteration  16: 5.961 us/op
+Iteration  17: 5.949 us/op
+Iteration  18: 6.054 us/op
+Iteration  19: 6.058 us/op
+Iteration  20: 6.001 us/op
 
-# Run progress: 35.00% complete, ETA 00:08:46
+# Run progress: 31.82% complete, ETA 00:10:08
 # Fork: 2 of 2
-# Warmup Iteration   1: 44.620 us/op
-# Warmup Iteration   2: 8.365 us/op
-# Warmup Iteration   3: 6.578 us/op
-# Warmup Iteration   4: 6.173 us/op
-# Warmup Iteration   5: 6.172 us/op
-# Warmup Iteration   6: 6.165 us/op
-# Warmup Iteration   7: 6.148 us/op
+# Warmup Iteration   1: 45.447 us/op
+# Warmup Iteration   2: 8.395 us/op
+# Warmup Iteration   3: 6.573 us/op
+# Warmup Iteration   4: 6.127 us/op
+# Warmup Iteration   5: 6.175 us/op
+# Warmup Iteration   6: 6.172 us/op
+# Warmup Iteration   7: 6.238 us/op
 # Warmup Iteration   8: 6.210 us/op
-# Warmup Iteration   9: 9.100 us/op
-# Warmup Iteration  10: 12.275 us/op
-# Warmup Iteration  11: 12.253 us/op
-# Warmup Iteration  12: 12.258 us/op
-# Warmup Iteration  13: 12.239 us/op
-# Warmup Iteration  14: 12.243 us/op
-# Warmup Iteration  15: 12.241 us/op
-# Warmup Iteration  16: 12.248 us/op
-# Warmup Iteration  17: 12.301 us/op
-# Warmup Iteration  18: 12.384 us/op
-# Warmup Iteration  19: 12.410 us/op
-# Warmup Iteration  20: 12.493 us/op
-Iteration   1: 12.408 us/op
-Iteration   2: 12.389 us/op
-Iteration   3: 12.401 us/op
-Iteration   4: 12.450 us/op
-Iteration   5: 12.678 us/op
-Iteration   6: 12.462 us/op
-Iteration   7: 12.416 us/op
-Iteration   8: 12.407 us/op
-Iteration   9: 12.313 us/op
-Iteration  10: 12.268 us/op
-Iteration  11: 12.684 us/op
-Iteration  12: 12.958 us/op
-Iteration  13: 12.338 us/op
-Iteration  14: 12.393 us/op
-Iteration  15: 12.343 us/op
-Iteration  16: 12.557 us/op
-Iteration  17: 12.536 us/op
-Iteration  18: 12.487 us/op
-Iteration  19: 12.360 us/op
-Iteration  20: 12.396 us/op
+# Warmup Iteration   9: 6.220 us/op
+# Warmup Iteration  10: 6.351 us/op
+# Warmup Iteration  11: 6.246 us/op
+# Warmup Iteration  12: 6.247 us/op
+# Warmup Iteration  13: 6.151 us/op
+# Warmup Iteration  14: 6.264 us/op
+# Warmup Iteration  15: 6.152 us/op
+# Warmup Iteration  16: 6.120 us/op
+# Warmup Iteration  17: 7.178 us/op
+# Warmup Iteration  18: 12.582 us/op
+# Warmup Iteration  19: 12.588 us/op
+# Warmup Iteration  20: 12.668 us/op
+Iteration   1: 12.612 us/op
+Iteration   2: 12.614 us/op
+Iteration   3: 12.654 us/op
+Iteration   4: 12.631 us/op
+Iteration   5: 12.637 us/op
+Iteration   6: 12.608 us/op
+Iteration   7: 12.660 us/op
+Iteration   8: 12.692 us/op
+Iteration   9: 12.768 us/op
+Iteration  10: 12.703 us/op
+Iteration  11: 12.716 us/op
+Iteration  12: 12.815 us/op
+Iteration  13: 12.741 us/op
+Iteration  14: 12.760 us/op
+Iteration  15: 12.770 us/op
+Iteration  16: 12.814 us/op
+Iteration  17: 12.721 us/op
+Iteration  18: 12.751 us/op
+Iteration  19: 12.746 us/op
+Iteration  20: 12.785 us/op
 
 
 Result "compile":
-  9.314 ±(99.9%) 1.795 us/op [Average]
-  (min, avg, max) = (6.064, 9.314, 12.958), stdev = 3.190
-  CI (99.9%): [7.519, 11.109] (assumes normal distribution)
+  9.345 ±(99.9%) 1.918 us/op [Average]
+  (min, avg, max) = (5.871, 9.345, 12.815), stdev = 3.409
+  CI (99.9%): [7.427, 11.262] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -430,97 +430,202 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_IS_GLOBAL)
 
-# Run progress: 40.00% complete, ETA 00:08:05
+# Run progress: 36.36% complete, ETA 00:09:27
 # Fork: 1 of 2
-# Warmup Iteration   1: 328.407 us/op
-# Warmup Iteration   2: 41.687 us/op
-# Warmup Iteration   3: 16.292 us/op
-# Warmup Iteration   4: 14.206 us/op
-# Warmup Iteration   5: 14.863 us/op
-# Warmup Iteration   6: 12.332 us/op
-# Warmup Iteration   7: 12.128 us/op
-# Warmup Iteration   8: 12.161 us/op
-# Warmup Iteration   9: 12.303 us/op
-# Warmup Iteration  10: 12.224 us/op
-# Warmup Iteration  11: 12.216 us/op
-# Warmup Iteration  12: 12.273 us/op
-# Warmup Iteration  13: 12.257 us/op
-# Warmup Iteration  14: 12.317 us/op
-# Warmup Iteration  15: 12.333 us/op
-# Warmup Iteration  16: 12.417 us/op
-# Warmup Iteration  17: 12.393 us/op
-# Warmup Iteration  18: 12.438 us/op
-# Warmup Iteration  19: 12.311 us/op
-# Warmup Iteration  20: 12.446 us/op
-Iteration   1: 12.343 us/op
-Iteration   2: 12.330 us/op
-Iteration   3: 12.330 us/op
-Iteration   4: 12.392 us/op
-Iteration   5: 12.486 us/op
-Iteration   6: 12.521 us/op
-Iteration   7: 12.762 us/op
-Iteration   8: 12.354 us/op
-Iteration   9: 14.232 us/op
-Iteration  10: 12.284 us/op
-Iteration  11: 12.447 us/op
-Iteration  12: 12.384 us/op
-Iteration  13: 12.367 us/op
-Iteration  14: 8.275 us/op
-Iteration  15: 6.138 us/op
-Iteration  16: 6.167 us/op
-Iteration  17: 6.050 us/op
-Iteration  18: 6.054 us/op
-Iteration  19: 6.188 us/op
-Iteration  20: 6.145 us/op
+# Warmup Iteration   1: 321.218 us/op
+# Warmup Iteration   2: 45.778 us/op
+# Warmup Iteration   3: 17.291 us/op
+# Warmup Iteration   4: 13.897 us/op
+# Warmup Iteration   5: 14.821 us/op
+# Warmup Iteration   6: 12.201 us/op
+# Warmup Iteration   7: 12.166 us/op
+# Warmup Iteration   8: 12.213 us/op
+# Warmup Iteration   9: 12.224 us/op
+# Warmup Iteration  10: 12.187 us/op
+# Warmup Iteration  11: 12.255 us/op
+# Warmup Iteration  12: 12.191 us/op
+# Warmup Iteration  13: 12.204 us/op
+# Warmup Iteration  14: 12.196 us/op
+# Warmup Iteration  15: 12.225 us/op
+# Warmup Iteration  16: 12.285 us/op
+# Warmup Iteration  17: 12.375 us/op
+# Warmup Iteration  18: 12.341 us/op
+# Warmup Iteration  19: 12.315 us/op
+# Warmup Iteration  20: 12.395 us/op
+Iteration   1: 12.342 us/op
+Iteration   2: 12.335 us/op
+Iteration   3: 12.307 us/op
+Iteration   4: 12.375 us/op
+Iteration   5: 12.260 us/op
+Iteration   6: 12.339 us/op
+Iteration   7: 12.353 us/op
+Iteration   8: 12.342 us/op
+Iteration   9: 12.346 us/op
+Iteration  10: 12.314 us/op
+Iteration  11: 12.323 us/op
+Iteration  12: 12.348 us/op
+Iteration  13: 12.317 us/op
+Iteration  14: 12.309 us/op
+Iteration  15: 12.340 us/op
+Iteration  16: 12.327 us/op
+Iteration  17: 12.357 us/op
+Iteration  18: 12.369 us/op
+Iteration  19: 12.345 us/op
+Iteration  20: 12.348 us/op
 
-# Run progress: 45.00% complete, ETA 00:07:25
+# Run progress: 40.91% complete, ETA 00:08:47
 # Fork: 2 of 2
-# Warmup Iteration   1: 29.466 us/op
-# Warmup Iteration   2: 8.227 us/op
-# Warmup Iteration   3: 6.573 us/op
-# Warmup Iteration   4: 6.168 us/op
-# Warmup Iteration   5: 6.205 us/op
-# Warmup Iteration   6: 6.219 us/op
-# Warmup Iteration   7: 6.220 us/op
-# Warmup Iteration   8: 6.314 us/op
-# Warmup Iteration   9: 6.304 us/op
-# Warmup Iteration  10: 6.295 us/op
-# Warmup Iteration  11: 6.179 us/op
-# Warmup Iteration  12: 6.191 us/op
-# Warmup Iteration  13: 6.232 us/op
-# Warmup Iteration  14: 6.374 us/op
-# Warmup Iteration  15: 6.288 us/op
-# Warmup Iteration  16: 6.254 us/op
-# Warmup Iteration  17: 6.253 us/op
-# Warmup Iteration  18: 6.271 us/op
-# Warmup Iteration  19: 6.162 us/op
-# Warmup Iteration  20: 6.153 us/op
-Iteration   1: 6.151 us/op
-Iteration   2: 6.261 us/op
-Iteration   3: 6.224 us/op
-Iteration   4: 6.219 us/op
-Iteration   5: 6.168 us/op
-Iteration   6: 6.244 us/op
-Iteration   7: 6.294 us/op
-Iteration   8: 6.201 us/op
-Iteration   9: 6.265 us/op
-Iteration  10: 6.245 us/op
-Iteration  11: 6.250 us/op
-Iteration  12: 6.366 us/op
-Iteration  13: 6.289 us/op
-Iteration  14: 6.250 us/op
-Iteration  15: 6.210 us/op
-Iteration  16: 6.199 us/op
-Iteration  17: 6.325 us/op
-Iteration  18: 6.233 us/op
-Iteration  19: 6.281 us/op
-Iteration  20: 6.312 us/op
+# Warmup Iteration   1: 251.952 us/op
+# Warmup Iteration   2: 39.868 us/op
+# Warmup Iteration   3: 15.057 us/op
+# Warmup Iteration   4: 14.991 us/op
+# Warmup Iteration   5: 13.676 us/op
+# Warmup Iteration   6: 12.118 us/op
+# Warmup Iteration   7: 12.084 us/op
+# Warmup Iteration   8: 12.205 us/op
+# Warmup Iteration   9: 12.130 us/op
+# Warmup Iteration  10: 12.161 us/op
+# Warmup Iteration  11: 12.226 us/op
+# Warmup Iteration  12: 11.464 us/op
+# Warmup Iteration  13: 6.076 us/op
+# Warmup Iteration  14: 6.227 us/op
+# Warmup Iteration  15: 6.233 us/op
+# Warmup Iteration  16: 6.252 us/op
+# Warmup Iteration  17: 6.070 us/op
+# Warmup Iteration  18: 6.108 us/op
+# Warmup Iteration  19: 6.123 us/op
+# Warmup Iteration  20: 6.169 us/op
+Iteration   1: 6.028 us/op
+Iteration   2: 6.084 us/op
+Iteration   3: 6.193 us/op
+Iteration   4: 6.101 us/op
+Iteration   5: 6.051 us/op
+Iteration   6: 6.084 us/op
+Iteration   7: 6.070 us/op
+Iteration   8: 6.081 us/op
+Iteration   9: 6.005 us/op
+Iteration  10: 5.989 us/op
+Iteration  11: 6.010 us/op
+Iteration  12: 6.004 us/op
+Iteration  13: 6.101 us/op
+Iteration  14: 6.016 us/op
+Iteration  15: 6.034 us/op
+Iteration  16: 6.237 us/op
+Iteration  17: 6.083 us/op
+Iteration  18: 6.167 us/op
+Iteration  19: 5.959 us/op
+Iteration  20: 6.001 us/op
 
 
 Result "compile":
-  8.331 ±(99.9%) 1.688 us/op [Average]
-  (min, avg, max) = (6.050, 8.331, 14.232), stdev = 3.001
-  CI (99.9%): [6.642, 10.019] (assumes normal distribution)
+  9.200 ±(99.9%) 1.786 us/op [Average]
+  (min, avg, max) = (5.959, 9.200, 12.375), stdev = 3.175
+  CI (99.9%): [7.413, 10.986] (assumes normal distribution)
+
+
+# JMH 1.11.3 (released 356 days ago, please consider updating!)
+# VM version: JDK 1.8.0_77, VM 25.77-b03
+# VM invoker: /usr/lib/jvm/oracle-java8-jdk-amd64/jre/bin/java
+# VM options: <none>
+# Warmup: 20 iterations, 1 s each
+# Measurement: 20 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
+# Parameters: (sample = DECL_X_GROUP_USAGE)
+
+# Run progress: 45.45% complete, ETA 00:08:07
+# Fork: 1 of 2
+# Warmup Iteration   1: 31.022 us/op
+# Warmup Iteration   2: 9.305 us/op
+# Warmup Iteration   3: 7.024 us/op
+# Warmup Iteration   4: 6.629 us/op
+# Warmup Iteration   5: 6.592 us/op
+# Warmup Iteration   6: 6.602 us/op
+# Warmup Iteration   7: 7.376 us/op
+# Warmup Iteration   8: 13.342 us/op
+# Warmup Iteration   9: 13.363 us/op
+# Warmup Iteration  10: 13.376 us/op
+# Warmup Iteration  11: 13.370 us/op
+# Warmup Iteration  12: 13.445 us/op
+# Warmup Iteration  13: 13.527 us/op
+# Warmup Iteration  14: 13.550 us/op
+# Warmup Iteration  15: 13.473 us/op
+# Warmup Iteration  16: 13.482 us/op
+# Warmup Iteration  17: 13.504 us/op
+# Warmup Iteration  18: 13.457 us/op
+# Warmup Iteration  19: 13.440 us/op
+# Warmup Iteration  20: 13.490 us/op
+Iteration   1: 13.484 us/op
+Iteration   2: 13.523 us/op
+Iteration   3: 13.548 us/op
+Iteration   4: 13.516 us/op
+Iteration   5: 13.561 us/op
+Iteration   6: 13.518 us/op
+Iteration   7: 13.517 us/op
+Iteration   8: 13.474 us/op
+Iteration   9: 13.548 us/op
+Iteration  10: 13.512 us/op
+Iteration  11: 13.468 us/op
+Iteration  12: 13.617 us/op
+Iteration  13: 13.531 us/op
+Iteration  14: 13.461 us/op
+Iteration  15: 13.514 us/op
+Iteration  16: 13.498 us/op
+Iteration  17: 13.519 us/op
+Iteration  18: 13.498 us/op
+Iteration  19: 13.473 us/op
+Iteration  20: 13.593 us/op
+
+# Run progress: 50.00% complete, ETA 00:07:26
+# Fork: 2 of 2
+# Warmup Iteration   1: 271.660 us/op
+# Warmup Iteration   2: 45.465 us/op
+# Warmup Iteration   3: 16.189 us/op
+# Warmup Iteration   4: 16.373 us/op
+# Warmup Iteration   5: 15.026 us/op
+# Warmup Iteration   6: 13.253 us/op
+# Warmup Iteration   7: 13.245 us/op
+# Warmup Iteration   8: 13.338 us/op
+# Warmup Iteration   9: 13.274 us/op
+# Warmup Iteration  10: 13.313 us/op
+# Warmup Iteration  11: 13.351 us/op
+# Warmup Iteration  12: 13.245 us/op
+# Warmup Iteration  13: 13.276 us/op
+# Warmup Iteration  14: 13.307 us/op
+# Warmup Iteration  15: 13.329 us/op
+# Warmup Iteration  16: 13.399 us/op
+# Warmup Iteration  17: 13.603 us/op
+# Warmup Iteration  18: 13.612 us/op
+# Warmup Iteration  19: 13.596 us/op
+# Warmup Iteration  20: 13.700 us/op
+Iteration   1: 13.576 us/op
+Iteration   2: 13.690 us/op
+Iteration   3: 13.628 us/op
+Iteration   4: 13.623 us/op
+Iteration   5: 13.676 us/op
+Iteration   6: 13.614 us/op
+Iteration   7: 13.680 us/op
+Iteration   8: 13.615 us/op
+Iteration   9: 13.615 us/op
+Iteration  10: 13.551 us/op
+Iteration  11: 13.605 us/op
+Iteration  12: 13.623 us/op
+Iteration  13: 13.588 us/op
+Iteration  14: 13.655 us/op
+Iteration  15: 13.568 us/op
+Iteration  16: 13.569 us/op
+Iteration  17: 13.541 us/op
+Iteration  18: 13.561 us/op
+Iteration  19: 13.585 us/op
+Iteration  20: 13.512 us/op
+
+
+Result "compile":
+  13.561 ±(99.9%) 0.035 us/op [Average]
+  (min, avg, max) = (13.461, 13.561, 13.690), stdev = 0.061
+  CI (99.9%): [13.527, 13.596] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -535,97 +640,97 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_OCCURS)
 
-# Run progress: 50.00% complete, ETA 00:06:45
+# Run progress: 54.55% complete, ETA 00:06:46
 # Fork: 1 of 2
-# Warmup Iteration   1: 34.249 us/op
-# Warmup Iteration   2: 8.677 us/op
-# Warmup Iteration   3: 7.544 us/op
-# Warmup Iteration   4: 7.016 us/op
-# Warmup Iteration   5: 6.968 us/op
-# Warmup Iteration   6: 6.932 us/op
-# Warmup Iteration   7: 8.242 us/op
-# Warmup Iteration   8: 14.267 us/op
-# Warmup Iteration   9: 14.337 us/op
-# Warmup Iteration  10: 14.378 us/op
-# Warmup Iteration  11: 14.422 us/op
-# Warmup Iteration  12: 14.383 us/op
-# Warmup Iteration  13: 14.477 us/op
-# Warmup Iteration  14: 14.469 us/op
-# Warmup Iteration  15: 14.395 us/op
-# Warmup Iteration  16: 14.415 us/op
-# Warmup Iteration  17: 14.399 us/op
-# Warmup Iteration  18: 14.441 us/op
-# Warmup Iteration  19: 14.355 us/op
-# Warmup Iteration  20: 14.430 us/op
-Iteration   1: 14.352 us/op
-Iteration   2: 14.403 us/op
-Iteration   3: 14.417 us/op
-Iteration   4: 14.487 us/op
-Iteration   5: 14.352 us/op
-Iteration   6: 14.401 us/op
-Iteration   7: 14.477 us/op
-Iteration   8: 14.415 us/op
-Iteration   9: 14.407 us/op
-Iteration  10: 14.304 us/op
-Iteration  11: 14.307 us/op
-Iteration  12: 14.341 us/op
-Iteration  13: 14.372 us/op
-Iteration  14: 14.443 us/op
-Iteration  15: 14.469 us/op
-Iteration  16: 14.491 us/op
-Iteration  17: 14.419 us/op
-Iteration  18: 14.441 us/op
-Iteration  19: 14.444 us/op
-Iteration  20: 14.390 us/op
+# Warmup Iteration   1: 293.857 us/op
+# Warmup Iteration   2: 31.239 us/op
+# Warmup Iteration   3: 17.240 us/op
+# Warmup Iteration   4: 17.595 us/op
+# Warmup Iteration   5: 16.225 us/op
+# Warmup Iteration   6: 14.278 us/op
+# Warmup Iteration   7: 14.298 us/op
+# Warmup Iteration   8: 9.422 us/op
+# Warmup Iteration   9: 6.940 us/op
+# Warmup Iteration  10: 7.100 us/op
+# Warmup Iteration  11: 7.084 us/op
+# Warmup Iteration  12: 7.189 us/op
+# Warmup Iteration  13: 7.111 us/op
+# Warmup Iteration  14: 7.291 us/op
+# Warmup Iteration  15: 7.100 us/op
+# Warmup Iteration  16: 7.084 us/op
+# Warmup Iteration  17: 7.058 us/op
+# Warmup Iteration  18: 7.162 us/op
+# Warmup Iteration  19: 7.019 us/op
+# Warmup Iteration  20: 7.052 us/op
+Iteration   1: 6.986 us/op
+Iteration   2: 7.056 us/op
+Iteration   3: 7.118 us/op
+Iteration   4: 7.043 us/op
+Iteration   5: 6.988 us/op
+Iteration   6: 6.938 us/op
+Iteration   7: 6.954 us/op
+Iteration   8: 6.980 us/op
+Iteration   9: 6.967 us/op
+Iteration  10: 7.093 us/op
+Iteration  11: 7.013 us/op
+Iteration  12: 6.957 us/op
+Iteration  13: 7.192 us/op
+Iteration  14: 7.037 us/op
+Iteration  15: 7.027 us/op
+Iteration  16: 6.991 us/op
+Iteration  17: 6.951 us/op
+Iteration  18: 7.120 us/op
+Iteration  19: 7.084 us/op
+Iteration  20: 6.999 us/op
 
-# Run progress: 55.00% complete, ETA 00:06:04
+# Run progress: 59.09% complete, ETA 00:06:05
 # Fork: 2 of 2
-# Warmup Iteration   1: 310.974 us/op
-# Warmup Iteration   2: 49.328 us/op
-# Warmup Iteration   3: 19.237 us/op
-# Warmup Iteration   4: 17.851 us/op
-# Warmup Iteration   5: 15.136 us/op
-# Warmup Iteration   6: 15.192 us/op
-# Warmup Iteration   7: 14.237 us/op
-# Warmup Iteration   8: 14.273 us/op
-# Warmup Iteration   9: 14.243 us/op
-# Warmup Iteration  10: 14.268 us/op
-# Warmup Iteration  11: 14.318 us/op
-# Warmup Iteration  12: 14.232 us/op
-# Warmup Iteration  13: 14.275 us/op
-# Warmup Iteration  14: 14.282 us/op
-# Warmup Iteration  15: 14.309 us/op
-# Warmup Iteration  16: 14.310 us/op
-# Warmup Iteration  17: 14.317 us/op
-# Warmup Iteration  18: 14.298 us/op
-# Warmup Iteration  19: 14.373 us/op
-# Warmup Iteration  20: 14.352 us/op
-Iteration   1: 14.399 us/op
-Iteration   2: 14.378 us/op
-Iteration   3: 14.400 us/op
-Iteration   4: 14.452 us/op
-Iteration   5: 14.434 us/op
-Iteration   6: 14.451 us/op
-Iteration   7: 14.434 us/op
-Iteration   8: 14.331 us/op
-Iteration   9: 14.312 us/op
-Iteration  10: 14.369 us/op
-Iteration  11: 14.473 us/op
-Iteration  12: 14.385 us/op
-Iteration  13: 10.220 us/op
-Iteration  14: 7.058 us/op
-Iteration  15: 7.051 us/op
-Iteration  16: 7.083 us/op
-Iteration  17: 6.919 us/op
-Iteration  18: 6.933 us/op
-Iteration  19: 6.994 us/op
-Iteration  20: 7.109 us/op
+# Warmup Iteration   1: 28.479 us/op
+# Warmup Iteration   2: 9.893 us/op
+# Warmup Iteration   3: 7.515 us/op
+# Warmup Iteration   4: 6.939 us/op
+# Warmup Iteration   5: 6.886 us/op
+# Warmup Iteration   6: 6.984 us/op
+# Warmup Iteration   7: 6.971 us/op
+# Warmup Iteration   8: 7.157 us/op
+# Warmup Iteration   9: 6.943 us/op
+# Warmup Iteration  10: 6.926 us/op
+# Warmup Iteration  11: 7.156 us/op
+# Warmup Iteration  12: 7.236 us/op
+# Warmup Iteration  13: 7.053 us/op
+# Warmup Iteration  14: 7.104 us/op
+# Warmup Iteration  15: 7.025 us/op
+# Warmup Iteration  16: 6.946 us/op
+# Warmup Iteration  17: 7.041 us/op
+# Warmup Iteration  18: 7.084 us/op
+# Warmup Iteration  19: 7.002 us/op
+# Warmup Iteration  20: 7.003 us/op
+Iteration   1: 7.097 us/op
+Iteration   2: 10.090 us/op
+Iteration   3: 14.136 us/op
+Iteration   4: 14.195 us/op
+Iteration   5: 14.203 us/op
+Iteration   6: 14.303 us/op
+Iteration   7: 14.269 us/op
+Iteration   8: 14.304 us/op
+Iteration   9: 14.372 us/op
+Iteration  10: 14.296 us/op
+Iteration  11: 14.268 us/op
+Iteration  12: 14.310 us/op
+Iteration  13: 14.208 us/op
+Iteration  14: 14.225 us/op
+Iteration  15: 14.229 us/op
+Iteration  16: 14.342 us/op
+Iteration  17: 14.282 us/op
+Iteration  18: 14.309 us/op
+Iteration  19: 14.249 us/op
+Iteration  20: 14.232 us/op
 
 
 Result "compile":
-  13.008 ±(99.9%) 1.615 us/op [Average]
-  (min, avg, max) = (6.919, 13.008, 14.491), stdev = 2.870
-  CI (99.9%): [11.393, 14.623] (assumes normal distribution)
+  10.360 ±(99.9%) 2.030 us/op [Average]
+  (min, avg, max) = (6.938, 10.360, 14.372), stdev = 3.607
+  CI (99.9%): [8.331, 12.390] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -640,97 +745,97 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_PICTURE)
 
-# Run progress: 60.00% complete, ETA 00:05:24
+# Run progress: 63.64% complete, ETA 00:05:24
 # Fork: 1 of 2
-# Warmup Iteration   1: 44.452 us/op
-# Warmup Iteration   2: 10.125 us/op
-# Warmup Iteration   3: 7.202 us/op
-# Warmup Iteration   4: 6.824 us/op
-# Warmup Iteration   5: 6.763 us/op
-# Warmup Iteration   6: 6.783 us/op
-# Warmup Iteration   7: 6.822 us/op
-# Warmup Iteration   8: 6.869 us/op
-# Warmup Iteration   9: 7.028 us/op
-# Warmup Iteration  10: 6.850 us/op
-# Warmup Iteration  11: 6.937 us/op
-# Warmup Iteration  12: 6.917 us/op
-# Warmup Iteration  13: 7.100 us/op
-# Warmup Iteration  14: 6.794 us/op
-# Warmup Iteration  15: 6.822 us/op
-# Warmup Iteration  16: 6.836 us/op
-# Warmup Iteration  17: 6.893 us/op
-# Warmup Iteration  18: 6.876 us/op
-# Warmup Iteration  19: 6.878 us/op
-# Warmup Iteration  20: 6.871 us/op
-Iteration   1: 7.051 us/op
-Iteration   2: 6.961 us/op
-Iteration   3: 6.887 us/op
-Iteration   4: 6.871 us/op
-Iteration   5: 6.906 us/op
-Iteration   6: 6.858 us/op
-Iteration   7: 6.886 us/op
-Iteration   8: 6.906 us/op
-Iteration   9: 6.943 us/op
-Iteration  10: 6.830 us/op
-Iteration  11: 6.741 us/op
-Iteration  12: 6.863 us/op
-Iteration  13: 7.024 us/op
-Iteration  14: 6.896 us/op
-Iteration  15: 6.807 us/op
-Iteration  16: 11.490 us/op
-Iteration  17: 13.759 us/op
-Iteration  18: 13.830 us/op
-Iteration  19: 13.749 us/op
-Iteration  20: 13.816 us/op
+# Warmup Iteration   1: 284.606 us/op
+# Warmup Iteration   2: 47.620 us/op
+# Warmup Iteration   3: 17.578 us/op
+# Warmup Iteration   4: 17.221 us/op
+# Warmup Iteration   5: 15.724 us/op
+# Warmup Iteration   6: 13.813 us/op
+# Warmup Iteration   7: 13.878 us/op
+# Warmup Iteration   8: 13.872 us/op
+# Warmup Iteration   9: 13.904 us/op
+# Warmup Iteration  10: 13.917 us/op
+# Warmup Iteration  11: 13.970 us/op
+# Warmup Iteration  12: 13.858 us/op
+# Warmup Iteration  13: 14.009 us/op
+# Warmup Iteration  14: 13.921 us/op
+# Warmup Iteration  15: 13.972 us/op
+# Warmup Iteration  16: 14.032 us/op
+# Warmup Iteration  17: 14.060 us/op
+# Warmup Iteration  18: 14.052 us/op
+# Warmup Iteration  19: 14.062 us/op
+# Warmup Iteration  20: 14.081 us/op
+Iteration   1: 14.109 us/op
+Iteration   2: 14.120 us/op
+Iteration   3: 14.098 us/op
+Iteration   4: 14.117 us/op
+Iteration   5: 14.066 us/op
+Iteration   6: 14.122 us/op
+Iteration   7: 14.058 us/op
+Iteration   8: 14.109 us/op
+Iteration   9: 14.087 us/op
+Iteration  10: 14.107 us/op
+Iteration  11: 14.149 us/op
+Iteration  12: 14.136 us/op
+Iteration  13: 14.061 us/op
+Iteration  14: 14.081 us/op
+Iteration  15: 14.149 us/op
+Iteration  16: 14.036 us/op
+Iteration  17: 14.083 us/op
+Iteration  18: 14.034 us/op
+Iteration  19: 14.089 us/op
+Iteration  20: 14.065 us/op
 
-# Run progress: 65.00% complete, ETA 00:04:43
+# Run progress: 68.18% complete, ETA 00:04:44
 # Fork: 2 of 2
-# Warmup Iteration   1: 293.210 us/op
-# Warmup Iteration   2: 50.242 us/op
-# Warmup Iteration   3: 19.619 us/op
-# Warmup Iteration   4: 15.578 us/op
-# Warmup Iteration   5: 16.440 us/op
-# Warmup Iteration   6: 13.449 us/op
-# Warmup Iteration   7: 13.501 us/op
-# Warmup Iteration   8: 13.445 us/op
-# Warmup Iteration   9: 13.402 us/op
-# Warmup Iteration  10: 13.413 us/op
-# Warmup Iteration  11: 13.544 us/op
-# Warmup Iteration  12: 13.406 us/op
-# Warmup Iteration  13: 13.452 us/op
-# Warmup Iteration  14: 13.539 us/op
-# Warmup Iteration  15: 13.571 us/op
-# Warmup Iteration  16: 13.609 us/op
-# Warmup Iteration  17: 13.702 us/op
-# Warmup Iteration  18: 13.635 us/op
-# Warmup Iteration  19: 13.680 us/op
-# Warmup Iteration  20: 13.625 us/op
-Iteration   1: 13.495 us/op
-Iteration   2: 13.474 us/op
-Iteration   3: 13.505 us/op
-Iteration   4: 13.632 us/op
-Iteration   5: 13.529 us/op
-Iteration   6: 13.645 us/op
-Iteration   7: 13.653 us/op
-Iteration   8: 13.641 us/op
-Iteration   9: 13.607 us/op
-Iteration  10: 13.688 us/op
-Iteration  11: 13.582 us/op
-Iteration  12: 13.537 us/op
-Iteration  13: 13.644 us/op
-Iteration  14: 13.619 us/op
-Iteration  15: 13.649 us/op
-Iteration  16: 13.598 us/op
-Iteration  17: 13.723 us/op
-Iteration  18: 13.599 us/op
-Iteration  19: 13.660 us/op
-Iteration  20: 13.551 us/op
+# Warmup Iteration   1: 371.898 us/op
+# Warmup Iteration   2: 52.934 us/op
+# Warmup Iteration   3: 21.656 us/op
+# Warmup Iteration   4: 18.437 us/op
+# Warmup Iteration   5: 14.627 us/op
+# Warmup Iteration   6: 14.545 us/op
+# Warmup Iteration   7: 14.111 us/op
+# Warmup Iteration   8: 14.420 us/op
+# Warmup Iteration   9: 13.723 us/op
+# Warmup Iteration  10: 13.774 us/op
+# Warmup Iteration  11: 13.799 us/op
+# Warmup Iteration  12: 14.299 us/op
+# Warmup Iteration  13: 13.750 us/op
+# Warmup Iteration  14: 13.781 us/op
+# Warmup Iteration  15: 13.829 us/op
+# Warmup Iteration  16: 13.822 us/op
+# Warmup Iteration  17: 13.862 us/op
+# Warmup Iteration  18: 13.954 us/op
+# Warmup Iteration  19: 13.921 us/op
+# Warmup Iteration  20: 13.898 us/op
+Iteration   1: 13.926 us/op
+Iteration   2: 13.885 us/op
+Iteration   3: 13.786 us/op
+Iteration   4: 13.904 us/op
+Iteration   5: 13.960 us/op
+Iteration   6: 13.833 us/op
+Iteration   7: 13.881 us/op
+Iteration   8: 13.921 us/op
+Iteration   9: 13.825 us/op
+Iteration  10: 13.850 us/op
+Iteration  11: 13.880 us/op
+Iteration  12: 13.928 us/op
+Iteration  13: 13.978 us/op
+Iteration  14: 13.899 us/op
+Iteration  15: 13.802 us/op
+Iteration  16: 14.129 us/op
+Iteration  17: 7.299 us/op
+Iteration  18: 6.735 us/op
+Iteration  19: 6.853 us/op
+Iteration  20: 6.781 us/op
 
 
 Result "compile":
-  11.053 ±(99.9%) 1.845 us/op [Average]
-  (min, avg, max) = (6.741, 11.053, 13.830), stdev = 3.280
-  CI (99.9%): [9.208, 12.898] (assumes normal distribution)
+  13.298 ±(99.9%) 1.214 us/op [Average]
+  (min, avg, max) = (6.735, 13.298, 14.149), stdev = 2.158
+  CI (99.9%): [12.084, 14.512] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -745,97 +850,97 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_USAGE)
 
-# Run progress: 70.00% complete, ETA 00:04:03
+# Run progress: 72.73% complete, ETA 00:04:03
 # Fork: 1 of 2
-# Warmup Iteration   1: 275.828 us/op
-# Warmup Iteration   2: 46.926 us/op
-# Warmup Iteration   3: 15.675 us/op
-# Warmup Iteration   4: 15.451 us/op
-# Warmup Iteration   5: 14.086 us/op
-# Warmup Iteration   6: 12.504 us/op
-# Warmup Iteration   7: 12.488 us/op
-# Warmup Iteration   8: 12.525 us/op
-# Warmup Iteration   9: 12.524 us/op
-# Warmup Iteration  10: 12.492 us/op
-# Warmup Iteration  11: 12.493 us/op
-# Warmup Iteration  12: 12.585 us/op
-# Warmup Iteration  13: 12.531 us/op
-# Warmup Iteration  14: 12.558 us/op
-# Warmup Iteration  15: 12.556 us/op
-# Warmup Iteration  16: 12.634 us/op
-# Warmup Iteration  17: 12.663 us/op
-# Warmup Iteration  18: 8.782 us/op
-# Warmup Iteration  19: 6.310 us/op
-# Warmup Iteration  20: 6.254 us/op
-Iteration   1: 6.311 us/op
-Iteration   2: 6.317 us/op
-Iteration   3: 6.421 us/op
-Iteration   4: 6.366 us/op
-Iteration   5: 6.420 us/op
-Iteration   6: 6.324 us/op
-Iteration   7: 6.344 us/op
-Iteration   8: 6.270 us/op
-Iteration   9: 6.353 us/op
-Iteration  10: 6.244 us/op
-Iteration  11: 6.349 us/op
-Iteration  12: 6.227 us/op
-Iteration  13: 6.269 us/op
-Iteration  14: 6.249 us/op
-Iteration  15: 6.247 us/op
-Iteration  16: 6.393 us/op
-Iteration  17: 6.286 us/op
-Iteration  18: 6.340 us/op
-Iteration  19: 6.268 us/op
-Iteration  20: 6.393 us/op
+# Warmup Iteration   1: 42.626 us/op
+# Warmup Iteration   2: 7.613 us/op
+# Warmup Iteration   3: 6.352 us/op
+# Warmup Iteration   4: 5.952 us/op
+# Warmup Iteration   5: 5.935 us/op
+# Warmup Iteration   6: 5.951 us/op
+# Warmup Iteration   7: 5.971 us/op
+# Warmup Iteration   8: 6.075 us/op
+# Warmup Iteration   9: 6.068 us/op
+# Warmup Iteration  10: 6.049 us/op
+# Warmup Iteration  11: 6.008 us/op
+# Warmup Iteration  12: 5.977 us/op
+# Warmup Iteration  13: 5.912 us/op
+# Warmup Iteration  14: 5.996 us/op
+# Warmup Iteration  15: 5.962 us/op
+# Warmup Iteration  16: 5.920 us/op
+# Warmup Iteration  17: 5.933 us/op
+# Warmup Iteration  18: 5.961 us/op
+# Warmup Iteration  19: 5.950 us/op
+# Warmup Iteration  20: 5.960 us/op
+Iteration   1: 5.888 us/op
+Iteration   2: 5.978 us/op
+Iteration   3: 5.988 us/op
+Iteration   4: 6.046 us/op
+Iteration   5: 5.979 us/op
+Iteration   6: 5.997 us/op
+Iteration   7: 6.095 us/op
+Iteration   8: 6.024 us/op
+Iteration   9: 6.002 us/op
+Iteration  10: 6.002 us/op
+Iteration  11: 6.449 us/op
+Iteration  12: 11.914 us/op
+Iteration  13: 11.979 us/op
+Iteration  14: 12.084 us/op
+Iteration  15: 11.939 us/op
+Iteration  16: 11.877 us/op
+Iteration  17: 11.917 us/op
+Iteration  18: 11.910 us/op
+Iteration  19: 11.947 us/op
+Iteration  20: 12.005 us/op
 
-# Run progress: 75.00% complete, ETA 00:03:22
+# Run progress: 77.27% complete, ETA 00:03:23
 # Fork: 2 of 2
-# Warmup Iteration   1: 41.365 us/op
-# Warmup Iteration   2: 7.706 us/op
-# Warmup Iteration   3: 6.438 us/op
-# Warmup Iteration   4: 6.096 us/op
-# Warmup Iteration   5: 6.096 us/op
-# Warmup Iteration   6: 6.197 us/op
-# Warmup Iteration   7: 6.144 us/op
-# Warmup Iteration   8: 6.237 us/op
-# Warmup Iteration   9: 6.285 us/op
-# Warmup Iteration  10: 6.285 us/op
-# Warmup Iteration  11: 6.383 us/op
-# Warmup Iteration  12: 6.266 us/op
-# Warmup Iteration  13: 6.173 us/op
-# Warmup Iteration  14: 6.071 us/op
-# Warmup Iteration  15: 6.058 us/op
-# Warmup Iteration  16: 6.070 us/op
-# Warmup Iteration  17: 6.133 us/op
-# Warmup Iteration  18: 6.113 us/op
-# Warmup Iteration  19: 6.116 us/op
-# Warmup Iteration  20: 6.187 us/op
-Iteration   1: 6.127 us/op
-Iteration   2: 6.265 us/op
-Iteration   3: 6.186 us/op
-Iteration   4: 6.163 us/op
-Iteration   5: 6.257 us/op
-Iteration   6: 6.253 us/op
-Iteration   7: 6.200 us/op
-Iteration   8: 6.257 us/op
-Iteration   9: 6.134 us/op
-Iteration  10: 7.007 us/op
-Iteration  11: 12.326 us/op
-Iteration  12: 12.334 us/op
-Iteration  13: 12.334 us/op
-Iteration  14: 12.372 us/op
-Iteration  15: 12.358 us/op
-Iteration  16: 12.371 us/op
-Iteration  17: 12.348 us/op
-Iteration  18: 12.370 us/op
-Iteration  19: 12.267 us/op
-Iteration  20: 12.306 us/op
+# Warmup Iteration   1: 265.555 us/op
+# Warmup Iteration   2: 40.996 us/op
+# Warmup Iteration   3: 14.580 us/op
+# Warmup Iteration   4: 14.413 us/op
+# Warmup Iteration   5: 13.500 us/op
+# Warmup Iteration   6: 11.961 us/op
+# Warmup Iteration   7: 11.977 us/op
+# Warmup Iteration   8: 11.967 us/op
+# Warmup Iteration   9: 11.948 us/op
+# Warmup Iteration  10: 11.956 us/op
+# Warmup Iteration  11: 12.056 us/op
+# Warmup Iteration  12: 11.962 us/op
+# Warmup Iteration  13: 12.026 us/op
+# Warmup Iteration  14: 12.065 us/op
+# Warmup Iteration  15: 12.081 us/op
+# Warmup Iteration  16: 12.099 us/op
+# Warmup Iteration  17: 12.201 us/op
+# Warmup Iteration  18: 12.068 us/op
+# Warmup Iteration  19: 12.053 us/op
+# Warmup Iteration  20: 12.092 us/op
+Iteration   1: 11.990 us/op
+Iteration   2: 11.995 us/op
+Iteration   3: 11.999 us/op
+Iteration   4: 12.015 us/op
+Iteration   5: 12.106 us/op
+Iteration   6: 12.092 us/op
+Iteration   7: 12.087 us/op
+Iteration   8: 12.061 us/op
+Iteration   9: 12.074 us/op
+Iteration  10: 12.038 us/op
+Iteration  11: 12.049 us/op
+Iteration  12: 11.953 us/op
+Iteration  13: 12.029 us/op
+Iteration  14: 12.029 us/op
+Iteration  15: 12.104 us/op
+Iteration  16: 11.996 us/op
+Iteration  17: 11.989 us/op
+Iteration  18: 12.082 us/op
+Iteration  19: 12.088 us/op
+Iteration  20: 12.031 us/op
 
 
 Result "compile":
-  7.816 ±(99.9%) 1.490 us/op [Average]
-  (min, avg, max) = (6.127, 7.816, 12.372), stdev = 2.648
-  CI (99.9%): [6.326, 9.305] (assumes normal distribution)
+  10.371 ±(99.9%) 1.520 us/op [Average]
+  (min, avg, max) = (5.888, 10.371, 12.106), stdev = 2.702
+  CI (99.9%): [8.850, 11.891] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -850,97 +955,97 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_VALUE)
 
-# Run progress: 80.00% complete, ETA 00:02:42
+# Run progress: 81.82% complete, ETA 00:02:42
 # Fork: 1 of 2
-# Warmup Iteration   1: 263.366 us/op
-# Warmup Iteration   2: 47.176 us/op
-# Warmup Iteration   3: 19.792 us/op
-# Warmup Iteration   4: 17.306 us/op
-# Warmup Iteration   5: 15.266 us/op
-# Warmup Iteration   6: 13.919 us/op
-# Warmup Iteration   7: 13.742 us/op
-# Warmup Iteration   8: 13.784 us/op
-# Warmup Iteration   9: 13.698 us/op
-# Warmup Iteration  10: 13.743 us/op
-# Warmup Iteration  11: 13.829 us/op
-# Warmup Iteration  12: 13.732 us/op
-# Warmup Iteration  13: 13.774 us/op
-# Warmup Iteration  14: 13.797 us/op
-# Warmup Iteration  15: 13.785 us/op
-# Warmup Iteration  16: 13.775 us/op
-# Warmup Iteration  17: 13.900 us/op
-# Warmup Iteration  18: 13.917 us/op
-# Warmup Iteration  19: 13.891 us/op
-# Warmup Iteration  20: 13.968 us/op
-Iteration   1: 13.950 us/op
-Iteration   2: 13.955 us/op
-Iteration   3: 13.955 us/op
-Iteration   4: 14.053 us/op
-Iteration   5: 13.946 us/op
-Iteration   6: 13.972 us/op
-Iteration   7: 13.909 us/op
-Iteration   8: 13.963 us/op
-Iteration   9: 13.921 us/op
-Iteration  10: 13.975 us/op
-Iteration  11: 13.951 us/op
-Iteration  12: 13.863 us/op
-Iteration  13: 13.875 us/op
-Iteration  14: 13.970 us/op
-Iteration  15: 13.974 us/op
-Iteration  16: 13.906 us/op
-Iteration  17: 13.960 us/op
-Iteration  18: 13.980 us/op
-Iteration  19: 13.985 us/op
-Iteration  20: 13.925 us/op
+# Warmup Iteration   1: 321.320 us/op
+# Warmup Iteration   2: 39.274 us/op
+# Warmup Iteration   3: 16.972 us/op
+# Warmup Iteration   4: 17.871 us/op
+# Warmup Iteration   5: 16.279 us/op
+# Warmup Iteration   6: 14.381 us/op
+# Warmup Iteration   7: 14.401 us/op
+# Warmup Iteration   8: 14.375 us/op
+# Warmup Iteration   9: 14.347 us/op
+# Warmup Iteration  10: 14.702 us/op
+# Warmup Iteration  11: 14.415 us/op
+# Warmup Iteration  12: 14.375 us/op
+# Warmup Iteration  13: 14.567 us/op
+# Warmup Iteration  14: 14.390 us/op
+# Warmup Iteration  15: 14.476 us/op
+# Warmup Iteration  16: 14.475 us/op
+# Warmup Iteration  17: 14.625 us/op
+# Warmup Iteration  18: 14.450 us/op
+# Warmup Iteration  19: 14.585 us/op
+# Warmup Iteration  20: 14.602 us/op
+Iteration   1: 14.542 us/op
+Iteration   2: 14.462 us/op
+Iteration   3: 14.546 us/op
+Iteration   4: 14.584 us/op
+Iteration   5: 14.558 us/op
+Iteration   6: 14.534 us/op
+Iteration   7: 10.937 us/op
+Iteration   8: 7.133 us/op
+Iteration   9: 6.978 us/op
+Iteration  10: 7.070 us/op
+Iteration  11: 6.957 us/op
+Iteration  12: 7.006 us/op
+Iteration  13: 7.111 us/op
+Iteration  14: 7.136 us/op
+Iteration  15: 7.034 us/op
+Iteration  16: 7.139 us/op
+Iteration  17: 7.048 us/op
+Iteration  18: 6.985 us/op
+Iteration  19: 7.047 us/op
+Iteration  20: 7.152 us/op
 
-# Run progress: 85.00% complete, ETA 00:02:01
+# Run progress: 86.36% complete, ETA 00:02:01
 # Fork: 2 of 2
-# Warmup Iteration   1: 295.607 us/op
-# Warmup Iteration   2: 33.388 us/op
-# Warmup Iteration   3: 22.748 us/op
-# Warmup Iteration   4: 18.137 us/op
-# Warmup Iteration   5: 15.641 us/op
-# Warmup Iteration   6: 14.967 us/op
-# Warmup Iteration   7: 14.422 us/op
-# Warmup Iteration   8: 14.455 us/op
-# Warmup Iteration   9: 14.419 us/op
-# Warmup Iteration  10: 14.442 us/op
-# Warmup Iteration  11: 14.449 us/op
-# Warmup Iteration  12: 14.400 us/op
-# Warmup Iteration  13: 14.379 us/op
-# Warmup Iteration  14: 14.396 us/op
-# Warmup Iteration  15: 14.385 us/op
-# Warmup Iteration  16: 14.553 us/op
-# Warmup Iteration  17: 14.453 us/op
-# Warmup Iteration  18: 14.475 us/op
-# Warmup Iteration  19: 14.615 us/op
-# Warmup Iteration  20: 14.614 us/op
-Iteration   1: 14.568 us/op
-Iteration   2: 14.534 us/op
-Iteration   3: 14.485 us/op
-Iteration   4: 14.605 us/op
-Iteration   5: 14.620 us/op
-Iteration   6: 14.492 us/op
-Iteration   7: 14.457 us/op
-Iteration   8: 14.419 us/op
-Iteration   9: 14.559 us/op
-Iteration  10: 14.547 us/op
-Iteration  11: 11.467 us/op
-Iteration  12: 7.154 us/op
-Iteration  13: 7.061 us/op
-Iteration  14: 7.058 us/op
-Iteration  15: 7.060 us/op
-Iteration  16: 7.185 us/op
-Iteration  17: 7.135 us/op
-Iteration  18: 7.153 us/op
-Iteration  19: 6.981 us/op
-Iteration  20: 7.156 us/op
+# Warmup Iteration   1: 39.106 us/op
+# Warmup Iteration   2: 8.357 us/op
+# Warmup Iteration   3: 7.195 us/op
+# Warmup Iteration   4: 6.734 us/op
+# Warmup Iteration   5: 6.805 us/op
+# Warmup Iteration   6: 6.862 us/op
+# Warmup Iteration   7: 6.892 us/op
+# Warmup Iteration   8: 6.969 us/op
+# Warmup Iteration   9: 6.845 us/op
+# Warmup Iteration  10: 6.778 us/op
+# Warmup Iteration  11: 6.769 us/op
+# Warmup Iteration  12: 6.718 us/op
+# Warmup Iteration  13: 6.893 us/op
+# Warmup Iteration  14: 6.799 us/op
+# Warmup Iteration  15: 6.833 us/op
+# Warmup Iteration  16: 6.818 us/op
+# Warmup Iteration  17: 6.761 us/op
+# Warmup Iteration  18: 7.511 us/op
+# Warmup Iteration  19: 13.780 us/op
+# Warmup Iteration  20: 13.854 us/op
+Iteration   1: 13.799 us/op
+Iteration   2: 13.830 us/op
+Iteration   3: 13.837 us/op
+Iteration   4: 13.985 us/op
+Iteration   5: 13.861 us/op
+Iteration   6: 13.885 us/op
+Iteration   7: 13.955 us/op
+Iteration   8: 13.974 us/op
+Iteration   9: 13.913 us/op
+Iteration  10: 13.966 us/op
+Iteration  11: 13.927 us/op
+Iteration  12: 13.996 us/op
+Iteration  13: 13.926 us/op
+Iteration  14: 13.976 us/op
+Iteration  15: 13.897 us/op
+Iteration  16: 13.917 us/op
+Iteration  17: 13.977 us/op
+Iteration  18: 13.915 us/op
+Iteration  19: 13.833 us/op
+Iteration  20: 13.891 us/op
 
 
 Result "compile":
-  12.492 ±(99.9%) 1.676 us/op [Average]
-  (min, avg, max) = (6.981, 12.492, 14.620), stdev = 2.980
-  CI (99.9%): [10.816, 14.169] (assumes normal distribution)
+  11.706 ±(99.9%) 1.861 us/op [Average]
+  (min, avg, max) = (6.957, 11.706, 14.584), stdev = 3.308
+  CI (99.9%): [9.845, 13.566] (assumes normal distribution)
 
 
 # JMH 1.11.3 (released 356 days ago, please consider updating!)
@@ -955,109 +1060,110 @@ Result "compile":
 # Benchmark: br.eti.rslemos.cobolg.DataDescriptionEntryBenchmark.compile
 # Parameters: (sample = DECL_X_ALL)
 
-# Run progress: 90.00% complete, ETA 00:01:21
+# Run progress: 90.91% complete, ETA 00:01:21
 # Fork: 1 of 2
-# Warmup Iteration   1: 72.479 us/op
-# Warmup Iteration   2: 18.269 us/op
-# Warmup Iteration   3: 17.005 us/op
-# Warmup Iteration   4: 16.648 us/op
-# Warmup Iteration   5: 15.480 us/op
-# Warmup Iteration   6: 15.473 us/op
-# Warmup Iteration   7: 15.736 us/op
-# Warmup Iteration   8: 15.771 us/op
-# Warmup Iteration   9: 15.951 us/op
-# Warmup Iteration  10: 15.621 us/op
-# Warmup Iteration  11: 15.792 us/op
-# Warmup Iteration  12: 15.705 us/op
-# Warmup Iteration  13: 15.884 us/op
-# Warmup Iteration  14: 19.349 us/op
-# Warmup Iteration  15: 34.261 us/op
-# Warmup Iteration  16: 34.032 us/op
-# Warmup Iteration  17: 34.378 us/op
-# Warmup Iteration  18: 34.097 us/op
-# Warmup Iteration  19: 34.297 us/op
-# Warmup Iteration  20: 34.373 us/op
-Iteration   1: 34.216 us/op
-Iteration   2: 34.444 us/op
-Iteration   3: 34.484 us/op
-Iteration   4: 34.403 us/op
-Iteration   5: 34.437 us/op
-Iteration   6: 34.352 us/op
-Iteration   7: 34.469 us/op
-Iteration   8: 34.479 us/op
-Iteration   9: 34.398 us/op
-Iteration  10: 34.401 us/op
-Iteration  11: 34.533 us/op
-Iteration  12: 34.551 us/op
-Iteration  13: 34.442 us/op
-Iteration  14: 34.456 us/op
-Iteration  15: 34.382 us/op
-Iteration  16: 34.618 us/op
-Iteration  17: 34.474 us/op
-Iteration  18: 34.602 us/op
-Iteration  19: 34.436 us/op
-Iteration  20: 34.554 us/op
+# Warmup Iteration   1: 608.237 us/op
+# Warmup Iteration   2: 113.347 us/op
+# Warmup Iteration   3: 56.891 us/op
+# Warmup Iteration   4: 44.765 us/op
+# Warmup Iteration   5: 44.977 us/op
+# Warmup Iteration   6: 40.305 us/op
+# Warmup Iteration   7: 42.916 us/op
+# Warmup Iteration   8: 44.214 us/op
+# Warmup Iteration   9: 39.359 us/op
+# Warmup Iteration  10: 39.356 us/op
+# Warmup Iteration  11: 39.301 us/op
+# Warmup Iteration  12: 39.405 us/op
+# Warmup Iteration  13: 39.343 us/op
+# Warmup Iteration  14: 39.357 us/op
+# Warmup Iteration  15: 39.353 us/op
+# Warmup Iteration  16: 39.594 us/op
+# Warmup Iteration  17: 39.802 us/op
+# Warmup Iteration  18: 39.746 us/op
+# Warmup Iteration  19: 39.708 us/op
+# Warmup Iteration  20: 39.705 us/op
+Iteration   1: 39.826 us/op
+Iteration   2: 39.632 us/op
+Iteration   3: 39.719 us/op
+Iteration   4: 39.932 us/op
+Iteration   5: 39.781 us/op
+Iteration   6: 39.632 us/op
+Iteration   7: 39.919 us/op
+Iteration   8: 39.838 us/op
+Iteration   9: 39.730 us/op
+Iteration  10: 39.808 us/op
+Iteration  11: 39.888 us/op
+Iteration  12: 40.016 us/op
+Iteration  13: 39.961 us/op
+Iteration  14: 40.133 us/op
+Iteration  15: 39.927 us/op
+Iteration  16: 40.034 us/op
+Iteration  17: 39.891 us/op
+Iteration  18: 39.877 us/op
+Iteration  19: 39.955 us/op
+Iteration  20: 40.175 us/op
 
-# Run progress: 95.00% complete, ETA 00:00:40
+# Run progress: 95.45% complete, ETA 00:00:40
 # Fork: 2 of 2
-# Warmup Iteration   1: 583.314 us/op
-# Warmup Iteration   2: 87.092 us/op
-# Warmup Iteration   3: 42.686 us/op
-# Warmup Iteration   4: 35.523 us/op
-# Warmup Iteration   5: 41.698 us/op
-# Warmup Iteration   6: 34.153 us/op
-# Warmup Iteration   7: 34.133 us/op
-# Warmup Iteration   8: 33.987 us/op
-# Warmup Iteration   9: 34.135 us/op
-# Warmup Iteration  10: 33.884 us/op
-# Warmup Iteration  11: 33.817 us/op
-# Warmup Iteration  12: 33.872 us/op
-# Warmup Iteration  13: 33.893 us/op
-# Warmup Iteration  14: 33.767 us/op
-# Warmup Iteration  15: 33.889 us/op
-# Warmup Iteration  16: 33.999 us/op
-# Warmup Iteration  17: 34.207 us/op
-# Warmup Iteration  18: 34.775 us/op
-# Warmup Iteration  19: 34.361 us/op
-# Warmup Iteration  20: 34.310 us/op
-Iteration   1: 29.396 us/op
-Iteration   2: 15.998 us/op
-Iteration   3: 16.082 us/op
-Iteration   4: 15.963 us/op
-Iteration   5: 15.808 us/op
-Iteration   6: 15.911 us/op
-Iteration   7: 15.921 us/op
-Iteration   8: 15.621 us/op
-Iteration   9: 15.909 us/op
-Iteration  10: 15.793 us/op
-Iteration  11: 16.176 us/op
-Iteration  12: 15.688 us/op
-Iteration  13: 15.827 us/op
-Iteration  14: 16.071 us/op
-Iteration  15: 15.765 us/op
-Iteration  16: 15.760 us/op
-Iteration  17: 15.625 us/op
-Iteration  18: 15.693 us/op
-Iteration  19: 15.657 us/op
-Iteration  20: 17.182 us/op
+# Warmup Iteration   1: 525.769 us/op
+# Warmup Iteration   2: 81.731 us/op
+# Warmup Iteration   3: 45.501 us/op
+# Warmup Iteration   4: 38.871 us/op
+# Warmup Iteration   5: 47.117 us/op
+# Warmup Iteration   6: 38.097 us/op
+# Warmup Iteration   7: 37.974 us/op
+# Warmup Iteration   8: 38.826 us/op
+# Warmup Iteration   9: 37.885 us/op
+# Warmup Iteration  10: 37.901 us/op
+# Warmup Iteration  11: 38.241 us/op
+# Warmup Iteration  12: 37.859 us/op
+# Warmup Iteration  13: 37.921 us/op
+# Warmup Iteration  14: 37.855 us/op
+# Warmup Iteration  15: 37.944 us/op
+# Warmup Iteration  16: 37.944 us/op
+# Warmup Iteration  17: 38.170 us/op
+# Warmup Iteration  18: 38.048 us/op
+# Warmup Iteration  19: 38.175 us/op
+# Warmup Iteration  20: 38.152 us/op
+Iteration   1: 38.123 us/op
+Iteration   2: 38.435 us/op
+Iteration   3: 38.427 us/op
+Iteration   4: 22.502 us/op
+Iteration   5: 17.774 us/op
+Iteration   6: 17.778 us/op
+Iteration   7: 17.869 us/op
+Iteration   8: 17.678 us/op
+Iteration   9: 17.851 us/op
+Iteration  10: 17.473 us/op
+Iteration  11: 17.557 us/op
+Iteration  12: 17.950 us/op
+Iteration  13: 17.538 us/op
+Iteration  14: 17.661 us/op
+Iteration  15: 17.681 us/op
+Iteration  16: 17.568 us/op
+Iteration  17: 17.549 us/op
+Iteration  18: 17.616 us/op
+Iteration  19: 17.957 us/op
+Iteration  20: 17.677 us/op
 
 
 Result "compile":
-  25.524 ±(99.9%) 5.227 us/op [Average]
-  (min, avg, max) = (15.621, 25.524, 34.618), stdev = 9.290
-  CI (99.9%): [20.298, 30.751] (assumes normal distribution)
+  30.458 ±(99.9%) 6.131 us/op [Average]
+  (min, avg, max) = (17.473, 30.458, 40.175), stdev = 10.898
+  CI (99.9%): [24.328, 36.589] (assumes normal distribution)
 
 
-# Run complete. Total time: 00:13:31
+# Run complete. Total time: 00:14:53
 
 Benchmark                                            (sample)  Mode  Cnt   Score   Error  Units
-DataDescriptionEntryBenchmark.compile                  DECL_X  avgt   40   4.950 ± 0.040  us/op
-DataDescriptionEntryBenchmark.compile        DECL_X_REDEFINES  avgt   40   5.792 ± 0.031  us/op
-DataDescriptionEntryBenchmark.compile  DECL_X_BLANK_WHEN_ZERO  avgt   40  10.046 ± 1.806  us/op
-DataDescriptionEntryBenchmark.compile      DECL_X_IS_EXTERNAL  avgt   40   9.314 ± 1.795  us/op
-DataDescriptionEntryBenchmark.compile        DECL_X_IS_GLOBAL  avgt   40   8.331 ± 1.688  us/op
-DataDescriptionEntryBenchmark.compile           DECL_X_OCCURS  avgt   40  13.008 ± 1.615  us/op
-DataDescriptionEntryBenchmark.compile          DECL_X_PICTURE  avgt   40  11.053 ± 1.845  us/op
-DataDescriptionEntryBenchmark.compile            DECL_X_USAGE  avgt   40   7.816 ± 1.490  us/op
-DataDescriptionEntryBenchmark.compile            DECL_X_VALUE  avgt   40  12.492 ± 1.676  us/op
-DataDescriptionEntryBenchmark.compile              DECL_X_ALL  avgt   40  25.524 ± 5.227  us/op
+DataDescriptionEntryBenchmark.compile                  DECL_X  avgt   40   4.913 ± 0.031  us/op
+DataDescriptionEntryBenchmark.compile        DECL_X_REDEFINES  avgt   40   9.547 ± 1.604  us/op
+DataDescriptionEntryBenchmark.compile  DECL_X_BLANK_WHEN_ZERO  avgt   40  12.202 ± 1.199  us/op
+DataDescriptionEntryBenchmark.compile      DECL_X_IS_EXTERNAL  avgt   40   9.345 ± 1.918  us/op
+DataDescriptionEntryBenchmark.compile        DECL_X_IS_GLOBAL  avgt   40   9.200 ± 1.786  us/op
+DataDescriptionEntryBenchmark.compile      DECL_X_GROUP_USAGE  avgt   40  13.561 ± 0.035  us/op
+DataDescriptionEntryBenchmark.compile           DECL_X_OCCURS  avgt   40  10.360 ± 2.030  us/op
+DataDescriptionEntryBenchmark.compile          DECL_X_PICTURE  avgt   40  13.298 ± 1.214  us/op
+DataDescriptionEntryBenchmark.compile            DECL_X_USAGE  avgt   40  10.371 ± 1.520  us/op
+DataDescriptionEntryBenchmark.compile            DECL_X_VALUE  avgt   40  11.706 ± 1.861  us/op
+DataDescriptionEntryBenchmark.compile              DECL_X_ALL  avgt   40  30.458 ± 6.131  us/op

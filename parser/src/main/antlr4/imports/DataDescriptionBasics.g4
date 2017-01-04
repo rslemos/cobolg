@@ -58,6 +58,7 @@ dataDescriptionClause :
 		blankWhenZeroClause
 	|	externalClause
 	|	globalClause
+	|	groupUsageClause
 	|	occursClause
 	|	pictureClause
 	|	usageClause
@@ -89,6 +90,13 @@ externalClause : IS? EXTERNAL;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=213&zoom=auto,-40,735
  */
 globalClause : IS? GLOBAL;
+
+/**
+ * Group-usage clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=214&zoom=auto,-40,510
+ */
+groupUsageClause : GROUP_USAGE IS? NATIONAL;
 
 /**
  * Occurs clause.
