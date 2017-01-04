@@ -35,6 +35,7 @@ public class DataDescriptionEntryData {
 		SYNCHRONIZED   ("SYNCHRONIZED RIGHT"                 , "(dataDescriptionClause (synchronizedClause SYNCHRONIZED RIGHT))"                     ),
 		USAGE          ("USAGE COMP-3"                       , "(dataDescriptionClause (usageClause USAGE (usage COMP-3)))"                          ),
 		VALUE          ("VALUE IS QUOTES"                    , "(dataDescriptionClause (valueClause VALUE IS (literal (figurativeConstant QUOTES))))"),
+		VOLATILE       ("VOLATILE"                           , "(dataDescriptionClause (volatileClause VOLATILE))"                                   ),
 		OCCURS         ("OCCURS 10 TIMES"                    , "(dataDescriptionClause (occursClause OCCURS 10 TIMES))"                              ),
 		;
 	
