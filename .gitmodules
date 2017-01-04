@@ -1,0 +1,3 @@
+[submodule "alpendre"]
+	path = alpendre
+	url = http://github.com/rslemos/alpendre
