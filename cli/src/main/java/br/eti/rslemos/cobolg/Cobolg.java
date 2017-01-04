@@ -21,15 +21,28 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
+import java.util.EnumSet;
+import java.util.List;
+
+import objectexplorer.Chain;
+import objectexplorer.ObjectExplorer;
+import objectexplorer.ObjectExplorer.Feature;
+import objectexplorer.ObjectGraphMeasurer;
+import objectexplorer.ObjectGraphMeasurer.Footprint;
+import objectexplorer.ObjectVisitor;
 
 import org.antlr.v4.runtime.Token;
+import org.apache.commons.io.IOUtils;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -38,6 +51,11 @@ import org.kohsuke.args4j.Option;
 import br.eti.rslemos.alpendre.printer.ParseTreePrettyPrinter;
 import br.eti.rslemos.alpendre.printer.TokenPrettyPrinter;
 import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
+
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
 
 public class Cobolg {
 	@Option(name = "-h", aliases = {"--help"})
@@ -55,6 +73,24 @@ public class Cobolg {
 	@Option(name = "-printTree", usage = "print the parse tree")
 	public boolean printTree;
 	
+	@Option(name = "-lineNumbers", usage = "print line numbers along with parse tree")
+	public boolean lineNumbers;
+	
+	@Option(name = "-printTimeStats", usage = "print the time statistics")
+	public boolean printTimeStats;
+	
+	@Option(name = "-printMemStats", usage = "print memory usage statistics")
+	public boolean printMemStats;
+	
+	@Option(name = "-profileExec", usage = "profile execution (call path)")
+	public boolean profileExec;
+	
+	@Option(name = "-profileMem", usage = "profile memory usage")
+	public boolean profileMem;
+	
+	@Option(name = "-profileGC", usage = "profile the garbage collector")
+	public boolean profileGC;
+	
 	@Option(name = "-stream", usage = "don't read the entire file upfront (implied if file has more than 1Mb)")
 	public boolean stream;
 	
@@ -63,7 +99,26 @@ public class Cobolg {
 
 	private transient CmdLineParser parser;
 
+	private long fileLength;
 	private Compiler compiler;
+
+	private long nanoReadFile = -1;
+	private long nanoLexer;
+	private long nanoParser;
+
+	private static final Predicate<Object> notLexer = Predicates.not(Predicates.instanceOf(COBOLLexer.class));
+	private static final Predicate<Object> notParser = Predicates.not(Predicates.instanceOf(COBOLParser.class));
+	
+	private Footprint lexerFootprintAfter = null;
+	
+	private Footprint mainParserFootprintBefore = null;
+	private Footprint mainParserFootprintAfter;
+	
+	private Footprint preParserFootprintBefore = null;
+	private Footprint preParserFootprintAfter;
+	
+	private Footprint tokensFootprint;
+	private Footprint programFootprint;
 
 	private CollectErrorListener collect;
 
@@ -100,10 +155,10 @@ public class Cobolg {
 		if (filename != null && !filename.equals("-")) {
 			File file = new File(filename);
 			basename = basename(file);
-			input = new FileInputStream(file);
+			input = open(file);
 		} else {
 			basename = "stdin";
-			input = System.in;
+			input = openstdin();
 		}
 
 		collect = new CollectErrorListener(basename);
@@ -113,8 +168,65 @@ public class Cobolg {
 		mayPrintTokens();
 		BatchContext batch = compile();
 		mayPrintTree(batch);
+		mayPrintTimeStats();
+		mayPrintMemStats();
 		
+		final Predicate<Chain> predicate = new ObjectExplorer.AtMostOncePredicate();
+
+		ObjectExplorer.exploreObject(program, new ObjectVisitor<Void>() {
+
+			@Override
+			public Void result() { return null; }
+
+			@Override
+			public objectexplorer.ObjectVisitor.Traversal visit(Chain chain) {
+				if (chain.isPrimitive())
+					return Traversal.SKIP;
+				
+				if (!predicate.apply(chain))
+					return Traversal.SKIP;
+				
+				if (chain.getValue() != null)
+					System.out.println(chain.getValueType());
+				
+				return Traversal.EXPLORE;
+			}
+			
+		}, EnumSet.noneOf(Feature.class));
 		collect.verify();
+	}
+
+	private void mayPrintMemStats() {
+		if (printMemStats) {
+			System.out.println("** Main parser (before parsing):");
+			System.out.println(mainParserFootprintBefore.toString());
+			
+			System.out.println("** Pre parser (before parsing):");
+			System.out.println(preParserFootprintBefore.toString());
+
+			System.out.println("** Lexer (after fill):");
+			System.out.println(lexerFootprintAfter.toString());
+			
+			System.out.println("** Main parser (after parsing):");
+			System.out.println(mainParserFootprintAfter.toString());
+			
+			System.out.println("** Pre parser (after parsing):");
+			System.out.println(preParserFootprintAfter.toString());
+			
+			System.out.println("** Tokens:");
+			System.out.println(tokensFootprint.toString());
+			
+			System.out.println("** Tree:");
+			System.out.println(programFootprint.toString());
+		}
+	}
+
+	private void mayPrintTimeStats() {
+		if (printTimeStats) {
+			System.out.printf("IO: %dms\n", nanoReadFile / 1000000);
+			System.out.printf("Lexer: %dms\n", nanoLexer / 1000000);
+			System.out.printf("Parser: %dms\n", nanoParser / 1000000);
+		}
 	}
 
 	private void mayPrintTree(BatchContext batch) throws IOException {
@@ -138,12 +250,74 @@ public class Cobolg {
 	}
 
 	private BatchContext compile() throws IOException {
-		return compiler.compile();
+		long before = System.nanoTime();
+		BatchContext program = compiler.compile();
+		long after = System.nanoTime();
+		nanoParser = after - before;
+		
+		if (printMemStats) {
+			mainParserFootprintAfter = ObjectGraphMeasurer.measure(compiler.mainParser, notLexer);
+			preParserFootprintAfter = ObjectGraphMeasurer.measure(compiler.preParser, notLexer);
+			programFootprint = ObjectGraphMeasurer.measure(program, Predicates.and(notLexer, notParser));
+		}
+		
+		return program;
 	}
 
 	private void createCompiler(Reader source) throws IOException {
+		long before = System.nanoTime();
+		
 		compiler = getCompiler(source);
 		compiler.addErrorListener(collect);
+		List<? extends Token> tokens = compiler.lexer.getAllTokens();
+		
+		long after = System.nanoTime();
+		nanoLexer = after - before;
+		
+		compiler.lexer.reset();
+		
+		if (printMemStats) {
+			lexerFootprintAfter = ObjectGraphMeasurer.measure(compiler.lexer);
+			mainParserFootprintBefore = ObjectGraphMeasurer.measure(compiler.mainParser, notLexer);
+			preParserFootprintBefore = ObjectGraphMeasurer.measure(compiler.preParser, notLexer);
+
+			int objects = 0;
+			int references = 0;
+			Multiset<Class<?>> primitives = HashMultiset.create();
+			
+			for (Token token : tokens) {
+				Footprint footprint = ObjectGraphMeasurer.measure(token, notLexer);
+				objects += footprint.getObjects();
+				references += footprint.getReferences();
+				primitives.addAll(footprint.getPrimitives());
+			}
+			tokensFootprint = new Footprint(objects, references, primitives);
+		}
+	}
+
+	private InputStream open(File file) throws FileNotFoundException, IOException {
+		fileLength = file.length();
+		return open0(new FileInputStream(file));
+	}
+
+	private InputStream openstdin() throws IOException {
+		return open0(System.in);
+	}
+
+	private InputStream open0(InputStream input) throws IOException {
+		if (stream || fileLength < (1<<20)) {
+			long before = System.nanoTime();
+			byte[] data = IOUtils.toByteArray(input);
+			fileLength = data.length;
+			input = new ByteArrayInputStream(data);
+			long after = System.nanoTime();
+			nanoReadFile = after - before;
+		} else {
+			fileLength = -1;
+			input = new BufferedInputStream(input);
+		}
+		
+		return input;
 	}
 
 	protected Compiler getCompiler(Reader source) throws IOException {

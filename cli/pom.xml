@@ -59,6 +59,25 @@
 			<artifactId>args4j</artifactId>
 			<version>2.32</version>
 		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>memory-measurer</groupId>
+			<artifactId>memory-measurer</artifactId>
+			<version>1.0.rslemos-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>r09</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<properties>
