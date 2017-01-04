@@ -55,11 +55,19 @@ dataDescriptionClauses :
 	;
 
 dataDescriptionClause :
-		occursClause
+		blankWhenZeroClause
+	|	occursClause
 	|	pictureClause
 	|	usageClause
 	|	valueClause
 	;
+
+/**
+ * Blank when zero clause.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=212&zoom=auto,-40,735
+ */
+blankWhenZeroClause : BLANK WHEN (ZERO | ZEROS | ZEROES);
 
 /**
  * Occurs clause.
