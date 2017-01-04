@@ -1005,6 +1005,34 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_JUST() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_JUST.source"),
+				get("DATA_ENTRY_JUST.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_JUSTIFIED() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_JUSTIFIED.source"),
+				get("DATA_ENTRY_JUSTIFIED.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_JUST_RIGHT() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_JUST_RIGHT.source"),
+				get("DATA_ENTRY_JUST_RIGHT.tree")
+			);
+	}
+
+	@Test public void DATA_ENTRY_JUSTIFIED_RIGHT() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_JUSTIFIED_RIGHT.source"),
+				get("DATA_ENTRY_JUSTIFIED_RIGHT.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -1048,6 +1076,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(GROUP_USAGE),
 				tree  (GROUP_USAGE)
+			);
+	}
+
+	@Test public void DECL_X_JUSTIFIED() {
+		helper.compileAndVerify(
+				source(JUSTIFIED),
+				tree  (JUSTIFIED)
 			);
 	}
 
