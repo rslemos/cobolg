@@ -50,13 +50,14 @@ public class DataDescriptionEntryBenchmark {
 		DECL_X_REDEFINES(source(REDEFINES)),
 		DECL_X_BLANK_WHEN_ZERO(source(BLANK_WHEN_ZERO)),
 		DECL_X_IS_EXTERNAL(source(IS_EXTERNAL)),
+		DECL_X_IS_GLOBAL(source(IS_GLOBAL)),
 		DECL_X_OCCURS(source(OCCURS)),
 		DECL_X_PICTURE(source(PICTURE)),
 		DECL_X_USAGE(source(USAGE)),
 		DECL_X_VALUE(source(VALUE)),
 		
 		// all
-		DECL_X_ALL(source(REDEFINES, BLANK_WHEN_ZERO, IS_EXTERNAL, OCCURS, PICTURE, USAGE, VALUE)),
+		DECL_X_ALL(source(REDEFINES, BLANK_WHEN_ZERO, IS_EXTERNAL, IS_GLOBAL, OCCURS, PICTURE, USAGE, VALUE)),
 		;
 
 		public final String source;

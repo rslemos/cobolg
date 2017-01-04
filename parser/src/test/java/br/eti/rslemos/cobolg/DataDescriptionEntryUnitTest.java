@@ -991,6 +991,13 @@ public class DataDescriptionEntryUnitTest {
 			);
 	}
 
+	@Test public void DATA_ENTRY_IS_GLOBAL() {
+		helper.compileAndVerify(
+				get("DATA_ENTRY_IS_GLOBAL.source"),
+				get("DATA_ENTRY_IS_GLOBAL.tree")
+			);
+	}
+
 	/* all 65 permutations (http://oeis.org/A000522(4)) of 4 clauses */
 
 	// 0
@@ -1020,6 +1027,13 @@ public class DataDescriptionEntryUnitTest {
 		helper.compileAndVerify(
 				source(IS_EXTERNAL),
 				tree  (IS_EXTERNAL)
+			);
+	}
+
+	@Test public void DECL_X_IS_GLOBAL() {
+		helper.compileAndVerify(
+				source(IS_GLOBAL),
+				tree  (IS_GLOBAL)
 			);
 	}
 
