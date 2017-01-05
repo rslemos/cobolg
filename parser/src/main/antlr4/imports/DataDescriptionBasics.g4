@@ -24,6 +24,16 @@ import Basics;
 
 options { tokenVocab = COBOLLexer; }
 
+@parser::members {
+	public int nextTokenAsIntOr(int ifNot) {
+		try {
+			return Integer.parseInt(getCurrentToken().getText());
+		} catch (NumberFormatException e) {
+			return ifNot;
+		}
+	}
+}
+
 /**
  * Record-description-entry.
  * 
@@ -37,6 +47,11 @@ options { tokenVocab = COBOLLexer; }
  */
 recordDescriptionEntry :
 		dataDescriptionEntry
+		(
+			{ nextTokenAsIntOr(-1) > $dataDescriptionEntry.level && 77 != nextTokenAsIntOr(-1) }?
+			recordDescriptionEntry
+		)*
+		{ !(nextTokenAsIntOr(-1) > $dataDescriptionEntry.level && 77 != nextTokenAsIntOr(-1)) }?
 	;
 
 /**
@@ -57,8 +72,8 @@ recordDescriptionEntry :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=209&zoom=auto,-100,730
  */
-dataDescriptionEntry :
-	levelNumber
+dataDescriptionEntry returns[int level] :
+	levelNumber { $level = $levelNumber.value; }
 	(dataName | FILLER)? redefinesClause? renamesClause? dataDescriptionClauses
 	PERIOD
 	;

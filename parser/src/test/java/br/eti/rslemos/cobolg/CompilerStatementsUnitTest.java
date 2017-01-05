@@ -29,7 +29,7 @@ import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.ProceduralSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 
@@ -58,8 +58,8 @@ public class CompilerStatementsUnitTest {
 		@Override protected FileSectionContext parsePart() { return compiler.mainParser.fileSection(); }
 	};
 
-	private static CompilerHelper<ProceduralStatementContext> psHelper = new PreCompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return compiler.mainParser.proceduralStatement(); }
+	private static CompilerHelper<ProceduralSentenceContext> psHelper = new PreCompilerHelper<ProceduralSentenceContext>() {
+		@Override protected ProceduralSentenceContext parsePart() { return compiler.mainParser.proceduralSentence(); }
 	};
 	
 	@Test public void NoCompilerStatements () {
@@ -227,6 +227,27 @@ public class CompilerStatementsUnitTest {
 		fsHelper.compileAndVerify(
 				get("UnterminatedCOPYStatementsInsideFileDeclaration.source"),
 				get("UnterminatedCOPYStatementsInsideFileDeclaration.tree")
+			);
+	}
+	
+	@Test public void COPYEntireProceduralParagraph () {
+		programHelper.compileAndVerify(
+				get("COPYEntireProceduralParagraph.source"),
+				get("COPYEntireProceduralParagraph.tree")
+			);
+	}
+	
+	@Test public void COPYEntireProceduralAnonymousParagraph () {
+		programHelper.compileAndVerify(
+				get("COPYEntireProceduralAnonymousParagraph.source"),
+				get("COPYEntireProceduralAnonymousParagraph.tree")
+			);
+	}
+	
+	@Test public void COPYEntireProceduralAnonymousParagraphFollowedByNamedParagraph () {
+		programHelper.compileAndVerify(
+				get("COPYEntireProceduralAnonymousParagraphFollowedByNamedParagraph.source"),
+				get("COPYEntireProceduralAnonymousParagraphFollowedByNamedParagraph.tree")
 			);
 	}
 }

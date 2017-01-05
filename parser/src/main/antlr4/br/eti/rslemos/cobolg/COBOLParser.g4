@@ -26,9 +26,16 @@
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf
  */
 parser grammar COBOLParser;
-import IdentificationDivision, EnvironmentDivision, DataDivision, ProcedureDivision;
+import Basics, IdentificationDivision, EnvironmentDivision, DataDivision, ProcedureDivision;
 
 options { tokenVocab = COBOLLexer; }
+
+/**
+ * Batch.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=109&zoom=auto,-40,760
+ */
+batch : program+;
 
 /**
  * Program.
@@ -42,6 +49,20 @@ program :
 		environmentDivision?
 		dataDivision?
 		procedureDivision?
+		programTail?
+	;
+
+programTail :
+		nestedProgram*
+		END PROGRAM programName PERIOD
+	;
+
+nestedProgram :
+		nestedIdentificationDivision
+		environmentDivision?
+		dataDivision?
+		procedureDivision?
+		programTail
 	;
 
 compilerStatements :

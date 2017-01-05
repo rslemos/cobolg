@@ -48,6 +48,9 @@ NEWLINE : ('\n' '\r'? | '\r' '\n'?)
 	-> channel(HIDDEN);
 
 PERIOD    : '.'; // technically speaking, it should be '.' ( ' ' | '\n' | EOF )
+COLON     : ':';
+LPAREN    : '(';
+RPAREN    : ')';
 
 /**
  * Integer.

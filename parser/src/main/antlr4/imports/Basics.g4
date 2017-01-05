@@ -23,7 +23,7 @@ parser grammar Basics;
 
 options { tokenVocab = COBOLLexer; }
 
-levelNumber       : INTEGER { $INTEGER.text.matches("^(0?[1-9]|[1-4][0-9]|66|77|88)$") }?;
+levelNumber returns [int value] : INTEGER { $INTEGER.text.matches("^(0?[1-9]|[1-4][0-9]|66|77|88)$") }? { $value = $INTEGER.int; };
 priorityNumber    : INTEGER { $INTEGER.text.matches("^[0-9]?[0-9]$") }?;
 
 /* 
@@ -38,7 +38,10 @@ dataName          : USERDEFINEDWORD;
 fileName          : USERDEFINEDWORD;
 indexName         : USERDEFINEDWORD;
 mnemonicName      : USERDEFINEDWORD;
+paragraphName     : USERDEFINEDWORD;
 programName       : USERDEFINEDWORD;
+recordName        : USERDEFINEDWORD;
+sectionName       : USERDEFINEDWORD;
 symbolicCharacter : USERDEFINEDWORD;
 xmlSchemaName     : USERDEFINEDWORD;
 
@@ -79,6 +82,14 @@ assignmentName    : USERDEFINEDWORD;
 className         : USERDEFINEDWORD;
 
 /**
+ * System name.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=34&zoom=auto,-100,656
+ * TODO: refine what a systemName is (get the list of available systemNames)
+ */
+systemName        : USERDEFINEDWORD;
+
+/**
  * Figurative constant.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=35&zoom=auto,-100,160
@@ -92,6 +103,45 @@ figurativeConstant :
 	|	ALL literal
 //	|	symbolicCharacter
 	|	NULL | NULLS
+	;
+
+/**
+ * Special register.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=38&zoom=auto,-100,610
+ */
+specialRegister :
+//		ADDRESS OF what
+		DEBUG_CONTENTS
+	|	DEBUG_ITEM
+	|	DEBUG_LINE
+	|	DEBUG_NAME
+	|	DEBUG_SUB_1
+	|	DEBUG_SUB_2
+	|	DEBUG_SUB_3
+	|	JNIENVPTR
+//	|	LENGTH OF what
+	|	LINAGE_COUNTER
+	|	RETURN_CODE
+	|	SHIFT_IN
+	|	SHIFT_OUT
+	|	SORT_CONTROL
+	|	SORT_CORE_SIZE
+	|	SORT_FILE_SIZE
+	|	SORT_MESSAGE
+	|	SORT_MODE_SIZE
+	|	SORT_RETURN
+	|	TALLY
+	|	WHEN_COMPILED
+	|	XML_CODE
+	|	XML_EVENT
+	|	XML_INFORMATION
+	|	XML_NAMESPACE
+	|	XML_NAMESPACE_PREFIX
+	|	XML_NNAMESPACE
+	|	XML_NNAMESPACE_PREFIX
+	|	XML_NTEXT
+	|	XML_TEXT
 	;
 
 /**
@@ -128,6 +178,101 @@ numericLiteral :
 //	|	HEXINTEGER
 	;
 
+identifier :
+		USERDEFINEDWORD
+	|	USERDEFINEDWORD LPAREN identifier+ RPAREN
+	|	USERDEFINEDWORD LPAREN INTEGER RPAREN
+	|	specialRegister
+	;
+
+/**
+ * Arithmetic expression.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=279&zoom=auto,-40,185
+ */
+arithmeticExpression :
+		LPAREN arithmeticExpression RPAREN
+	|	(OP_PLUS | OP_MINUS) arithmeticExpression
+	|	arithmeticExpression OP_STARSTAR arithmeticExpression
+	|	arithmeticExpression (OP_STAR | OP_SLASH) arithmeticExpression
+	|	arithmeticExpression (OP_PLUS | OP_MINUS) arithmeticExpression
+	|	literal
+	|	identifier
+	;
+
+/**
+ * Conditional expression.
+ * 
+ * Simple and complex conditions are expressed directly here.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=282&zoom=auto,-40,735
+ */
+conditionalExpression :
+		classCondition
+	|	conditionNameCondition
+	|	relationCondition
+	|	signCondition
+	|	NOT conditionalExpression
+	|	conditionalExpression AND conditionalExpression
+	|	conditionalExpression OR conditionalExpression
+	|	LPAREN conditionalExpression RPAREN
+//	|	complexCondition
+	;
+
+/**
+ * Class condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=282&zoom=auto,-40,440
+ */
+classCondition : identifier IS? NOT? (NUMERIC | ALPHABETIC | ALPHABETIC_LOWER | ALPHABETIC_UPPER);
+
+/**
+ * Condition-name condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=284&zoom=auto,-40,320
+ */
+conditionNameCondition : conditionName;
+
+/**
+ * Relation condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=285&zoom=auto,-40,390
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=300&zoom=auto,-40,650
+ */
+relationCondition :
+		operand IS? relation operand ((AND|OR) NOT? relation? operand)*
+	|	((ADDRESS OF)? identifier | NULL) IS? NOT? (EQUAL TO? | OP_EQUAL) ((ADDRESS OF)? identifier | NULL)
+	|	(identifier | SELF | NULL) IS? NOT? (EQUAL TO? | OP_EQUAL) (identifier | SELF | NULL)
+	;
+
+operand :
+		identifier
+	|	literal
+//	|	functionId
+	|	arithmeticExpression
+	|	indexName
+	;
+
+relation :
+		NOT? GREATER THAN?
+	|	NOT? OP_GREATER
+	|	NOT? LESS THAN?
+	|	NOT? OP_LESS
+	|	NOT? EQUAL TO?
+	|	NOT? OP_EQUAL
+	|	GREATER THAN? OR EQUAL TO?
+	|	OP_NOTLESS
+	|	LESS THAN? OR EQUAL TO?
+	|	OP_NOTGREATER
+	;
+
+/**
+ * Sign condition.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=296&zoom=auto,-40,700
+ */
+signCondition : operand IS? NOT? (POSITIVE | NEGATIVE | ZERO);
+
 /*
  * References
  * 
@@ -140,5 +285,21 @@ numericLiteral :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=91&zoom=auto,-40,410
  */
 refDataName :
-		dataName ((IN | OF) dataName)*
+		dataName ((IN | OF) dataName)* ((IN | OF) fileName)? (LPAREN subscript+ RPAREN)? (LPAREN arithmeticExpression COLON arithmeticExpression? RPAREN)?
+	;
+
+/**
+ * Subscripting.
+ * 
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=95&zoom=auto,-40,270
+ */
+subscript :
+		INTEGER
+	|	ALL
+	|	refDataName ((OP_PLUS | OP_MINUS) INTEGER)?
+	;
+
+procedureName :
+		sectionName
+	|	paragraphName
 	;

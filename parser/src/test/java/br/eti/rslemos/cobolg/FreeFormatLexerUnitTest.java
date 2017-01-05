@@ -655,6 +655,18 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\r\n", HIDDEN);
 		
+		//    MOVE -1 TO WS-DEBUG1.
+		matchToken(WS, "    ", HIDDEN);
+		matchToken(MOVE, "MOVE");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(INTEGER, "-1");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(TO, "TO");
+		matchToken(WS, " ", HIDDEN);
+		matchToken(USERDEFINEDWORD, "WS-DEBUG1");
+		matchToken(PERIOD, ".");
+		matchToken(NEWLINE, "\n", HIDDEN);
+		
 		//    DISPLAY 'Hello, world'.
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(DISPLAY, "DISPLAY");

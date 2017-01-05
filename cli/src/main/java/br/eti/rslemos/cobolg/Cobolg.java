@@ -37,7 +37,7 @@ import org.kohsuke.args4j.Option;
 
 import br.eti.rslemos.alpendre.printer.ParseTreePrettyPrinter;
 import br.eti.rslemos.alpendre.printer.TokenPrettyPrinter;
-import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
 
 public class Cobolg {
 	@Option(name = "-h", aliases = {"--help"})
@@ -111,17 +111,17 @@ public class Cobolg {
 		createCompiler(new InputStreamReader(input));
 
 		mayPrintTokens();
-		ProgramContext program = compile();
-		mayPrintTree(program);
+		BatchContext batch = compile();
+		mayPrintTree(batch);
 		
 		collect.verify();
 	}
 
-	private void mayPrintTree(ProgramContext program) throws IOException {
+	private void mayPrintTree(BatchContext batch) throws IOException {
 		if (printTree) {
 			PrintStream out = new PrintStream(System.out, true, "UTF-8");
 
-			new ParseTreePrettyPrinter(out, compiler.mainParser).printTree(program);
+			new ParseTreePrettyPrinter(out, compiler.mainParser).printTree(batch);
 		}
 	}
 
@@ -137,7 +137,7 @@ public class Cobolg {
 		}
 	}
 
-	private ProgramContext compile() throws IOException {
+	private BatchContext compile() throws IOException {
 		return compiler.compile();
 	}
 

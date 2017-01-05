@@ -33,6 +33,10 @@ options { tokenVocab = COBOLLexer; }
  */
 environmentDivision :
 		ENVIRONMENT DIVISION PERIOD
+		environmentDivisionContent
+	;
+
+environmentDivisionContent :
 		configurationSection?
 		inputOutputSection?
 	;

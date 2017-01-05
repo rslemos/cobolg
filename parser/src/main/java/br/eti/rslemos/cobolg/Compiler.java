@@ -47,7 +47,7 @@ import org.slf4j.LoggerFactory;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
 import static java.lang.String.format;
 
 public abstract class Compiler {
@@ -84,9 +84,9 @@ public abstract class Compiler {
 		return parser;
 	}
 
-	public ProgramContext compile() {
+	public BatchContext compile() {
 		CompilerStatementsContext preTree = this.preParser.compilerStatements();
-		ProgramContext mainTree = this.mainParser.program();
+		BatchContext mainTree = this.mainParser.batch();
 		
 		preProcess(preTree, mainTree);
 		
@@ -212,6 +212,9 @@ public abstract class Compiler {
 		ParserRuleContext rule = findRuleToInject(mainTree, neighbor.left, neighbor.right, targetInterval);
 		statement.parent = rule;
 
+		if (rule.children == null)
+			rule.children = new ArrayList<ParseTree>(1);
+		
 		ListIterator<ParseTree> it = findPositionToInject(targetInterval, rule.children.listIterator());
 		it.add(statement);
 	}
@@ -289,7 +292,7 @@ public abstract class Compiler {
 			Interval candidateInterval = candidate.getSourceInterval();
 			
 			// we bind to a missing token to the right only if a PERIOD
-			if (isInjectedMissingPeriod(candidate) || candidateInterval.startsAfter(targetInterval)) {
+			if (isInjectedMissingPeriod(candidate) || (candidateInterval.length() > 0 && candidateInterval.startsAfter(targetInterval))) {
 				it.previous();
 				break;
 			}
