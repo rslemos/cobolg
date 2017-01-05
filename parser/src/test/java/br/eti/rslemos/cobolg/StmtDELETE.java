@@ -36,6 +36,7 @@ public class StmtDELETE {
 		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1.source"),
@@ -43,6 +44,7 @@ public class StmtDELETE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1_RECORD() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1_RECORD.source"),
@@ -50,6 +52,7 @@ public class StmtDELETE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
@@ -57,6 +60,7 @@ public class StmtDELETE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1_RECORD_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1_RECORD_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
@@ -80,6 +84,7 @@ public class StmtDELETE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_DELETE() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_DELETE.source"),
@@ -87,6 +92,7 @@ public class StmtDELETE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1_RECORD_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_DELETE() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1_RECORD_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_DELETE.source"),

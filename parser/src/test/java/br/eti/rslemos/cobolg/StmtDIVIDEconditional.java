@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtDIVIDEconditionalContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtDIVIDEconditional {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtDIVIDEconditional");

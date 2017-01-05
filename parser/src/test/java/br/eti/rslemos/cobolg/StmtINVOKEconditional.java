@@ -289,6 +289,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_QUOTED_METHOD_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_QUOTED_METHOD_EXCEPTION_STOP_RUN.source"),
@@ -296,6 +297,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_METHOD_1_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_METHOD_1_EXCEPTION_STOP_RUN.source"),
@@ -303,6 +305,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_NEW_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_NEW_EXCEPTION_STOP_RUN.source"),
@@ -310,6 +313,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_QUOTED_METHOD_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_QUOTED_METHOD_EXCEPTION_STOP_RUN.source"),
@@ -317,6 +321,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_METHOD_1_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_METHOD_1_EXCEPTION_STOP_RUN.source"),
@@ -324,6 +329,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_NEW_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_NEW_EXCEPTION_STOP_RUN.source"),
@@ -331,6 +337,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_QUOTED_METHOD_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_QUOTED_METHOD_EXCEPTION_STOP_RUN.source"),
@@ -338,6 +345,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_METHOD_1_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_METHOD_1_EXCEPTION_STOP_RUN.source"),
@@ -345,6 +353,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_NEW_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_NEW_EXCEPTION_STOP_RUN.source"),
@@ -352,6 +361,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_QUOTED_METHOD_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_QUOTED_METHOD_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -359,6 +369,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_METHOD_1_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_METHOD_1_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -366,6 +377,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_NEW_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_NEW_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -373,6 +385,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_QUOTED_METHOD_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_QUOTED_METHOD_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -380,6 +393,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_METHOD_1_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_METHOD_1_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -387,6 +401,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_NEW_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_NEW_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -394,6 +409,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_QUOTED_METHOD_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_QUOTED_METHOD_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -401,6 +417,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_METHOD_1_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_METHOD_1_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -408,6 +425,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_NEW_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_NEW_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -415,6 +433,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_QUOTED_METHOD_USING_BY_VALUE_ARG_1_ARG_2_ARG_3_40_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_QUOTED_METHOD_USING_BY_VALUE_ARG_1_ARG_2_ARG_3_40_EXCEPTION_STOP_RUN.source"),
@@ -422,6 +441,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_METHOD_1_USING_BY_VALUE_ARG_1_BY_VALUE_20_BY_VALUE_ARG_3_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_METHOD_1_USING_BY_VALUE_ARG_1_BY_VALUE_20_BY_VALUE_ARG_3_EXCEPTION_STOP_RUN.source"),
@@ -429,6 +449,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_NEW_USING_VALUE_LENGTH_OF_ARG_1_20_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_NEW_USING_VALUE_LENGTH_OF_ARG_1_20_EXCEPTION_STOP_RUN.source"),
@@ -436,6 +457,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_QUOTED_METHOD_USING_BY_VALUE_ARG_1_LENGTH_OF_ARG_2_VALUE_30_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_QUOTED_METHOD_USING_BY_VALUE_ARG_1_LENGTH_OF_ARG_2_VALUE_30_EXCEPTION_STOP_RUN.source"),
@@ -443,6 +465,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_METHOD_1_USING_BY_VALUE_ARG_1_ARG_2_LENGTH_OF_ARG_3_40_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_METHOD_1_USING_BY_VALUE_ARG_1_ARG_2_LENGTH_OF_ARG_3_40_EXCEPTION_STOP_RUN.source"),
@@ -450,6 +473,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_NEW_USING_BY_VALUE_LENGTH_OF_ARG_1_LENGTH_OF_ARG_2_30_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_NEW_USING_BY_VALUE_LENGTH_OF_ARG_1_LENGTH_OF_ARG_2_30_EXCEPTION_STOP_RUN.source"),
@@ -457,6 +481,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_QUOTED_METHOD_USING_BY_VALUE_ARG_1_BY_VALUE_LENGTH_OF_ARG_2_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_QUOTED_METHOD_USING_BY_VALUE_ARG_1_BY_VALUE_LENGTH_OF_ARG_2_EXCEPTION_STOP_RUN.source"),
@@ -464,6 +489,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_METHOD_1_USING_BY_VALUE_10_LENGTH_OF_ARG_2_VALUE_ARG_3_40_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_METHOD_1_USING_BY_VALUE_10_LENGTH_OF_ARG_2_VALUE_ARG_3_40_EXCEPTION_STOP_RUN.source"),
@@ -471,6 +497,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_NEW_USING_BY_VALUE_LENGTH_OF_ARG_1_20_VALUE_LENGTH_OF_ARG_3_40_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_NEW_USING_BY_VALUE_LENGTH_OF_ARG_1_20_VALUE_LENGTH_OF_ARG_3_40_EXCEPTION_STOP_RUN.source"),
@@ -478,6 +505,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_QUOTED_METHOD_USING_VALUE_10_VALUE_ARG_2_30_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_QUOTED_METHOD_USING_VALUE_10_VALUE_ARG_2_30_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -485,6 +513,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_METHOD_1_USING_VALUE_10_ARG_2_VALUE_ARG_3_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_METHOD_1_USING_VALUE_10_ARG_2_VALUE_ARG_3_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -492,6 +521,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_CLS_1_NEW_USING_VALUE_10_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_CLS_1_NEW_USING_VALUE_10_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -499,6 +529,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_QUOTED_METHOD_USING_VALUE_ARG_1_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_QUOTED_METHOD_USING_VALUE_ARG_1_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -506,6 +537,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_METHOD_1_USING_VALUE_ARG_1_VALUE_20_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_METHOD_1_USING_VALUE_ARG_1_VALUE_20_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -513,6 +545,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SELF_NEW_USING_VALUE_ARG_1_ARG_2_ARG_3_ARG_4_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SELF_NEW_USING_VALUE_ARG_1_ARG_2_ARG_3_ARG_4_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -520,6 +553,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_QUOTED_METHOD_USING_VALUE_10_20_VALUE_30_40_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_QUOTED_METHOD_USING_VALUE_10_20_VALUE_30_40_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -527,6 +561,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_METHOD_1_USING_VALUE_ARG_1_VALUE_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_METHOD_1_USING_VALUE_ARG_1_VALUE_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),
@@ -534,6 +569,7 @@ public class StmtINVOKEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVOKE_SUPER_NEW_USING_VALUE_ARG_1_20_30_ARG_4_RETURNING_RESULT_EXCEPTION_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVOKE_SUPER_NEW_USING_VALUE_ARG_1_20_30_ARG_4_RETURNING_RESULT_EXCEPTION_STOP_RUN.source"),

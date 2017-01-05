@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtREWRITEdelimitedScopeContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtREWRITEdelimitedScope {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtREWRITEdelimitedScope");
@@ -42,6 +43,7 @@ public class StmtREWRITEdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_REWRITE() {
 		helper.compileAndVerify(
 				get("REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN_END_REWRITE.source"),

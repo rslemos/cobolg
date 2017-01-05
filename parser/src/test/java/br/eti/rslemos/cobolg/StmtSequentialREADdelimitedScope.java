@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialREADdelimitedScopeContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtSequentialREADdelimitedScope {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialREADdelimitedScope");
@@ -63,6 +64,7 @@ public class StmtSequentialREADdelimitedScope {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
@@ -70,6 +72,7 @@ public class StmtSequentialREADdelimitedScope {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
@@ -77,6 +80,7 @@ public class StmtSequentialREADdelimitedScope {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
@@ -84,6 +88,7 @@ public class StmtSequentialREADdelimitedScope {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),

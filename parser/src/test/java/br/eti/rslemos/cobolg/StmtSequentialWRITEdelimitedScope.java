@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialWRITEdelimitedScopeContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtSequentialWRITEdelimitedScope {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialWRITEdelimitedScope");
@@ -49,6 +50,7 @@ public class StmtSequentialWRITEdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE.source"),
@@ -56,6 +58,7 @@ public class StmtSequentialWRITEdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE.source"),

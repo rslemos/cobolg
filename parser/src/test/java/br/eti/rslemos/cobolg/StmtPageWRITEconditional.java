@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtPageWRITEconditionalContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtPageWRITEconditional {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtPageWRITEconditional");
@@ -273,6 +274,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -280,6 +282,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -287,6 +290,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -294,6 +298,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -301,6 +306,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -308,6 +314,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -315,6 +322,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -322,6 +330,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -329,6 +338,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -336,6 +346,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -343,6 +354,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -350,6 +362,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -357,6 +370,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -364,6 +378,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -371,6 +386,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -378,6 +394,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -385,6 +402,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -392,6 +410,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -399,6 +418,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -406,6 +426,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -413,6 +434,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -420,6 +442,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -427,6 +450,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -434,6 +458,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -441,6 +466,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -448,6 +474,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -455,6 +482,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -462,6 +490,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -469,6 +498,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -476,6 +506,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -483,6 +514,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_1_LINE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -490,6 +522,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_N_LINES_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -497,6 +530,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_LCP_CH2_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),
@@ -504,6 +538,7 @@ public class StmtPageWRITEconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_PAGE_EOP_STOP_RUN_NOT_EOP_STOP_RUN.source"),

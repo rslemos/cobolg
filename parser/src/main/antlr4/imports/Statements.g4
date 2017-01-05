@@ -201,8 +201,8 @@ givingPhrase : GIVING roundedPhrase+;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=309&zoom=auto,-40,340
  */
 sizeErrorPhrases : onSizeErrorPhrase? notOnSizeErrorPhrase?;
-onSizeErrorPhrase    :     ON? SIZE ERROR imperativeStatement;
-notOnSizeErrorPhrase : NOT ON? SIZE ERROR imperativeStatement;
+onSizeErrorPhrase    :     ON? SIZE ERROR proceduralStatement[false];
+notOnSizeErrorPhrase : NOT ON? SIZE ERROR proceduralStatement[false];
 
 /**
  * EXCEPTION phrases.
@@ -211,8 +211,8 @@ notOnSizeErrorPhrase : NOT ON? SIZE ERROR imperativeStatement;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,230
  */
 exceptionPhrases : onExceptionPhrase? notOnExceptionPhrase?;
-onExceptionPhrase    :     ON? EXCEPTION imperativeStatement;
-notOnExceptionPhrase : NOT ON? EXCEPTION imperativeStatement;
+onExceptionPhrase    :     ON? EXCEPTION proceduralStatement[false];
+notOnExceptionPhrase : NOT ON? EXCEPTION proceduralStatement[false];
 
 /**
  * OVERFLOW phrases.
@@ -221,16 +221,16 @@ notOnExceptionPhrase : NOT ON? EXCEPTION imperativeStatement;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=468&zoom=auto,-40,630
  */
 overflowPhrases : onOverflowPhrase? notOnOverflowPhrase?;
-onOverflowPhrase    :     ON? OVERFLOW imperativeStatement;
-notOnOverflowPhrase : NOT ON? OVERFLOW imperativeStatement;
+onOverflowPhrase    :     ON? OVERFLOW proceduralStatement[false];
+notOnOverflowPhrase : NOT ON? OVERFLOW proceduralStatement[false];
 
 /**
  * INVALID KEY phrases.
  * 
  */
 invalidKeyPhrases : invalidKeyPhrase? notInvalidKeyPhrase?;
-invalidKeyPhrase    :     INVALID KEY? imperativeStatement;
-notInvalidKeyPhrase : NOT INVALID KEY? imperativeStatement;
+invalidKeyPhrase    :     INVALID KEY? proceduralStatement[false];
+notInvalidKeyPhrase : NOT INVALID KEY? proceduralStatement[false];
 
 /**
  * AT END phrases.
@@ -238,8 +238,8 @@ notInvalidKeyPhrase : NOT INVALID KEY? imperativeStatement;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=425&zoom=auto,-40,190
  */
 atEndPhrases : atEndPhrase? notAtEndPhrase?;
-atEndPhrase    :     AT? END imperativeStatement;
-notAtEndPhrase : NOT AT? END imperativeStatement;
+atEndPhrase    :     AT? END proceduralStatement[false];
+notAtEndPhrase : NOT AT? END proceduralStatement[false];
 
 /**
  * AT END-OF-PAGE phrases.
@@ -247,8 +247,8 @@ notAtEndPhrase : NOT AT? END imperativeStatement;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=485&zoom=auto,-40,335
  */
 atEndOfPagePhrases : atEndOfPagePhrase? notAtEndOfPagePhrase?;
-atEndOfPagePhrase    :     AT? (END_OF_PAGE | EOP) imperativeStatement;
-notAtEndOfPagePhrase : NOT AT? (END_OF_PAGE | EOP) imperativeStatement;
+atEndOfPagePhrase    :     AT? (END_OF_PAGE | EOP) proceduralStatement[false];
+notAtEndOfPagePhrase : NOT AT? (END_OF_PAGE | EOP) proceduralStatement[false];
 
 /* here come the actual statements (all prefixed by stmt) */
 
@@ -379,8 +379,8 @@ stmtEVALUATEconditional :
 		EVALUATE
 		      (identifier | literal | arithmeticExpression | TRUE | FALSE)
 		(ALSO (identifier | literal | arithmeticExpression | TRUE | FALSE))*
-		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* imperativeStatement)+
-		(WHEN OTHER imperativeStatement)?
+		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* proceduralStatement[false])+
+		(WHEN OTHER proceduralStatement[false])?
 	;
 
 stmtEVALUATEdelimitedScope : stmtEVALUATEconditional END_EVALUATE;
@@ -593,8 +593,8 @@ stmtREWRITEdelimitedScope : stmtREWRITEconditional END_REWRITE;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=438&zoom=auto,-40,735
  */
 stmtSEARCHconditional :
-		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (imperativeStatement | NEXT SENTENCE))+
-	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (imperativeStatement | NEXT SENTENCE)
+		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (proceduralStatement[false] | NEXT SENTENCE))+
+	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (proceduralStatement[false] | NEXT SENTENCE)
 	;
 
 stmtSEARCHdelimitedScope : stmtSEARCHconditional END_SEARCH;

@@ -51,6 +51,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN.source"),
@@ -58,6 +59,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE.source"),
@@ -65,6 +67,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN.source"),
@@ -72,6 +75,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE.source"),
@@ -93,6 +97,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN.source"),
@@ -100,6 +105,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_STOP_RUN_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE.source"),
@@ -107,6 +113,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_STOP_RUN.source"),
@@ -114,6 +121,7 @@ public class StmtSEARCHconditional {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE() {
 		helper.compileAndVerify(
 				get("SEARCH_X_1_VARYING_I_END_STOP_RUN_WHEN_CONDITION_2_NEXT_SENTENCE_WHEN_X_2_IS_NOT_POSITIVE_NEXT_SENTENCE.source"),

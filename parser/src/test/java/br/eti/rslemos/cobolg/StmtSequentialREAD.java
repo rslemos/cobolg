@@ -36,6 +36,7 @@ public class StmtSequentialREAD {
 		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME() {
 		helper.compileAndVerify(
 				get("READ_FILENAME.source"),
@@ -43,6 +44,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD.source"),
@@ -50,6 +52,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_INTO_X() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X.source"),
@@ -57,6 +60,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_INTO_X.source"),
@@ -64,6 +68,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
@@ -71,6 +76,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
@@ -78,6 +84,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
@@ -85,6 +92,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN.source"),
@@ -124,6 +132,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
@@ -131,6 +140,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
@@ -138,6 +148,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),
@@ -145,6 +156,7 @@ public class StmtSequentialREAD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_INTO_X_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN_END_READ.source"),

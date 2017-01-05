@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtSUBTRACTdelimitedScopeContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtSUBTRACTdelimitedScope {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSUBTRACTdelimitedScope");
@@ -168,6 +169,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -175,6 +177,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_20_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_20_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -182,6 +185,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -189,6 +193,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -196,6 +201,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_W_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_W_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -203,6 +209,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_10_FROM_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -210,6 +217,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -217,6 +225,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_20_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -224,6 +233,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -231,6 +241,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -238,6 +249,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_W_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -245,6 +257,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_10_FROM_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -252,6 +265,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -259,6 +273,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_20_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -266,6 +281,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_10_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -273,6 +289,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -280,6 +297,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_W_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -287,6 +305,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_Z_10_FROM_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),
@@ -294,6 +313,7 @@ public class StmtSUBTRACTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void SUBTRACT_CORR_X_FROM_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT() {
 		helper.compileAndVerify(
 				get("SUBTRACT_CORR_X_FROM_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_SUBTRACT.source"),

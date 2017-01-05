@@ -36,6 +36,7 @@ public class StmtDIVIDE {
 		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Y_ROUNDED_W.source"),
@@ -43,6 +44,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Y_ROUNDED_W.source"),
@@ -50,6 +52,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W.source"),
@@ -57,6 +60,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W.source"),
@@ -64,6 +68,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W.source"),
@@ -71,6 +76,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W.source"),
@@ -78,6 +84,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W.source"),
@@ -85,6 +92,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W.source"),
@@ -92,6 +100,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W.source"),
@@ -99,6 +108,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W.source"),
@@ -106,6 +116,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -113,6 +124,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -120,6 +132,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -127,6 +140,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -134,6 +148,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -141,6 +156,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -148,6 +164,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -155,6 +172,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W.source"),
@@ -162,6 +180,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -169,6 +188,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -176,6 +196,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -183,6 +204,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -190,6 +212,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -197,6 +220,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -204,6 +228,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -211,6 +236,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -218,6 +244,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -225,6 +252,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -232,6 +260,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -239,6 +268,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -246,6 +276,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -253,6 +284,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -260,6 +292,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -267,6 +300,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -274,6 +308,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -281,6 +316,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -432,6 +468,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -439,6 +476,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -446,6 +484,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -453,6 +492,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -460,6 +500,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -467,6 +508,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -474,6 +516,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -481,6 +524,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -488,6 +532,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -495,6 +540,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -502,6 +548,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -509,6 +556,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -516,6 +564,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -523,6 +572,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_INTO_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -530,6 +580,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -537,6 +588,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_X_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -544,6 +596,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_Z_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),
@@ -551,6 +604,7 @@ public class StmtDIVIDE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE() {
 		helper.compileAndVerify(
 				get("DIVIDE_20_BY_10_GIVING_Y_ROUNDED_REMAINDER_W_ON_SIZE_ERROR_STOP_RUN_END_DIVIDE.source"),

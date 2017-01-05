@@ -53,6 +53,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
@@ -60,6 +61,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
@@ -85,6 +87,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE.source"),
@@ -92,6 +95,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE.source"),

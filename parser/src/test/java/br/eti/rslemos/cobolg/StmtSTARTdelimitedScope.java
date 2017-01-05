@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtSTARTdelimitedScopeContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtSTARTdelimitedScope {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSTARTdelimitedScope");
@@ -126,6 +127,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -133,6 +135,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -140,6 +143,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -147,6 +151,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -154,6 +159,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_GREATER_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -161,6 +167,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_NOT_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_NOT_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -168,6 +175,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_NOT_OP_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_NOT_OP_LESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -175,6 +183,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_GREATER_OR_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_GREATER_OR_EQUAL_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -182,6 +191,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_NOTLESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_NOTLESS_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -189,6 +199,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -196,6 +207,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_GREATER_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -203,6 +215,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_NOT_LESS_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_NOT_LESS_THAN_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),
@@ -210,6 +223,7 @@ public class StmtSTARTdelimitedScope {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_START.source"),

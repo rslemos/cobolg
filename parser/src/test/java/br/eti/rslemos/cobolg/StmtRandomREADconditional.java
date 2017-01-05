@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtRandomREADconditionalContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtRandomREADconditional {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRandomREADconditional");
@@ -63,6 +64,7 @@ public class StmtRandomREADconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
@@ -70,6 +72,7 @@ public class StmtRandomREADconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_INTO_X_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
@@ -77,6 +80,7 @@ public class StmtRandomREADconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_RECORD_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_RECORD_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
@@ -84,6 +88,7 @@ public class StmtRandomREADconditional {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_RECORD_INTO_X_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
