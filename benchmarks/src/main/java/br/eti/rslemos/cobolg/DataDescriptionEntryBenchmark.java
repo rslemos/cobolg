@@ -73,7 +73,7 @@ public class DataDescriptionEntryBenchmark {
 	}
 
 	@Param
-	public DataDescriptionEntrySample sample;
+	public DataDescriptionEntrySample parameter;
 	
 	@Benchmark
 	@BenchmarkMode(Mode.AverageTime)
@@ -82,6 +82,6 @@ public class DataDescriptionEntryBenchmark {
 	@Warmup(iterations = 20)
 	@OutputTimeUnit(TimeUnit.MICROSECONDS)
 	public DataDescriptionEntryContext compile() {
-		return DataDescriptionEntryUnitTest.helper.compile(sample.source);
+		return DataDescriptionEntryUnitTest.helper.compile(parameter.source);
 	}
 }
