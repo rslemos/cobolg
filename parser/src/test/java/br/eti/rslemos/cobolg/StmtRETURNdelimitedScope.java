@@ -65,29 +65,29 @@ public class StmtRETURNdelimitedScope {
 	
 	@Test public void RETURN_FILE_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
-				get("RETURN_FILE_1_END_RETURN.source"),
-				get("RETURN_FILE_1_END_RETURN.tree")
+				get("RETURN_FILE_1_AT_END_STOP_RUN_END_RETURN.source"),
+				get("RETURN_FILE_1_AT_END_STOP_RUN_END_RETURN.tree")
 			);
 	}
 	
 	@Test public void RETURN_FILE_1_RECORD_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD_END_RETURN.source"),
-				get("RETURN_FILE_1_RECORD_END_RETURN.tree")
+				get("RETURN_FILE_1_RECORD_AT_END_STOP_RUN_END_RETURN.source"),
+				get("RETURN_FILE_1_RECORD_AT_END_STOP_RUN_END_RETURN.tree")
 			);
 	}
 	
 	@Test public void RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
-				get("RETURN_FILE_1_INTO_ID_1_END_RETURN.source"),
-				get("RETURN_FILE_1_INTO_ID_1_END_RETURN.tree")
+				get("RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN_END_RETURN.source"),
+				get("RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN_END_RETURN.tree")
 			);
 	}
 	
 	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD_INTO_ID_1_END_RETURN.source"),
-				get("RETURN_FILE_1_RECORD_INTO_ID_1_END_RETURN.tree")
+				get("RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN_END_RETURN.source"),
+				get("RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN_END_RETURN.tree")
 			);
 	}
 }
