@@ -29,9 +29,9 @@ options { tokenVocab = COBOLLexer; }
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,185
  */
-proceduralStatement :
+proceduralStatement[boolean conditionalAllowed] :
 		imperativeStatement
-	|	conditionalStatement
+	|	{$conditionalAllowed}? conditionalStatement
 	;
 
 /**
@@ -426,7 +426,7 @@ stmtGOBACK : GOBACK;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
-stmtIF : IF conditionalExpression THEN? (proceduralStatement+ | NEXT SENTENCE) (ELSE (proceduralStatement+ | NEXT SENTENCE))?;
+stmtIF : IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))?;
 
 stmtIFdelimitedScope : stmtIF END_IF;
 
@@ -531,7 +531,7 @@ openObject :
  */
 stmtPERFORMimperative : PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?;
 
-stmtPERFORMdelimitedScope : PERFORM (performTimes | performUntil | performVarying)? proceduralStatement+ END_PERFORM;
+stmtPERFORMdelimitedScope : PERFORM (performTimes | performUntil | performVarying)? proceduralStatement[true]+ END_PERFORM;
 
 performTimes : (identifier | INTEGER) TIMES;
 

@@ -34,7 +34,7 @@ public class StmtSEARCH {
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
 	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
 	@Test public void SEARCH_X_1_VARYING_I_WHEN_CONDITION_2_STOP_RUN() {

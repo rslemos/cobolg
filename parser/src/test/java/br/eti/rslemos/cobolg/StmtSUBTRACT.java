@@ -33,7 +33,7 @@ public class StmtSUBTRACT {
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
 	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
 	@Test public void SUBTRACT_10_FROM_X_Y_ROUNDED() {

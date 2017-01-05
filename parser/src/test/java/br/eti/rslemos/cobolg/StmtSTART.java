@@ -33,7 +33,7 @@ public class StmtSTART {
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
 	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
 	@Test public void START_FILENAME() {

@@ -34,7 +34,7 @@ public class StmtEVALUATE {
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
 	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
 	@Test public void EVALUATE_ID_1_WHEN_NOT_ID_4_THRU_ID_4_OP_STAR_40_DISPLAY_QUOTED_BRANCH_1_WHEN_ID_4_OP_GREATER_QUOTED_A_DISPLAY_QUOTED_BRANCH_2_WHEN_TRUE_DISPLAY_QUOTED_BRANCH_3() {

@@ -34,7 +34,7 @@ public class StmtUNSTRING {
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
 	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
 	};
 	
 	@Test public void UNSTRING_X_INTO_I_1_COUNT_C_1() {
