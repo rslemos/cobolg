@@ -34,9 +34,7 @@ options { tokenVocab = COBOLLexer; }
  */
 proceduralStatement[boolean conditionalAllowed] :
 		/* arithmetic */
-		stmtADDimperative
-	|	{$conditionalAllowed}? stmtADDconditional
-	|	stmtADDdelimitedScope
+		stmtADD[$conditionalAllowed]
 	|	stmtCOMPUTEimperative
 	|	{$conditionalAllowed}? stmtCOMPUTEconditional
 	|	stmtCOMPUTEdelimitedScope
@@ -239,6 +237,12 @@ stmtACCEPT :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=326&zoom=auto,-40,735
  */
+stmtADD[boolean conditionalAllowed] :
+		stmtADDimperative
+	|	{$conditionalAllowed}? stmtADDconditional
+	|	stmtADDdelimitedScope
+	;
+
 stmtADDimperative :
 		ADD (identifier | literal)+ TO roundedPhrase+
 	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
