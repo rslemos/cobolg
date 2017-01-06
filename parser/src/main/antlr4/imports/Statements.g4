@@ -72,9 +72,7 @@ proceduralStatement[boolean conditionalAllowed] :
 		/* ordering */
 	|	stmtMERGE
 	|	stmtRELEASE
-	|	stmtRETURNimperative
-	|	{$conditionalAllowed}? stmtRETURNconditional
-	|	stmtRETURNdelimitedScope
+	|	stmtRETURN[$conditionalAllowed]
 	|	stmtSORT
 		/* procedure-branching */
 	|	stmtALTER
@@ -556,6 +554,12 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=433&zoom=auto,-40,735
  */
+stmtRETURN[boolean conditionalAllowed] :
+		stmtRETURNimperative
+	|	{$conditionalAllowed}? stmtRETURNconditional
+	|	stmtRETURNdelimitedScope
+	;
+
 stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
 stmtRETURNconditional : stmtRETURNimperative atEndPhrases;

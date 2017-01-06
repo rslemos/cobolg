@@ -25,15 +25,15 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtRETURNContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtRETURN {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRETURN");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtRETURNContext> helper = new CompilerHelper<StmtRETURNContext>() {
+		@Override protected StmtRETURNContext parsePart() { return parser.stmtRETURN(true); }
 	};
 	
 	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
