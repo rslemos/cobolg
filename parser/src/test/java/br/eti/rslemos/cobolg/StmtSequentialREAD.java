@@ -25,15 +25,15 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialREADContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtSequentialREAD {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialREAD");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtSequentialREADContext> helper = new CompilerHelper<StmtSequentialREADContext>() {
+		@Override protected StmtSequentialREADContext parsePart() { return parser.stmtSequentialREAD(true); }
 	};
 	
 	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})

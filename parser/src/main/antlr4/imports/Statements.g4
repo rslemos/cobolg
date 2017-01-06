@@ -62,9 +62,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtDELETE[$conditionalAllowed]
 	|	stmtDISPLAY
 	|	stmtOPEN
-	|	stmtSequentialREADimperative
-	|	{$conditionalAllowed}? stmtSequentialREADconditional
-	|	stmtSequentialREADdelimitedScope
+	|	stmtSequentialREAD[$conditionalAllowed]
 	|	stmtRandomREADimperative
 	|	{$conditionalAllowed}? stmtRandomREADconditional
 	|	stmtRandomREADdelimitedScope
@@ -532,6 +530,12 @@ performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | ind
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=424&zoom=auto,-40,735
  */
+stmtSequentialREAD[boolean conditionalAllowed] :
+		stmtSequentialREADimperative
+	|	{$conditionalAllowed}? stmtSequentialREADconditional
+	|	stmtSequentialREADdelimitedScope
+	;
+
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
