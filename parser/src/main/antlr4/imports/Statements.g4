@@ -51,8 +51,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtXMLPARSE[$conditionalAllowed]
 		/* decision */
 	|	stmtEVALUATE[$conditionalAllowed]
-	|	{$conditionalAllowed}? stmtIF
-	|	stmtIFdelimitedScope
+	|	stmtIF[$conditionalAllowed]
 		/* ending */
 	|	stmtEXIT
 	|	stmtSTOPRUN
@@ -398,9 +397,14 @@ stmtGOBACK : GOBACK;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
-stmtIF : IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))?;
+stmtIF[boolean conditionalAllowed] :
+		{$conditionalAllowed}? stmtIFconditional
+	|	stmtIFdelimitedScope
+	;
 
-stmtIFdelimitedScope : stmtIF END_IF;
+stmtIFconditional : IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))?;
+
+stmtIFdelimitedScope : stmtIFconditional END_IF;
 
 /**
  * INITIALIZE statement.

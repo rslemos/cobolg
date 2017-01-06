@@ -89,15 +89,19 @@ public enum StmtIFData {
 				"%%3$s%s";
 		private static final String FMT_STMTIF = 
 				PINDENT + "(proceduralStatement " + NEWLINE + 
-				PINDENT + TAB + "(stmtIF %s" + NEWLINE + 
-				PINDENT + TAB + ")" + NEWLINE + 
+				PINDENT + TAB + "(stmtIF " + NEWLINE + 
+				PINDENT + TAB + TAB + "(stmtIFconditional %s" + NEWLINE + 
+				PINDENT + TAB + TAB + ")" + NEWLINE + 
+				PINDENT + TAB + ")" + NEWLINE +
 				PINDENT + ")";
 		private static final String FMT_STMTIFENDIF = 
 				PINDENT + "(proceduralStatement " + NEWLINE + 
-				PINDENT + TAB + "(stmtIFdelimitedScope " + NEWLINE + 
-				PINDENT + TAB + TAB + "(stmtIF %s" + NEWLINE + 
-				PINDENT + TAB + TAB + ") " + NEWLINE + 
-				PINDENT + TAB + "END-IF)" + NEWLINE + 
+				PINDENT + TAB + "(stmtIF " + NEWLINE + 
+				PINDENT + TAB + TAB + "(stmtIFdelimitedScope " + NEWLINE + 
+				PINDENT + TAB + TAB + TAB + "(stmtIFconditional %s" + NEWLINE + 
+				PINDENT + TAB + TAB + TAB + ") " + NEWLINE + 
+				PINDENT + TAB + TAB + "END-IF)" + NEWLINE + 
+				PINDENT + TAB + ")" + NEWLINE +
 				PINDENT + ")";
 		private static final String FMT_ELSE = " " + NEWLINE + 
 				INDENT + TAB + TAB + "ELSE " + NEWLINE + 
