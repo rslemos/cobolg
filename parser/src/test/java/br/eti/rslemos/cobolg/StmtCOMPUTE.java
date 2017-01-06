@@ -25,15 +25,15 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtCOMPUTEContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtCOMPUTE {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCOMPUTE");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtCOMPUTEContext> helper = new CompilerHelper<StmtCOMPUTEContext>() {
+		@Override protected StmtCOMPUTEContext parsePart() { return parser.stmtCOMPUTE(true); }
 	};
 	
 	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
