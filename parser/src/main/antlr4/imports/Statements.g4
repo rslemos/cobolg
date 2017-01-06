@@ -68,9 +68,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtSTART[$conditionalAllowed]
 	|	stmtSTOP
 	|	stmtPageWRITE[$conditionalAllowed]
-	|	stmtSequentialWRITEimperative
-	|	{$conditionalAllowed}? stmtSequentialWRITEconditional
-	|	stmtSequentialWRITEdelimitedScope
+	|	stmtSequentialWRITE[$conditionalAllowed]
 		/* ordering */
 	|	stmtMERGE
 	|	stmtRELEASE
@@ -726,6 +724,12 @@ stmtPageWRITE[boolean conditionalAllowed] :
 	;
 
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
+
+stmtSequentialWRITE[boolean conditionalAllowed] :
+		stmtSequentialWRITEimperative
+	|	{$conditionalAllowed}? stmtSequentialWRITEconditional
+	|	stmtSequentialWRITEdelimitedScope
+	;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
 
