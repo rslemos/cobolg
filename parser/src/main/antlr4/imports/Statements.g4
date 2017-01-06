@@ -46,9 +46,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtMOVE
 	|	stmtSET
 	|	stmtSTRING[$conditionalAllowed]
-	|	stmtUNSTRINGimperative
-	|	{$conditionalAllowed}? stmtUNSTRINGconditional
-	|	stmtUNSTRINGdelimitedScope
+	|	stmtUNSTRING[$conditionalAllowed]
 	|	stmtXMLGENERATEimperative
 	|	{$conditionalAllowed}? stmtXMLGENERATEconditional
 	|	stmtXMLGENERATEdelimitedScope
@@ -674,6 +672,12 @@ stmtSUBTRACTdelimitedScope : stmtSUBTRACTconditional END_SUBTRACT;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=474&zoom=auto,-40,735
  */
+stmtUNSTRING[boolean conditionalAllowed] :
+		stmtUNSTRINGimperative
+	|	{$conditionalAllowed}? stmtUNSTRINGconditional
+	|	stmtUNSTRINGdelimitedScope
+	;
+
 stmtUNSTRINGimperative :
 		UNSTRING identifier
 		(DELIMITED BY? ALL? (identifier | literal) (OR ALL? (identifier | literal))*)?

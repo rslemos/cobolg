@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtUNSTRINGContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 @Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
@@ -33,8 +33,8 @@ public class StmtUNSTRING {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtUNSTRING");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtUNSTRINGContext> helper = new CompilerHelper<StmtUNSTRINGContext>() {
+		@Override protected StmtUNSTRINGContext parsePart() { return parser.stmtUNSTRING(true); }
 	};
 	
 	@Test public void UNSTRING_X_INTO_I_1_COUNT_C_1() {
