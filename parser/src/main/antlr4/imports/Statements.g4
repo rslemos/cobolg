@@ -63,9 +63,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtDISPLAY
 	|	stmtOPEN
 	|	stmtSequentialREAD[$conditionalAllowed]
-	|	stmtRandomREADimperative
-	|	{$conditionalAllowed}? stmtRandomREADconditional
-	|	stmtRandomREADdelimitedScope
+	|	stmtRandomREAD[$conditionalAllowed]
 	|	stmtREWRITEimperative
 	|	{$conditionalAllowed}? stmtREWRITEconditional
 	|	stmtREWRITEdelimitedScope
@@ -537,6 +535,12 @@ stmtSequentialREAD[boolean conditionalAllowed] :
 	;
 
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
+
+stmtRandomREAD[boolean conditionalAllowed] :
+		stmtRandomREADimperative
+	|	{$conditionalAllowed}? stmtRandomREADconditional
+	|	stmtRandomREADdelimitedScope
+	;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
