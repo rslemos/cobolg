@@ -26,15 +26,15 @@ import java.util.ResourceBundle;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtCALLContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtCALL {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCALL");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtCALLContext> helper = new CompilerHelper<StmtCALLContext>() {
+		@Override protected StmtCALLContext parsePart() { return parser.stmtCALL(true); }
 	};
 	
 	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
