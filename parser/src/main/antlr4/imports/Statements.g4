@@ -50,8 +50,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtXMLGENERATE[$conditionalAllowed]
 	|	stmtXMLPARSE[$conditionalAllowed]
 		/* decision */
-	|	{$conditionalAllowed}? stmtEVALUATEconditional
-	|	stmtEVALUATEdelimitedScope
+	|	stmtEVALUATE[$conditionalAllowed]
 	|	{$conditionalAllowed}? stmtIF
 	|	stmtIFdelimitedScope
 		/* ending */
@@ -343,6 +342,11 @@ stmtDIVIDEdelimitedScope : stmtDIVIDEconditional END_DIVIDE;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=359&zoom=auto,-40,735
  */
+stmtEVALUATE[boolean conditionalAllowed] :
+		{$conditionalAllowed}? stmtEVALUATEconditional
+	|	stmtEVALUATEdelimitedScope
+	;
+
 stmtEVALUATEconditional :
 		EVALUATE
 		      (identifier | literal | arithmeticExpression | TRUE | FALSE)
