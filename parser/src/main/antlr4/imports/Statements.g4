@@ -35,9 +35,10 @@ proceduralStatement[boolean conditionalAllowed] :
 	;
 
 /**
- * Imperative statement.
+ * Imperative statement. Includes delimited scope statements.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,120
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670
  */
 imperativeStatement :
 		/* arithmetic (without the ON SIZE ERROR or the NOT ON SIZE ERROR phrase) */
@@ -89,7 +90,30 @@ imperativeStatement :
 	|	stmtINVOKEimperative
 		/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670 */
 		/* [...] a delimited scope statement can be specified wherever an imperative statement is allowed [...] */
-	|	delimitedScopeStatement
+		/* explicit scope terminator */
+	|	stmtADDdelimitedScope
+	|	stmtCALLdelimitedScope
+	|	stmtCOMPUTEdelimitedScope
+	|	stmtDELETEdelimitedScope
+	|	stmtDIVIDEdelimitedScope
+	|	stmtEVALUATEdelimitedScope
+	|	stmtIFdelimitedScope
+	|	stmtINVOKEdelimitedScope
+	|	stmtMULTIPLYdelimitedScope
+	|	stmtPERFORMdelimitedScope
+	|	stmtSequentialREADdelimitedScope
+	|	stmtRandomREADdelimitedScope
+	|	stmtRETURNdelimitedScope
+	|	stmtREWRITEdelimitedScope
+	|	stmtSEARCHdelimitedScope
+	|	stmtSTARTdelimitedScope
+	|	stmtSTRINGdelimitedScope
+	|	stmtSUBTRACTdelimitedScope
+	|	stmtUNSTRINGdelimitedScope
+	|	stmtPageWRITEdelimitedScope
+	|	stmtSequentialWRITEdelimitedScope
+	|	stmtXMLGENERATEdelimitedScope
+	|	stmtXMLPARSEdelimitedScope
 	;
 
 /**
@@ -127,38 +151,6 @@ conditionalStatement :
 	|	stmtINVOKEconditional
 		/* table-handling */
 	|	stmtSEARCHconditional
-	;
-
-/**
- * Delimited scope statement.
- * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670
- */
-delimitedScopeStatement :
-		/* explicit scope terminator */
-		stmtADDdelimitedScope
-	|	stmtCALLdelimitedScope
-	|	stmtCOMPUTEdelimitedScope
-	|	stmtDELETEdelimitedScope
-	|	stmtDIVIDEdelimitedScope
-	|	stmtEVALUATEdelimitedScope
-	|	stmtIFdelimitedScope
-	|	stmtINVOKEdelimitedScope
-	|	stmtMULTIPLYdelimitedScope
-	|	stmtPERFORMdelimitedScope
-	|	stmtSequentialREADdelimitedScope
-	|	stmtRandomREADdelimitedScope
-	|	stmtRETURNdelimitedScope
-	|	stmtREWRITEdelimitedScope
-	|	stmtSEARCHdelimitedScope
-	|	stmtSTARTdelimitedScope
-	|	stmtSTRINGdelimitedScope
-	|	stmtSUBTRACTdelimitedScope
-	|	stmtUNSTRINGdelimitedScope
-	|	stmtPageWRITEdelimitedScope
-	|	stmtSequentialWRITEdelimitedScope
-	|	stmtXMLGENERATEdelimitedScope
-	|	stmtXMLPARSEdelimitedScope
 	;
 
 /**

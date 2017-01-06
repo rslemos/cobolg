@@ -96,10 +96,10 @@ public enum StmtIFData {
 				PINDENT + ")";
 		private static final String FMT_STMTIFENDIF = 
 				PINDENT + "(proceduralStatement " + NEWLINE + 
-				PINDENT + TAB + "(imperativeStatement (delimitedScopeStatement (stmtIFdelimitedScope " + NEWLINE + 
+				PINDENT + TAB + "(imperativeStatement (stmtIFdelimitedScope " + NEWLINE + 
 				PINDENT + TAB + TAB + "(stmtIF %s" + NEWLINE + 
 				PINDENT + TAB + TAB + ") " + NEWLINE + 
-				PINDENT + TAB + "END-IF)))" + NEWLINE + 
+				PINDENT + TAB + "END-IF))" + NEWLINE + 
 				PINDENT + ")";
 		private static final String FMT_ELSE = " " + NEWLINE + 
 				INDENT + TAB + TAB + "ELSE " + NEWLINE + 
