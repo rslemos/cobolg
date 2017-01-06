@@ -48,9 +48,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtSTRING[$conditionalAllowed]
 	|	stmtUNSTRING[$conditionalAllowed]
 	|	stmtXMLGENERATE[$conditionalAllowed]
-	|	stmtXMLPARSEimperative
-	|	{$conditionalAllowed}? stmtXMLPARSEconditional
-	|	stmtXMLPARSEdelimitedScope
+	|	stmtXMLPARSE[$conditionalAllowed]
 		/* decision */
 	|	{$conditionalAllowed}? stmtEVALUATEconditional
 	|	stmtEVALUATEdelimitedScope
@@ -746,6 +744,12 @@ genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT |
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=502&zoom=auto,-40,735
  */
+stmtXMLPARSE[boolean conditionalAllowed] :
+		stmtXMLPARSEimperative
+	|	{$conditionalAllowed}? stmtXMLPARSEconditional
+	|	stmtXMLPARSEdelimitedScope
+	;
+
 stmtXMLPARSEimperative :
 		XML PARSE identifier
 		(WITH? ENCODING (identifier | literal))?
