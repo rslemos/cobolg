@@ -26,15 +26,15 @@ import java.util.ResourceBundle;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtPageWRITEContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtPageWRITE {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtPageWRITE");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtPageWRITEContext> helper = new CompilerHelper<StmtPageWRITEContext>() {
+		@Override protected StmtPageWRITEContext parsePart() { return parser.stmtPageWRITE(true); }
 	};
 	
 	@Ignore
@@ -583,7 +583,7 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_END_WRITE.source"),
@@ -591,7 +591,7 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_END_WRITE.source"),

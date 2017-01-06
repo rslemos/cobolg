@@ -67,9 +67,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtREWRITE[$conditionalAllowed]
 	|	stmtSTART[$conditionalAllowed]
 	|	stmtSTOP
-	|	stmtPageWRITEimperative
-	|	{$conditionalAllowed}? stmtPageWRITEconditional
-	|	stmtPageWRITEdelimitedScope
+	|	stmtPageWRITE[$conditionalAllowed]
 	|	stmtSequentialWRITEimperative
 	|	{$conditionalAllowed}? stmtSequentialWRITEconditional
 	|	stmtSequentialWRITEdelimitedScope
@@ -721,6 +719,12 @@ stmtUNSTRINGdelimitedScope : stmtUNSTRINGconditional END_UNSTRING;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=482&zoom=auto,-40,735
  */
+stmtPageWRITE[boolean conditionalAllowed] :
+		stmtPageWRITEimperative
+	|	{$conditionalAllowed}? stmtPageWRITEconditional
+	|	stmtPageWRITEdelimitedScope
+	;
+
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
