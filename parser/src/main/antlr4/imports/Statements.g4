@@ -36,9 +36,7 @@ proceduralStatement[boolean conditionalAllowed] :
 		/* arithmetic */
 		stmtADD[$conditionalAllowed]
 	|	stmtCOMPUTE[$conditionalAllowed]
-	|	stmtDIVIDEimperative
-	|	{$conditionalAllowed}? stmtDIVIDEconditional
-	|	stmtDIVIDEdelimitedScope
+	|	stmtDIVIDE[$conditionalAllowed]
 	|	stmtMULTIPLYimperative
 	|	{$conditionalAllowed}? stmtMULTIPLYconditional
 	|	stmtMULTIPLYdelimitedScope
@@ -336,6 +334,12 @@ stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentN
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=353&zoom=auto,-40,735
  */
+stmtDIVIDE[boolean conditionalAllowed] :
+		stmtDIVIDEimperative
+	|	{$conditionalAllowed}? stmtDIVIDEconditional
+	|	stmtDIVIDEdelimitedScope
+	;
+
 stmtDIVIDEimperative :
 		DIVIDE (identifier | literal) INTO roundedPhrase+
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
