@@ -583,7 +583,7 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_END_WRITE.source"),
@@ -591,7 +591,7 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_END_WRITE.source"),

@@ -28,129 +28,105 @@ options { tokenVocab = COBOLLexer; }
  * Procedural statements.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,185
- */
-proceduralStatement[boolean conditionalAllowed] :
-		imperativeStatement
-	|	{$conditionalAllowed}? conditionalStatement
-	;
-
-/**
- * Imperative statement. Includes delimited scope statements.
- * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,120
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670
  */
-imperativeStatement :
-		/* arithmetic (without the ON SIZE ERROR or the NOT ON SIZE ERROR phrase) */
+proceduralStatement[boolean conditionalAllowed] :
+		/* arithmetic */
 		stmtADDimperative
+	|	{$conditionalAllowed}? stmtADDconditional
+	|	stmtADDdelimitedScope
 	|	stmtCOMPUTEimperative
+	|	{$conditionalAllowed}? stmtCOMPUTEconditional
+	|	stmtCOMPUTEdelimitedScope
 	|	stmtDIVIDEimperative
+	|	{$conditionalAllowed}? stmtDIVIDEconditional
+	|	stmtDIVIDEdelimitedScope
 	|	stmtMULTIPLYimperative
+	|	{$conditionalAllowed}? stmtMULTIPLYconditional
+	|	stmtMULTIPLYdelimitedScope
 	|	stmtSUBTRACTimperative
-		/* data movement (without the ON OVERFLOW or the NOT ON OVERFLOW phrase or the ON EXCEPTION or NOT ON EXCEPTION phrase) */
+	|	{$conditionalAllowed}? stmtSUBTRACTconditional
+	|	stmtSUBTRACTdelimitedScope
+		/* data movement */
 //	|	ACCEPT // format 2
 	|	stmtINITIALIZE
 	|	stmtINSPECT
 	|	stmtMOVE
 	|	stmtSET
 	|	stmtSTRINGimperative
+	|	{$conditionalAllowed}? stmtSTRINGconditional
+	|	stmtSTRINGdelimitedScope
 	|	stmtUNSTRINGimperative
+	|	{$conditionalAllowed}? stmtUNSTRINGconditional
+	|	stmtUNSTRINGdelimitedScope
 	|	stmtXMLGENERATEimperative
+	|	{$conditionalAllowed}? stmtXMLGENERATEconditional
+	|	stmtXMLGENERATEdelimitedScope
 	|	stmtXMLPARSEimperative
+	|	{$conditionalAllowed}? stmtXMLPARSEconditional
+	|	stmtXMLPARSEdelimitedScope
+		/* decision */
+	|	{$conditionalAllowed}? stmtEVALUATEconditional
+	|	stmtEVALUATEdelimitedScope
+	|	{$conditionalAllowed}? stmtIF
+	|	stmtIFdelimitedScope
 		/* ending */
 	|	stmtEXIT
 	|	stmtSTOPRUN
 	|	stmtGOBACK
-		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
+		/* input-output */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
 	|	stmtDELETEimperative
+	|	{$conditionalAllowed}? stmtDELETEconditional
+	|	stmtDELETEdelimitedScope
 	|	stmtDISPLAY
 	|	stmtOPEN
 	|	stmtSequentialREADimperative
+	|	{$conditionalAllowed}? stmtSequentialREADconditional
+	|	stmtSequentialREADdelimitedScope
 	|	stmtRandomREADimperative
+	|	{$conditionalAllowed}? stmtRandomREADconditional
+	|	stmtRandomREADdelimitedScope
 	|	stmtREWRITEimperative
+	|	{$conditionalAllowed}? stmtREWRITEconditional
+	|	stmtREWRITEdelimitedScope
 	|	stmtSTARTimperative
+	|	{$conditionalAllowed}? stmtSTARTconditional
+	|	stmtSTARTdelimitedScope
 	|	stmtSTOP
 	|	stmtPageWRITEimperative
+	|	{$conditionalAllowed}? stmtPageWRITEconditional
+	|	stmtPageWRITEdelimitedScope
 	|	stmtSequentialWRITEimperative
-		/* ordering (without the AT END or NOT AT END phrase) */
+	|	{$conditionalAllowed}? stmtSequentialWRITEconditional
+	|	stmtSequentialWRITEdelimitedScope
+		/* ordering */
 	|	stmtMERGE
 	|	stmtRELEASE
 	|	stmtRETURNimperative
+	|	{$conditionalAllowed}? stmtRETURNconditional
+	|	stmtRETURNdelimitedScope
 	|	stmtSORT
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
 	|	stmtPERFORMimperative
-	|	stmtCONTINUE
-		/* program or method linkage (without the ON OVERFLOW phrase, and without the ON EXCEPTION or NOT ON EXCEPTION phrase) */
-	|	stmtCALLimperative
-	|	stmtCANCEL
-	|	stmtINVOKEimperative
-		/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670 */
-		/* [...] a delimited scope statement can be specified wherever an imperative statement is allowed [...] */
-		/* explicit scope terminator */
-	|	stmtADDdelimitedScope
-	|	stmtCALLdelimitedScope
-	|	stmtCOMPUTEdelimitedScope
-	|	stmtDELETEdelimitedScope
-	|	stmtDIVIDEdelimitedScope
-	|	stmtEVALUATEdelimitedScope
-	|	stmtIFdelimitedScope
-	|	stmtINVOKEdelimitedScope
-	|	stmtMULTIPLYdelimitedScope
 	|	stmtPERFORMdelimitedScope
-	|	stmtSequentialREADdelimitedScope
-	|	stmtRandomREADdelimitedScope
-	|	stmtRETURNdelimitedScope
-	|	stmtREWRITEdelimitedScope
-	|	stmtSEARCHdelimitedScope
-	|	stmtSTARTdelimitedScope
-	|	stmtSTRINGdelimitedScope
-	|	stmtSUBTRACTdelimitedScope
-	|	stmtUNSTRINGdelimitedScope
-	|	stmtPageWRITEdelimitedScope
-	|	stmtSequentialWRITEdelimitedScope
-	|	stmtXMLGENERATEdelimitedScope
-	|	stmtXMLPARSEdelimitedScope
-	;
-
-/**
- * Conditional statement.
- * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
- */
-conditionalStatement :
-		/* arithmetic */
-		stmtADDconditional
-	|	stmtCOMPUTEconditional
-	|	stmtDIVIDEconditional
-	|	stmtMULTIPLYconditional
-	|	stmtSUBTRACTconditional
-		/* data movement */
-	|	stmtSTRINGconditional
-	|	stmtUNSTRINGconditional
-	|	stmtXMLGENERATEconditional
-	|	stmtXMLPARSEconditional
-		/* decision */
-	|	stmtEVALUATEconditional
-	|	stmtIF
-		/* input-output */
-	|	stmtDELETEconditional
-	|	stmtSequentialREADconditional
-	|	stmtRandomREADconditional
-	|	stmtREWRITEconditional
-	|	stmtSTARTconditional
-	|	stmtPageWRITEconditional
-	|	stmtSequentialWRITEconditional
-		/* ordering */
-	|	stmtRETURNconditional
+	|	stmtCONTINUE
 		/* program or method linkage */
-	|	stmtCALLconditional
-	|	stmtINVOKEconditional
+	|	stmtCANCEL
+	|	stmtCALLimperative
+	|	{$conditionalAllowed}? stmtCALLconditional
+	|	stmtCALLdelimitedScope
+	|	stmtINVOKEimperative
+	|	{$conditionalAllowed}? stmtINVOKEconditional
+	|	stmtINVOKEdelimitedScope
 		/* table-handling */
-	|	stmtSEARCHconditional
+	|	{$conditionalAllowed}? stmtSEARCHconditional
+	|	stmtSEARCHdelimitedScope
 	;
 
 /**
