@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSTRINGContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 @Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
@@ -33,8 +33,8 @@ public class StmtSTRING {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSTRING");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtSTRINGContext> helper = new CompilerHelper<StmtSTRINGContext>() {
+		@Override protected StmtSTRINGContext parsePart() { return parser.stmtSTRING(true); }
 	};
 	
 	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
