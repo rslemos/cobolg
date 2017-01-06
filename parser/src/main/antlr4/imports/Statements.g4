@@ -64,9 +64,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtOPEN
 	|	stmtSequentialREAD[$conditionalAllowed]
 	|	stmtRandomREAD[$conditionalAllowed]
-	|	stmtREWRITEimperative
-	|	{$conditionalAllowed}? stmtREWRITEconditional
-	|	stmtREWRITEdelimitedScope
+	|	stmtREWRITE[$conditionalAllowed]
 	|	stmtSTARTimperative
 	|	{$conditionalAllowed}? stmtSTARTconditional
 	|	stmtSTARTdelimitedScope
@@ -575,6 +573,12 @@ stmtRETURNdelimitedScope : stmtRETURNconditional END_RETURN;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
+stmtREWRITE[boolean conditionalAllowed] :
+		stmtREWRITEimperative
+	|	{$conditionalAllowed}? stmtREWRITEconditional
+	|	stmtREWRITEdelimitedScope
+	;
+
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
