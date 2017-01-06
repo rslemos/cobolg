@@ -26,15 +26,15 @@ import java.util.ResourceBundle;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtXMLGENERATEContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtXMLGENERATE {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtXMLGENERATE");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(true); }
+	private static CompilerHelper<StmtXMLGENERATEContext> helper = new CompilerHelper<StmtXMLGENERATEContext>() {
+		@Override protected StmtXMLGENERATEContext parsePart() { return parser.stmtXMLGENERATE(true); }
 	};
 	
 	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})

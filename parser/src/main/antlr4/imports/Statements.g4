@@ -47,9 +47,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtSET
 	|	stmtSTRING[$conditionalAllowed]
 	|	stmtUNSTRING[$conditionalAllowed]
-	|	stmtXMLGENERATEimperative
-	|	{$conditionalAllowed}? stmtXMLGENERATEconditional
-	|	stmtXMLGENERATEdelimitedScope
+	|	stmtXMLGENERATE[$conditionalAllowed]
 	|	stmtXMLPARSEimperative
 	|	{$conditionalAllowed}? stmtXMLPARSEconditional
 	|	stmtXMLPARSEdelimitedScope
@@ -714,6 +712,12 @@ stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEconditional END_WRITE;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=490&zoom=auto,-40,735
  */
+stmtXMLGENERATE[boolean conditionalAllowed] :
+		stmtXMLGENERATEimperative
+	|	{$conditionalAllowed}? stmtXMLGENERATEconditional
+	|	stmtXMLGENERATEdelimitedScope
+	;
+
 stmtXMLGENERATEimperative :
 		XML GENERATE identifier FROM identifier
 		(COUNT IN? identifier)?
