@@ -82,9 +82,7 @@ proceduralStatement[boolean conditionalAllowed] :
 		/* program or method linkage */
 	|	stmtCANCEL
 	|	stmtCALL[$conditionalAllowed]
-	|	stmtINVOKEimperative
-	|	{$conditionalAllowed}? stmtINVOKEconditional
-	|	stmtINVOKEdelimitedScope
+	|	stmtINVOKE[$conditionalAllowed]
 		/* table-handling */
 	|	{$conditionalAllowed}? stmtSEARCHconditional
 	|	stmtSEARCHdelimitedScope
@@ -433,6 +431,12 @@ inspectReplacingObject :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=385&zoom=auto,-40,735
  */
+stmtINVOKE[boolean conditionalAllowed] :
+		stmtINVOKEimperative
+	|	{$conditionalAllowed}? stmtINVOKEconditional
+	|	stmtINVOKEdelimitedScope
+	;
+
 stmtINVOKEimperative :
 		INVOKE (identifier | className | SELF | SUPER) (literal | identifier | NEW)
 		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
