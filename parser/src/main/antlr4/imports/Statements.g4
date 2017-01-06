@@ -38,9 +38,7 @@ proceduralStatement[boolean conditionalAllowed] :
 	|	stmtCOMPUTE[$conditionalAllowed]
 	|	stmtDIVIDE[$conditionalAllowed]
 	|	stmtMULTIPLY[$conditionalAllowed]
-	|	stmtSUBTRACTimperative
-	|	{$conditionalAllowed}? stmtSUBTRACTconditional
-	|	stmtSUBTRACTdelimitedScope
+	|	stmtSUBTRACT[$conditionalAllowed]
 		/* data movement */
 //	|	ACCEPT // format 2
 	|	stmtINITIALIZE
@@ -651,6 +649,12 @@ stmtSTRINGdelimitedScope : stmtSTRINGconditional END_STRING;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=471&zoom=auto,-40,735
  */
+stmtSUBTRACT[boolean conditionalAllowed] :
+		stmtSUBTRACTimperative
+	|	{$conditionalAllowed}? stmtSUBTRACTconditional
+	|	stmtSUBTRACTdelimitedScope
+	;
+
 stmtSUBTRACTimperative :
 		SUBTRACT (identifier | literal)+ FROM roundedPhrase+
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
