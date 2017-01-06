@@ -59,9 +59,7 @@ proceduralStatement[boolean conditionalAllowed] :
 		/* input-output */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
-	|	stmtDELETEimperative
-	|	{$conditionalAllowed}? stmtDELETEconditional
-	|	stmtDELETEdelimitedScope
+	|	stmtDELETE[$conditionalAllowed]
 	|	stmtDISPLAY
 	|	stmtOPEN
 	|	stmtSequentialREADimperative
@@ -302,6 +300,12 @@ stmtCONTINUE : CONTINUE;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=348&zoom=auto,-40,735
  */
+stmtDELETE[boolean conditionalAllowed] :
+		stmtDELETEimperative
+	|	{$conditionalAllowed}? stmtDELETEconditional
+	|	stmtDELETEdelimitedScope
+	;
+
 stmtDELETEimperative : DELETE fileName RECORD?;
 
 stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
