@@ -37,9 +37,7 @@ proceduralStatement[boolean conditionalAllowed] :
 		stmtADD[$conditionalAllowed]
 	|	stmtCOMPUTE[$conditionalAllowed]
 	|	stmtDIVIDE[$conditionalAllowed]
-	|	stmtMULTIPLYimperative
-	|	{$conditionalAllowed}? stmtMULTIPLYconditional
-	|	stmtMULTIPLYdelimitedScope
+	|	stmtMULTIPLY[$conditionalAllowed]
 	|	stmtSUBTRACTimperative
 	|	{$conditionalAllowed}? stmtSUBTRACTconditional
 	|	stmtSUBTRACTdelimitedScope
@@ -481,6 +479,12 @@ stmtMOVE :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=405&zoom=auto,-40,735
  */
+stmtMULTIPLY[boolean conditionalAllowed] :
+		stmtMULTIPLYimperative
+	|	{$conditionalAllowed}? stmtMULTIPLYconditional
+	|	stmtMULTIPLYdelimitedScope
+	;
+
 stmtMULTIPLYimperative :
 		MULTIPLY (identifier | literal) BY roundedPhrase+
 	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
