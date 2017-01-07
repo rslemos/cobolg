@@ -521,12 +521,15 @@ performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | ind
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=424&zoom=auto,-40,735
  */
 stmtSequentialREAD[boolean conditionalAllowed] :
-		stmtSequentialREADimperative
-	|	stmtSequentialREADimperative {$conditionalAllowed}? atEndPhrases
-	|	stmtSequentialREADimperative atEndPhrases? END_READ
+		stmtSequentialREADimperative stmtSequentialREADtail[$conditionalAllowed]
 	;
 
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
+
+stmtSequentialREADtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? atEndPhrases
+	|	atEndPhrases? END_READ
+	;
 
 stmtRandomREAD[boolean conditionalAllowed] :
 		stmtRandomREADimperative
