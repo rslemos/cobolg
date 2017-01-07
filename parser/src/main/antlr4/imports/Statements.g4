@@ -375,12 +375,10 @@ stmtGOBACK : GOBACK;
  */
 stmtIF[boolean conditionalAllowed] :
 		{$conditionalAllowed}? stmtIFconditional
-	|	stmtIFdelimitedScope
+	|	stmtIFconditional END_IF
 	;
 
 stmtIFconditional : IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))?;
-
-stmtIFdelimitedScope : stmtIFconditional END_IF;
 
 /**
  * INITIALIZE statement.
