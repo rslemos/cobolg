@@ -199,8 +199,8 @@ stmtACCEPT :
  */
 stmtADD[boolean conditionalAllowed] :
 		stmtADDimperative
-	|	{$conditionalAllowed}? stmtADDconditional
-	|	stmtADDdelimitedScope
+	|	{$conditionalAllowed}? stmtADDimperative sizeErrorPhrases
+	|	stmtADDimperative sizeErrorPhrases? END_ADD
 	;
 
 stmtADDimperative :
@@ -208,10 +208,6 @@ stmtADDimperative :
 	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
 	|	ADD correspondingPhrase identifier TO roundedPhrase
 	;
-
-stmtADDconditional : stmtADDimperative sizeErrorPhrases;
-
-stmtADDdelimitedScope : stmtADDimperative sizeErrorPhrases? END_ADD;
 
 /**
  * ALTER statement.
