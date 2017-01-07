@@ -515,15 +515,11 @@ stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREAD[boolean conditionalAllowed] :
 		stmtRandomREADimperative
-	|	{$conditionalAllowed}? stmtRandomREADconditional
-	|	stmtRandomREADdelimitedScope
+	|	{$conditionalAllowed}? stmtRandomREADimperative invalidKeyPhrases
+	|	stmtRandomREADimperative invalidKeyPhrases? END_READ
 	;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
-
-stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
-
-stmtRandomREADdelimitedScope : stmtRandomREADimperative invalidKeyPhrases? END_READ;
 
 /**
  * RELEASE statement.
