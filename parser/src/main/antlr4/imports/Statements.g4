@@ -687,8 +687,8 @@ stmtUNSTRINGimperative :
  */
 stmtPageWRITE[boolean conditionalAllowed] :
 		stmtPageWRITEimperative
-	|	{$conditionalAllowed}? stmtPageWRITEconditional
-	|	stmtPageWRITEdelimitedScope
+	|	{$conditionalAllowed}? stmtPageWRITEimperative atEndOfPagePhrases
+	|	stmtPageWRITEimperative atEndOfPagePhrases? END_WRITE
 	;
 
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
@@ -701,11 +701,7 @@ stmtSequentialWRITE[boolean conditionalAllowed] :
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
 
-stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
-
 stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
-
-stmtPageWRITEdelimitedScope : stmtPageWRITEimperative atEndOfPagePhrases? END_WRITE;
 
 stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEimperative invalidKeyPhrases? END_WRITE;
 
