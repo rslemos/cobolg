@@ -444,7 +444,7 @@ stmtINVOKEimperative :
 
 stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
 
-stmtINVOKEdelimitedScope : stmtINVOKEconditional END_INVOKE;
+stmtINVOKEdelimitedScope : stmtINVOKEimperative exceptionPhrases END_INVOKE;
 
 /**
  * MERGE statement.
