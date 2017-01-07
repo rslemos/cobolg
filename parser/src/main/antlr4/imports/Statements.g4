@@ -301,13 +301,9 @@ stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentN
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=353&zoom=auto,-40,735
  */
 stmtDIVIDE[boolean conditionalAllowed] :
-		stmtDIVIDEimperative stmtDIVIDEtail[$conditionalAllowed]
-	;
-
-stmtDIVIDEimperative :
-		DIVIDE (identifier | literal) INTO roundedPhrase+
-	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
-	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
+		DIVIDE (identifier | literal) INTO roundedPhrase+ stmtDIVIDEtail[$conditionalAllowed]
+	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase stmtDIVIDEtail[$conditionalAllowed]
+	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier stmtDIVIDEtail[$conditionalAllowed]
 	;
 
 stmtDIVIDEtail[boolean conditionalAllowed] :
