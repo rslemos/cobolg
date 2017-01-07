@@ -5509,7 +5509,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5517,7 +5516,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5525,7 +5523,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5533,7 +5530,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5541,7 +5537,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5549,7 +5544,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5557,7 +5551,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5565,7 +5558,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5573,7 +5565,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5581,7 +5572,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5589,7 +5579,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5597,7 +5586,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5605,7 +5593,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5613,7 +5600,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5621,7 +5607,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5629,7 +5614,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5637,7 +5621,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5645,7 +5628,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5653,7 +5635,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5661,7 +5642,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5669,7 +5649,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5677,7 +5656,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5685,7 +5663,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5693,7 +5670,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5701,7 +5677,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5709,7 +5684,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5717,7 +5691,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5725,7 +5698,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5733,7 +5705,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5741,7 +5712,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5749,7 +5719,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5757,7 +5726,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5765,7 +5733,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5773,7 +5740,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5781,7 +5747,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5789,7 +5754,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -5797,7 +5761,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5805,7 +5768,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5813,7 +5775,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5821,7 +5782,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5829,7 +5789,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5837,7 +5796,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5845,7 +5803,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5853,7 +5810,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5861,7 +5817,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5869,7 +5824,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5877,7 +5831,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5885,7 +5838,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5893,7 +5845,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5901,7 +5852,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5909,7 +5859,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5917,7 +5866,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5925,7 +5873,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5933,7 +5880,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5941,7 +5887,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5949,7 +5894,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5957,7 +5901,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5965,7 +5908,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5973,7 +5915,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5981,7 +5922,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5989,7 +5929,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -5997,7 +5936,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6005,7 +5943,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6013,7 +5950,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6021,7 +5957,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6029,7 +5964,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6037,7 +5971,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6045,7 +5978,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6053,7 +5985,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6061,7 +5992,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6069,7 +5999,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6077,7 +6006,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6085,7 +6013,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6093,7 +6020,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6101,7 +6027,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6109,7 +6034,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6117,7 +6041,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6125,7 +6048,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6133,7 +6055,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6141,7 +6062,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6149,7 +6069,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6157,7 +6076,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6165,7 +6083,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6173,7 +6090,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6181,7 +6097,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6189,7 +6104,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6197,7 +6111,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6205,7 +6118,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6213,7 +6125,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6221,7 +6132,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6229,7 +6139,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6237,7 +6146,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6245,7 +6153,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6253,7 +6160,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6261,7 +6167,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6269,7 +6174,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6277,7 +6181,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6285,7 +6188,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6293,7 +6195,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6301,7 +6202,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6309,7 +6209,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6317,7 +6216,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6325,7 +6223,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6333,7 +6230,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6341,7 +6237,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6349,7 +6244,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6357,7 +6251,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6365,7 +6258,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_DELIMITED_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6373,7 +6265,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6381,7 +6272,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6389,7 +6279,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6397,7 +6286,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6405,7 +6293,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6413,7 +6300,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6421,7 +6307,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6429,7 +6314,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6437,7 +6321,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6445,7 +6328,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6453,7 +6335,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6461,7 +6342,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6469,7 +6349,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6477,7 +6356,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6485,7 +6363,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6493,7 +6370,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6501,7 +6377,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6509,7 +6384,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6517,7 +6391,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6525,7 +6398,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6533,7 +6405,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6541,7 +6412,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6549,7 +6419,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6557,7 +6426,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6565,7 +6433,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6573,7 +6440,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6581,7 +6447,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6589,7 +6454,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6597,7 +6461,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6605,7 +6468,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6613,7 +6475,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6621,7 +6482,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6629,7 +6489,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6637,7 +6496,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6645,7 +6503,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6653,7 +6510,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6661,7 +6517,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6669,7 +6524,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6677,7 +6531,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6685,7 +6538,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6693,7 +6545,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6701,7 +6552,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6709,7 +6559,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6717,7 +6566,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6725,7 +6573,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6733,7 +6580,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6741,7 +6587,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6749,7 +6594,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6757,7 +6601,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6765,7 +6608,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6773,7 +6615,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6781,7 +6622,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6789,7 +6629,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6797,7 +6636,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6805,7 +6643,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6813,7 +6650,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6821,7 +6657,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6829,7 +6664,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6837,7 +6671,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6845,7 +6678,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6853,7 +6685,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6861,7 +6692,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6869,7 +6699,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6877,7 +6706,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6885,7 +6713,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6893,7 +6720,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6901,7 +6727,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6909,7 +6734,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6917,7 +6741,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6925,7 +6748,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6933,7 +6755,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6941,7 +6762,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -6949,7 +6769,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6957,7 +6776,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6965,7 +6783,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6973,7 +6790,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6981,7 +6797,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6989,7 +6804,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -6997,7 +6811,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7005,7 +6818,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7013,7 +6825,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7021,7 +6832,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7029,7 +6839,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7037,7 +6846,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7045,7 +6853,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7053,7 +6860,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7061,7 +6867,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7069,7 +6874,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7077,7 +6881,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7085,7 +6888,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7093,7 +6895,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7101,7 +6902,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7109,7 +6909,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7117,7 +6916,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7125,7 +6923,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7133,7 +6930,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7141,7 +6937,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7149,7 +6944,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7157,7 +6951,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7165,7 +6958,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7173,7 +6965,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7181,7 +6972,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7189,7 +6979,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7197,7 +6986,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7205,7 +6993,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7213,7 +7000,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7221,7 +7007,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7229,7 +7014,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7237,7 +7021,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7245,7 +7028,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7253,7 +7035,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7261,7 +7042,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7269,7 +7049,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7277,7 +7056,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7285,7 +7063,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7293,7 +7070,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7301,7 +7077,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7309,7 +7084,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7317,7 +7091,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7325,7 +7098,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7333,7 +7105,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7341,7 +7112,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7349,7 +7119,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7357,7 +7126,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7365,7 +7133,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7373,7 +7140,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7381,7 +7147,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7389,7 +7154,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_D_1_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7397,7 +7161,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7405,7 +7168,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7413,7 +7175,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7421,7 +7182,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7429,7 +7189,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7437,7 +7196,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7445,7 +7203,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7453,7 +7210,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_QUOTED_COMMA_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7461,7 +7217,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7469,7 +7224,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7477,7 +7231,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7485,7 +7238,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_X_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7493,7 +7245,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7501,7 +7252,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7509,7 +7259,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7517,7 +7266,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_SIZE_QUOTED_C_DELIMITED_BY_SIZE_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -7525,7 +7273,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7533,7 +7280,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7541,7 +7287,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7549,7 +7294,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7557,7 +7301,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7565,7 +7308,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7573,7 +7315,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7581,7 +7322,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7589,7 +7329,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7597,7 +7336,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7605,7 +7343,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7613,7 +7350,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7621,7 +7357,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7629,7 +7364,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7637,7 +7371,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7645,7 +7378,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7653,7 +7385,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7661,7 +7392,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7669,7 +7399,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7677,7 +7406,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7685,7 +7413,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7693,7 +7420,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7701,7 +7427,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7709,7 +7434,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7717,7 +7441,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7725,7 +7448,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7733,7 +7455,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7741,7 +7462,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7749,7 +7469,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7757,7 +7476,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7765,7 +7483,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7773,7 +7490,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7781,7 +7497,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7789,7 +7504,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7797,7 +7511,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7805,7 +7518,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7813,7 +7525,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7821,7 +7532,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7829,7 +7539,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7837,7 +7546,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7845,7 +7553,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7853,7 +7560,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7861,7 +7567,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7869,7 +7574,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7877,7 +7581,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7885,7 +7588,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7893,7 +7595,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7901,7 +7602,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7909,7 +7609,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7917,7 +7616,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7925,7 +7623,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7933,7 +7630,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7941,7 +7637,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7949,7 +7644,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7957,7 +7651,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7965,7 +7658,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7973,7 +7665,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7981,7 +7672,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7989,7 +7679,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -7997,7 +7686,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8005,7 +7693,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8013,7 +7700,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8021,7 +7707,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8029,7 +7714,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8037,7 +7721,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8045,7 +7728,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8053,7 +7735,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8061,7 +7742,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8069,7 +7749,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8077,7 +7756,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8085,7 +7763,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8093,7 +7770,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8101,7 +7777,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8109,7 +7784,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8117,7 +7791,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8125,7 +7798,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8133,7 +7805,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8141,7 +7812,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8149,7 +7819,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8157,7 +7826,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8165,7 +7833,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8173,7 +7840,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8181,7 +7847,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8189,7 +7854,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8197,7 +7861,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8205,7 +7868,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8213,7 +7875,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8221,7 +7882,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8229,7 +7889,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8237,7 +7896,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8245,7 +7903,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8253,7 +7910,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8261,7 +7917,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8269,7 +7924,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8277,7 +7931,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8285,7 +7938,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8293,7 +7945,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8301,7 +7952,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8309,7 +7959,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8317,7 +7966,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8325,7 +7973,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8333,7 +7980,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8341,7 +7987,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8349,7 +7994,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8357,7 +8001,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8365,7 +8008,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8373,7 +8015,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8381,7 +8022,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8389,7 +8029,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8397,7 +8036,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8405,7 +8043,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8413,7 +8050,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8421,7 +8057,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8429,7 +8064,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8437,7 +8071,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8445,7 +8078,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8453,7 +8085,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8461,7 +8092,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8469,7 +8099,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8477,7 +8106,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8485,7 +8113,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8493,7 +8120,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8501,7 +8127,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8509,7 +8134,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8517,7 +8141,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8525,7 +8148,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8533,7 +8155,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8541,7 +8162,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8549,7 +8169,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8557,7 +8176,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8565,7 +8183,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8573,7 +8190,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8581,7 +8197,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8589,7 +8204,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8597,7 +8211,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8605,7 +8218,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8613,7 +8225,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8621,7 +8232,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8629,7 +8239,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8637,7 +8246,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8645,7 +8253,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8653,7 +8260,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8661,7 +8267,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8669,7 +8274,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -8677,7 +8281,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8685,7 +8288,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8693,7 +8295,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8701,7 +8302,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8709,7 +8309,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8717,7 +8316,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8725,7 +8323,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8733,7 +8330,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8741,7 +8337,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8749,7 +8344,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8757,7 +8351,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8765,7 +8358,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8773,7 +8365,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8781,7 +8372,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8789,7 +8379,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8797,7 +8386,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8805,7 +8393,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8813,7 +8400,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8821,7 +8407,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8829,7 +8414,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8837,7 +8421,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8845,7 +8428,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8853,7 +8435,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8861,7 +8442,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8869,7 +8449,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8877,7 +8456,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8885,7 +8463,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8893,7 +8470,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8901,7 +8477,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8909,7 +8484,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8917,7 +8491,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8925,7 +8498,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8933,7 +8505,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8941,7 +8512,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8949,7 +8519,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8957,7 +8526,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8965,7 +8533,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8973,7 +8540,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8981,7 +8547,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8989,7 +8554,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -8997,7 +8561,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9005,7 +8568,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9013,7 +8575,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9021,7 +8582,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9029,7 +8589,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9037,7 +8596,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9045,7 +8603,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9053,7 +8610,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_D_2_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9061,7 +8617,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9069,7 +8624,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9077,7 +8631,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9085,7 +8638,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9093,7 +8645,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9101,7 +8652,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9109,7 +8659,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9117,7 +8666,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9125,7 +8673,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9133,7 +8680,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9141,7 +8687,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9149,7 +8694,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9157,7 +8701,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9165,7 +8708,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9173,7 +8715,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9181,7 +8722,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9189,7 +8729,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9197,7 +8736,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9205,7 +8743,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9213,7 +8750,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9221,7 +8757,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9229,7 +8764,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9237,7 +8771,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9245,7 +8778,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9253,7 +8785,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9261,7 +8792,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9269,7 +8799,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9277,7 +8806,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9285,7 +8813,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9293,7 +8820,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9301,7 +8827,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9309,7 +8834,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9317,7 +8841,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9325,7 +8848,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9333,7 +8855,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9341,7 +8862,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9349,7 +8869,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9357,7 +8876,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9365,7 +8883,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9373,7 +8890,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9381,7 +8897,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9389,7 +8904,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9397,7 +8911,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9405,7 +8918,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9413,7 +8925,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9421,7 +8932,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9429,7 +8939,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9437,7 +8946,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_QUOTED_SEMICOLON_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9445,7 +8953,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9453,7 +8960,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9461,7 +8967,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9469,7 +8974,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9477,7 +8981,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9485,7 +8988,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9493,7 +8995,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9501,7 +9002,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9509,7 +9009,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9517,7 +9016,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9525,7 +9023,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9533,7 +9030,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9541,7 +9037,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9549,7 +9044,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9557,7 +9051,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9565,7 +9058,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9573,7 +9065,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9581,7 +9072,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9589,7 +9079,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9597,7 +9086,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9605,7 +9093,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9613,7 +9100,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9621,7 +9107,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9629,7 +9114,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9637,7 +9121,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9645,7 +9128,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9653,7 +9135,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9661,7 +9142,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9669,7 +9149,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9677,7 +9156,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9685,7 +9163,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9693,7 +9170,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9701,7 +9177,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9709,7 +9184,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9717,7 +9191,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9725,7 +9198,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9733,7 +9205,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9741,7 +9212,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9749,7 +9219,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9757,7 +9226,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9765,7 +9233,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9773,7 +9240,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9781,7 +9247,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9789,7 +9254,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9797,7 +9261,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9805,7 +9268,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9813,7 +9275,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9821,7 +9282,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_OVERFLOW_STOP_RUN.source"),
@@ -9829,7 +9289,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9837,7 +9296,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9845,7 +9303,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9853,7 +9310,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9861,7 +9317,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9869,7 +9324,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9877,7 +9331,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9885,7 +9338,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9893,7 +9345,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9901,7 +9352,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9909,7 +9359,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9917,7 +9366,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9925,7 +9373,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9933,7 +9380,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9941,7 +9387,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9949,7 +9394,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9957,7 +9401,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9965,7 +9408,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9973,7 +9415,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9981,7 +9422,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9989,7 +9429,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -9997,7 +9436,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10005,7 +9443,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10013,7 +9450,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10021,7 +9457,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10029,7 +9464,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10037,7 +9471,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10045,7 +9478,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10053,7 +9485,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10061,7 +9492,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10069,7 +9499,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10077,7 +9506,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10085,7 +9513,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10093,7 +9520,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10101,7 +9527,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10109,7 +9534,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10117,7 +9541,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10125,7 +9548,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10133,7 +9555,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10141,7 +9562,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10149,7 +9569,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10157,7 +9576,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10165,7 +9583,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10173,7 +9590,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10181,7 +9597,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10189,7 +9604,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10197,7 +9611,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10205,7 +9618,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_D_2_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10213,7 +9625,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10221,7 +9632,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10229,7 +9639,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10237,7 +9646,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10245,7 +9653,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10253,7 +9660,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10261,7 +9667,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10269,7 +9674,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10277,7 +9681,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10285,7 +9688,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10293,7 +9695,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10301,7 +9702,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10309,7 +9709,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10317,7 +9716,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10325,7 +9723,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10333,7 +9730,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10341,7 +9737,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10349,7 +9744,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10357,7 +9751,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10365,7 +9758,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10373,7 +9765,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10381,7 +9772,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10389,7 +9779,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10397,7 +9786,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10405,7 +9793,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10413,7 +9800,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10421,7 +9807,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10429,7 +9814,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10437,7 +9821,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10445,7 +9828,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10453,7 +9835,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10461,7 +9842,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10469,7 +9849,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10477,7 +9856,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10485,7 +9863,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10493,7 +9870,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10501,7 +9877,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10509,7 +9884,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10517,7 +9891,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10525,7 +9898,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10533,7 +9905,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10541,7 +9912,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10549,7 +9919,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10557,7 +9926,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10565,7 +9933,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10573,7 +9940,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10581,7 +9947,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10589,7 +9954,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_QUOTED_SEMICOLON_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10597,7 +9961,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10605,7 +9968,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10613,7 +9975,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10621,7 +9982,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10629,7 +9989,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10637,7 +9996,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10645,7 +10003,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10653,7 +10010,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10661,7 +10017,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10669,7 +10024,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10677,7 +10031,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10685,7 +10038,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10693,7 +10045,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10701,7 +10052,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10709,7 +10059,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10717,7 +10066,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_D_1_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10725,7 +10073,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10733,7 +10080,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10741,7 +10087,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10749,7 +10094,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10757,7 +10101,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10765,7 +10108,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10773,7 +10115,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10781,7 +10122,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10789,7 +10129,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10797,7 +10136,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10805,7 +10143,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10813,7 +10150,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10821,7 +10157,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10829,7 +10164,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10837,7 +10171,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10845,7 +10178,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_QUOTED_COMMA_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10853,7 +10185,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10861,7 +10192,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10869,7 +10199,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10877,7 +10206,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10885,7 +10213,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10893,7 +10220,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10901,7 +10227,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10909,7 +10234,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_X_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10917,7 +10241,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10925,7 +10248,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10933,7 +10255,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10941,7 +10262,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_X_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10949,7 +10269,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10957,7 +10276,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_X_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10965,7 +10283,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_X_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),
@@ -10973,7 +10290,6 @@ public class StmtSTRING {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("STRING_QUOTED_A_QUOTED_B_DELIMITED_BY_SIZE_QUOTED_C_QUOTED_D_DELIMITED_BY_SIZE_INTO_T_WITH_POINTER_P_OVERFLOW_STOP_RUN.source"),

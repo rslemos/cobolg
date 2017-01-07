@@ -146,7 +146,7 @@ notOnExceptionPhrase : NOT ON? EXCEPTION proceduralStatement[false];
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=338&zoom=auto,-40,700
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=468&zoom=auto,-40,630
  */
-overflowPhrases : onOverflowPhrase? notOnOverflowPhrase?;
+overflowPhrases : onOverflowPhrase notOnOverflowPhrase? | notOnOverflowPhrase;
 onOverflowPhrase    :     ON? OVERFLOW proceduralStatement[false];
 notOnOverflowPhrase : NOT ON? OVERFLOW proceduralStatement[false];
 
@@ -684,7 +684,7 @@ stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier
 
 stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
 
-stmtSTRINGdelimitedScope : stmtSTRINGimperative overflowPhrases END_STRING;
+stmtSTRINGdelimitedScope : stmtSTRINGimperative overflowPhrases? END_STRING;
 
 /**
  * SUBTRACT statement.
@@ -728,7 +728,7 @@ stmtUNSTRINGimperative :
 
 stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
 
-stmtUNSTRINGdelimitedScope : stmtUNSTRINGimperative overflowPhrases END_UNSTRING;
+stmtUNSTRINGdelimitedScope : stmtUNSTRINGimperative overflowPhrases? END_UNSTRING;
 
 /**
  * WRITE statement.
