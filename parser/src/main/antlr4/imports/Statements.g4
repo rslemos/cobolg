@@ -199,7 +199,7 @@ stmtACCEPT :
  */
 stmtADD[boolean conditionalAllowed] :
 		stmtADDimperative
-	|	{$conditionalAllowed}? stmtADDimperative sizeErrorPhrases
+	|	stmtADDimperative {$conditionalAllowed}? sizeErrorPhrases
 	|	stmtADDimperative sizeErrorPhrases? END_ADD
 	;
 
@@ -223,7 +223,7 @@ stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
  */
 stmtCALL[boolean conditionalAllowed] :
 		stmtCALLimperative
-	|	{$conditionalAllowed}? stmtCALLimperative (exceptionPhrases | onOverflowPhrase)
+	|	stmtCALLimperative {$conditionalAllowed}? (exceptionPhrases | onOverflowPhrase)
 	|	stmtCALLimperative (exceptionPhrases | onOverflowPhrase)? END_CALL
 	;
 
@@ -256,7 +256,7 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  */
 stmtCOMPUTE[boolean conditionalAllowed] :
 		stmtCOMPUTEimperative
-	|	{$conditionalAllowed}? stmtCOMPUTEimperative sizeErrorPhrases
+	|	stmtCOMPUTEimperative {$conditionalAllowed}? sizeErrorPhrases
 	|	stmtCOMPUTEimperative sizeErrorPhrases? END_COMPUTE
 	;
 
@@ -276,7 +276,7 @@ stmtCONTINUE : CONTINUE;
  */
 stmtDELETE[boolean conditionalAllowed] :
 		stmtDELETEimperative
-	|	{$conditionalAllowed}? stmtDELETEimperative invalidKeyPhrases
+	|	stmtDELETEimperative {$conditionalAllowed}? invalidKeyPhrases
 	|	stmtDELETEimperative invalidKeyPhrases? END_DELETE
 	;
 
@@ -296,7 +296,7 @@ stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentN
  */
 stmtDIVIDE[boolean conditionalAllowed] :
 		stmtDIVIDEimperative
-	|	{$conditionalAllowed}? stmtDIVIDEimperative sizeErrorPhrases
+	|	stmtDIVIDEimperative {$conditionalAllowed}? sizeErrorPhrases
 	|	stmtDIVIDEimperative sizeErrorPhrases? END_DIVIDE
 	;
 
@@ -312,7 +312,7 @@ stmtDIVIDEimperative :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=359&zoom=auto,-40,735
  */
 stmtEVALUATE[boolean conditionalAllowed] :
-		{$conditionalAllowed}? stmtEVALUATEconditional
+		stmtEVALUATEconditional {$conditionalAllowed}?
 	|	stmtEVALUATEconditional END_EVALUATE
 	;
 
@@ -366,7 +366,7 @@ stmtGOBACK : GOBACK;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
 stmtIF[boolean conditionalAllowed] :
-		{$conditionalAllowed}? stmtIFconditional
+		stmtIFconditional {$conditionalAllowed}?
 	|	stmtIFconditional END_IF
 	;
 
@@ -408,7 +408,7 @@ inspectReplacingObject :
  */
 stmtINVOKE[boolean conditionalAllowed] :
 		stmtINVOKEimperative
-	|	{$conditionalAllowed}? stmtINVOKEimperative exceptionPhrases
+	|	stmtINVOKEimperative {$conditionalAllowed}? exceptionPhrases
 	|	stmtINVOKEimperative exceptionPhrases? END_INVOKE
 	;
 
@@ -447,7 +447,7 @@ stmtMOVE :
  */
 stmtMULTIPLY[boolean conditionalAllowed] :
 		stmtMULTIPLYimperative
-	|	{$conditionalAllowed}? stmtMULTIPLYimperative sizeErrorPhrases
+	|	stmtMULTIPLYimperative {$conditionalAllowed}? sizeErrorPhrases
 	|	stmtMULTIPLYimperative sizeErrorPhrases? END_MULTIPLY
 	;
 
@@ -499,7 +499,7 @@ performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | ind
  */
 stmtSequentialREAD[boolean conditionalAllowed] :
 		stmtSequentialREADimperative
-	|	{$conditionalAllowed}? stmtSequentialREADimperative atEndPhrases
+	|	stmtSequentialREADimperative {$conditionalAllowed}? atEndPhrases
 	|	stmtSequentialREADimperative atEndPhrases? END_READ
 	;
 
@@ -507,7 +507,7 @@ stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
 
 stmtRandomREAD[boolean conditionalAllowed] :
 		stmtRandomREADimperative
-	|	{$conditionalAllowed}? stmtRandomREADimperative invalidKeyPhrases
+	|	stmtRandomREADimperative {$conditionalAllowed}? invalidKeyPhrases
 	|	stmtRandomREADimperative invalidKeyPhrases? END_READ
 	;
 
@@ -527,7 +527,7 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
  */
 stmtRETURN[boolean conditionalAllowed] :
 		stmtRETURNimperative
-	|	{$conditionalAllowed}? stmtRETURNimperative atEndPhrases
+	|	stmtRETURNimperative {$conditionalAllowed}? atEndPhrases
 	|	stmtRETURNimperative atEndPhrases? END_RETURN
 	;
 
@@ -540,7 +540,7 @@ stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
  */
 stmtREWRITE[boolean conditionalAllowed] :
 		stmtREWRITEimperative
-	|	{$conditionalAllowed}? stmtREWRITEimperative invalidKeyPhrases
+	|	stmtREWRITEimperative {$conditionalAllowed}? invalidKeyPhrases
 	|	stmtREWRITEimperative invalidKeyPhrases? END_REWRITE
 	;
 
@@ -552,7 +552,7 @@ stmtREWRITEimperative : REWRITE recordName (FROM identifier);
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=438&zoom=auto,-40,735
  */
 stmtSEARCH[boolean conditionalAllowed] :
-		{$conditionalAllowed}? stmtSEARCHconditional
+		stmtSEARCHconditional {$conditionalAllowed}?
 	|	stmtSEARCHconditional END_SEARCH
 	;
 
@@ -600,7 +600,7 @@ stmtSORT :
  */
 stmtSTART[boolean conditionalAllowed] :
 		stmtSTARTimperative
-	|	{$conditionalAllowed}? stmtSTARTimperative invalidKeyPhrases
+	|	stmtSTARTimperative {$conditionalAllowed}? invalidKeyPhrases
 	|	stmtSTARTimperative invalidKeyPhrases? END_START
 	;
 
@@ -622,7 +622,7 @@ stmtSTOPRUN : STOP RUN;
  */
 stmtSTRING[boolean conditionalAllowed] :
 		stmtSTRINGimperative
-	|	{$conditionalAllowed}? stmtSTRINGimperative overflowPhrases
+	|	stmtSTRINGimperative {$conditionalAllowed}? overflowPhrases
 	|	stmtSTRINGimperative overflowPhrases? END_STRING
 	;
 
@@ -635,7 +635,7 @@ stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier
  */
 stmtSUBTRACT[boolean conditionalAllowed] :
 		stmtSUBTRACTimperative
-	|	{$conditionalAllowed}? stmtSUBTRACTimperative sizeErrorPhrases
+	|	stmtSUBTRACTimperative {$conditionalAllowed}? sizeErrorPhrases
 	|	stmtSUBTRACTimperative sizeErrorPhrases? END_SUBTRACT
 	;
 
@@ -652,7 +652,7 @@ stmtSUBTRACTimperative :
  */
 stmtUNSTRING[boolean conditionalAllowed] :
 		stmtUNSTRINGimperative
-	|	{$conditionalAllowed}? stmtUNSTRINGimperative overflowPhrases
+	|	stmtUNSTRINGimperative {$conditionalAllowed}? overflowPhrases
 	|	stmtUNSTRINGimperative overflowPhrases? END_UNSTRING
 	;
 
@@ -673,7 +673,7 @@ stmtUNSTRINGimperative :
  */
 stmtPageWRITE[boolean conditionalAllowed] :
 		stmtPageWRITEimperative
-	|	{$conditionalAllowed}? stmtPageWRITEimperative atEndOfPagePhrases
+	|	stmtPageWRITEimperative {$conditionalAllowed}? atEndOfPagePhrases
 	|	stmtPageWRITEimperative atEndOfPagePhrases? END_WRITE
 	;
 
@@ -681,7 +681,7 @@ stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) 
 
 stmtSequentialWRITE[boolean conditionalAllowed] :
 		stmtSequentialWRITEimperative
-	|	{$conditionalAllowed}? stmtSequentialWRITEimperative invalidKeyPhrases
+	|	stmtSequentialWRITEimperative {$conditionalAllowed}? invalidKeyPhrases
 	|	stmtSequentialWRITEimperative invalidKeyPhrases? END_WRITE
 	;
 
@@ -694,7 +694,7 @@ stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
  */
 stmtXMLGENERATE[boolean conditionalAllowed] :
 		stmtXMLGENERATEimperative
-	|	{$conditionalAllowed}? stmtXMLGENERATEimperative exceptionPhrases
+	|	stmtXMLGENERATEimperative {$conditionalAllowed}? exceptionPhrases
 	|	stmtXMLGENERATEimperative exceptionPhrases? END_XML
 	;
 
@@ -724,7 +724,7 @@ genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT |
  */
 stmtXMLPARSE[boolean conditionalAllowed] :
 		stmtXMLPARSEimperative
-	|	{$conditionalAllowed}? stmtXMLPARSEimperative exceptionPhrases
+	|	stmtXMLPARSEimperative {$conditionalAllowed}? exceptionPhrases
 	|	stmtXMLPARSEimperative exceptionPhrases? END_XML
 	;
 
