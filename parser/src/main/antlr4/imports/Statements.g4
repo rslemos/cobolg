@@ -304,8 +304,8 @@ stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentN
  */
 stmtDIVIDE[boolean conditionalAllowed] :
 		stmtDIVIDEimperative
-	|	{$conditionalAllowed}? stmtDIVIDEconditional
-	|	stmtDIVIDEdelimitedScope
+	|	{$conditionalAllowed}? stmtDIVIDEimperative sizeErrorPhrases
+	|	stmtDIVIDEimperative sizeErrorPhrases? END_DIVIDE
 	;
 
 stmtDIVIDEimperative :
@@ -313,10 +313,6 @@ stmtDIVIDEimperative :
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
 	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
 	;
-
-stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
-
-stmtDIVIDEdelimitedScope : stmtDIVIDEimperative sizeErrorPhrases? END_DIVIDE;
 
 /**
  * EVALUATE statement.
