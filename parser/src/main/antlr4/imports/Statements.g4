@@ -555,12 +555,8 @@ stmtREWRITEtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=438&zoom=auto,-40,735
  */
 stmtSEARCH[boolean conditionalAllowed] :
-		stmtSEARCHconditional stmtSEARCHtail[$conditionalAllowed]
-	;
-
-stmtSEARCHconditional :
-		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (proceduralStatement[false] | NEXT SENTENCE))+
-	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (proceduralStatement[false] | NEXT SENTENCE)
+		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (proceduralStatement[false] | NEXT SENTENCE))+ stmtSEARCHtail[$conditionalAllowed]
+	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (proceduralStatement[false] | NEXT SENTENCE) stmtSEARCHtail[$conditionalAllowed]
 	;
 
 searchWhenPhrase :
