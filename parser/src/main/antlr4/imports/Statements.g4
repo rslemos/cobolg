@@ -575,7 +575,7 @@ stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
 stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
 
-stmtRETURNdelimitedScope : stmtRETURNconditional END_RETURN;
+stmtRETURNdelimitedScope : stmtRETURNimperative atEndPhrases END_RETURN;
 
 /**
  * REWRITE statement.
