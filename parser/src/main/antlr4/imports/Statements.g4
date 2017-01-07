@@ -593,8 +593,7 @@ stmtREWRITEtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=438&zoom=auto,-40,735
  */
 stmtSEARCH[boolean conditionalAllowed] :
-		stmtSEARCHconditional {$conditionalAllowed}?
-	|	stmtSEARCHconditional END_SEARCH
+		stmtSEARCHconditional stmtSEARCHtail[$conditionalAllowed]
 	;
 
 stmtSEARCHconditional :
@@ -605,6 +604,11 @@ stmtSEARCHconditional :
 searchWhenPhrase :
 		dataName IS? (EQUAL TO? | OP_EQUAL) (identifier | literal | arithmeticExpression)
 	|	conditionalExpression
+	;
+
+stmtSEARCHtail[boolean conditionalAllowed] :
+		{$conditionalAllowed}?
+	|	END_SEARCH
 	;
 
 /**
