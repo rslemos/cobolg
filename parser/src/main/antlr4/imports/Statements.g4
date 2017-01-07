@@ -462,12 +462,8 @@ stmtMOVE :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=405&zoom=auto,-40,735
  */
 stmtMULTIPLY[boolean conditionalAllowed] :
-		stmtMULTIPLYimperative stmtMULTIPLYtail[$conditionalAllowed]
-	;
-
-stmtMULTIPLYimperative :
-		MULTIPLY (identifier | literal) BY roundedPhrase+
-	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
+		MULTIPLY (identifier | literal) BY roundedPhrase+ stmtMULTIPLYtail[$conditionalAllowed]
+	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase stmtMULTIPLYtail[$conditionalAllowed]
 	;
 
 stmtMULTIPLYtail[boolean conditionalAllowed] :
