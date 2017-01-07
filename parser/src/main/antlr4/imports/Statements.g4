@@ -536,10 +536,8 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=433&zoom=auto,-40,735
  */
 stmtRETURN[boolean conditionalAllowed] :
-		stmtRETURNimperative stmtRETURNtail[$conditionalAllowed]
+		RETURN fileName RECORD? (INTO identifier)? stmtRETURNtail[$conditionalAllowed]
 	;
-
-stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
 stmtRETURNtail[boolean conditionalAllowed] :
 	|	{$conditionalAllowed}? atEndPhrases
