@@ -486,7 +486,7 @@ stmtMULTIPLYimperative :
 
 stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
 
-stmtMULTIPLYdelimitedScope : stmtMULTIPLYconditional END_MULTIPLY;
+stmtMULTIPLYdelimitedScope : stmtMULTIPLYimperative sizeErrorPhrases END_MULTIPLY;
 
 /**
  * OPEN statement.
