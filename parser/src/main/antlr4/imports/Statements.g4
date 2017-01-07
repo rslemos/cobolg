@@ -568,12 +568,15 @@ stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
 stmtREWRITE[boolean conditionalAllowed] :
-		stmtREWRITEimperative
-	|	stmtREWRITEimperative {$conditionalAllowed}? invalidKeyPhrases
-	|	stmtREWRITEimperative invalidKeyPhrases? END_REWRITE
+		stmtREWRITEimperative stmtREWRITEtail[$conditionalAllowed]
 	;
 
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
+
+stmtREWRITEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_REWRITE
+	;
 
 /**
  * SEARCH statement.
