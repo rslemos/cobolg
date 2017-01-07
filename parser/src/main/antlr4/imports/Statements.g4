@@ -126,7 +126,7 @@ givingPhrase : GIVING roundedPhrase+;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=309&zoom=auto,-40,340
  */
-sizeErrorPhrases : onSizeErrorPhrase? notOnSizeErrorPhrase?;
+sizeErrorPhrases : onSizeErrorPhrase notOnSizeErrorPhrase? | notOnSizeErrorPhrase;
 onSizeErrorPhrase    :     ON? SIZE ERROR proceduralStatement[false];
 notOnSizeErrorPhrase : NOT ON? SIZE ERROR proceduralStatement[false];
 
@@ -211,7 +211,7 @@ stmtADDimperative :
 
 stmtADDconditional : stmtADDimperative sizeErrorPhrases;
 
-stmtADDdelimitedScope : stmtADDimperative sizeErrorPhrases END_ADD;
+stmtADDdelimitedScope : stmtADDimperative sizeErrorPhrases? END_ADD;
 
 /**
  * ALTER statement.
@@ -272,7 +272,7 @@ stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpr
 
 stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
 
-stmtCOMPUTEdelimitedScope : stmtCOMPUTEimperative sizeErrorPhrases END_COMPUTE;
+stmtCOMPUTEdelimitedScope : stmtCOMPUTEimperative sizeErrorPhrases? END_COMPUTE;
 
 /**
  * CONTINUE statement.
@@ -324,7 +324,7 @@ stmtDIVIDEimperative :
 
 stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
 
-stmtDIVIDEdelimitedScope : stmtDIVIDEimperative sizeErrorPhrases END_DIVIDE;
+stmtDIVIDEdelimitedScope : stmtDIVIDEimperative sizeErrorPhrases? END_DIVIDE;
 
 /**
  * EVALUATE statement.
@@ -486,7 +486,7 @@ stmtMULTIPLYimperative :
 
 stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
 
-stmtMULTIPLYdelimitedScope : stmtMULTIPLYimperative sizeErrorPhrases END_MULTIPLY;
+stmtMULTIPLYdelimitedScope : stmtMULTIPLYimperative sizeErrorPhrases? END_MULTIPLY;
 
 /**
  * OPEN statement.
@@ -705,7 +705,7 @@ stmtSUBTRACTimperative :
 
 stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
 
-stmtSUBTRACTdelimitedScope : stmtSUBTRACTimperative sizeErrorPhrases END_SUBTRACT;
+stmtSUBTRACTdelimitedScope : stmtSUBTRACTimperative sizeErrorPhrases? END_SUBTRACT;
 
 /**
  * UNSTRING statement.

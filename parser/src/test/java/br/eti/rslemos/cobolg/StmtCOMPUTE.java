@@ -36,7 +36,6 @@ public class StmtCOMPUTE {
 		@Override protected StmtCOMPUTEContext parsePart() { return parser.stmtCOMPUTE(true); }
 	};
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W.source"),
@@ -44,7 +43,6 @@ public class StmtCOMPUTE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W.source"),
@@ -52,7 +50,6 @@ public class StmtCOMPUTE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN.source"),
@@ -60,7 +57,6 @@ public class StmtCOMPUTE {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN.source"),

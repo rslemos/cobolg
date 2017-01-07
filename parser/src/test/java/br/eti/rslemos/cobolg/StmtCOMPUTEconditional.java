@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtCOMPUTEconditionalContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtCOMPUTEconditional {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCOMPUTEconditional");
@@ -35,20 +34,6 @@ public class StmtCOMPUTEconditional {
 	private static CompilerHelper<StmtCOMPUTEconditionalContext> helper = new CompilerHelper<StmtCOMPUTEconditionalContext>() {
 		@Override protected StmtCOMPUTEconditionalContext parsePart() { return parser.stmtCOMPUTEconditional(); }
 	};
-	
-	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W() {
-		helper.compileAndVerify(
-				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W.source"),
-				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W.tree")
-			);
-	}
-	
-	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W() {
-		helper.compileAndVerify(
-				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W.source"),
-				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W.tree")
-			);
-	}
 	
 	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(

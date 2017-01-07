@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtMULTIPLYconditionalContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtMULTIPLYconditional {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtMULTIPLYconditional");
@@ -35,48 +34,6 @@ public class StmtMULTIPLYconditional {
 	private static CompilerHelper<StmtMULTIPLYconditionalContext> helper = new CompilerHelper<StmtMULTIPLYconditionalContext>() {
 		@Override protected StmtMULTIPLYconditionalContext parsePart() { return parser.stmtMULTIPLYconditional(); }
 	};
-	
-	@Test public void MULTIPLY_X_BY_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_Y_ROUNDED_W.source"),
-				get("MULTIPLY_X_BY_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_Y_ROUNDED_W.source"),
-				get("MULTIPLY_20_BY_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_X_BY_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_X_BY_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_20_BY_Z_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
-	
-	@Test public void MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W() {
-		helper.compileAndVerify(
-				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W.source"),
-				get("MULTIPLY_20_BY_10_GIVING_Y_ROUNDED_W.tree")
-			);
-	}
 	
 	@Test public void MULTIPLY_X_BY_Y_ROUNDED_W_ON_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
