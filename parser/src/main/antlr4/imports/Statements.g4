@@ -592,7 +592,7 @@ stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
 
-stmtREWRITEdelimitedScope : stmtREWRITEconditional END_REWRITE;
+stmtREWRITEdelimitedScope : stmtREWRITEimperative invalidKeyPhrases END_REWRITE;
 
 /**
  * SEARCH statement.
