@@ -677,8 +677,8 @@ stmtSTRINGdelimitedScope : stmtSTRINGimperative overflowPhrases? END_STRING;
  */
 stmtSUBTRACT[boolean conditionalAllowed] :
 		stmtSUBTRACTimperative
-	|	{$conditionalAllowed}? stmtSUBTRACTconditional
-	|	stmtSUBTRACTdelimitedScope
+	|	{$conditionalAllowed}? stmtSUBTRACTimperative sizeErrorPhrases
+	|	stmtSUBTRACTimperative sizeErrorPhrases? END_SUBTRACT
 	;
 
 stmtSUBTRACTimperative :
@@ -686,10 +686,6 @@ stmtSUBTRACTimperative :
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
 	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
 	;
-
-stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
-
-stmtSUBTRACTdelimitedScope : stmtSUBTRACTimperative sizeErrorPhrases? END_SUBTRACT;
 
 /**
  * UNSTRING statement.
