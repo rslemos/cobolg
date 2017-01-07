@@ -507,8 +507,8 @@ performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | ind
  */
 stmtSequentialREAD[boolean conditionalAllowed] :
 		stmtSequentialREADimperative
-	|	{$conditionalAllowed}? stmtSequentialREADconditional
-	|	stmtSequentialREADdelimitedScope
+	|	{$conditionalAllowed}? stmtSequentialREADimperative atEndPhrases
+	|	stmtSequentialREADimperative atEndPhrases? END_READ
 	;
 
 stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
@@ -521,11 +521,7 @@ stmtRandomREAD[boolean conditionalAllowed] :
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
-stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
-
 stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
-
-stmtSequentialREADdelimitedScope : stmtSequentialREADimperative atEndPhrases? END_READ;
 
 stmtRandomREADdelimitedScope : stmtRandomREADimperative invalidKeyPhrases? END_READ;
 
