@@ -671,13 +671,9 @@ stmtSTRINGtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=471&zoom=auto,-40,735
  */
 stmtSUBTRACT[boolean conditionalAllowed] :
-		stmtSUBTRACTimperative stmtSUBTRACTtail[$conditionalAllowed]
-	;
-
-stmtSUBTRACTimperative :
-		SUBTRACT (identifier | literal)+ FROM roundedPhrase+
-	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
-	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
+		SUBTRACT (identifier | literal)+ FROM roundedPhrase+ stmtSUBTRACTtail[$conditionalAllowed]
+	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase stmtSUBTRACTtail[$conditionalAllowed]
+	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase stmtSUBTRACTtail[$conditionalAllowed]
 	;
 
 stmtSUBTRACTtail[boolean conditionalAllowed] :
