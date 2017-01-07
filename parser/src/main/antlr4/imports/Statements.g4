@@ -211,7 +211,7 @@ stmtADDimperative :
 
 stmtADDconditional : stmtADDimperative sizeErrorPhrases;
 
-stmtADDdelimitedScope : stmtADDconditional END_ADD;
+stmtADDdelimitedScope : stmtADDimperative sizeErrorPhrases END_ADD;
 
 /**
  * ALTER statement.
