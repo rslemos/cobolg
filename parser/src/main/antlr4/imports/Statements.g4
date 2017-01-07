@@ -77,8 +77,7 @@ proceduralStatement[boolean conditionalAllowed] :
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
-	|	stmtPERFORMimperative
-	|	stmtPERFORMdelimitedScope
+	|	stmtPERFORM
 	|	stmtCONTINUE
 		/* program or method linkage */
 	|	stmtCANCEL
@@ -501,6 +500,11 @@ openObject :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=413&zoom=auto,-40,735
  */
+stmtPERFORM :
+		stmtPERFORMimperative
+	|	stmtPERFORMdelimitedScope
+	;
+
 stmtPERFORMimperative : PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?;
 
 stmtPERFORMdelimitedScope : PERFORM (performTimes | performUntil | performVarying)? proceduralStatement[true]+ END_PERFORM;
