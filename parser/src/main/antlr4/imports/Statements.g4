@@ -280,15 +280,11 @@ stmtCONTINUE : CONTINUE;
  */
 stmtDELETE[boolean conditionalAllowed] :
 		stmtDELETEimperative
-	|	{$conditionalAllowed}? stmtDELETEconditional
-	|	stmtDELETEdelimitedScope
+	|	{$conditionalAllowed}? stmtDELETEimperative invalidKeyPhrases
+	|	stmtDELETEimperative invalidKeyPhrases? END_DELETE
 	;
 
 stmtDELETEimperative : DELETE fileName RECORD?;
-
-stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
-
-stmtDELETEdelimitedScope : stmtDELETEimperative invalidKeyPhrases? END_DELETE;
 
 /**
  * DISPLAY statement.
