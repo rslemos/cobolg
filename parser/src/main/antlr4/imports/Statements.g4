@@ -714,9 +714,7 @@ stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=490&zoom=auto,-40,735
  */
 stmtXMLGENERATE[boolean conditionalAllowed] :
-		stmtXMLGENERATEimperative
-	|	stmtXMLGENERATEimperative {$conditionalAllowed}? exceptionPhrases
-	|	stmtXMLGENERATEimperative exceptionPhrases? END_XML
+		stmtXMLGENERATEimperative stmtXMLGENERATEtail[$conditionalAllowed]
 	;
 
 stmtXMLGENERATEimperative :
@@ -737,6 +735,11 @@ xmlGenerateWhenPhrase :
 	;
 
 genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT | ELEMENT) | NUMERIC | NONNUMERIC))? xmlGenerateWhenPhrase;
+
+stmtXMLGENERATEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? exceptionPhrases
+	|	exceptionPhrases? END_XML
+	;
 
 /**
  * XML PARSE statement.
