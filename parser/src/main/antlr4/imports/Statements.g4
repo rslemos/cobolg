@@ -716,12 +716,15 @@ stmtUNSTRINGtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=482&zoom=auto,-40,735
  */
 stmtPageWRITE[boolean conditionalAllowed] :
-		stmtPageWRITEimperative
-	|	stmtPageWRITEimperative {$conditionalAllowed}? atEndOfPagePhrases
-	|	stmtPageWRITEimperative atEndOfPagePhrases? END_WRITE
+		stmtPageWRITEimperative stmtPageWRITEtail[$conditionalAllowed]
 	;
 
 stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
+
+stmtPageWRITEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? atEndOfPagePhrases
+	|	atEndOfPagePhrases? END_WRITE
+	;
 
 stmtSequentialWRITE[boolean conditionalAllowed] :
 		stmtSequentialWRITEimperative
