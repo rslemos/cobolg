@@ -317,15 +317,12 @@ stmtDIVIDEtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=359&zoom=auto,-40,735
  */
 stmtEVALUATE[boolean conditionalAllowed] :
-		stmtEVALUATEconditional stmtEVALUATEtail[$conditionalAllowed]
-	;
-
-stmtEVALUATEconditional :
 		EVALUATE
 		      (identifier | literal | arithmeticExpression | TRUE | FALSE)
 		(ALSO (identifier | literal | arithmeticExpression | TRUE | FALSE))*
 		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* proceduralStatement[false])+
 		(WHEN OTHER proceduralStatement[false])?
+		stmtEVALUATEtail[$conditionalAllowed]
 	;
 
 evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
