@@ -296,7 +296,7 @@ stmtDELETEimperative : DELETE fileName RECORD?;
 
 stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
 
-stmtDELETEdelimitedScope : stmtDELETEconditional END_DELETE;
+stmtDELETEdelimitedScope : stmtDELETEimperative invalidKeyPhrases END_DELETE;
 
 /**
  * DISPLAY statement.
