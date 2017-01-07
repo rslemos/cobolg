@@ -136,7 +136,7 @@ notOnSizeErrorPhrase : NOT ON? SIZE ERROR proceduralStatement[false];
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,410
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,230
  */
-exceptionPhrases : onExceptionPhrase? notOnExceptionPhrase?;
+exceptionPhrases : onExceptionPhrase notOnExceptionPhrase? | notOnExceptionPhrase;
 onExceptionPhrase    :     ON? EXCEPTION proceduralStatement[false];
 notOnExceptionPhrase : NOT ON? EXCEPTION proceduralStatement[false];
 
@@ -241,7 +241,7 @@ callUsing :
 
 stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
 
-stmtCALLdelimitedScope : stmtCALLimperative (exceptionPhrases | onOverflowPhrase) END_CALL;
+stmtCALLdelimitedScope : stmtCALLimperative (exceptionPhrases | onOverflowPhrase)? END_CALL;
 
 /**
  * CANCEL statement.
@@ -444,7 +444,7 @@ stmtINVOKEimperative :
 
 stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
 
-stmtINVOKEdelimitedScope : stmtINVOKEimperative exceptionPhrases END_INVOKE;
+stmtINVOKEdelimitedScope : stmtINVOKEimperative exceptionPhrases? END_INVOKE;
 
 /**
  * MERGE statement.
@@ -786,7 +786,7 @@ stmtXMLGENERATEimperative :
 
 stmtXMLGENERATEconditional : stmtXMLGENERATEimperative exceptionPhrases;
 
-stmtXMLGENERATEdelimitedScope : stmtXMLGENERATEimperative exceptionPhrases END_XML;
+stmtXMLGENERATEdelimitedScope : stmtXMLGENERATEimperative exceptionPhrases? END_XML;
 
 xmlGenerateWhenPhrase :
 		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
@@ -816,4 +816,4 @@ stmtXMLPARSEimperative :
 
 stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;
 
-stmtXMLPARSEdelimitedScope : stmtXMLPARSEimperative exceptionPhrases END_XML;
+stmtXMLPARSEdelimitedScope : stmtXMLPARSEimperative exceptionPhrases? END_XML;
