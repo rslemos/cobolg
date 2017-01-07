@@ -552,10 +552,8 @@ stmtRETURNtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
 stmtREWRITE[boolean conditionalAllowed] :
-		stmtREWRITEimperative stmtREWRITEtail[$conditionalAllowed]
+		REWRITE recordName (FROM identifier) stmtREWRITEtail[$conditionalAllowed]
 	;
-
-stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtREWRITEtail[boolean conditionalAllowed] :
 	|	{$conditionalAllowed}? invalidKeyPhrases
