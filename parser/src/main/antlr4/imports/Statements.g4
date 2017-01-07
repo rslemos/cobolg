@@ -321,8 +321,7 @@ stmtDIVIDEtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=359&zoom=auto,-40,735
  */
 stmtEVALUATE[boolean conditionalAllowed] :
-		stmtEVALUATEconditional {$conditionalAllowed}?
-	|	stmtEVALUATEconditional END_EVALUATE
+		stmtEVALUATEconditional stmtEVALUATEtail[$conditionalAllowed]
 	;
 
 stmtEVALUATEconditional :
@@ -334,6 +333,11 @@ stmtEVALUATEconditional :
 	;
 
 evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
+
+stmtEVALUATEtail[boolean conditionalAllowed] :
+		{$conditionalAllowed}?
+	|	END_EVALUATE
+	;
 
 /**
  * ENTRY statement.
@@ -375,11 +379,15 @@ stmtGOBACK : GOBACK;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
 stmtIF[boolean conditionalAllowed] :
-		stmtIFconditional {$conditionalAllowed}?
-	|	stmtIFconditional END_IF
+		stmtIFconditional stmtIFtail[$conditionalAllowed]
 	;
 
 stmtIFconditional : IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))?;
+
+stmtIFtail[boolean conditionalAllowed] :
+		{$conditionalAllowed}?
+	|	END_IF
+	;
 
 /**
  * INITIALIZE statement.
