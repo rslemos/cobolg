@@ -549,7 +549,7 @@ stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
 
 stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
 
-stmtSequentialREADdelimitedScope : stmtSequentialREADconditional END_READ;
+stmtSequentialREADdelimitedScope : stmtSequentialREADimperative atEndPhrases END_READ;
 
 stmtRandomREADdelimitedScope : stmtRandomREADconditional END_READ;
 
