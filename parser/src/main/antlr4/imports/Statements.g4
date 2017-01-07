@@ -646,15 +646,18 @@ stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=471&zoom=auto,-40,735
  */
 stmtSUBTRACT[boolean conditionalAllowed] :
-		stmtSUBTRACTimperative
-	|	stmtSUBTRACTimperative {$conditionalAllowed}? sizeErrorPhrases
-	|	stmtSUBTRACTimperative sizeErrorPhrases? END_SUBTRACT
+		stmtSUBTRACTimperative stmtSUBTRACTtail[$conditionalAllowed]
 	;
 
 stmtSUBTRACTimperative :
 		SUBTRACT (identifier | literal)+ FROM roundedPhrase+
 	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
 	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
+	;
+
+stmtSUBTRACTtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_SUBTRACT
 	;
 
 /**
