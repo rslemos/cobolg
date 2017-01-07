@@ -763,15 +763,12 @@ stmtXMLGENERATEtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=502&zoom=auto,-40,735
  */
 stmtXMLPARSE[boolean conditionalAllowed] :
-		stmtXMLPARSEimperative stmtXMLPARSEtail[$conditionalAllowed]
-	;
-
-stmtXMLPARSEimperative :
 		XML PARSE identifier
 		(WITH? ENCODING (identifier | literal))?
 		(RETURNING NATIONAL)?
 		(VALIDATING WITH? (identifier | FILE xmlSchemaName))?
 		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
+		stmtXMLPARSEtail[$conditionalAllowed]
 	;
 
 stmtXMLPARSEtail[boolean conditionalAllowed] :
