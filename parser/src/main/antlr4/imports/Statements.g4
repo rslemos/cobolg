@@ -532,12 +532,15 @@ stmtSequentialREADtail[boolean conditionalAllowed] :
 	;
 
 stmtRandomREAD[boolean conditionalAllowed] :
-		stmtRandomREADimperative
-	|	stmtRandomREADimperative {$conditionalAllowed}? invalidKeyPhrases
-	|	stmtRandomREADimperative invalidKeyPhrases? END_READ
+		stmtRandomREADimperative stmtRandomREADtail[$conditionalAllowed]
 	;
 
 stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
+
+stmtRandomREADtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_READ
+	;
 
 /**
  * RELEASE statement.
