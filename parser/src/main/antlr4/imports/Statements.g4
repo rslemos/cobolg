@@ -770,8 +770,8 @@ genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT |
  */
 stmtXMLPARSE[boolean conditionalAllowed] :
 		stmtXMLPARSEimperative
-	|	{$conditionalAllowed}? stmtXMLPARSEconditional
-	|	stmtXMLPARSEdelimitedScope
+	|	{$conditionalAllowed}? stmtXMLPARSEimperative exceptionPhrases
+	|	stmtXMLPARSEimperative exceptionPhrases? END_XML
 	;
 
 stmtXMLPARSEimperative :
@@ -782,6 +782,3 @@ stmtXMLPARSEimperative :
 		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
 	;
 
-stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;
-
-stmtXMLPARSEdelimitedScope : stmtXMLPARSEimperative exceptionPhrases? END_XML;
