@@ -198,15 +198,18 @@ stmtACCEPT :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=326&zoom=auto,-40,735
  */
 stmtADD[boolean conditionalAllowed] :
-		stmtADDimperative
-	|	stmtADDimperative {$conditionalAllowed}? sizeErrorPhrases
-	|	stmtADDimperative sizeErrorPhrases? END_ADD
+		stmtADDimperative stmtADDtail[$conditionalAllowed]
 	;
 
 stmtADDimperative :
 		ADD (identifier | literal)+ TO roundedPhrase+
 	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
 	|	ADD correspondingPhrase identifier TO roundedPhrase
+	;
+
+stmtADDtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_ADD
 	;
 
 /**
