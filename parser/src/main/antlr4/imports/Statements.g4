@@ -551,7 +551,7 @@ stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
 
 stmtSequentialREADdelimitedScope : stmtSequentialREADimperative atEndPhrases END_READ;
 
-stmtRandomREADdelimitedScope : stmtRandomREADconditional END_READ;
+stmtRandomREADdelimitedScope : stmtRandomREADimperative invalidKeyPhrases END_READ;
 
 /**
  * RELEASE statement.
