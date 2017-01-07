@@ -260,15 +260,11 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  */
 stmtCOMPUTE[boolean conditionalAllowed] :
 		stmtCOMPUTEimperative
-	|	{$conditionalAllowed}? stmtCOMPUTEconditional
-	|	stmtCOMPUTEdelimitedScope
+	|	{$conditionalAllowed}? stmtCOMPUTEimperative sizeErrorPhrases
+	|	stmtCOMPUTEimperative sizeErrorPhrases? END_COMPUTE
 	;
 
 stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
-
-stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
-
-stmtCOMPUTEdelimitedScope : stmtCOMPUTEimperative sizeErrorPhrases? END_COMPUTE;
 
 /**
  * CONTINUE statement.
