@@ -757,7 +757,7 @@ stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
 
 stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
 
-stmtPageWRITEdelimitedScope : stmtPageWRITEconditional END_WRITE;
+stmtPageWRITEdelimitedScope : stmtPageWRITEimperative atEndOfPagePhrases END_WRITE;
 
 stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEconditional END_WRITE;
 
