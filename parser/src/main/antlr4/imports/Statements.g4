@@ -669,9 +669,7 @@ stmtSUBTRACTtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=474&zoom=auto,-40,735
  */
 stmtUNSTRING[boolean conditionalAllowed] :
-		stmtUNSTRINGimperative
-	|	stmtUNSTRINGimperative {$conditionalAllowed}? overflowPhrases
-	|	stmtUNSTRINGimperative overflowPhrases? END_UNSTRING
+		stmtUNSTRINGimperative stmtUNSTRINGtail[$conditionalAllowed]
 	;
 
 stmtUNSTRINGimperative :
@@ -680,6 +678,11 @@ stmtUNSTRINGimperative :
 		INTO (identifier (DELIMITER IN? identifier)? (COUNT IN? identifier))+
 		(WITH? POINTER identifier)?
 		(TALLYING IN? identifier)?
+	;
+
+stmtUNSTRINGtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? overflowPhrases
+	|	overflowPhrases? END_UNSTRING
 	;
 
 /**
