@@ -535,15 +535,11 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
  */
 stmtRETURN[boolean conditionalAllowed] :
 		stmtRETURNimperative
-	|	{$conditionalAllowed}? stmtRETURNconditional
-	|	stmtRETURNdelimitedScope
+	|	{$conditionalAllowed}? stmtRETURNimperative atEndPhrases
+	|	stmtRETURNimperative atEndPhrases? END_RETURN
 	;
 
 stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
-
-stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
-
-stmtRETURNdelimitedScope : stmtRETURNimperative atEndPhrases? END_RETURN;
 
 /**
  * REWRITE statement.
