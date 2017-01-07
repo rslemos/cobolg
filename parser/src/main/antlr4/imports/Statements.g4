@@ -372,10 +372,8 @@ stmtGOBACK : GOBACK;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
 stmtIF[boolean conditionalAllowed] :
-		stmtIFconditional stmtIFtail[$conditionalAllowed]
+		IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))? stmtIFtail[$conditionalAllowed]
 	;
-
-stmtIFconditional : IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))?;
 
 stmtIFtail[boolean conditionalAllowed] :
 		{$conditionalAllowed}?
