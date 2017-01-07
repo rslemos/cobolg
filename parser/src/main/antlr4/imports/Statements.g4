@@ -484,13 +484,9 @@ openObject :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=413&zoom=auto,-40,735
  */
 stmtPERFORM :
-		stmtPERFORMimperative
-	|	stmtPERFORMdelimitedScope
+		PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?
+	|	PERFORM (performTimes | performUntil | performVarying)? proceduralStatement[true]+ END_PERFORM
 	;
-
-stmtPERFORMimperative : PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?;
-
-stmtPERFORMdelimitedScope : PERFORM (performTimes | performUntil | performVarying)? proceduralStatement[true]+ END_PERFORM;
 
 performTimes : (identifier | INTEGER) TIMES;
 
