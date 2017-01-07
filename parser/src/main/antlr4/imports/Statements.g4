@@ -685,15 +685,12 @@ stmtSUBTRACTtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=474&zoom=auto,-40,735
  */
 stmtUNSTRING[boolean conditionalAllowed] :
-		stmtUNSTRINGimperative stmtUNSTRINGtail[$conditionalAllowed]
-	;
-
-stmtUNSTRINGimperative :
 		UNSTRING identifier
 		(DELIMITED BY? ALL? (identifier | literal) (OR ALL? (identifier | literal))*)?
 		INTO (identifier (DELIMITER IN? identifier)? (COUNT IN? identifier))+
 		(WITH? POINTER identifier)?
 		(TALLYING IN? identifier)?
+		stmtUNSTRINGtail[$conditionalAllowed]
 	;
 
 stmtUNSTRINGtail[boolean conditionalAllowed] :
