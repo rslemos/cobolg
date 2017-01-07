@@ -705,7 +705,7 @@ stmtSUBTRACTimperative :
 
 stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
 
-stmtSUBTRACTdelimitedScope : stmtSUBTRACTconditional END_SUBTRACT;
+stmtSUBTRACTdelimitedScope : stmtSUBTRACTimperative sizeErrorPhrases END_SUBTRACT;
 
 /**
  * UNSTRING statement.
