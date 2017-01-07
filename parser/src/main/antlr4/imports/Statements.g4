@@ -223,8 +223,8 @@ stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
  */
 stmtCALL[boolean conditionalAllowed] :
 		stmtCALLimperative
-	|	{$conditionalAllowed}? stmtCALLconditional
-	|	stmtCALLdelimitedScope
+	|	{$conditionalAllowed}? stmtCALLimperative (exceptionPhrases | onOverflowPhrase)
+	|	stmtCALLimperative (exceptionPhrases | onOverflowPhrase)? END_CALL
 	;
 
 stmtCALLimperative : CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)?;
@@ -234,10 +234,6 @@ callUsing :
 	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
 	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
 	;
-
-stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
-
-stmtCALLdelimitedScope : stmtCALLimperative (exceptionPhrases | onOverflowPhrase)? END_CALL;
 
 /**
  * CANCEL statement.
