@@ -695,15 +695,11 @@ stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) 
 
 stmtSequentialWRITE[boolean conditionalAllowed] :
 		stmtSequentialWRITEimperative
-	|	{$conditionalAllowed}? stmtSequentialWRITEconditional
-	|	stmtSequentialWRITEdelimitedScope
+	|	{$conditionalAllowed}? stmtSequentialWRITEimperative invalidKeyPhrases
+	|	stmtSequentialWRITEimperative invalidKeyPhrases? END_WRITE
 	;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
-
-stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
-
-stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEimperative invalidKeyPhrases? END_WRITE;
 
 /**
  * XML GENERATE statement.
