@@ -172,7 +172,7 @@ notAtEndPhrase : NOT AT? END proceduralStatement[false];
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=485&zoom=auto,-40,335
  */
-atEndOfPagePhrases : atEndOfPagePhrase? notAtEndOfPagePhrase?;
+atEndOfPagePhrases : atEndOfPagePhrase notAtEndOfPagePhrase? | notAtEndOfPagePhrase;
 atEndOfPagePhrase    :     AT? (END_OF_PAGE | EOP) proceduralStatement[false];
 notAtEndOfPagePhrase : NOT AT? (END_OF_PAGE | EOP) proceduralStatement[false];
 
@@ -757,7 +757,7 @@ stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
 
 stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
 
-stmtPageWRITEdelimitedScope : stmtPageWRITEimperative atEndOfPagePhrases END_WRITE;
+stmtPageWRITEdelimitedScope : stmtPageWRITEimperative atEndOfPagePhrases? END_WRITE;
 
 stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEimperative invalidKeyPhrases? END_WRITE;
 

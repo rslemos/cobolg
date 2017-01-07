@@ -55,7 +55,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_1_LINE.source"),
@@ -63,7 +62,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_N_LINES.source"),
@@ -71,7 +69,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_LCP_CH2.source"),
@@ -79,7 +76,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_PAGE.source"),
@@ -87,7 +83,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_1_LINE.source"),
@@ -95,7 +90,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_N_LINES.source"),
@@ -103,7 +97,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_LCP_CH2.source"),
@@ -111,7 +104,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_BEFORE_ADVANCING_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_BEFORE_ADVANCING_PAGE.source"),
@@ -119,7 +111,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_1_LINE.source"),
@@ -127,7 +118,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_N_LINES.source"),
@@ -135,7 +125,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_LCP_CH2.source"),
@@ -143,7 +132,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_PAGE.source"),
@@ -151,7 +139,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_1_LINE.source"),
@@ -159,7 +146,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_N_LINES.source"),
@@ -167,7 +153,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_LCP_CH2.source"),
@@ -175,7 +160,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_AFTER_ADVANCING_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_AFTER_ADVANCING_PAGE.source"),
@@ -183,7 +167,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_1_LINE.source"),
@@ -191,7 +174,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_N_LINES.source"),
@@ -199,7 +181,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_LCP_CH2.source"),
@@ -207,7 +188,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_PAGE.source"),
@@ -215,7 +195,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_1_LINE.source"),
@@ -223,7 +202,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_N_LINES.source"),
@@ -231,7 +209,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_LCP_CH2.source"),
@@ -239,7 +216,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_BEFORE_ADVANCING_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_BEFORE_ADVANCING_PAGE.source"),
@@ -247,7 +223,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_1_LINE.source"),
@@ -255,7 +230,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_N_LINES.source"),
@@ -263,7 +237,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_LCP_CH2.source"),
@@ -271,7 +244,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_PAGE.source"),
@@ -279,7 +251,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_1_LINE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_1_LINE.source"),
@@ -287,7 +258,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_N_LINES() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_N_LINES.source"),
@@ -295,7 +265,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_LCP_CH2() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_LCP_CH2.source"),
@@ -303,7 +272,6 @@ public class StmtPageWRITE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_REC_FROM_X_AFTER_ADVANCING_PAGE() {
 		helper.compileAndVerify(
 				get("WRITE_REC_FROM_X_AFTER_ADVANCING_PAGE.source"),
