@@ -690,8 +690,8 @@ stmtSUBTRACTimperative :
  */
 stmtUNSTRING[boolean conditionalAllowed] :
 		stmtUNSTRINGimperative
-	|	{$conditionalAllowed}? stmtUNSTRINGconditional
-	|	stmtUNSTRINGdelimitedScope
+	|	{$conditionalAllowed}? stmtUNSTRINGimperative overflowPhrases
+	|	stmtUNSTRINGimperative overflowPhrases? END_UNSTRING
 	;
 
 stmtUNSTRINGimperative :
@@ -701,10 +701,6 @@ stmtUNSTRINGimperative :
 		(WITH? POINTER identifier)?
 		(TALLYING IN? identifier)?
 	;
-
-stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
-
-stmtUNSTRINGdelimitedScope : stmtUNSTRINGimperative overflowPhrases? END_UNSTRING;
 
 /**
  * WRITE statement.
