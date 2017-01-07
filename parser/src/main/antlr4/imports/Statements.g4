@@ -658,7 +658,7 @@ stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER TH
 
 stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
 
-stmtSTARTdelimitedScope : stmtSTARTconditional END_START;
+stmtSTARTdelimitedScope : stmtSTARTimperative invalidKeyPhrases END_START;
 
 /**
  * STOP statement.
