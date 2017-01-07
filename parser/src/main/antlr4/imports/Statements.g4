@@ -552,15 +552,11 @@ stmtRETURNdelimitedScope : stmtRETURNimperative atEndPhrases? END_RETURN;
  */
 stmtREWRITE[boolean conditionalAllowed] :
 		stmtREWRITEimperative
-	|	{$conditionalAllowed}? stmtREWRITEconditional
-	|	stmtREWRITEdelimitedScope
+	|	{$conditionalAllowed}? stmtREWRITEimperative invalidKeyPhrases
+	|	stmtREWRITEimperative invalidKeyPhrases? END_REWRITE
 	;
 
 stmtREWRITEimperative : REWRITE recordName (FROM identifier);
-
-stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
-
-stmtREWRITEdelimitedScope : stmtREWRITEimperative invalidKeyPhrases? END_REWRITE;
 
 /**
  * SEARCH statement.
