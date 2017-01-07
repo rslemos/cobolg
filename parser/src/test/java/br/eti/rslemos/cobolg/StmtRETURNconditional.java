@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtRETURNconditionalContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtRETURNconditional {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRETURNconditional");
@@ -35,34 +34,6 @@ public class StmtRETURNconditional {
 	private static CompilerHelper<StmtRETURNconditionalContext> helper = new CompilerHelper<StmtRETURNconditionalContext>() {
 		@Override protected StmtRETURNconditionalContext parsePart() { return parser.stmtRETURNconditional(); }
 	};
-	
-	@Test public void RETURN_FILE_1() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1.source"),
-				get("RETURN_FILE_1.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_RECORD() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD.source"),
-				get("RETURN_FILE_1_RECORD.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_INTO_ID_1() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_INTO_ID_1.source"),
-				get("RETURN_FILE_1_INTO_ID_1.tree")
-			);
-	}
-	
-	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1() {
-		helper.compileAndVerify(
-				get("RETURN_FILE_1_RECORD_INTO_ID_1.source"),
-				get("RETURN_FILE_1_RECORD_INTO_ID_1.tree")
-			);
-	}
 	
 	@Test public void RETURN_FILE_1_AT_END_STOP_RUN() {
 		helper.compileAndVerify(

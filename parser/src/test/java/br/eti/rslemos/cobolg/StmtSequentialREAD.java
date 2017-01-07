@@ -36,7 +36,6 @@ public class StmtSequentialREAD {
 		@Override protected StmtSequentialREADContext parsePart() { return parser.stmtSequentialREAD(true); }
 	};
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME() {
 		helper.compileAndVerify(
 				get("READ_FILENAME.source"),
@@ -44,7 +43,6 @@ public class StmtSequentialREAD {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD.source"),
@@ -52,7 +50,6 @@ public class StmtSequentialREAD {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_INTO_X() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_INTO_X.source"),
@@ -60,7 +57,6 @@ public class StmtSequentialREAD {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X() {
 		helper.compileAndVerify(
 				get("READ_FILENAME_NEXT_RECORD_INTO_X.source"),

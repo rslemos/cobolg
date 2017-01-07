@@ -35,34 +35,6 @@ public class StmtSequentialREADconditional {
 	private static CompilerHelper<StmtSequentialREADconditionalContext> helper = new CompilerHelper<StmtSequentialREADconditionalContext>() {
 		@Override protected StmtSequentialREADconditionalContext parsePart() { return parser.stmtSequentialREADconditional(); }
 	};
-	
-	@Test public void READ_FILENAME() {
-		helper.compileAndVerify(
-				get("READ_FILENAME.source"),
-				get("READ_FILENAME.tree")
-			);
-	}
-
-	@Test public void READ_FILENAME_NEXT_RECORD() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_NEXT_RECORD.source"),
-				get("READ_FILENAME_NEXT_RECORD.tree")
-			);
-	}
-
-	@Test public void READ_FILENAME_INTO_X() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_INTO_X.source"),
-				get("READ_FILENAME_INTO_X.tree")
-			);
-	}
-
-	@Test public void READ_FILENAME_NEXT_RECORD_INTO_X() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_NEXT_RECORD_INTO_X.source"),
-				get("READ_FILENAME_NEXT_RECORD_INTO_X.tree")
-			);
-	}
 
 	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_AT_END_STOP_RUN_NOT_AT_END_STOP_RUN() {

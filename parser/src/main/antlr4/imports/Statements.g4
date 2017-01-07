@@ -163,7 +163,7 @@ notInvalidKeyPhrase : NOT INVALID KEY? proceduralStatement[false];
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=425&zoom=auto,-40,190
  */
-atEndPhrases : atEndPhrase? notAtEndPhrase?;
+atEndPhrases : atEndPhrase notAtEndPhrase? | notAtEndPhrase;
 atEndPhrase    :     AT? END proceduralStatement[false];
 notAtEndPhrase : NOT AT? END proceduralStatement[false];
 
@@ -549,7 +549,7 @@ stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
 
 stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
 
-stmtSequentialREADdelimitedScope : stmtSequentialREADimperative atEndPhrases END_READ;
+stmtSequentialREADdelimitedScope : stmtSequentialREADimperative atEndPhrases? END_READ;
 
 stmtRandomREADdelimitedScope : stmtRandomREADimperative invalidKeyPhrases? END_READ;
 
@@ -575,7 +575,7 @@ stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
 
 stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
 
-stmtRETURNdelimitedScope : stmtRETURNimperative atEndPhrases END_RETURN;
+stmtRETURNdelimitedScope : stmtRETURNimperative atEndPhrases? END_RETURN;
 
 /**
  * REWRITE statement.

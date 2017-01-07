@@ -36,7 +36,6 @@ public class StmtRETURN {
 		@Override protected StmtRETURNContext parsePart() { return parser.stmtRETURN(true); }
 	};
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1.source"),
@@ -44,7 +43,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD.source"),
@@ -52,7 +50,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_INTO_ID_1() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_INTO_ID_1.source"),
@@ -60,7 +57,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_INTO_ID_1.source"),
@@ -68,7 +64,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_AT_END_STOP_RUN.source"),
@@ -76,7 +71,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_AT_END_STOP_RUN.source"),
@@ -84,7 +78,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN.source"),
@@ -92,7 +85,6 @@ public class StmtRETURN {
 			);
 	}
 	
-	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN.source"),
