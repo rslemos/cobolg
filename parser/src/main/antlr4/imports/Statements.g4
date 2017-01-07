@@ -321,7 +321,7 @@ stmtDIVIDEimperative :
  */
 stmtEVALUATE[boolean conditionalAllowed] :
 		{$conditionalAllowed}? stmtEVALUATEconditional
-	|	stmtEVALUATEdelimitedScope
+	|	stmtEVALUATEconditional END_EVALUATE
 	;
 
 stmtEVALUATEconditional :
@@ -331,8 +331,6 @@ stmtEVALUATEconditional :
 		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* proceduralStatement[false])+
 		(WHEN OTHER proceduralStatement[false])?
 	;
-
-stmtEVALUATEdelimitedScope : stmtEVALUATEconditional END_EVALUATE;
 
 evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
 
