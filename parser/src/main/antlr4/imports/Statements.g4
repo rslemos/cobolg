@@ -278,10 +278,8 @@ stmtCONTINUE : CONTINUE;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=348&zoom=auto,-40,735
  */
 stmtDELETE[boolean conditionalAllowed] :
-		stmtDELETEimperative stmtDELETEtail[$conditionalAllowed]
+		DELETE fileName RECORD? stmtDELETEtail[$conditionalAllowed]
 	;
-
-stmtDELETEimperative : DELETE fileName RECORD?;
 
 stmtDELETEtail[boolean conditionalAllowed] :
 	|	{$conditionalAllowed}? invalidKeyPhrases
