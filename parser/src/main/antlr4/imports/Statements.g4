@@ -740,8 +740,8 @@ stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEimperative invalidKeyPhra
  */
 stmtXMLGENERATE[boolean conditionalAllowed] :
 		stmtXMLGENERATEimperative
-	|	{$conditionalAllowed}? stmtXMLGENERATEconditional
-	|	stmtXMLGENERATEdelimitedScope
+	|	{$conditionalAllowed}? stmtXMLGENERATEimperative exceptionPhrases
+	|	stmtXMLGENERATEimperative exceptionPhrases? END_XML
 	;
 
 stmtXMLGENERATEimperative :
@@ -755,10 +755,6 @@ stmtXMLGENERATEimperative :
 		(TYPE OF? (identifier IS? (ATTRIBUTE | ELEMENT | CONTENT))+)?
 		(SUPPRESS (identifier xmlGenerateWhenPhrase? | genericSupressionPhrase)+)?
 	;
-
-stmtXMLGENERATEconditional : stmtXMLGENERATEimperative exceptionPhrases;
-
-stmtXMLGENERATEdelimitedScope : stmtXMLGENERATEimperative exceptionPhrases? END_XML;
 
 xmlGenerateWhenPhrase :
 		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
