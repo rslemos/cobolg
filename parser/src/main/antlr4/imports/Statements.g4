@@ -225,9 +225,7 @@ stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=331&zoom=auto,-40,735
  */
 stmtCALL[boolean conditionalAllowed] :
-		stmtCALLimperative
-	|	stmtCALLimperative {$conditionalAllowed}? (exceptionPhrases | onOverflowPhrase)
-	|	stmtCALLimperative (exceptionPhrases | onOverflowPhrase)? END_CALL
+		stmtCALLimperative stmtCALLtail[$conditionalAllowed]
 	;
 
 stmtCALLimperative : CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)?;
@@ -236,6 +234,11 @@ callUsing :
 		(BY? REFERENCE)? ((ADDRESS OF)? identifier /* | fileName */| OMITTED)+
 	|	BY? CONTENT (((ADDRESS|LENGTH) OF)? identifier | literal | OMITTED)+
 	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
+	;
+
+stmtCALLtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? (exceptionPhrases | onOverflowPhrase)
+	|	(exceptionPhrases | onOverflowPhrase)? END_CALL
 	;
 
 /**
