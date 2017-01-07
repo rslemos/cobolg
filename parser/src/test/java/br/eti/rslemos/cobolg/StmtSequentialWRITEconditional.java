@@ -36,20 +36,6 @@ public class StmtSequentialWRITEconditional {
 		@Override protected StmtSequentialWRITEconditionalContext parsePart() { return parser.stmtSequentialWRITEconditional(); }
 	};
 	
-	@Test public void WRITE_RECNAME() {
-		helper.compileAndVerify(
-				get("WRITE_RECNAME.source"),
-				get("WRITE_RECNAME.tree")
-			);
-	}
-	
-	@Test public void WRITE_RECNAME_FROM_X() {
-		helper.compileAndVerify(
-				get("WRITE_RECNAME_FROM_X.source"),
-				get("WRITE_RECNAME_FROM_X.tree")
-			);
-	}
-	
 	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(

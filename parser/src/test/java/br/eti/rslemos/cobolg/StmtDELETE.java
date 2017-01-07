@@ -36,7 +36,6 @@ public class StmtDELETE {
 		@Override protected StmtDELETEContext parsePart() { return parser.stmtDELETE(true); }
 	};
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1.source"),
@@ -44,7 +43,6 @@ public class StmtDELETE {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1_RECORD() {
 		helper.compileAndVerify(
 				get("DELETE_FILENAME_1_RECORD.source"),

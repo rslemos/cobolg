@@ -154,7 +154,7 @@ notOnOverflowPhrase : NOT ON? OVERFLOW proceduralStatement[false];
  * INVALID KEY phrases.
  * 
  */
-invalidKeyPhrases : invalidKeyPhrase? notInvalidKeyPhrase?;
+invalidKeyPhrases : invalidKeyPhrase notInvalidKeyPhrase? | notInvalidKeyPhrase;
 invalidKeyPhrase    :     INVALID KEY? proceduralStatement[false];
 notInvalidKeyPhrase : NOT INVALID KEY? proceduralStatement[false];
 
@@ -296,7 +296,7 @@ stmtDELETEimperative : DELETE fileName RECORD?;
 
 stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
 
-stmtDELETEdelimitedScope : stmtDELETEimperative invalidKeyPhrases END_DELETE;
+stmtDELETEdelimitedScope : stmtDELETEimperative invalidKeyPhrases? END_DELETE;
 
 /**
  * DISPLAY statement.
@@ -551,7 +551,7 @@ stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
 
 stmtSequentialREADdelimitedScope : stmtSequentialREADimperative atEndPhrases END_READ;
 
-stmtRandomREADdelimitedScope : stmtRandomREADimperative invalidKeyPhrases END_READ;
+stmtRandomREADdelimitedScope : stmtRandomREADimperative invalidKeyPhrases? END_READ;
 
 /**
  * RELEASE statement.
@@ -592,7 +592,7 @@ stmtREWRITEimperative : REWRITE recordName (FROM identifier);
 
 stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
 
-stmtREWRITEdelimitedScope : stmtREWRITEimperative invalidKeyPhrases END_REWRITE;
+stmtREWRITEdelimitedScope : stmtREWRITEimperative invalidKeyPhrases? END_REWRITE;
 
 /**
  * SEARCH statement.
@@ -658,7 +658,7 @@ stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER TH
 
 stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
 
-stmtSTARTdelimitedScope : stmtSTARTimperative invalidKeyPhrases END_START;
+stmtSTARTdelimitedScope : stmtSTARTimperative invalidKeyPhrases? END_START;
 
 /**
  * STOP statement.
@@ -759,7 +759,7 @@ stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases
 
 stmtPageWRITEdelimitedScope : stmtPageWRITEimperative atEndOfPagePhrases END_WRITE;
 
-stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEimperative invalidKeyPhrases END_WRITE;
+stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEimperative invalidKeyPhrases? END_WRITE;
 
 /**
  * XML GENERATE statement.

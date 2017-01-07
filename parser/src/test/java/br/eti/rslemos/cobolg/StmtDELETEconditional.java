@@ -36,20 +36,6 @@ public class StmtDELETEconditional {
 		@Override protected StmtDELETEconditionalContext parsePart() { return parser.stmtDELETEconditional(); }
 	};
 	
-	@Test public void DELETE_FILENAME_1() {
-		helper.compileAndVerify(
-				get("DELETE_FILENAME_1.source"),
-				get("DELETE_FILENAME_1.tree")
-			);
-	}
-	
-	@Test public void DELETE_FILENAME_1_RECORD() {
-		helper.compileAndVerify(
-				get("DELETE_FILENAME_1_RECORD.source"),
-				get("DELETE_FILENAME_1_RECORD.tree")
-			);
-	}
-	
 	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void DELETE_FILENAME_1_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(

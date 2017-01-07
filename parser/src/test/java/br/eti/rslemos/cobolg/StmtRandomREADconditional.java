@@ -36,34 +36,6 @@ public class StmtRandomREADconditional {
 		@Override protected StmtRandomREADconditionalContext parsePart() { return parser.stmtRandomREADconditional(); }
 	};
 	
-	@Test public void READ_FILENAME_KEY_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_KEY_K.source"),
-				get("READ_FILENAME_KEY_K.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_INTO_X_KEY_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_INTO_X_KEY_K.source"),
-				get("READ_FILENAME_INTO_X_KEY_K.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_RECORD_KEY_IS_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_RECORD_KEY_IS_K.source"),
-				get("READ_FILENAME_RECORD_KEY_IS_K.tree")
-			);
-	}
-	
-	@Test public void READ_FILENAME_RECORD_INTO_X_KEY_IS_K() {
-		helper.compileAndVerify(
-				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K.source"),
-				get("READ_FILENAME_RECORD_INTO_X_KEY_IS_K.tree")
-			);
-	}
-	
 	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void READ_FILENAME_KEY_K_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(

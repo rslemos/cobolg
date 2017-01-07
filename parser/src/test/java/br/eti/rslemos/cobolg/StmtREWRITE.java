@@ -36,7 +36,6 @@ public class StmtREWRITE {
 		@Override protected StmtREWRITEContext parsePart() { return parser.stmtREWRITE(true); }
 	};
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void REWRITE_REC_FROM_X() {
 		helper.compileAndVerify(
 				get("REWRITE_REC_FROM_X.source"),

@@ -36,7 +36,6 @@ public class StmtSTART {
 		@Override protected StmtSTARTContext parsePart() { return parser.stmtSTART(true); }
 	};
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME() {
 		helper.compileAndVerify(
 				get("START_FILENAME.source"),
@@ -44,7 +43,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_EQUAL_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_EQUAL_K.source"),
@@ -52,7 +50,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_EQUAL_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_EQUAL_K.source"),
@@ -60,7 +57,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_GREATER_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_GREATER_K.source"),
@@ -68,7 +64,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_GREATER_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_GREATER_K.source"),
@@ -76,7 +71,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_NOT_LESS_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_NOT_LESS_K.source"),
@@ -84,7 +78,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_NOT_OP_LESS_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_NOT_OP_LESS_K.source"),
@@ -92,7 +85,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_GREATER_OR_EQUAL_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_GREATER_OR_EQUAL_K.source"),
@@ -100,7 +92,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_OP_NOTLESS_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_OP_NOTLESS_K.source"),
@@ -108,7 +99,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_EQUAL_TO_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_EQUAL_TO_K.source"),
@@ -116,7 +106,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_GREATER_THAN_K.source"),
@@ -124,7 +113,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_NOT_LESS_THAN_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_NOT_LESS_THAN_K.source"),
@@ -132,7 +120,6 @@ public class StmtSTART {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K() {
 		helper.compileAndVerify(
 				get("START_FILENAME_KEY_IS_GREATER_THAN_OR_EQUAL_TO_K.source"),

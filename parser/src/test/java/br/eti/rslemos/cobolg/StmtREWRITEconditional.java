@@ -36,13 +36,6 @@ public class StmtREWRITEconditional {
 		@Override protected StmtREWRITEconditionalContext parsePart() { return parser.stmtREWRITEconditional(); }
 	};
 	
-	@Test public void REWRITE_REC_FROM_X() {
-		helper.compileAndVerify(
-				get("REWRITE_REC_FROM_X.source"),
-				get("REWRITE_REC_FROM_X.tree")
-			);
-	}
-	
 	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void REWRITE_REC_FROM_X_INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
