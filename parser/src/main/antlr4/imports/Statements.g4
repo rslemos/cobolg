@@ -430,15 +430,18 @@ inspectReplacingObject :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=385&zoom=auto,-40,735
  */
 stmtINVOKE[boolean conditionalAllowed] :
-		stmtINVOKEimperative
-	|	stmtINVOKEimperative {$conditionalAllowed}? exceptionPhrases
-	|	stmtINVOKEimperative exceptionPhrases? END_INVOKE
+		stmtINVOKEimperative stmtINVOKEtail[$conditionalAllowed]
 	;
 
 stmtINVOKEimperative :
 		INVOKE (identifier | className | SELF | SUPER) (literal | identifier | NEW)
 		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
 		(RETURNING identifier)?
+	;
+
+stmtINVOKEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? exceptionPhrases
+	|	exceptionPhrases? END_INVOKE
 	;
 
 /**
