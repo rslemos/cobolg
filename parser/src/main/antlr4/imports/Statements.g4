@@ -614,15 +614,11 @@ stmtSORT :
  */
 stmtSTART[boolean conditionalAllowed] :
 		stmtSTARTimperative
-	|	{$conditionalAllowed}? stmtSTARTconditional
-	|	stmtSTARTdelimitedScope
+	|	{$conditionalAllowed}? stmtSTARTimperative invalidKeyPhrases
+	|	stmtSTARTimperative invalidKeyPhrases? END_START
 	;
 
 stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)?;
-
-stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
-
-stmtSTARTdelimitedScope : stmtSTARTimperative invalidKeyPhrases? END_START;
 
 /**
  * STOP statement.
