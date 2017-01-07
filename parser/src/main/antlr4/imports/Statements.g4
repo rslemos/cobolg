@@ -684,7 +684,7 @@ stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier
 
 stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
 
-stmtSTRINGdelimitedScope : stmtSTRINGconditional END_STRING;
+stmtSTRINGdelimitedScope : stmtSTRINGimperative overflowPhrases END_STRING;
 
 /**
  * SUBTRACT statement.
