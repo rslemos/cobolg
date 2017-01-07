@@ -241,7 +241,7 @@ callUsing :
 
 stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
 
-stmtCALLdelimitedScope : stmtCALLconditional END_CALL;
+stmtCALLdelimitedScope : stmtCALLimperative (exceptionPhrases | onOverflowPhrase) END_CALL;
 
 /**
  * CANCEL statement.
