@@ -733,10 +733,6 @@ stmtSequentialWRITEtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=490&zoom=auto,-40,735
  */
 stmtXMLGENERATE[boolean conditionalAllowed] :
-		stmtXMLGENERATEimperative stmtXMLGENERATEtail[$conditionalAllowed]
-	;
-
-stmtXMLGENERATEimperative :
 		XML GENERATE identifier FROM identifier
 		(COUNT IN? identifier)?
 		(WITH? ENCODING (identifier | literal))?
@@ -746,6 +742,7 @@ stmtXMLGENERATEimperative :
 		(NAME OF? (identifier IS? literal)+)?
 		(TYPE OF? (identifier IS? (ATTRIBUTE | ELEMENT | CONTENT))+)?
 		(SUPPRESS (identifier xmlGenerateWhenPhrase? | genericSupressionPhrase)+)?
+		stmtXMLGENERATEtail[$conditionalAllowed]
 	;
 
 xmlGenerateWhenPhrase :
