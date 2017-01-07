@@ -660,15 +660,11 @@ stmtSTOPRUN : STOP RUN;
  */
 stmtSTRING[boolean conditionalAllowed] :
 		stmtSTRINGimperative
-	|	{$conditionalAllowed}? stmtSTRINGconditional
-	|	stmtSTRINGdelimitedScope
+	|	{$conditionalAllowed}? stmtSTRINGimperative overflowPhrases
+	|	stmtSTRINGimperative overflowPhrases? END_STRING
 	;
 
 stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
-
-stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
-
-stmtSTRINGdelimitedScope : stmtSTRINGimperative overflowPhrases? END_STRING;
 
 /**
  * SUBTRACT statement.
