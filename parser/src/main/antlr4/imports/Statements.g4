@@ -747,9 +747,7 @@ stmtXMLGENERATEtail[boolean conditionalAllowed] :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=502&zoom=auto,-40,735
  */
 stmtXMLPARSE[boolean conditionalAllowed] :
-		stmtXMLPARSEimperative
-	|	stmtXMLPARSEimperative {$conditionalAllowed}? exceptionPhrases
-	|	stmtXMLPARSEimperative exceptionPhrases? END_XML
+		stmtXMLPARSEimperative stmtXMLPARSEtail[$conditionalAllowed]
 	;
 
 stmtXMLPARSEimperative :
@@ -758,5 +756,10 @@ stmtXMLPARSEimperative :
 		(RETURNING NATIONAL)?
 		(VALIDATING WITH? (identifier | FILE xmlSchemaName))?
 		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
+	;
+
+stmtXMLPARSEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? exceptionPhrases
+	|	exceptionPhrases? END_XML
 	;
 
