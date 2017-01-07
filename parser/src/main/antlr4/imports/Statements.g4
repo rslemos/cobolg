@@ -816,4 +816,4 @@ stmtXMLPARSEimperative :
 
 stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;
 
-stmtXMLPARSEdelimitedScope : stmtXMLPARSEconditional END_XML;
+stmtXMLPARSEdelimitedScope : stmtXMLPARSEimperative exceptionPhrases END_XML;
