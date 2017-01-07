@@ -258,12 +258,15 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=345&zoom=auto,-40,735
  */
 stmtCOMPUTE[boolean conditionalAllowed] :
-		stmtCOMPUTEimperative
-	|	stmtCOMPUTEimperative {$conditionalAllowed}? sizeErrorPhrases
-	|	stmtCOMPUTEimperative sizeErrorPhrases? END_COMPUTE
+		stmtCOMPUTEimperative stmtCOMPUTEtail[$conditionalAllowed]
 	;
 
 stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
+
+stmtCOMPUTEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_COMPUTE
+	;
 
 /**
  * CONTINUE statement.
