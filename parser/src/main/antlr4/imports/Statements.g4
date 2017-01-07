@@ -408,8 +408,8 @@ inspectReplacingObject :
  */
 stmtINVOKE[boolean conditionalAllowed] :
 		stmtINVOKEimperative
-	|	{$conditionalAllowed}? stmtINVOKEconditional
-	|	stmtINVOKEdelimitedScope
+	|	{$conditionalAllowed}? stmtINVOKEimperative exceptionPhrases
+	|	stmtINVOKEimperative exceptionPhrases? END_INVOKE
 	;
 
 stmtINVOKEimperative :
@@ -417,10 +417,6 @@ stmtINVOKEimperative :
 		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
 		(RETURNING identifier)?
 	;
-
-stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
-
-stmtINVOKEdelimitedScope : stmtINVOKEimperative exceptionPhrases? END_INVOKE;
 
 /**
  * MERGE statement.
