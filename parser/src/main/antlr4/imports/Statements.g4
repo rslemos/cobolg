@@ -515,10 +515,8 @@ stmtSequentialREADtail[boolean conditionalAllowed] :
 	;
 
 stmtRandomREAD[boolean conditionalAllowed] :
-		stmtRandomREADimperative stmtRandomREADtail[$conditionalAllowed]
+		READ fileName RECORD? (INTO identifier)? (KEY IS? dataName) stmtRandomREADtail[$conditionalAllowed]
 	;
-
-stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
 
 stmtRandomREADtail[boolean conditionalAllowed] :
 	|	{$conditionalAllowed}? invalidKeyPhrases
