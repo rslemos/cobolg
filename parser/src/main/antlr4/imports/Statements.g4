@@ -553,15 +553,13 @@ stmtREWRITEimperative : REWRITE recordName (FROM identifier);
  */
 stmtSEARCH[boolean conditionalAllowed] :
 		{$conditionalAllowed}? stmtSEARCHconditional
-	|	stmtSEARCHdelimitedScope
+	|	stmtSEARCHconditional END_SEARCH
 	;
 
 stmtSEARCHconditional :
 		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (proceduralStatement[false] | NEXT SENTENCE))+
 	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (proceduralStatement[false] | NEXT SENTENCE)
 	;
-
-stmtSEARCHdelimitedScope : stmtSEARCHconditional END_SEARCH;
 
 searchWhenPhrase :
 		dataName IS? (EQUAL TO? | OP_EQUAL) (identifier | literal | arithmeticExpression)
