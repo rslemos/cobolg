@@ -631,12 +631,15 @@ stmtSORT :
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=462&zoom=auto,-40,735
  */
 stmtSTART[boolean conditionalAllowed] :
-		stmtSTARTimperative
-	|	stmtSTARTimperative {$conditionalAllowed}? invalidKeyPhrases
-	|	stmtSTARTimperative invalidKeyPhrases? END_START
+		stmtSTARTimperative stmtSTARTtail[$conditionalAllowed]
 	;
 
 stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)?;
+
+stmtSTARTtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_START
+	;
 
 /**
  * STOP statement.
