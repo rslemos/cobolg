@@ -463,18 +463,14 @@ stmtMOVE :
  */
 stmtMULTIPLY[boolean conditionalAllowed] :
 		stmtMULTIPLYimperative
-	|	{$conditionalAllowed}? stmtMULTIPLYconditional
-	|	stmtMULTIPLYdelimitedScope
+	|	{$conditionalAllowed}? stmtMULTIPLYimperative sizeErrorPhrases
+	|	stmtMULTIPLYimperative sizeErrorPhrases? END_MULTIPLY
 	;
 
 stmtMULTIPLYimperative :
 		MULTIPLY (identifier | literal) BY roundedPhrase+
 	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
 	;
-
-stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
-
-stmtMULTIPLYdelimitedScope : stmtMULTIPLYimperative sizeErrorPhrases? END_MULTIPLY;
 
 /**
  * OPEN statement.
