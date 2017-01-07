@@ -727,12 +727,15 @@ stmtPageWRITEtail[boolean conditionalAllowed] :
 	;
 
 stmtSequentialWRITE[boolean conditionalAllowed] :
-		stmtSequentialWRITEimperative
-	|	stmtSequentialWRITEimperative {$conditionalAllowed}? invalidKeyPhrases
-	|	stmtSequentialWRITEimperative invalidKeyPhrases? END_WRITE
+		stmtSequentialWRITEimperative stmtSequentialWRITEtail[$conditionalAllowed]
 	;
 
 stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
+
+stmtSequentialWRITEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_WRITE
+	;
 
 /**
  * XML GENERATE statement.
