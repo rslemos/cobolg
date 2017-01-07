@@ -272,7 +272,7 @@ stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpr
 
 stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
 
-stmtCOMPUTEdelimitedScope : stmtCOMPUTEconditional END_COMPUTE;
+stmtCOMPUTEdelimitedScope : stmtCOMPUTEimperative sizeErrorPhrases END_COMPUTE;
 
 /**
  * CONTINUE statement.
