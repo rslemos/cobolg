@@ -759,7 +759,7 @@ stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases
 
 stmtPageWRITEdelimitedScope : stmtPageWRITEimperative atEndOfPagePhrases END_WRITE;
 
-stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEconditional END_WRITE;
+stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEimperative invalidKeyPhrases END_WRITE;
 
 /**
  * XML GENERATE statement.
