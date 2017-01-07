@@ -324,7 +324,7 @@ stmtDIVIDEimperative :
 
 stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
 
-stmtDIVIDEdelimitedScope : stmtDIVIDEconditional END_DIVIDE;
+stmtDIVIDEdelimitedScope : stmtDIVIDEimperative sizeErrorPhrases END_DIVIDE;
 
 /**
  * EVALUATE statement.
