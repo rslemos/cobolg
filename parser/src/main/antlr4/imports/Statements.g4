@@ -700,10 +700,8 @@ stmtPageWRITEtail[boolean conditionalAllowed] :
 	;
 
 stmtSequentialWRITE[boolean conditionalAllowed] :
-		stmtSequentialWRITEimperative stmtSequentialWRITEtail[$conditionalAllowed]
+		WRITE recordName (FROM identifier)? stmtSequentialWRITEtail[$conditionalAllowed]
 	;
-
-stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
 
 stmtSequentialWRITEtail[boolean conditionalAllowed] :
 	|	{$conditionalAllowed}? invalidKeyPhrases
