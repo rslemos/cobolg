@@ -655,10 +655,8 @@ stmtSTOPRUN : STOP RUN;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=466&zoom=auto,-40,735
  */
 stmtSTRING[boolean conditionalAllowed] :
-		stmtSTRINGimperative stmtSTRINGtail[$conditionalAllowed]
+		STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)? stmtSTRINGtail[$conditionalAllowed]
 	;
-
-stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
 
 stmtSTRINGtail[boolean conditionalAllowed] :
 	|	{$conditionalAllowed}? overflowPhrases
