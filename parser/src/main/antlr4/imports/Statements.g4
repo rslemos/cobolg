@@ -221,10 +221,8 @@ stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=331&zoom=auto,-40,735
  */
 stmtCALL[boolean conditionalAllowed] :
-		stmtCALLimperative stmtCALLtail[$conditionalAllowed]
+		CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)? stmtCALLtail[$conditionalAllowed]
 	;
-
-stmtCALLimperative : CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)?;
 
 callUsing :
 		(BY? REFERENCE)? ((ADDRESS OF)? identifier /* | fileName */| OMITTED)+
