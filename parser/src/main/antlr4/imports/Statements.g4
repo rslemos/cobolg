@@ -728,7 +728,7 @@ stmtUNSTRINGimperative :
 
 stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
 
-stmtUNSTRINGdelimitedScope : stmtUNSTRINGconditional END_UNSTRING;
+stmtUNSTRINGdelimitedScope : stmtUNSTRINGimperative overflowPhrases END_UNSTRING;
 
 /**
  * WRITE statement.
