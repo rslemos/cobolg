@@ -26,15 +26,15 @@ import java.util.ResourceBundle;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtCALLContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtCALL {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCALL");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtCALLContext> helper = new CompilerHelper<StmtCALLContext>() {
+		@Override protected StmtCALLContext parsePart() { return parser.stmtCALL(true); }
 	};
 	
 	@Test public void CALL_PROC_1() {
@@ -395,6 +395,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -402,6 +403,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -409,6 +411,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_BY_REFERENCE_ARG_1_BY_CONTENT_ARG_2_BY_VALUE_ARG_3_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_BY_REFERENCE_ARG_1_BY_CONTENT_ARG_2_BY_VALUE_ARG_3_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -416,7 +419,7 @@ public class StmtCALL {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_VALUE_ADDRESS_OF_ARG_1_CONTENT_LENGTH_OF_ARG_2_ARG_3_ARG_4_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_VALUE_ADDRESS_OF_ARG_1_CONTENT_LENGTH_OF_ARG_2_ARG_3_ARG_4_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -424,6 +427,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_BY_CONTENT_10_BY_VALUE_20_30_40_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_BY_CONTENT_10_BY_VALUE_20_30_40_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -431,6 +435,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_BY_CONTENT_OMITTED_BY_REFERENCE_OMITTED_BY_VALUE_LENGTH_OF_ARG_3_40_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_BY_CONTENT_OMITTED_BY_REFERENCE_OMITTED_BY_VALUE_LENGTH_OF_ARG_3_40_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -438,6 +443,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -445,6 +451,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -452,6 +459,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_BY_CONTENT_ADDRESS_OF_ARG_1_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_BY_CONTENT_ADDRESS_OF_ARG_1_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -459,7 +467,7 @@ public class StmtCALL {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_ADDRESS_OF_ARG_1_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_ADDRESS_OF_ARG_1_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -467,6 +475,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_VALUE_10_20_30_40_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_VALUE_10_20_30_40_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -474,7 +483,7 @@ public class StmtCALL {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_OMITTED_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_OMITTED_ARG_2_RETURNING_RESULT_EXCEPTION_STOP_RUN_END_CALL.source"),
@@ -482,6 +491,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -489,6 +499,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -496,6 +507,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_BY_REFERENCE_ARG_1_BY_CONTENT_ARG_2_BY_VALUE_ARG_3_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_BY_REFERENCE_ARG_1_BY_CONTENT_ARG_2_BY_VALUE_ARG_3_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -503,7 +515,7 @@ public class StmtCALL {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_VALUE_ADDRESS_OF_ARG_1_CONTENT_LENGTH_OF_ARG_2_ARG_3_ARG_4_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_VALUE_ADDRESS_OF_ARG_1_CONTENT_LENGTH_OF_ARG_2_ARG_3_ARG_4_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -511,6 +523,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_BY_CONTENT_10_BY_VALUE_20_30_40_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_BY_CONTENT_10_BY_VALUE_20_30_40_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -518,6 +531,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_BY_CONTENT_OMITTED_BY_REFERENCE_OMITTED_BY_VALUE_LENGTH_OF_ARG_3_40_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_BY_CONTENT_OMITTED_BY_REFERENCE_OMITTED_BY_VALUE_LENGTH_OF_ARG_3_40_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -525,6 +539,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -532,6 +547,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -539,6 +555,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_BY_CONTENT_ADDRESS_OF_ARG_1_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_BY_CONTENT_ADDRESS_OF_ARG_1_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -546,7 +563,7 @@ public class StmtCALL {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_PROC_1_USING_ADDRESS_OF_ARG_1_ARG_2_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_PROC_1_USING_ADDRESS_OF_ARG_1_ARG_2_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -554,6 +571,7 @@ public class StmtCALL {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_VALUE_10_20_30_40_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_VALUE_10_20_30_40_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL.source"),
@@ -561,7 +579,7 @@ public class StmtCALL {
 			);
 	}
 	
-	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.FULL_CONTEXT_ATTEMPT})
+	@Waive({CompilationError.EXACT_AMBIGUITY, CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void CALL_QUOTED_PROC_USING_OMITTED_ARG_2_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL() {
 		helper.compileAndVerify(
 				get("CALL_QUOTED_PROC_USING_OMITTED_ARG_2_RETURNING_RESULT_OVERFLOW_STOP_RUN_END_CALL.source"),

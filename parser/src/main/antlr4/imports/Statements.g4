@@ -28,137 +28,63 @@ options { tokenVocab = COBOLLexer; }
  * Procedural statements.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,185
- */
-proceduralStatement :
-		imperativeStatement
-	|	conditionalStatement
-	;
-
-/**
- * Imperative statement.
- * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=302&zoom=auto,-40,120
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
+ * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670
  */
-imperativeStatement :
-		/* arithmetic (without the ON SIZE ERROR or the NOT ON SIZE ERROR phrase) */
-		stmtADDimperative
-	|	stmtCOMPUTEimperative
-	|	stmtDIVIDEimperative
-	|	stmtMULTIPLYimperative
-	|	stmtSUBTRACTimperative
-		/* data movement (without the ON OVERFLOW or the NOT ON OVERFLOW phrase or the ON EXCEPTION or NOT ON EXCEPTION phrase) */
+proceduralStatement[boolean conditionalAllowed] :
+		/* arithmetic */
+		stmtADD[$conditionalAllowed]
+	|	stmtCOMPUTE[$conditionalAllowed]
+	|	stmtDIVIDE[$conditionalAllowed]
+	|	stmtMULTIPLY[$conditionalAllowed]
+	|	stmtSUBTRACT[$conditionalAllowed]
+		/* data movement */
 //	|	ACCEPT // format 2
 	|	stmtINITIALIZE
 	|	stmtINSPECT
 	|	stmtMOVE
 	|	stmtSET
-	|	stmtSTRINGimperative
-	|	stmtUNSTRINGimperative
-	|	stmtXMLGENERATEimperative
-	|	stmtXMLPARSEimperative
+	|	stmtSTRING[$conditionalAllowed]
+	|	stmtUNSTRING[$conditionalAllowed]
+	|	stmtXMLGENERATE[$conditionalAllowed]
+	|	stmtXMLPARSE[$conditionalAllowed]
+		/* decision */
+	|	stmtEVALUATE[$conditionalAllowed]
+	|	stmtIF[$conditionalAllowed]
 		/* ending */
 	|	stmtEXIT
 	|	stmtSTOPRUN
 	|	stmtGOBACK
-		/* input-output (without the INVALID KEY or the NOT INVALID KEY phrase or the AT END or NOT AT END, and INVALID KEY or NOT INVALID or the INVALID KEY or NOT INVALID KEY, and END-OF-PAGE or NOT END-OF-PAGE phrases) */
+		/* input-output */
 	|	stmtACCEPT // format 1
 	|	stmtCLOSE
-	|	stmtDELETEimperative
+	|	stmtDELETE[$conditionalAllowed]
 	|	stmtDISPLAY
 	|	stmtOPEN
-	|	stmtSequentialREADimperative
-	|	stmtRandomREADimperative
-	|	stmtREWRITEimperative
-	|	stmtSTARTimperative
+	|	stmtSequentialREAD[$conditionalAllowed]
+	|	stmtRandomREAD[$conditionalAllowed]
+	|	stmtREWRITE[$conditionalAllowed]
+	|	stmtSTART[$conditionalAllowed]
 	|	stmtSTOP
-	|	stmtPageWRITEimperative
-	|	stmtSequentialWRITEimperative
-		/* ordering (without the AT END or NOT AT END phrase) */
+	|	stmtPageWRITE[$conditionalAllowed]
+	|	stmtSequentialWRITE[$conditionalAllowed]
+		/* ordering */
 	|	stmtMERGE
 	|	stmtRELEASE
-	|	stmtRETURNimperative
+	|	stmtRETURN[$conditionalAllowed]
 	|	stmtSORT
 		/* procedure-branching */
 	|	stmtALTER
 	|	stmtGOTO
-	|	stmtPERFORMimperative
+	|	stmtPERFORM
 	|	stmtCONTINUE
-		/* program or method linkage (without the ON OVERFLOW phrase, and without the ON EXCEPTION or NOT ON EXCEPTION phrase) */
-	|	stmtCALLimperative
-	|	stmtCANCEL
-	|	stmtINVOKEimperative
-		/* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670 */
-		/* [...] a delimited scope statement can be specified wherever an imperative statement is allowed [...] */
-	|	delimitedScopeStatement
-	;
-
-/**
- * Conditional statement.
- * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=304&zoom=auto,-40,280
- */
-conditionalStatement :
-		/* arithmetic */
-		stmtADDconditional
-	|	stmtCOMPUTEconditional
-	|	stmtDIVIDEconditional
-	|	stmtMULTIPLYconditional
-	|	stmtSUBTRACTconditional
-		/* data movement */
-	|	stmtSTRINGconditional
-	|	stmtUNSTRINGconditional
-	|	stmtXMLGENERATEconditional
-	|	stmtXMLPARSEconditional
-		/* decision */
-	|	stmtEVALUATEconditional
-	|	stmtIF
-		/* input-output */
-	|	stmtDELETEconditional
-	|	stmtSequentialREADconditional
-	|	stmtRandomREADconditional
-	|	stmtREWRITEconditional
-	|	stmtSTARTconditional
-	|	stmtPageWRITEconditional
-	|	stmtSequentialWRITEconditional
-		/* ordering */
-	|	stmtRETURNconditional
 		/* program or method linkage */
-	|	stmtCALLconditional
-	|	stmtINVOKEconditional
+	|	stmtCANCEL
+	|	stmtCALL[$conditionalAllowed]
+	|	stmtINVOKE[$conditionalAllowed]
 		/* table-handling */
-	|	stmtSEARCHconditional
-	;
-
-/**
- * Delimited scope statement.
- * 
- * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=306&zoom=auto,-40,670
- */
-delimitedScopeStatement :
-		/* explicit scope terminator */
-		stmtADDdelimitedScope
-	|	stmtCALLdelimitedScope
-	|	stmtCOMPUTEdelimitedScope
-	|	stmtDELETEdelimitedScope
-	|	stmtDIVIDEdelimitedScope
-	|	stmtEVALUATEdelimitedScope
-	|	stmtIFdelimitedScope
-	|	stmtINVOKEdelimitedScope
-	|	stmtMULTIPLYdelimitedScope
-	|	stmtPERFORMdelimitedScope
-	|	stmtSequentialREADdelimitedScope
-	|	stmtRandomREADdelimitedScope
-	|	stmtRETURNdelimitedScope
-	|	stmtREWRITEdelimitedScope
-	|	stmtSEARCHdelimitedScope
-	|	stmtSTARTdelimitedScope
-	|	stmtSTRINGdelimitedScope
-	|	stmtSUBTRACTdelimitedScope
-	|	stmtUNSTRINGdelimitedScope
-	|	stmtPageWRITEdelimitedScope
-	|	stmtSequentialWRITEdelimitedScope
-	|	stmtXMLGENERATEdelimitedScope
-	|	stmtXMLPARSEdelimitedScope
+	|	stmtSEARCH[$conditionalAllowed]
 	;
 
 /**
@@ -200,9 +126,9 @@ givingPhrase : GIVING roundedPhrase+;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=309&zoom=auto,-40,340
  */
-sizeErrorPhrases : onSizeErrorPhrase? notOnSizeErrorPhrase?;
-onSizeErrorPhrase    :     ON? SIZE ERROR imperativeStatement;
-notOnSizeErrorPhrase : NOT ON? SIZE ERROR imperativeStatement;
+sizeErrorPhrases : onSizeErrorPhrase notOnSizeErrorPhrase? | notOnSizeErrorPhrase;
+onSizeErrorPhrase    :     ON? SIZE ERROR proceduralStatement[false];
+notOnSizeErrorPhrase : NOT ON? SIZE ERROR proceduralStatement[false];
 
 /**
  * EXCEPTION phrases.
@@ -210,9 +136,9 @@ notOnSizeErrorPhrase : NOT ON? SIZE ERROR imperativeStatement;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,410
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=337&zoom=auto,-40,230
  */
-exceptionPhrases : onExceptionPhrase? notOnExceptionPhrase?;
-onExceptionPhrase    :     ON? EXCEPTION imperativeStatement;
-notOnExceptionPhrase : NOT ON? EXCEPTION imperativeStatement;
+exceptionPhrases : onExceptionPhrase notOnExceptionPhrase? | notOnExceptionPhrase;
+onExceptionPhrase    :     ON? EXCEPTION proceduralStatement[false];
+notOnExceptionPhrase : NOT ON? EXCEPTION proceduralStatement[false];
 
 /**
  * OVERFLOW phrases.
@@ -220,35 +146,35 @@ notOnExceptionPhrase : NOT ON? EXCEPTION imperativeStatement;
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=338&zoom=auto,-40,700
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=468&zoom=auto,-40,630
  */
-overflowPhrases : onOverflowPhrase? notOnOverflowPhrase?;
-onOverflowPhrase    :     ON? OVERFLOW imperativeStatement;
-notOnOverflowPhrase : NOT ON? OVERFLOW imperativeStatement;
+overflowPhrases : onOverflowPhrase notOnOverflowPhrase? | notOnOverflowPhrase;
+onOverflowPhrase    :     ON? OVERFLOW proceduralStatement[false];
+notOnOverflowPhrase : NOT ON? OVERFLOW proceduralStatement[false];
 
 /**
  * INVALID KEY phrases.
  * 
  */
-invalidKeyPhrases : invalidKeyPhrase? notInvalidKeyPhrase?;
-invalidKeyPhrase    :     INVALID KEY? imperativeStatement;
-notInvalidKeyPhrase : NOT INVALID KEY? imperativeStatement;
+invalidKeyPhrases : invalidKeyPhrase notInvalidKeyPhrase? | notInvalidKeyPhrase;
+invalidKeyPhrase    :     INVALID KEY? proceduralStatement[false];
+notInvalidKeyPhrase : NOT INVALID KEY? proceduralStatement[false];
 
 /**
  * AT END phrases.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=425&zoom=auto,-40,190
  */
-atEndPhrases : atEndPhrase? notAtEndPhrase?;
-atEndPhrase    :     AT? END imperativeStatement;
-notAtEndPhrase : NOT AT? END imperativeStatement;
+atEndPhrases : atEndPhrase notAtEndPhrase? | notAtEndPhrase;
+atEndPhrase    :     AT? END proceduralStatement[false];
+notAtEndPhrase : NOT AT? END proceduralStatement[false];
 
 /**
  * AT END-OF-PAGE phrases.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=485&zoom=auto,-40,335
  */
-atEndOfPagePhrases : atEndOfPagePhrase? notAtEndOfPagePhrase?;
-atEndOfPagePhrase    :     AT? (END_OF_PAGE | EOP) imperativeStatement;
-notAtEndOfPagePhrase : NOT AT? (END_OF_PAGE | EOP) imperativeStatement;
+atEndOfPagePhrases : atEndOfPagePhrase notAtEndOfPagePhrase? | notAtEndOfPagePhrase;
+atEndOfPagePhrase    :     AT? (END_OF_PAGE | EOP) proceduralStatement[false];
+notAtEndOfPagePhrase : NOT AT? (END_OF_PAGE | EOP) proceduralStatement[false];
 
 /* here come the actual statements (all prefixed by stmt) */
 
@@ -271,15 +197,16 @@ stmtACCEPT :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=326&zoom=auto,-40,735
  */
-stmtADDimperative :
-		ADD (identifier | literal)+ TO roundedPhrase+
-	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase
-	|	ADD correspondingPhrase identifier TO roundedPhrase
+stmtADD[boolean conditionalAllowed] :
+		ADD (identifier | literal)+ TO roundedPhrase+ stmtADDtail[$conditionalAllowed]
+	|	ADD (identifier | literal)+ TO? (identifier | literal) givingPhrase stmtADDtail[$conditionalAllowed]
+	|	ADD correspondingPhrase identifier TO roundedPhrase stmtADDtail[$conditionalAllowed]
 	;
 
-stmtADDconditional : stmtADDimperative sizeErrorPhrases;
-
-stmtADDdelimitedScope : stmtADDconditional END_ADD;
+stmtADDtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_ADD
+	;
 
 /**
  * ALTER statement.
@@ -293,7 +220,9 @@ stmtALTER : ALTER (procedureName TO (PROCEED TO)? procedureName)+;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=331&zoom=auto,-40,735
  */
-stmtCALLimperative : CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)?;
+stmtCALL[boolean conditionalAllowed] :
+		CALL (identifier | literal /* | procedurePointer | functionPointer */) (USING callUsing+)? (RETURNING identifier)? stmtCALLtail[$conditionalAllowed]
+	;
 
 callUsing :
 		(BY? REFERENCE)? ((ADDRESS OF)? identifier /* | fileName */| OMITTED)+
@@ -301,9 +230,10 @@ callUsing :
 	|	BY? VALUE (((ADDRESS|LENGTH) OF)? identifier | literal)+
 	;
 
-stmtCALLconditional : stmtCALLimperative (exceptionPhrases | onOverflowPhrase);
-
-stmtCALLdelimitedScope : stmtCALLconditional END_CALL;
+stmtCALLtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? (exceptionPhrases | onOverflowPhrase)
+	|	(exceptionPhrases | onOverflowPhrase)? END_CALL
+	;
 
 /**
  * CANCEL statement.
@@ -324,11 +254,14 @@ stmtCLOSE : CLOSE (fileName ((REEL | UNIT) (FOR? REMOVAL | WITH NO REWIND) | WIT
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=345&zoom=auto,-40,735
  */
-stmtCOMPUTEimperative : COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression;
+stmtCOMPUTE[boolean conditionalAllowed] :
+		COMPUTE roundedPhrase+ (EQUAL | OP_EQUAL) arithmeticExpression stmtCOMPUTEtail[$conditionalAllowed]
+	;
 
-stmtCOMPUTEconditional : stmtCOMPUTEimperative sizeErrorPhrases;
-
-stmtCOMPUTEdelimitedScope : stmtCOMPUTEconditional END_COMPUTE;
+stmtCOMPUTEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_COMPUTE
+	;
 
 /**
  * CONTINUE statement.
@@ -342,11 +275,14 @@ stmtCONTINUE : CONTINUE;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=348&zoom=auto,-40,735
  */
-stmtDELETEimperative : DELETE fileName RECORD?;
+stmtDELETE[boolean conditionalAllowed] :
+		DELETE fileName RECORD? stmtDELETEtail[$conditionalAllowed]
+	;
 
-stmtDELETEconditional : stmtDELETEimperative invalidKeyPhrases;
-
-stmtDELETEdelimitedScope : stmtDELETEconditional END_DELETE;
+stmtDELETEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_DELETE
+	;
 
 /**
  * DISPLAY statement.
@@ -360,32 +296,37 @@ stmtDISPLAY : DISPLAY (identifier | literal)+ (UPON (mnemonicName | environmentN
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=353&zoom=auto,-40,735
  */
-stmtDIVIDEimperative :
-		DIVIDE (identifier | literal) INTO roundedPhrase+
-	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase
-	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier
+stmtDIVIDE[boolean conditionalAllowed] :
+		DIVIDE (identifier | literal) INTO roundedPhrase+ stmtDIVIDEtail[$conditionalAllowed]
+	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) givingPhrase stmtDIVIDEtail[$conditionalAllowed]
+	|	DIVIDE (identifier | literal) (INTO | BY) (identifier | literal) GIVING roundedPhrase REMAINDER identifier stmtDIVIDEtail[$conditionalAllowed]
 	;
 
-stmtDIVIDEconditional : stmtDIVIDEimperative sizeErrorPhrases;
-
-stmtDIVIDEdelimitedScope : stmtDIVIDEconditional END_DIVIDE;
+stmtDIVIDEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_DIVIDE
+	;
 
 /**
  * EVALUATE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=359&zoom=auto,-40,735
  */
-stmtEVALUATEconditional :
+stmtEVALUATE[boolean conditionalAllowed] :
 		EVALUATE
 		      (identifier | literal | arithmeticExpression | TRUE | FALSE)
 		(ALSO (identifier | literal | arithmeticExpression | TRUE | FALSE))*
-		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* imperativeStatement)+
-		(WHEN OTHER imperativeStatement)?
+		(WHEN evaluateWhenPhrase (ALSO evaluateWhenPhrase)* proceduralStatement[false])+
+		(WHEN OTHER proceduralStatement[false])?
+		stmtEVALUATEtail[$conditionalAllowed]
 	;
 
-stmtEVALUATEdelimitedScope : stmtEVALUATEconditional END_EVALUATE;
-
 evaluateWhenPhrase : (NOT? (identifier | literal | arithmeticExpression) ((THRU | THROUGH) (identifier | literal | arithmeticExpression))? | ANY | conditionalExpression | TRUE | FALSE );
+
+stmtEVALUATEtail[boolean conditionalAllowed] :
+		{$conditionalAllowed}?
+	|	END_EVALUATE
+	;
 
 /**
  * ENTRY statement.
@@ -426,9 +367,14 @@ stmtGOBACK : GOBACK;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=370&zoom=auto,-40,735
  */
-stmtIF : IF conditionalExpression THEN? (proceduralStatement+ | NEXT SENTENCE) (ELSE (proceduralStatement+ | NEXT SENTENCE))?;
+stmtIF[boolean conditionalAllowed] :
+		IF conditionalExpression THEN? (proceduralStatement[true]+ | NEXT SENTENCE) (ELSE (proceduralStatement[true]+ | NEXT SENTENCE))? stmtIFtail[$conditionalAllowed]
+	;
 
-stmtIFdelimitedScope : stmtIF END_IF;
+stmtIFtail[boolean conditionalAllowed] :
+		{$conditionalAllowed}?
+	|	END_IF
+	;
 
 /**
  * INITIALIZE statement.
@@ -464,15 +410,17 @@ inspectReplacingObject :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=385&zoom=auto,-40,735
  */
-stmtINVOKEimperative :
+stmtINVOKE[boolean conditionalAllowed] :
 		INVOKE (identifier | className | SELF | SUPER) (literal | identifier | NEW)
 		(USING (BY? VALUE ((LENGTH OF)? identifier | literal)+)+)?
 		(RETURNING identifier)?
+		stmtINVOKEtail[$conditionalAllowed]
 	;
 
-stmtINVOKEconditional : stmtINVOKEimperative exceptionPhrases;
-
-stmtINVOKEdelimitedScope : stmtINVOKEconditional END_INVOKE;
+stmtINVOKEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? exceptionPhrases
+	|	exceptionPhrases? END_INVOKE
+	;
 
 /**
  * MERGE statement.
@@ -501,14 +449,15 @@ stmtMOVE :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=405&zoom=auto,-40,735
  */
-stmtMULTIPLYimperative :
-		MULTIPLY (identifier | literal) BY roundedPhrase+
-	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase
+stmtMULTIPLY[boolean conditionalAllowed] :
+		MULTIPLY (identifier | literal) BY roundedPhrase+ stmtMULTIPLYtail[$conditionalAllowed]
+	|	MULTIPLY (identifier | literal) BY (identifier | literal) givingPhrase stmtMULTIPLYtail[$conditionalAllowed]
 	;
 
-stmtMULTIPLYconditional : stmtMULTIPLYimperative sizeErrorPhrases;
-
-stmtMULTIPLYdelimitedScope : stmtMULTIPLYconditional END_MULTIPLY;
+stmtMULTIPLYtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_MULTIPLY
+	;
 
 /**
  * OPEN statement.
@@ -529,9 +478,10 @@ openObject :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=413&zoom=auto,-40,735
  */
-stmtPERFORMimperative : PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?;
-
-stmtPERFORMdelimitedScope : PERFORM (performTimes | performUntil | performVarying)? proceduralStatement+ END_PERFORM;
+stmtPERFORM :
+		PERFORM procedureName ((THROUGH | THRU) procedureName)? (performTimes | performUntil | performVarying performVaryingAfterPhrase*)?
+	|	PERFORM (performTimes | performUntil | performVarying)? proceduralStatement[true]+ END_PERFORM
+	;
 
 performTimes : (identifier | INTEGER) TIMES;
 
@@ -546,17 +496,23 @@ performVaryingAfterPhrase: AFTER (identifier | indexName) FROM (identifier | ind
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=424&zoom=auto,-40,735
  */
-stmtSequentialREADimperative : READ fileName NEXT? RECORD? (INTO identifier)?;
+stmtSequentialREAD[boolean conditionalAllowed] :
+		READ fileName NEXT? RECORD? (INTO identifier)? stmtSequentialREADtail[$conditionalAllowed]
+	;
 
-stmtRandomREADimperative : READ fileName RECORD? (INTO identifier)? (KEY IS? dataName);
+stmtSequentialREADtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? atEndPhrases
+	|	atEndPhrases? END_READ
+	;
 
-stmtSequentialREADconditional : stmtSequentialREADimperative atEndPhrases;
+stmtRandomREAD[boolean conditionalAllowed] :
+		READ fileName RECORD? (INTO identifier)? (KEY IS? dataName) stmtRandomREADtail[$conditionalAllowed]
+	;
 
-stmtRandomREADconditional : stmtRandomREADimperative invalidKeyPhrases;
-
-stmtSequentialREADdelimitedScope : stmtSequentialREADconditional END_READ;
-
-stmtRandomREADdelimitedScope : stmtRandomREADconditional END_READ;
+stmtRandomREADtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_READ
+	;
 
 /**
  * RELEASE statement.
@@ -570,38 +526,47 @@ stmtRELEASE : RELEASE recordName (FROM identifier)?;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=433&zoom=auto,-40,735
  */
-stmtRETURNimperative : RETURN fileName RECORD? (INTO identifier)?;
+stmtRETURN[boolean conditionalAllowed] :
+		RETURN fileName RECORD? (INTO identifier)? stmtRETURNtail[$conditionalAllowed]
+	;
 
-stmtRETURNconditional : stmtRETURNimperative atEndPhrases;
-
-stmtRETURNdelimitedScope : stmtRETURNconditional END_RETURN;
+stmtRETURNtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? atEndPhrases
+	|	atEndPhrases? END_RETURN
+	;
 
 /**
  * REWRITE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=435&zoom=auto,-40,735
  */
-stmtREWRITEimperative : REWRITE recordName (FROM identifier);
+stmtREWRITE[boolean conditionalAllowed] :
+		REWRITE recordName (FROM identifier) stmtREWRITEtail[$conditionalAllowed]
+	;
 
-stmtREWRITEconditional : stmtREWRITEimperative invalidKeyPhrases;
-
-stmtREWRITEdelimitedScope : stmtREWRITEconditional END_REWRITE;
+stmtREWRITEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_REWRITE
+	;
 
 /**
  * SEARCH statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=438&zoom=auto,-40,735
  */
-stmtSEARCHconditional :
-		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (imperativeStatement | NEXT SENTENCE))+
-	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (imperativeStatement | NEXT SENTENCE)
+stmtSEARCH[boolean conditionalAllowed] :
+		SEARCH identifier (VARYING (identifier | indexName)) atEndPhrase? (WHEN conditionalExpression (proceduralStatement[false] | NEXT SENTENCE))+ stmtSEARCHtail[$conditionalAllowed]
+	|	SEARCH ALL identifier atEndPhrase? WHEN searchWhenPhrase (AND searchWhenPhrase)* (proceduralStatement[false] | NEXT SENTENCE) stmtSEARCHtail[$conditionalAllowed]
 	;
-
-stmtSEARCHdelimitedScope : stmtSEARCHconditional END_SEARCH;
 
 searchWhenPhrase :
 		dataName IS? (EQUAL TO? | OP_EQUAL) (identifier | literal | arithmeticExpression)
 	|	conditionalExpression
+	;
+
+stmtSEARCHtail[boolean conditionalAllowed] :
+		{$conditionalAllowed}?
+	|	END_SEARCH
 	;
 
 /**
@@ -636,11 +601,14 @@ stmtSORT :
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=462&zoom=auto,-40,735
  */
-stmtSTARTimperative : START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)?;
+stmtSTART[boolean conditionalAllowed] :
+		START fileName (KEY IS? (EQUAL TO? | OP_EQUAL | GREATER THAN? | OP_GREATER | NOT LESS THAN? | NOT OP_LESS | GREATER THAN? OR EQUAL TO? | OP_NOTLESS) dataName)? stmtSTARTtail[$conditionalAllowed]
+	;
 
-stmtSTARTconditional : stmtSTARTimperative invalidKeyPhrases;
-
-stmtSTARTdelimitedScope : stmtSTARTconditional END_START;
+stmtSTARTtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_START
+	;
 
 /**
  * STOP statement.
@@ -656,43 +624,49 @@ stmtSTOPRUN : STOP RUN;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=466&zoom=auto,-40,735
  */
-stmtSTRINGimperative : STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)?;
+stmtSTRING[boolean conditionalAllowed] :
+		STRING ((identifier | literal)+ DELIMITED BY? (identifier | literal | SIZE))+ INTO identifier (WITH? POINTER identifier)? stmtSTRINGtail[$conditionalAllowed]
+	;
 
-stmtSTRINGconditional : stmtSTRINGimperative overflowPhrases;
-
-stmtSTRINGdelimitedScope : stmtSTRINGconditional END_STRING;
+stmtSTRINGtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? overflowPhrases
+	|	overflowPhrases? END_STRING
+	;
 
 /**
  * SUBTRACT statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=471&zoom=auto,-40,735
  */
-stmtSUBTRACTimperative :
-		SUBTRACT (identifier | literal)+ FROM roundedPhrase+
-	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase
-	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase
+stmtSUBTRACT[boolean conditionalAllowed] :
+		SUBTRACT (identifier | literal)+ FROM roundedPhrase+ stmtSUBTRACTtail[$conditionalAllowed]
+	|	SUBTRACT (identifier | literal)+ FROM (identifier | literal) givingPhrase stmtSUBTRACTtail[$conditionalAllowed]
+	|	SUBTRACT correspondingPhrase identifier FROM roundedPhrase stmtSUBTRACTtail[$conditionalAllowed]
 	;
 
-stmtSUBTRACTconditional : stmtSUBTRACTimperative sizeErrorPhrases;
-
-stmtSUBTRACTdelimitedScope : stmtSUBTRACTconditional END_SUBTRACT;
+stmtSUBTRACTtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? sizeErrorPhrases
+	|	sizeErrorPhrases? END_SUBTRACT
+	;
 
 /**
  * UNSTRING statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=474&zoom=auto,-40,735
  */
-stmtUNSTRINGimperative :
+stmtUNSTRING[boolean conditionalAllowed] :
 		UNSTRING identifier
 		(DELIMITED BY? ALL? (identifier | literal) (OR ALL? (identifier | literal))*)?
 		INTO (identifier (DELIMITER IN? identifier)? (COUNT IN? identifier))+
 		(WITH? POINTER identifier)?
 		(TALLYING IN? identifier)?
+		stmtUNSTRINGtail[$conditionalAllowed]
 	;
 
-stmtUNSTRINGconditional : stmtUNSTRINGimperative overflowPhrases;
-
-stmtUNSTRINGdelimitedScope : stmtUNSTRINGconditional END_UNSTRING;
+stmtUNSTRINGtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? overflowPhrases
+	|	overflowPhrases? END_UNSTRING
+	;
 
 /**
  * WRITE statement.
@@ -701,24 +675,30 @@ stmtUNSTRINGdelimitedScope : stmtUNSTRINGconditional END_UNSTRING;
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=482&zoom=auto,-40,735
  */
-stmtPageWRITEimperative : WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))?;
+stmtPageWRITE[boolean conditionalAllowed] :
+		WRITE recordName (FROM identifier)? ((BEFORE | AFTER) ADVANCING? ((identifier | literal) (LINE | LINES) | mnemonicName | PAGE))? stmtPageWRITEtail[$conditionalAllowed]
+	;
 
-stmtSequentialWRITEimperative : WRITE recordName (FROM identifier)?;
+stmtPageWRITEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? atEndOfPagePhrases
+	|	atEndOfPagePhrases? END_WRITE
+	;
 
-stmtPageWRITEconditional : stmtPageWRITEimperative atEndOfPagePhrases;
+stmtSequentialWRITE[boolean conditionalAllowed] :
+		WRITE recordName (FROM identifier)? stmtSequentialWRITEtail[$conditionalAllowed]
+	;
 
-stmtSequentialWRITEconditional : stmtSequentialWRITEimperative invalidKeyPhrases;
-
-stmtPageWRITEdelimitedScope : stmtPageWRITEconditional END_WRITE;
-
-stmtSequentialWRITEdelimitedScope : stmtSequentialWRITEconditional END_WRITE;
+stmtSequentialWRITEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? invalidKeyPhrases
+	|	invalidKeyPhrases? END_WRITE
+	;
 
 /**
  * XML GENERATE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=490&zoom=auto,-40,735
  */
-stmtXMLGENERATEimperative :
+stmtXMLGENERATE[boolean conditionalAllowed] :
 		XML GENERATE identifier FROM identifier
 		(COUNT IN? identifier)?
 		(WITH? ENCODING (identifier | literal))?
@@ -728,11 +708,8 @@ stmtXMLGENERATEimperative :
 		(NAME OF? (identifier IS? literal)+)?
 		(TYPE OF? (identifier IS? (ATTRIBUTE | ELEMENT | CONTENT))+)?
 		(SUPPRESS (identifier xmlGenerateWhenPhrase? | genericSupressionPhrase)+)?
+		stmtXMLGENERATEtail[$conditionalAllowed]
 	;
-
-stmtXMLGENERATEconditional : stmtXMLGENERATEimperative exceptionPhrases;
-
-stmtXMLGENERATEdelimitedScope : stmtXMLGENERATEconditional END_XML;
 
 xmlGenerateWhenPhrase :
 		WHEN (ZERO | ZEROS | ZEROES | SPACE | SPACES | HIGH_VALUE | HIGH_VALUES | LOW_VALUE | LOW_VALUES)
@@ -741,19 +718,27 @@ xmlGenerateWhenPhrase :
 
 genericSupressionPhrase : (EVERY ((NUMERIC | NONNUMERIC)? (ATTRIBUTE | CONTENT | ELEMENT) | NUMERIC | NONNUMERIC))? xmlGenerateWhenPhrase;
 
+stmtXMLGENERATEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? exceptionPhrases
+	|	exceptionPhrases? END_XML
+	;
+
 /**
  * XML PARSE statement.
  * 
  * @see http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=502&zoom=auto,-40,735
  */
-stmtXMLPARSEimperative :
+stmtXMLPARSE[boolean conditionalAllowed] :
 		XML PARSE identifier
 		(WITH? ENCODING (identifier | literal))?
 		(RETURNING NATIONAL)?
 		(VALIDATING WITH? (identifier | FILE xmlSchemaName))?
 		PROCESSING PROCEDURE IS? procedureName ((THROUGH | THRU) procedureName)?
+		stmtXMLPARSEtail[$conditionalAllowed]
 	;
 
-stmtXMLPARSEconditional : stmtXMLPARSEimperative exceptionPhrases;
+stmtXMLPARSEtail[boolean conditionalAllowed] :
+	|	{$conditionalAllowed}? exceptionPhrases
+	|	exceptionPhrases? END_XML
+	;
 
-stmtXMLPARSEdelimitedScope : stmtXMLPARSEconditional END_XML;

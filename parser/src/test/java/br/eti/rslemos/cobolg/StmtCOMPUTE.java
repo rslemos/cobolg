@@ -25,15 +25,15 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtCOMPUTEContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtCOMPUTE {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCOMPUTE");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtCOMPUTEContext> helper = new CompilerHelper<StmtCOMPUTEContext>() {
+		@Override protected StmtCOMPUTEContext parsePart() { return parser.stmtCOMPUTE(true); }
 	};
 	
 	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W() {
@@ -80,6 +80,7 @@ public class StmtCOMPUTE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN_END_COMPUTE() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_ROUNDED_Y_EQUAL_Z_OP_STARSTAR_W_ON_SIZE_ERROR_STOP_RUN_END_COMPUTE.source"),
@@ -87,6 +88,7 @@ public class StmtCOMPUTE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN_END_COMPUTE() {
 		helper.compileAndVerify(
 				get("COMPUTE_X_Y_ROUNDED_OP_EQUAL_Z_OP_STAR_W_ON_SIZE_ERROR_STOP_RUN_END_COMPUTE.source"),

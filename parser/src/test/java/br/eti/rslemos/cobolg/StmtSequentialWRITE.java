@@ -26,15 +26,15 @@ import java.util.ResourceBundle;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtSequentialWRITEContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtSequentialWRITE {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtSequentialWRITE");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtSequentialWRITEContext> helper = new CompilerHelper<StmtSequentialWRITEContext>() {
+		@Override protected StmtSequentialWRITEContext parsePart() { return parser.stmtSequentialWRITE(true); }
 	};
 	
 	@Ignore
@@ -53,6 +53,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
@@ -60,6 +61,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),
@@ -85,6 +87,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE.source"),
@@ -92,6 +95,7 @@ public class StmtSequentialWRITE {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE() {
 		helper.compileAndVerify(
 				get("WRITE_RECNAME_FROM_X_INVALID_STOP_RUN_NOT_INVALID_STOP_RUN_END_WRITE.source"),

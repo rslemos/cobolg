@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.AtEndOfPagePhrasesContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class AtEndOfPagePhrases {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.atEndOfPagePhrases");
@@ -42,6 +43,7 @@ public class AtEndOfPagePhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void AT_END_OF_PAGE_STOP_RUN() {
 		helper.compileAndVerify(
 				get("AT_END_OF_PAGE_STOP_RUN.source"),
@@ -49,6 +51,7 @@ public class AtEndOfPagePhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void NOT_AT_END_OF_PAGE_STOP_RUN() {
 		helper.compileAndVerify(
 				get("NOT_AT_END_OF_PAGE_STOP_RUN.source"),
@@ -56,6 +59,7 @@ public class AtEndOfPagePhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void AT_END_OF_PAGE_STOP_RUN_NOT_AT_END_OF_PAGE_STOP_RUN() {
 		helper.compileAndVerify(
 				get("AT_END_OF_PAGE_STOP_RUN_NOT_AT_END_OF_PAGE_STOP_RUN.source"),
