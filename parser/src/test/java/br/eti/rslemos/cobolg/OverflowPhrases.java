@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.OverflowPhrasesContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class OverflowPhrases {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.overflowPhrases");
@@ -42,6 +43,7 @@ public class OverflowPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ON_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ON_OVERFLOW_STOP_RUN.source"),
@@ -49,6 +51,7 @@ public class OverflowPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void NOT_ON_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("NOT_ON_OVERFLOW_STOP_RUN.source"),
@@ -56,6 +59,7 @@ public class OverflowPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ON_OVERFLOW_STOP_RUN_NOT_ON_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ON_OVERFLOW_STOP_RUN_NOT_ON_OVERFLOW_STOP_RUN.source"),
@@ -63,6 +67,7 @@ public class OverflowPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("OVERFLOW_STOP_RUN.source"),
@@ -70,6 +75,7 @@ public class OverflowPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void NOT_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("NOT_OVERFLOW_STOP_RUN.source"),
@@ -77,6 +83,7 @@ public class OverflowPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void OVERFLOW_STOP_RUN_NOT_OVERFLOW_STOP_RUN() {
 		helper.compileAndVerify(
 				get("OVERFLOW_STOP_RUN_NOT_OVERFLOW_STOP_RUN.source"),

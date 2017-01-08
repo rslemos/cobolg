@@ -25,15 +25,15 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtADDContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtADD {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtADD");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtADDContext> helper = new CompilerHelper<StmtADDContext>() {
+		@Override protected StmtADDContext parsePart() { return parser.stmtADD(true); }
 	};
 	
 	@Test public void ADD_10_TO_X_Y_ROUNDED() {
@@ -253,6 +253,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -260,6 +261,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_20_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -267,6 +269,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -274,6 +277,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -281,6 +285,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -288,6 +293,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -295,6 +301,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -302,6 +309,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_20_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -309,6 +317,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -316,6 +325,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -323,6 +333,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -330,6 +341,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -337,6 +349,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -344,6 +357,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_20_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -351,6 +365,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -358,6 +373,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -365,6 +381,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -372,6 +389,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -379,6 +397,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -386,6 +405,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_20_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -393,6 +413,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -400,6 +421,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -407,6 +429,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -414,6 +437,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -421,6 +445,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -428,6 +453,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_20_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -435,6 +461,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -442,6 +469,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -449,6 +477,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -456,6 +485,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -463,6 +493,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_CORR_X_TO_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN() {
 		helper.compileAndVerify(
 				get("ADD_CORR_X_TO_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN.source"),
@@ -718,6 +749,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -725,6 +757,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_20_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -732,6 +765,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -739,6 +773,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -746,6 +781,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -753,6 +789,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_TO_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -760,6 +797,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -767,6 +805,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_20_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -774,6 +813,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -781,6 +821,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -788,6 +829,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -795,6 +837,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_TO_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -802,6 +845,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -809,6 +853,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_20_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -816,6 +861,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -823,6 +869,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -830,6 +877,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -837,6 +885,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_TO_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -844,6 +893,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -851,6 +901,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_20_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -858,6 +909,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -865,6 +917,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -872,6 +925,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -879,6 +933,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_30_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -886,6 +941,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -893,6 +949,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_20_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_20_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -900,6 +957,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_10_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_10_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -907,6 +965,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -914,6 +973,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_W_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_W_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -921,6 +981,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_Z_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_Z_10_K_GIVING_X_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),
@@ -928,6 +989,7 @@ public class StmtADD {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void ADD_CORR_X_TO_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD() {
 		helper.compileAndVerify(
 				get("ADD_CORR_X_TO_Y_ROUNDED_SIZE_ERROR_STOP_RUN_NOT_SIZE_ERROR_STOP_RUN_END_ADD.source"),

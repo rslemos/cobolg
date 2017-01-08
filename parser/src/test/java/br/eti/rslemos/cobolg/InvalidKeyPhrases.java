@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.InvalidKeyPhrasesContext;
+import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class InvalidKeyPhrases {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.invalidKeyPhrases");
@@ -42,6 +43,7 @@ public class InvalidKeyPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVALID_KEY_STOP_RUN.source"),
@@ -49,6 +51,7 @@ public class InvalidKeyPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("NOT_INVALID_KEY_STOP_RUN.source"),
@@ -56,6 +59,7 @@ public class InvalidKeyPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVALID_KEY_STOP_RUN_NOT_INVALID_KEY_STOP_RUN.source"),
@@ -63,6 +67,7 @@ public class InvalidKeyPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVALID_STOP_RUN.source"),
@@ -70,6 +75,7 @@ public class InvalidKeyPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("NOT_INVALID_STOP_RUN.source"),
@@ -77,6 +83,7 @@ public class InvalidKeyPhrases {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void INVALID_STOP_RUN_NOT_INVALID_STOP_RUN() {
 		helper.compileAndVerify(
 				get("INVALID_STOP_RUN_NOT_INVALID_STOP_RUN.source"),

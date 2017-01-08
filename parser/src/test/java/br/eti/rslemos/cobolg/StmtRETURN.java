@@ -25,15 +25,15 @@ import java.util.ResourceBundle;
 
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralStatementContext;
+import br.eti.rslemos.cobolg.COBOLParser.StmtRETURNContext;
 import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtRETURN {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtRETURN");
 	public static String get(String key) { return TEST_DATA.getString(key); }
 
-	private static CompilerHelper<ProceduralStatementContext> helper = new CompilerHelper<ProceduralStatementContext>() {
-		@Override protected ProceduralStatementContext parsePart() { return parser.proceduralStatement(); }
+	private static CompilerHelper<StmtRETURNContext> helper = new CompilerHelper<StmtRETURNContext>() {
+		@Override protected StmtRETURNContext parsePart() { return parser.stmtRETURN(true); }
 	};
 	
 	@Test public void RETURN_FILE_1() {
@@ -124,6 +124,7 @@ public class StmtRETURN {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_AT_END_STOP_RUN_END_RETURN.source"),
@@ -131,6 +132,7 @@ public class StmtRETURN {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_AT_END_STOP_RUN_END_RETURN.source"),
@@ -138,6 +140,7 @@ public class StmtRETURN {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_INTO_ID_1_AT_END_STOP_RUN_END_RETURN.source"),
@@ -145,6 +148,7 @@ public class StmtRETURN {
 			);
 	}
 	
+	@Waive({CompilationError.CONTEXT_SENSITIVITY, CompilationError.FULL_CONTEXT_ATTEMPT})
 	@Test public void RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN_END_RETURN() {
 		helper.compileAndVerify(
 				get("RETURN_FILE_1_RECORD_INTO_ID_1_AT_END_STOP_RUN_END_RETURN.source"),

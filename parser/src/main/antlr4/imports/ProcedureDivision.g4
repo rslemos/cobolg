@@ -68,4 +68,4 @@ namedProceduralParagraph :
 		proceduralSentence*
 	;
 
-proceduralSentence : proceduralStatement+ PERIOD;
+proceduralSentence : proceduralStatement[true]+ PERIOD;
