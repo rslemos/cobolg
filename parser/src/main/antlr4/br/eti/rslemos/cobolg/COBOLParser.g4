@@ -30,6 +30,23 @@ import Basics, IdentificationDivision, EnvironmentDivision, DataDivision, Proced
 
 options { tokenVocab = COBOLLexer; }
 
+unit :
+		batch
+	|	environmentDivision
+	|	environmentDivisionContent
+	|	specialNamesParagraph
+	|	specialNamesClause
+	|	fileControlParagraph
+	|	selectEntry
+	|	dataDivision
+	|	dataDivisionContent
+	|	fileDescriptionParagraph
+	|	fileDescriptionEntryClauses
+	|	recordDescriptionEntry
+	|	procedureDivision
+	|	procedureDivisionContent
+	;
+
 /**
  * Batch.
  * 

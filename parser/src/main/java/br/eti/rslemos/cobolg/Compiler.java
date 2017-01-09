@@ -47,7 +47,7 @@ import org.slf4j.LoggerFactory;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
-import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
+import br.eti.rslemos.cobolg.COBOLParser.UnitContext;
 import static java.lang.String.format;
 
 public abstract class Compiler {
@@ -84,9 +84,9 @@ public abstract class Compiler {
 		return parser;
 	}
 
-	public BatchContext compile() {
+	public UnitContext compile() {
 		CompilerStatementsContext preTree = this.preParser.compilerStatements();
-		BatchContext mainTree = this.mainParser.batch();
+		UnitContext mainTree = this.mainParser.unit();
 		
 		preProcess(preTree, mainTree);
 		
