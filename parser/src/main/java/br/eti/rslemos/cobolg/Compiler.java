@@ -30,10 +30,11 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.DefaultErrorStrategy;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
+import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.atn.PredictionMode;
 
-import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
+import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 
 public abstract class Compiler {
 	
@@ -44,18 +45,17 @@ public abstract class Compiler {
 
 	private Compiler (Lexer lexer) {
 		this.lexer = lexer;
-		this.lexer.removeErrorListeners();
 
-		lexer.reset();
-		CommonTokenStream preTokens = new CommonTokenStream(lexer, COBOLLexer.COMPILER_CHANNEL);
-		preTokens.fill();
+		TeeTokenSource tee = new TeeTokenSource(lexer);
 		
-		lexer.reset();
-		CommonTokenStream mainTokens = new CommonTokenStream(lexer);
-		mainTokens.fill();
+		TokenSource mainChannel = tee.splitChannel();
+		TokenSource preChannel = tee.splitChannel();
 		
-		preParser = setup(new COBOLParser(preTokens));
+		CommonTokenStream mainTokens = new CommonTokenStream(mainChannel);
+		CommonTokenStream preTokens = new CommonTokenStream(preChannel, COBOLLexer.COMPILER_CHANNEL);
+
 		mainParser = setup(new COBOLParser(mainTokens));
+		preParser = setup(new COBOLParser(preTokens));
 	}
 
 	private static <R extends Parser> R setup(R parser) {
