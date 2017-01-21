@@ -41,7 +41,7 @@ public class CompilerStatementsUnitTest {
 		@Override public T compile(String source, ANTLRErrorListener... listeners) {
 			T mainTree = super.compile(source/*, listeners*/); // to ignore "missing '.'" errors
 			CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-			compiler.preProcess(preTree, mainTree);
+			new CompilerStatementsProcessor().injectCompilerStatements(preTree, mainTree);
 			return mainTree;
 		}
 	}
