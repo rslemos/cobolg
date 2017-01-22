@@ -21,6 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.Compiler.parserForFreeFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -38,8 +39,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.*;
-import br.eti.rslemos.cobolg.COBOLParser.StmtMOVEContext;
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class FreeFormatUnitTest {
 	public static final String SOURCE = join(
@@ -103,7 +102,7 @@ public class FreeFormatUnitTest {
 	
 	@BeforeClass
 	public static void compile() throws Exception {
-		FreeFormatCompiler compiler = new FreeFormatCompiler(new StringReader(SOURCE));
+		Compiler compiler = parserForFreeFormat(new StringReader(SOURCE));
 		BatchContext tree0 = compiler.batch();
 		assertThat(tree0, is(not(nullValue(BatchContext.class))));
 		tree = tree0.program(0);

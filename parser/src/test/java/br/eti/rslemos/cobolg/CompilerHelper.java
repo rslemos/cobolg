@@ -21,6 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.Compiler.parserForFreeFormat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -32,8 +33,6 @@ import java.io.StringReader;
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ConsoleErrorListener;
 import org.antlr.v4.runtime.RuleContext;
-
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public abstract class CompilerHelper<T extends RuleContext> {
 	protected abstract T parsePart();
@@ -73,7 +72,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 	}
 
 	protected Compiler createCompiler(Reader source) throws IOException {
-		return new FreeFormatCompiler(source);
+		return parserForFreeFormat(source);
 	}
 
 	

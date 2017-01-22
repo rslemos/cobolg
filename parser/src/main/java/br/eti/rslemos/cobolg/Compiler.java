@@ -82,20 +82,28 @@ public abstract class Compiler {
 		preParser.addErrorListener(listener);
 	}
 	
-	public static class FreeFormatCompiler extends Compiler {
-		public FreeFormatCompiler(Reader source) throws IOException {
+	private static class FreeFormatCompiler extends Compiler {
+		private FreeFormatCompiler(Reader source) throws IOException {
 			super(new COBOLLexer(forANTLR(source)));
 		}
 	}
 
-	public static class FixedFormatCompiler extends Compiler {
-		public FixedFormatCompiler(Reader source) throws IOException {
+	private static class FixedFormatCompiler extends Compiler {
+		private FixedFormatCompiler(Reader source) throws IOException {
 			super(new COBOLLexer(forANTLR(stuffFixedWidthChars(source))));
 		}
 
 		private static StuffingReader stuffFixedWidthChars(Reader source) {
 			return new StuffingReader(source, 0, '\uEBA0', 6, '\uEBA1', 7, '\uEBA2', 72, '\uEBA3'/*, 80, '\uEBA4'*/);
 		}
+	}
+	
+	public static FreeFormatCompiler parserForFreeFormat(Reader source) throws IOException {
+		return new FreeFormatCompiler(source);
+	}
+	
+	public static FixedFormatCompiler parserForFixedFormat(Reader source) throws IOException {
+		return new FixedFormatCompiler(source);
 	}
 	
 	private static ANTLRInputStream forANTLR(Reader source) throws IOException {

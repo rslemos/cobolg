@@ -21,6 +21,8 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.Compiler.parserForFixedFormat;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ResourceBundle;
@@ -28,7 +30,6 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.AlphanumericLiteralContext;
-import br.eti.rslemos.cobolg.Compiler.FixedFormatCompiler;
 
 public class AlphanumericLiteralUnitTest {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.alphanumericLiteral");
@@ -36,7 +37,7 @@ public class AlphanumericLiteralUnitTest {
 
 	private static CompilerHelper<AlphanumericLiteralContext> helper = new CompilerHelper<AlphanumericLiteralContext>() {
 		@Override protected AlphanumericLiteralContext parsePart() { return parser.alphanumericLiteral(); }
-		@Override protected Compiler createCompiler(Reader source) throws IOException { return new FixedFormatCompiler(source); }
+		@Override protected Compiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
 	};
 
 	// the first tests are the same for the parser as they are for the lexer

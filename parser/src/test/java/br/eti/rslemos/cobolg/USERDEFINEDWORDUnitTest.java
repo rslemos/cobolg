@@ -22,13 +22,12 @@
 package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.COBOLLexer.USERDEFINEDWORD;
+import static br.eti.rslemos.cobolg.Compiler.parserForFreeFormat;
 
 import java.io.IOException;
 import java.io.Reader;
 
 import org.junit.Test;
-
-import br.eti.rslemos.cobolg.Compiler.FreeFormatCompiler;
 
 public class USERDEFINEDWORDUnitTest extends AbstractLexerUnitTest {
 	
@@ -52,6 +51,6 @@ public class USERDEFINEDWORDUnitTest extends AbstractLexerUnitTest {
 	@Test(expected = AssertionError.class) public void $2$0()     throws IOException { setSource("2-0");      matchToken(USERDEFINEDWORD, "2-0");      }
 
 	@Override protected Compiler getCompiler(Reader reader) throws IOException {
-		return new FreeFormatCompiler(reader);
+		return parserForFreeFormat(reader);
 	}
 }

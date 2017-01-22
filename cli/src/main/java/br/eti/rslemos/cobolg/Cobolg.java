@@ -148,10 +148,10 @@ public class Cobolg {
 
 	protected Compiler getCompiler(Reader source) throws IOException {
 		if (fixed)
-			return new Compiler.FixedFormatCompiler(source);
+			return Compiler.parserForFixedFormat(source);
 		
 		if (free)
-			return new Compiler.FreeFormatCompiler(source);
+			return Compiler.parserForFreeFormat(source);
 		
 		throw new Error();
 	}
