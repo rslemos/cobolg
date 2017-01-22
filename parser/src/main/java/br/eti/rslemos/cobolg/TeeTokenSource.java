@@ -29,7 +29,9 @@ import java.util.Deque;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.TokenFactory;
 import org.antlr.v4.runtime.TokenSource;
@@ -155,6 +157,20 @@ public class TeeTokenSource {
 		@Override
 		public TokenFactory<?> getTokenFactory() {
 			return underlying.getTokenFactory();
+		}
+
+		private void addErrorListener(ANTLRErrorListener listener) {
+			TeeTokenSource.this.addErrorListener(listener);
+		}
+	}
+
+	public void addErrorListener(ANTLRErrorListener listener) {
+		if (underlying instanceof Recognizer<?, ?>) {
+			Recognizer<?, ?> recognizer = (Recognizer<?, ?>)underlying;
+			recognizer.addErrorListener(listener);
+		} else if (underlying instanceof InternalTokenSource) {
+			InternalTokenSource internal = (InternalTokenSource)underlying;
+			internal.addErrorListener(listener);
 		}
 	}
 }

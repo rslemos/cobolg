@@ -22,7 +22,7 @@
 package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.COBOLLexer.*;
-import static br.eti.rslemos.cobolg.Compiler.parserForFreeFormat;
+import static br.eti.rslemos.cobolg.Compiler.lexerForFreeFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.io.Reader;
 
 import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.TokenSource;
 import org.junit.Test;
 
 public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
@@ -686,7 +687,7 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 	}
 
 	@Override
-	protected Compiler getCompiler(Reader reader) throws IOException {
-		return parserForFreeFormat(reader);
+	protected TokenSource getLexer(Reader reader) throws IOException {
+		return lexerForFreeFormat(reader);
 	}
 }

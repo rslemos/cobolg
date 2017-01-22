@@ -22,12 +22,13 @@
 package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.COBOLLexer.*;
-import static br.eti.rslemos.cobolg.Compiler.parserForFixedFormat;
+import static br.eti.rslemos.cobolg.Compiler.lexerForFixedFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 
 import java.io.IOException;
 import java.io.Reader;
 
+import org.antlr.v4.runtime.TokenSource;
 import org.junit.Test;
 
 public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
@@ -228,7 +229,7 @@ public class FixedFormatLexerUnitTest extends AbstractLexerUnitTest {
 	}
 
 	@Override
-	protected Compiler getCompiler(Reader reader) throws IOException {
-		return parserForFixedFormat(reader);
+	protected TokenSource getLexer(Reader reader) throws IOException {
+		return lexerForFixedFormat(reader);
 	}
 }

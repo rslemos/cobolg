@@ -63,6 +63,7 @@ public class Cobolg {
 
 	private transient CmdLineParser parser;
 
+	private COBOLLexer lexer;
 	private Compiler compiler;
 
 	private CollectErrorListener collect;
@@ -131,9 +132,9 @@ public class Cobolg {
 
 			String[] channelNames = new String[] {"BLANK", "MARK", "COMPILE", "DEFAULT"};
 			int[] channelMap = new int[] {3, 0, 1, 2};
-			TokenPrettyPrinter tokenPrinter = new TokenPrettyPrinter(TokenPrettyPrinter.BOXMODEL, out, compiler.lexer.getVocabulary(), channelNames, channelMap);
-			compiler.lexer.reset();
-			tokenPrinter.printTokens(compiler.lexer.getAllTokens());
+			TokenPrettyPrinter tokenPrinter = new TokenPrettyPrinter(TokenPrettyPrinter.BOXMODEL, out, lexer.getVocabulary(), channelNames, channelMap);
+			lexer.reset();
+			tokenPrinter.printTokens(lexer.getAllTokens());
 		}
 	}
 
@@ -148,11 +149,12 @@ public class Cobolg {
 
 	protected Compiler getCompiler(Reader source) throws IOException {
 		if (fixed)
-			return Compiler.parserForFixedFormat(source);
-		
-		if (free)
-			return Compiler.parserForFreeFormat(source);
-		
-		throw new Error();
+			lexer = Compiler.lexerForFixedFormat(source);
+		else if (free)
+			lexer = Compiler.lexerForFreeFormat(source);
+		else
+			throw new Error();
+
+		return new Compiler(new TeeTokenSource(lexer));
 	}
 }

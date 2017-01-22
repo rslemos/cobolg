@@ -38,15 +38,12 @@ import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 
 public class Compiler {
 	
-	final Lexer lexer;
-	
+	private final TeeTokenSource tee;
 	final COBOLParser preParser;
 	final COBOLParser mainParser;
 
-	private Compiler (Lexer lexer) {
-		this.lexer = lexer;
-
-		TeeTokenSource tee = new TeeTokenSource(lexer);
+	public Compiler (TeeTokenSource tee) {
+		this.tee = tee;
 		
 		TokenSource mainChannel = tee.splitChannel();
 		TokenSource preChannel = tee.splitChannel();
@@ -77,17 +74,25 @@ public class Compiler {
 	}
 	
 	public void addErrorListener(ANTLRErrorListener listener) {
-		lexer.addErrorListener(listener);
+		tee.addErrorListener(listener);
 		mainParser.addErrorListener(listener);
 		preParser.addErrorListener(listener);
 	}
 	
 	public static Compiler parserForFreeFormat(Reader source) throws IOException {
-		return new Compiler(new COBOLLexer(forANTLR(source)));
+		return new Compiler(new TeeTokenSource(lexerForFreeFormat(source)));
+	}
+
+	public static COBOLLexer lexerForFreeFormat(Reader source) throws IOException {
+		return new COBOLLexer(forANTLR(source));
 	}
 	
 	public static Compiler parserForFixedFormat(Reader source) throws IOException {
-		return new Compiler(new COBOLLexer(forANTLR(stuffFixedWidthChars(source))));
+		return new Compiler(new TeeTokenSource(lexerForFixedFormat(source)));
+	}
+
+	public static COBOLLexer lexerForFixedFormat(Reader source) throws IOException {
+		return new COBOLLexer(forANTLR(stuffFixedWidthChars(source)));
 	}
 	
 	private static StuffingReader stuffFixedWidthChars(Reader source) {
