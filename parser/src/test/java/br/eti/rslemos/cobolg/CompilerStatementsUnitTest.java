@@ -21,11 +21,17 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static org.junit.Assert.fail;
+
+import java.lang.reflect.Field;
 import java.util.ResourceBundle;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.test.runtime.CommentHasStringValue;
 import org.junit.Test;
+import org.junit.experimental.runners.Enclosed;
+import org.junit.runner.RunWith;
 
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
@@ -33,6 +39,7 @@ import br.eti.rslemos.cobolg.COBOLParser.ProceduralSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
 import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 
+//@RunWith(Enclosed.class)
 public class CompilerStatementsUnitTest {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.compilerStatements");
 	public static String get(String key) { return TEST_DATA.getString(key); }
@@ -61,7 +68,70 @@ public class CompilerStatementsUnitTest {
 	private static CompilerHelper<ProceduralSentenceContext> psHelper = new PreCompilerHelper<ProceduralSentenceContext>() {
 		@Override protected ProceduralSentenceContext parsePart() { return compiler.mainParser.proceduralSentence(); }
 	};
+
+	static class TestGrammar {
+		private static final String PREFIX = "		  ";
+		
+		@Test public void test() {
+			String source = clean((String)get("source"));
+			String tree = StmtIFData.flatten(clean((String)get("tree")));
+			
+			CompilerHelper<?> helper = get("helper");
+			helper.compileAndVerify(source, tree);
+		}
+
+		private String clean(String string) {
+			return string.replaceAll("\n" + PREFIX, "\n").replaceAll("^\\s*\n", "").replaceAll("\n\\s*$", "");
+		}
+
+		@SuppressWarnings("unchecked")
+		private <T> T get(String name) {
+			try {
+				return (T) getClass().getField(name).get(this);
+			} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
+				fail(String.format("getting %s: %s", name, e.getMessage()));
+				return null;
+			}
+			
+		}
+	}
 	
+	public static class NoCompilerStatements extends TestGrammar {
+		public final CompilerHelper<ProgramContext> helper = programHelper;
+		/** 
+		  IDENTIFICATION DIVISION.
+		  PROGRAM-ID. X.
+		  PROCEDURE DIVISION.
+		      STOP RUN.
+		*/
+		@CommentHasStringValue
+		public String source;
+		
+		/** 
+		  (program 
+		  	(identificationDivision IDENTIFICATION DIVISION . 
+		  		PROGRAM-ID . (programName X) . 
+		  		identificationDivisionContent
+		  	) 
+		  	(procedureDivision PROCEDURE DIVISION . 
+		  		(procedureDivisionContent 
+		  			(unnamedProceduralSection 
+		  				(unnamedProceduralParagraph 
+		  					(proceduralSentence 
+		  						(proceduralStatement 
+		  							(stmtSTOPRUN STOP RUN)
+		  						) 
+		  					.)
+		  				)
+		  			)
+		  		)
+		  	)
+		  )
+		*/
+		@CommentHasStringValue
+		public String tree;
+	};
+
 	@Test public void NoCompilerStatements () {
 		programHelper.compileAndVerify(
 				get("NoCompilerStatements.source"),
