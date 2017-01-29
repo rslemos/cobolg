@@ -27,75 +27,69 @@ import static br.eti.rslemos.cobolg.SimpleCompiler.setup;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.List;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.TokenSource;
 
-import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
-import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProceduralSentenceContext;
-import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
-import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 
-public class PostProcessingCompiler extends BaseCompiler {
+public class PostProcessingCompiler {
+	private static class PostProcessingCompilerIH implements InvocationHandler { 
+		private final TeeTokenSource tee;
+		private final SimpleCompiler main;
 	
-	final COBOLParser preParser;
-
-	private PostProcessingCompiler (TeeTokenSource tee) {
-		super(new SimpleCompiler(tee.splitChannel()));
-		
-		TokenSource preChannel = tee.splitChannel();
-		
-		CommonTokenStream preTokens = new CommonTokenStream(preChannel, COBOLLexer.COMPILER_CHANNEL);
-
-		preParser = setup(new COBOLParser(preTokens));
-	}
-
-	@Override public BatchContext batch() {
-		return postProcess(super.batch());
-	}
+		private PostProcessingCompilerIH (TeeTokenSource tee) {
+			this.tee = tee;
+			main = new SimpleCompiler(tee.splitChannel());
+		}
 	
-	@Override public FileSectionContext fileSection() {
-		return postProcess(super.fileSection());
-	}
-
-	@Override public ProceduralSentenceContext proceduralSentence() {
-		return postProcess(super.proceduralSentence());
-	}
-
-	@Override public ProgramContext program() {
-		return postProcess(super.program());
-	}
-
-	@Override public WorkingStorageSectionContext workingStorageSection() {
-		return postProcess(super.workingStorageSection());
-	}
-
-	private <T extends ParserRuleContext> T postProcess(T mainTree) {
-		CompilerStatementsContext preTree = this.preParser.compilerStatements();
-
-		new CompilerStatementsProcessor().injectCompilerStatements(preTree, mainTree);
-		
-		return mainTree;
+		@Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+			if (ParserRuleContext.class.isAssignableFrom(method.getReturnType())) {
+				return postProcess(tee.splitChannel(), (ParserRuleContext)method.invoke(main, args));
+			} else {
+				return method.invoke(main, args);
+			}
+		}
+	
+		private <T extends ParserRuleContext> T postProcess(TokenSource preChannel, T mainTree) {
+			tee.disconnect(preChannel);
+			
+			COBOLParser preParser = setup(new COBOLParser(new CommonTokenStream(preChannel, COBOLLexer.COMPILER_CHANNEL)));
+			List<? extends ANTLRErrorListener> listeners = main.getErrorListeners();
+			for (ANTLRErrorListener listener : listeners)
+				preParser.addErrorListener(listener);
+			
+			CompilerStatementsContext preTree = preParser.compilerStatements();
+			
+			new CompilerStatementsProcessor().injectCompilerStatements(preTree, mainTree);
+			
+			return mainTree;
+		}
 	}
 	
-	@Override public void addErrorListener(ANTLRErrorListener listener) {
-		super.addErrorListener(listener);
-		preParser.addErrorListener(listener);
+	public static Compiler newParser(COBOLLexer lexer) {
+		try {
+			return (Compiler) Proxy.newProxyInstance(
+					Compiler.class.getClassLoader(), 
+					new Class<?>[]{ Compiler.class }, 
+					new PostProcessingCompilerIH(new TeeTokenSource(lexer))
+				);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
-	public static PostProcessingCompiler newParser(COBOLLexer lexer) {
-		return new PostProcessingCompiler(new TeeTokenSource(lexer));
-	}
-	
-	public static PostProcessingCompiler parserForFreeFormat(Reader source) throws IOException {
+	public static Compiler parserForFreeFormat(Reader source) throws IOException {
 		return newParser(lexerForFreeFormat(source));
 	}
 
-	public static PostProcessingCompiler parserForFixedFormat(Reader source) throws IOException {
+	public static Compiler parserForFixedFormat(Reader source) throws IOException {
 		return newParser(lexerForFixedFormat(source));
 	}
 }
