@@ -121,7 +121,7 @@ public class Cobolg {
 		if (printTree) {
 			PrintStream out = new PrintStream(System.out, true, "UTF-8");
 
-			new ParseTreePrettyPrinter(out, compiler.mainParser).printTree(batch);
+			new ParseTreePrettyPrinter(out, COBOLParser.ruleNames).printTree(batch);
 		}
 	}
 
