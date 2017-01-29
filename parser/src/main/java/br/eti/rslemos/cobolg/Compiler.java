@@ -67,7 +67,7 @@ public abstract class Compiler {
 		return parser;
 	}
 
-	public BatchContext compile() {
+	public BatchContext batch() {
 		CompilerStatementsContext preTree = this.preParser.compilerStatements();
 		BatchContext mainTree = this.mainParser.batch();
 		

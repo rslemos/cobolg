@@ -138,7 +138,7 @@ public class Cobolg {
 	}
 
 	private BatchContext compile() throws IOException {
-		return compiler.compile();
+		return compiler.batch();
 	}
 
 	private void createCompiler(Reader source) throws IOException {
