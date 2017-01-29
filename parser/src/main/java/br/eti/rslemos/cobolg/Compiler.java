@@ -42,8 +42,8 @@ public class Compiler {
 	final COBOLParser preParser;
 	final COBOLParser mainParser;
 
-	public Compiler (TeeTokenSource tee) {
-		this.tee = tee;
+	private Compiler (TokenSource s) {
+		this.tee = new TeeTokenSource(s);
 		
 		TokenSource mainChannel = tee.splitChannel();
 		TokenSource preChannel = tee.splitChannel();
@@ -79,8 +79,12 @@ public class Compiler {
 		preParser.addErrorListener(listener);
 	}
 	
+	public static Compiler newParser(Lexer lexer) {
+		return new Compiler(lexer);
+	}
+	
 	public static Compiler parserForFreeFormat(Reader source) throws IOException {
-		return new Compiler(new TeeTokenSource(lexerForFreeFormat(source)));
+		return newParser(lexerForFreeFormat(source));
 	}
 
 	public static COBOLLexer lexerForFreeFormat(Reader source) throws IOException {
@@ -88,7 +92,7 @@ public class Compiler {
 	}
 	
 	public static Compiler parserForFixedFormat(Reader source) throws IOException {
-		return new Compiler(new TeeTokenSource(lexerForFixedFormat(source)));
+		return newParser(lexerForFixedFormat(source));
 	}
 
 	public static COBOLLexer lexerForFixedFormat(Reader source) throws IOException {

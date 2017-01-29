@@ -29,7 +29,6 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
 
-import org.antlr.v4.runtime.Token;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -155,6 +154,6 @@ public class Cobolg {
 		else
 			throw new Error();
 
-		return new Compiler(new TeeTokenSource(lexer));
+		return Compiler.newParser(lexer);
 	}
 }
