@@ -36,11 +36,10 @@ import org.antlr.v4.runtime.atn.PredictionMode;
 import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 
-public class Compiler {
+public class Compiler extends BaseCompiler {
 	
 	private final TeeTokenSource tee;
 	final COBOLParser preParser;
-	final COBOLParser mainParser;
 
 	private Compiler (TokenSource s) {
 		this.tee = new TeeTokenSource(s);
@@ -75,7 +74,7 @@ public class Compiler {
 	
 	public void addErrorListener(ANTLRErrorListener listener) {
 		tee.addErrorListener(listener);
-		mainParser.addErrorListener(listener);
+		super.addErrorListener(listener);
 		preParser.addErrorListener(listener);
 	}
 	
