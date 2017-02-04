@@ -21,6 +21,10 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.PostProcessingCompiler.parserForFreeFormat;
+
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ResourceBundle;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
@@ -40,9 +44,13 @@ public class CompilerStatementsUnitTest {
 	private static abstract class PreCompilerHelper<T extends ParserRuleContext> extends CompilerHelper<T> {
 		@Override public T compile(String source, ANTLRErrorListener... listeners) {
 			T mainTree = super.compile(source/*, listeners*/); // to ignore "missing '.'" errors
-			CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
+			CompilerStatementsContext preTree = ((PostProcessingCompiler)compiler).preParser.compilerStatements();
 			new CompilerStatementsProcessor().injectCompilerStatements(preTree, mainTree);
 			return mainTree;
+		}
+		
+		protected BaseCompiler createCompiler(Reader source) throws IOException {
+			return parserForFreeFormat(source);
 		}
 	}
 	

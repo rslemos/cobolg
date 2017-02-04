@@ -148,12 +148,12 @@ public class Cobolg {
 
 	protected PostProcessingCompiler getCompiler(Reader source) throws IOException {
 		if (fixed)
-			lexer = PostProcessingCompiler.lexerForFixedFormat(source);
+			lexer = SimpleCompiler.lexerForFixedFormat(source);
 		else if (free)
-			lexer = PostProcessingCompiler.lexerForFreeFormat(source);
+			lexer = SimpleCompiler.lexerForFreeFormat(source);
 		else
 			throw new Error();
-
+		
 		return PostProcessingCompiler.newParser(lexer);
 	}
 }

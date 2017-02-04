@@ -21,29 +21,25 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.SimpleCompiler.lexerForFixedFormat;
+import static br.eti.rslemos.cobolg.SimpleCompiler.lexerForFreeFormat;
+import static br.eti.rslemos.cobolg.SimpleCompiler.setup;
+
 import java.io.IOException;
 import java.io.Reader;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
-import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.DefaultErrorStrategy;
-import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenSource;
-import org.antlr.v4.runtime.atn.PredictionMode;
 
 import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 
 public class PostProcessingCompiler extends BaseCompiler {
 	
-	private final TeeTokenSource tee;
 	final COBOLParser preParser;
 
-	private PostProcessingCompiler (TokenSource s) {
-		this.tee = new TeeTokenSource(s);
-		
+	private PostProcessingCompiler (TeeTokenSource tee) {
 		TokenSource mainChannel = tee.splitChannel();
 		TokenSource preChannel = tee.splitChannel();
 		
@@ -52,15 +48,6 @@ public class PostProcessingCompiler extends BaseCompiler {
 
 		mainParser = setup(new COBOLParser(mainTokens));
 		preParser = setup(new COBOLParser(preTokens));
-	}
-
-	private static <R extends Parser> R setup(R parser) {
-		parser.removeErrorListeners();
-		parser.setErrorHandler(new DefaultErrorStrategy());
-		parser.getInterpreter().setPredictionMode(PredictionMode.LL_EXACT_AMBIG_DETECTION);
-		parser.setBuildParseTree(true);
-		
-		return parser;
 	}
 
 	public BatchContext batch() {
@@ -73,36 +60,19 @@ public class PostProcessingCompiler extends BaseCompiler {
 	}
 	
 	public void addErrorListener(ANTLRErrorListener listener) {
-		tee.addErrorListener(listener);
 		super.addErrorListener(listener);
 		preParser.addErrorListener(listener);
 	}
-	
-	public static PostProcessingCompiler newParser(Lexer lexer) {
-		return new PostProcessingCompiler(lexer);
+
+	public static PostProcessingCompiler newParser(COBOLLexer lexer) {
+		return new PostProcessingCompiler(new TeeTokenSource(lexer));
 	}
 	
 	public static PostProcessingCompiler parserForFreeFormat(Reader source) throws IOException {
 		return newParser(lexerForFreeFormat(source));
 	}
 
-	public static COBOLLexer lexerForFreeFormat(Reader source) throws IOException {
-		return new COBOLLexer(forANTLR(source));
-	}
-	
 	public static PostProcessingCompiler parserForFixedFormat(Reader source) throws IOException {
 		return newParser(lexerForFixedFormat(source));
-	}
-
-	public static COBOLLexer lexerForFixedFormat(Reader source) throws IOException {
-		return new COBOLLexer(forANTLR(stuffFixedWidthChars(source)));
-	}
-	
-	private static StuffingReader stuffFixedWidthChars(Reader source) {
-		return new StuffingReader(source, 0, '\uEBA0', 6, '\uEBA1', 7, '\uEBA2', 72, '\uEBA3'/*, 80, '\uEBA4'*/);
-	}
-	
-	private static ANTLRInputStream forANTLR(Reader source) throws IOException {
-		return new ANTLRInputStream(source);
 	}
 }

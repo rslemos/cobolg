@@ -21,7 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.PostProcessingCompiler.parserForFixedFormat;
+import static br.eti.rslemos.cobolg.SimpleCompiler.parserForFixedFormat;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -37,7 +37,7 @@ public class AlphanumericLiteralUnitTest {
 
 	private static CompilerHelper<AlphanumericLiteralContext> helper = new CompilerHelper<AlphanumericLiteralContext>() {
 		@Override protected AlphanumericLiteralContext parsePart() { return parser.alphanumericLiteral(); }
-		@Override protected PostProcessingCompiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
+		@Override protected SimpleCompiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
 	};
 
 	// the first tests are the same for the parser as they are for the lexer

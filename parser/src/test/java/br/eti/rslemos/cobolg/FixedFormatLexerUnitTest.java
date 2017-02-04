@@ -22,7 +22,7 @@
 package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.COBOLLexer.*;
-import static br.eti.rslemos.cobolg.PostProcessingCompiler.lexerForFixedFormat;
+import static br.eti.rslemos.cobolg.SimpleCompiler.lexerForFixedFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 
 import java.io.IOException;
