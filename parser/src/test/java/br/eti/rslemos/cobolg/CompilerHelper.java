@@ -21,7 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.Compiler.parserForFreeFormat;
+import static br.eti.rslemos.cobolg.PostProcessingCompiler.parserForFreeFormat;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -38,7 +38,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 	protected abstract T parsePart();
 	
 	protected COBOLParser parser;
-	protected Compiler compiler;
+	protected PostProcessingCompiler compiler;
 	
 	public T compile(String source, ANTLRErrorListener... listeners) {
 		prepare(source, listeners);
@@ -71,7 +71,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 		}
 	}
 
-	protected Compiler createCompiler(Reader source) throws IOException {
+	protected PostProcessingCompiler createCompiler(Reader source) throws IOException {
 		return parserForFreeFormat(source);
 	}
 

@@ -2,7 +2,7 @@
  * BEGIN COPYRIGHT NOTICE
  * 
  * This file is part of program "cobolg"
- * Copyright 2015  Rodrigo Lemos
+ * Copyright 2017  Rodrigo Lemos
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,12 +36,12 @@ import org.antlr.v4.runtime.atn.PredictionMode;
 import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 
-public class Compiler extends BaseCompiler {
+public class PostProcessingCompiler extends BaseCompiler {
 	
 	private final TeeTokenSource tee;
 	final COBOLParser preParser;
 
-	private Compiler (TokenSource s) {
+	private PostProcessingCompiler (TokenSource s) {
 		this.tee = new TeeTokenSource(s);
 		
 		TokenSource mainChannel = tee.splitChannel();
@@ -78,11 +78,11 @@ public class Compiler extends BaseCompiler {
 		preParser.addErrorListener(listener);
 	}
 	
-	public static Compiler newParser(Lexer lexer) {
-		return new Compiler(lexer);
+	public static PostProcessingCompiler newParser(Lexer lexer) {
+		return new PostProcessingCompiler(lexer);
 	}
 	
-	public static Compiler parserForFreeFormat(Reader source) throws IOException {
+	public static PostProcessingCompiler parserForFreeFormat(Reader source) throws IOException {
 		return newParser(lexerForFreeFormat(source));
 	}
 
@@ -90,7 +90,7 @@ public class Compiler extends BaseCompiler {
 		return new COBOLLexer(forANTLR(source));
 	}
 	
-	public static Compiler parserForFixedFormat(Reader source) throws IOException {
+	public static PostProcessingCompiler parserForFixedFormat(Reader source) throws IOException {
 		return newParser(lexerForFixedFormat(source));
 	}
 

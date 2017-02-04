@@ -21,7 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.Compiler.parserForFreeFormat;
+import static br.eti.rslemos.cobolg.PostProcessingCompiler.parserForFreeFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -102,7 +102,7 @@ public class FreeFormatUnitTest {
 	
 	@BeforeClass
 	public static void compile() throws Exception {
-		Compiler compiler = parserForFreeFormat(new StringReader(SOURCE));
+		PostProcessingCompiler compiler = parserForFreeFormat(new StringReader(SOURCE));
 		BatchContext tree0 = compiler.batch();
 		assertThat(tree0, is(not(nullValue(BatchContext.class))));
 		tree = tree0.program(0);

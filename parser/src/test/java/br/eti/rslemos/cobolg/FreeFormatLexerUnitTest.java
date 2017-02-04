@@ -22,7 +22,7 @@
 package br.eti.rslemos.cobolg;
 
 import static br.eti.rslemos.cobolg.COBOLLexer.*;
-import static br.eti.rslemos.cobolg.Compiler.lexerForFreeFormat;
+import static br.eti.rslemos.cobolg.PostProcessingCompiler.lexerForFreeFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
