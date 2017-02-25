@@ -41,7 +41,7 @@ public class LiteralUnitTest {
 	// alphanumeric tests are in fixed format
 	private static CompilerHelper<LiteralContext> fixedHelper = new CompilerHelper<LiteralContext>() {
 		@Override protected LiteralContext parsePart() { return parser.literal(); }
-		@Override protected SimpleCompiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
+		@Override protected Compiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
 		@Override public void compileAndVerify(String source, String expectedTree) {
 			super.compileAndVerify(source, "(literal " + expectedTree + ")");
 		}

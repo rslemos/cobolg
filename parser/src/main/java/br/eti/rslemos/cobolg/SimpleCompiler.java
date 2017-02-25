@@ -32,20 +32,11 @@ import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.atn.PredictionMode;
 
-import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
+public class SimpleCompiler extends COBOLParser implements Compiler {
 
-public class SimpleCompiler extends BaseCompiler {
-	
-	private final TeeTokenSource tee;
-
-	private SimpleCompiler (TokenSource s) {
-		this.tee = new TeeTokenSource(s);
-
-		TokenSource mainChannel = tee.splitChannel();
-		
-		CommonTokenStream mainTokens = new CommonTokenStream(mainChannel);
-
-		mainParser = setup(new COBOLParser(mainTokens));
+	SimpleCompiler (TokenSource s) {
+		super(new CommonTokenStream(s));
+		setup(this);
 	}
 
 	static <R extends Parser> R setup(R parser) {
@@ -57,10 +48,6 @@ public class SimpleCompiler extends BaseCompiler {
 		return parser;
 	}
 
-	public BatchContext batch() {
-		return mainParser.batch();
-	}
-	
 	public static SimpleCompiler newParser(Lexer lexer) {
 		return new SimpleCompiler(lexer);
 	}

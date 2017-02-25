@@ -102,7 +102,7 @@ public class FreeFormatUnitTest {
 	
 	@BeforeClass
 	public static void compile() throws Exception {
-		PostProcessingCompiler compiler = parserForFreeFormat(new StringReader(SOURCE));
+		Compiler compiler = parserForFreeFormat(new StringReader(SOURCE));
 		BatchContext tree0 = compiler.batch();
 		assertThat(tree0, is(not(nullValue(BatchContext.class))));
 		tree = tree0.program(0);

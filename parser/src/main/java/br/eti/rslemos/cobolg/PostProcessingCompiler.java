@@ -30,36 +30,59 @@ import java.io.Reader;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.TokenSource;
 
 import br.eti.rslemos.cobolg.COBOLParser.BatchContext;
 import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
+import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
+import br.eti.rslemos.cobolg.COBOLParser.ProceduralSentenceContext;
+import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
+import br.eti.rslemos.cobolg.COBOLParser.WorkingStorageSectionContext;
 
 public class PostProcessingCompiler extends BaseCompiler {
 	
 	final COBOLParser preParser;
 
 	private PostProcessingCompiler (TeeTokenSource tee) {
-		TokenSource mainChannel = tee.splitChannel();
+		super(new SimpleCompiler(tee.splitChannel()));
+		
 		TokenSource preChannel = tee.splitChannel();
 		
-		CommonTokenStream mainTokens = new CommonTokenStream(mainChannel);
 		CommonTokenStream preTokens = new CommonTokenStream(preChannel, COBOLLexer.COMPILER_CHANNEL);
 
-		mainParser = setup(new COBOLParser(mainTokens));
 		preParser = setup(new COBOLParser(preTokens));
 	}
 
-	public BatchContext batch() {
+	@Override public BatchContext batch() {
+		return postProcess(super.batch());
+	}
+	
+	@Override public FileSectionContext fileSection() {
+		return postProcess(super.fileSection());
+	}
+
+	@Override public ProceduralSentenceContext proceduralSentence() {
+		return postProcess(super.proceduralSentence());
+	}
+
+	@Override public ProgramContext program() {
+		return postProcess(super.program());
+	}
+
+	@Override public WorkingStorageSectionContext workingStorageSection() {
+		return postProcess(super.workingStorageSection());
+	}
+
+	private <T extends ParserRuleContext> T postProcess(T mainTree) {
 		CompilerStatementsContext preTree = this.preParser.compilerStatements();
-		BatchContext mainTree = this.mainParser.batch();
-		
+
 		new CompilerStatementsProcessor().injectCompilerStatements(preTree, mainTree);
 		
 		return mainTree;
 	}
 	
-	public void addErrorListener(ANTLRErrorListener listener) {
+	@Override public void addErrorListener(ANTLRErrorListener listener) {
 		super.addErrorListener(listener);
 		preParser.addErrorListener(listener);
 	}

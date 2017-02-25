@@ -63,7 +63,7 @@ public class Cobolg {
 	private transient CmdLineParser parser;
 
 	private COBOLLexer lexer;
-	private PostProcessingCompiler compiler;
+	private Compiler compiler;
 
 	private CollectErrorListener collect;
 
@@ -146,7 +146,7 @@ public class Cobolg {
 		compiler.addErrorListener(collect);
 	}
 
-	protected PostProcessingCompiler getCompiler(Reader source) throws IOException {
+	protected Compiler getCompiler(Reader source) throws IOException {
 		if (fixed)
 			lexer = SimpleCompiler.lexerForFixedFormat(source);
 		else if (free)

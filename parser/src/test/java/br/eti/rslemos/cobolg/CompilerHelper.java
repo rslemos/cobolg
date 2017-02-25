@@ -29,16 +29,19 @@ import static org.junit.Assert.assertThat;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.Arrays;
+import java.util.List;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ConsoleErrorListener;
 import org.antlr.v4.runtime.RuleContext;
 
 public abstract class CompilerHelper<T extends RuleContext> {
+	private static final List<String> ruleNames = Arrays.asList(COBOLParser.ruleNames);
+	
 	protected abstract T parsePart();
 	
-	protected COBOLParser parser;
-	protected BaseCompiler compiler;
+	protected Compiler parser;
 	
 	public T compile(String source, ANTLRErrorListener... listeners) {
 		prepare(source, listeners);
@@ -47,7 +50,7 @@ public abstract class CompilerHelper<T extends RuleContext> {
 	
 	public String compileAndGetTree(String source, ANTLRErrorListener... listeners) {
 		T tree = compile(source, listeners);
-		return tree.toStringTree(parser);
+		return tree.toStringTree(ruleNames);
 	}
 
 	public void compileAndVerify(String source, String expectedTree) {
@@ -60,18 +63,16 @@ public abstract class CompilerHelper<T extends RuleContext> {
 
 	private void prepare(String source, ANTLRErrorListener... listeners) {
 		try {
-			compiler = createCompiler(new StringReader(source));
+			parser = createCompiler(new StringReader(source));
 			
 			for (ANTLRErrorListener listener : listeners)
-				compiler.addErrorListener(listener);
-			
-			parser = compiler.mainParser;
+				parser.addErrorListener(listener);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
 
-	protected BaseCompiler createCompiler(Reader source) throws IOException {
+	protected Compiler createCompiler(Reader source) throws IOException {
 		return parserForFreeFormat(source);
 	}
 

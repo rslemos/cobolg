@@ -37,7 +37,7 @@ public class AlphanumericLiteralUnitTest {
 
 	private static CompilerHelper<AlphanumericLiteralContext> helper = new CompilerHelper<AlphanumericLiteralContext>() {
 		@Override protected AlphanumericLiteralContext parsePart() { return parser.alphanumericLiteral(); }
-		@Override protected SimpleCompiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
+		@Override protected Compiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
 	};
 
 	// the first tests are the same for the parser as they are for the lexer
