@@ -6,3 +6,4 @@ branches:
 
 before_install: 
     - ( cd alpendre && mvn install )
+    - ( cd memory-measurer && mvn install )

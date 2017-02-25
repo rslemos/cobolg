@@ -37,16 +37,13 @@ import org.antlr.v4.runtime.TokenSource;
 
 public abstract class AbstractLexerUnitTest {
 
-	private Compiler compiler;
 	protected TokenSource stream;
 	
 	protected void setSource(String source) throws IOException {
-		compiler = getCompiler(new StringReader(source));
-		compiler.lexer.reset();
-		stream = compiler.lexer;
+		stream = getLexer(new StringReader(source));
 	}
 
-	protected abstract Compiler getCompiler(Reader reader) throws IOException;
+	protected abstract TokenSource getLexer(Reader reader) throws IOException;
 
 	protected void matchToken(int mode, int type, String text, int channel) {
 		// mode is ignored

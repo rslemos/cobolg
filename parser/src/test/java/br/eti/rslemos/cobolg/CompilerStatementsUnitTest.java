@@ -21,13 +21,16 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.PostProcessingCompiler.parserForFreeFormat;
+
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ResourceBundle;
 
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.junit.Test;
 
-import br.eti.rslemos.cobolg.COBOLParser.CompilerStatementsContext;
 import br.eti.rslemos.cobolg.COBOLParser.FileSectionContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProceduralSentenceContext;
 import br.eti.rslemos.cobolg.COBOLParser.ProgramContext;
@@ -39,27 +42,28 @@ public class CompilerStatementsUnitTest {
 
 	private static abstract class PreCompilerHelper<T extends ParserRuleContext> extends CompilerHelper<T> {
 		@Override public T compile(String source, ANTLRErrorListener... listeners) {
-			T mainTree = super.compile(source/*, listeners*/); // to ignore "missing '.'" errors
-			CompilerStatementsContext preTree = compiler.preParser.compilerStatements();
-			compiler.preProcess(preTree, mainTree);
-			return mainTree;
+			return super.compile(source/*, listeners*/); // to ignore "missing '.'" errors
+		}
+		
+		protected Compiler createCompiler(Reader source) throws IOException {
+			return parserForFreeFormat(source);
 		}
 	}
 	
 	private static CompilerHelper<ProgramContext> programHelper = new PreCompilerHelper<ProgramContext>() {
-		@Override protected ProgramContext parsePart() { return compiler.mainParser.program(); }
+		@Override protected ProgramContext parsePart() { return parser.program(); }
 	};
 
 	private static CompilerHelper<WorkingStorageSectionContext> wssHelper = new PreCompilerHelper<WorkingStorageSectionContext>() {
-		@Override protected WorkingStorageSectionContext parsePart() { return compiler.mainParser.workingStorageSection(); }
+		@Override protected WorkingStorageSectionContext parsePart() { return parser.workingStorageSection(); }
 	};
 
 	private static CompilerHelper<FileSectionContext> fsHelper = new PreCompilerHelper<FileSectionContext>() {
-		@Override protected FileSectionContext parsePart() { return compiler.mainParser.fileSection(); }
+		@Override protected FileSectionContext parsePart() { return parser.fileSection(); }
 	};
 
 	private static CompilerHelper<ProceduralSentenceContext> psHelper = new PreCompilerHelper<ProceduralSentenceContext>() {
-		@Override protected ProceduralSentenceContext parsePart() { return compiler.mainParser.proceduralSentence(); }
+		@Override protected ProceduralSentenceContext parsePart() { return parser.proceduralSentence(); }
 	};
 	
 	@Test public void NoCompilerStatements () {

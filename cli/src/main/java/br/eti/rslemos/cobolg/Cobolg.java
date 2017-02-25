@@ -29,7 +29,6 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.Reader;
 
-import org.antlr.v4.runtime.Token;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -63,6 +62,7 @@ public class Cobolg {
 
 	private transient CmdLineParser parser;
 
+	private COBOLLexer lexer;
 	private Compiler compiler;
 
 	private CollectErrorListener collect;
@@ -121,7 +121,7 @@ public class Cobolg {
 		if (printTree) {
 			PrintStream out = new PrintStream(System.out, true, "UTF-8");
 
-			new ParseTreePrettyPrinter(out, compiler.mainParser).printTree(batch);
+			new ParseTreePrettyPrinter(out, COBOLParser.ruleNames).printTree(batch);
 		}
 	}
 
@@ -131,14 +131,14 @@ public class Cobolg {
 
 			String[] channelNames = new String[] {"BLANK", "MARK", "COMPILE", "DEFAULT"};
 			int[] channelMap = new int[] {3, 0, 1, 2};
-			TokenPrettyPrinter tokenPrinter = new TokenPrettyPrinter(TokenPrettyPrinter.BOXMODEL, out, compiler.lexer.getVocabulary(), channelNames, channelMap);
-			compiler.lexer.reset();
-			tokenPrinter.printTokens(compiler.lexer.getAllTokens());
+			TokenPrettyPrinter tokenPrinter = new TokenPrettyPrinter(TokenPrettyPrinter.BOXMODEL, out, lexer.getVocabulary(), channelNames, channelMap);
+			lexer.reset();
+			tokenPrinter.printTokens(lexer.getAllTokens());
 		}
 	}
 
 	private BatchContext compile() throws IOException {
-		return compiler.compile();
+		return compiler.batch();
 	}
 
 	private void createCompiler(Reader source) throws IOException {
@@ -148,11 +148,12 @@ public class Cobolg {
 
 	protected Compiler getCompiler(Reader source) throws IOException {
 		if (fixed)
-			return new Compiler.FixedFormatCompiler(source);
+			lexer = SimpleCompiler.lexerForFixedFormat(source);
+		else if (free)
+			lexer = SimpleCompiler.lexerForFreeFormat(source);
+		else
+			throw new Error();
 		
-		if (free)
-			return new Compiler.FreeFormatCompiler(source);
-		
-		throw new Error();
+		return PostProcessingCompiler.newParser(lexer);
 	}
 }

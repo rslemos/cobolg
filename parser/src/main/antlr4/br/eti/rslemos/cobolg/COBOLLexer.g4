@@ -41,7 +41,7 @@ INLINECOMMENT : '*>' ~[\n\r\uEBA3]* -> channel(HIDDEN)
 /* separators */
 /* http://publibfp.boulder.ibm.com/epubs/pdf/igy5lr20.pdf#page=69&zoom=auto,-100,730 */
 
-WS : ' '+
+WS : (' ' | '\t')+
 	-> channel(HIDDEN);
 
 NEWLINE : ('\n' '\r'? | '\r' '\n'?)

@@ -21,13 +21,14 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
+import static br.eti.rslemos.cobolg.SimpleCompiler.parserForFixedFormat;
+
 import java.io.IOException;
 import java.io.Reader;
 
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.LiteralContext;
-import br.eti.rslemos.cobolg.Compiler.FixedFormatCompiler;
 
 public class LiteralUnitTest {
 	private static CompilerHelper<LiteralContext> helper = new CompilerHelper<LiteralContext>() {
@@ -40,7 +41,7 @@ public class LiteralUnitTest {
 	// alphanumeric tests are in fixed format
 	private static CompilerHelper<LiteralContext> fixedHelper = new CompilerHelper<LiteralContext>() {
 		@Override protected LiteralContext parsePart() { return parser.literal(); }
-		@Override protected Compiler createCompiler(Reader source) throws IOException { return new FixedFormatCompiler(source); }
+		@Override protected Compiler createCompiler(Reader source) throws IOException { return parserForFixedFormat(source); }
 		@Override public void compileAndVerify(String source, String expectedTree) {
 			super.compileAndVerify(source, "(literal " + expectedTree + ")");
 		}

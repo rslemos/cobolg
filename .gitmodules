@@ -1,3 +1,6 @@
 [submodule "alpendre"]
 	path = alpendre
 	url = http://github.com/rslemos/alpendre
+[submodule "memory-measurer"]
+	path = memory-measurer
+	url = http://github.com/rslemos/memory-measurer
