@@ -193,6 +193,17 @@ public class FixedFormatPreLexerUnitTest extends AbstractLexerUnitTest {
 		matchEOF();
 	}
 
+	@Test
+	public void testLineShortOnSource() throws Exception {
+		setSource("123456 IDENTIFICATION DIVISION.");
+		
+		matchToken(SEQUENCE_NUMBER,        "123456");
+		matchToken(INDICATOR_CODE,         " ");
+		matchToken(SOURCE_SHORT,           "IDENTIFICATION DIVISION.");
+		
+		matchEOF();
+	}
+
 	@Override
 	protected TokenSource getLexer(Reader reader) throws IOException {
 		return new COBOLFixedPreLexer(new ANTLRInputStream(reader));
