@@ -172,6 +172,15 @@ public class FixedFormatPreLexerUnitTest extends AbstractLexerUnitTest {
 		matchEOF();
 	}
 
+	@Test
+	public void testLineShortOnSequence() throws Exception {
+		setSource("12345");
+		
+		matchToken(SEQUENCE_NUMBER_SHORT,  "12345");
+		
+		matchEOF();
+	}
+
 	@Override
 	protected TokenSource getLexer(Reader reader) throws IOException {
 		return new COBOLFixedPreLexer(new ANTLRInputStream(reader));
