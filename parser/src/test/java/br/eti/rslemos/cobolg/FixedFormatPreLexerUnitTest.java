@@ -181,6 +181,18 @@ public class FixedFormatPreLexerUnitTest extends AbstractLexerUnitTest {
 		matchEOF();
 	}
 
+	@Test
+	public void testLineShortOnIndicator() throws Exception {
+		// explicit newline because otherwise would hit EOF before INDICATOR_SHORT
+		setSource("123456\n");
+		
+		matchToken(SEQUENCE_NUMBER,        "123456");
+		matchToken(INDICATOR_SHORT,        "");
+		matchToken(NEWLINE,                "\n");
+		
+		matchEOF();
+	}
+
 	@Override
 	protected TokenSource getLexer(Reader reader) throws IOException {
 		return new COBOLFixedPreLexer(new ANTLRInputStream(reader));
