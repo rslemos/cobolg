@@ -26,7 +26,6 @@ import java.util.ResourceBundle;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtCONTINUEContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtCONTINUE {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtCONTINUE");

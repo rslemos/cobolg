@@ -41,7 +41,7 @@ public class CollectErrorListener extends BaseErrorListener {
 	
 	List<CompilationError> errors = new ArrayList<CompilationError>();
 	
-	@Deprecated public CollectErrorListener(String fileName) { }
+	public CollectErrorListener(String fileName) { }
 
 	@Override
 	public void reportAmbiguity(Parser recognizer, DFA dfa, int startIndex, int stopIndex, boolean exact, BitSet ambigAlts, ATNConfigSet configs) {
@@ -97,19 +97,15 @@ public class CollectErrorListener extends BaseErrorListener {
 	private class SyntaxError extends CompilationError {
 
 		public final Recognizer<?, ?> recognizer;
-		public final Object offendingSymbol;
 		public final int line;
 		public final int charPositionInLine;
 		public final String msg;
-		public final RecognitionException e;
 
 		public SyntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
 			this.recognizer = recognizer;
-			this.offendingSymbol = offendingSymbol;
 			this.line = line;
 			this.charPositionInLine = charPositionInLine;
 			this.msg = msg;
-			this.e = e;
 		}
 
 		@Override

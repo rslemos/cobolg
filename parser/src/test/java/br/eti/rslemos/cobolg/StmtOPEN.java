@@ -27,7 +27,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import br.eti.rslemos.cobolg.COBOLParser.StmtOPENContext;
-import br.eti.rslemos.cobolg.Waive.CompilationError;
 
 public class StmtOPEN {
 	private static final ResourceBundle TEST_DATA = ResourceBundle.getBundle("br.eti.rslemos.cobolg.stmtOPEN");
