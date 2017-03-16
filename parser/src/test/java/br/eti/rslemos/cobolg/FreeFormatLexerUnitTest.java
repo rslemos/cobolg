@@ -21,9 +21,11 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.COBOLLexer.*;
+import static br.eti.rslemos.cobolg.COBOLLexer.COMPILER_CHANNEL;
+import static br.eti.rslemos.cobolg.COBOLParser.*;
 import static br.eti.rslemos.cobolg.SimpleCompiler.lexerForFreeFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
+import static org.antlr.v4.runtime.Lexer.HIDDEN;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;

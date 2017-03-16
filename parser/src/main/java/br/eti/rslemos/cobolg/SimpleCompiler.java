@@ -27,7 +27,6 @@ import java.io.Reader;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.DefaultErrorStrategy;
-import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.atn.PredictionMode;
@@ -48,7 +47,7 @@ public class SimpleCompiler extends COBOLParser implements Compiler {
 		return parser;
 	}
 
-	public static SimpleCompiler newParser(Lexer lexer) {
+	public static SimpleCompiler newParser(TokenSource lexer) {
 		return new SimpleCompiler(lexer);
 	}
 	

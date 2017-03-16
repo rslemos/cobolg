@@ -21,7 +21,7 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.COBOLLexer.USERDEFINEDWORD;
+import static br.eti.rslemos.cobolg.COBOLParser.USERDEFINEDWORD;
 import static br.eti.rslemos.cobolg.SimpleCompiler.lexerForFreeFormat;
 
 import java.io.IOException;

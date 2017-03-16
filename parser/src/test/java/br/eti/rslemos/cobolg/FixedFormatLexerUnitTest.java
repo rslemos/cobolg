@@ -21,9 +21,11 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static br.eti.rslemos.cobolg.COBOLLexer.*;
+import static br.eti.rslemos.cobolg.COBOLParser.*;
+import static br.eti.rslemos.cobolg.COBOLLexer.MARK;
 import static br.eti.rslemos.cobolg.SimpleCompiler.lexerForFixedFormat;
 import static br.eti.rslemos.cobolg.TextHelper.join;
+import static org.antlr.v4.runtime.Lexer.HIDDEN;
 
 import java.io.IOException;
 import java.io.Reader;
