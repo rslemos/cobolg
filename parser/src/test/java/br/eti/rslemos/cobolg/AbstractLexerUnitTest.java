@@ -44,6 +44,16 @@ public abstract class AbstractLexerUnitTest {
 
 	protected abstract TokenSource getLexer(Reader reader) throws IOException;
 
+	protected Token matchTokenExt(int type, String text, int channel, int line, int position) {
+		return matchTokenExt(matchToken(type, text, channel), line, position);
+	}
+
+	private static Token matchTokenExt(Token token, int line, int position) {
+		assertThat(token.getLine(), is(equalTo(line)));
+		assertThat(token.getCharPositionInLine(), is(equalTo(position)));
+		return token;
+	}
+	
 	protected Token matchToken(int type, String text, int channel) {
 		Token token = stream.nextToken();
 		assertThat(token.getType(), is(equalTo(type)));
@@ -56,6 +66,10 @@ public abstract class AbstractLexerUnitTest {
 		return matchToken(type, text, DEFAULT_TOKEN_CHANNEL);
 	}
 
+	protected Token matchEOFExt(int line, int position) {
+		return matchTokenExt(matchEOF(), line, position);
+	}
+	
 	protected Token matchEOF() {
 		Token token = stream.nextToken();
 		assertThat(token.getType(), is(equalTo(Lexer.EOF)));
