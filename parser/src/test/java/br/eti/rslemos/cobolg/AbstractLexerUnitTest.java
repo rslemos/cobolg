@@ -21,7 +21,6 @@
  ******************************************************************************/
 package br.eti.rslemos.cobolg;
 
-import static org.antlr.v4.runtime.Lexer.DEFAULT_MODE;
 import static org.antlr.v4.runtime.Lexer.DEFAULT_TOKEN_CHANNEL;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -45,30 +44,22 @@ public abstract class AbstractLexerUnitTest {
 
 	protected abstract TokenSource getLexer(Reader reader) throws IOException;
 
-	protected void matchToken(int mode, int type, String text, int channel) {
-		// mode is ignored
-		
+	protected Token matchToken(int type, String text, int channel) {
 		Token token = stream.nextToken();
 		assertThat(token.getType(), is(equalTo(type)));
 		assertThat(token.getText(), is(equalTo(text)));
 		assertThat(token.getChannel(), is(equalTo(channel)));
+		return token;
 	}
 
-	protected void matchToken(int type, String text, int channel) {
-		matchToken(DEFAULT_MODE, type, text, channel);
+	protected Token matchToken(int type, String text) {
+		return matchToken(type, text, DEFAULT_TOKEN_CHANNEL);
 	}
 
-	protected void matchToken(int mode, int type, String text) {
-		matchToken(mode, type, text, DEFAULT_TOKEN_CHANNEL);
-	}
-
-	protected void matchToken(int type, String text) {
-		matchToken(DEFAULT_MODE, type, text, DEFAULT_TOKEN_CHANNEL);
-	}
-
-	protected void matchEOF() {
+	protected Token matchEOF() {
 		Token token = stream.nextToken();
 		assertThat(token.getType(), is(equalTo(Lexer.EOF)));
+		return token;
 	}
 
 }

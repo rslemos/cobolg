@@ -422,12 +422,12 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		//    RECORDING MODE IS V
 		matchToken(WS, "    ", HIDDEN);
 		matchToken(RECORDING, "RECORDING");
-		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
-		matchToken(RECORDING_MODE, REC_MODE, "MODE");
-		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
-		matchToken(RECORDING_MODE, REC_IS, "IS");
-		matchToken(RECORDING_MODE, REC_WS, " ", HIDDEN);
-		matchToken(RECORDING_MODE, V, "V");
+		matchToken(REC_WS, " ", HIDDEN);
+		matchToken(REC_MODE, "MODE");
+		matchToken(REC_WS, " ", HIDDEN);
+		matchToken(REC_IS, "IS");
+		matchToken(REC_WS, " ", HIDDEN);
+		matchToken(V, "V");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//    CODE-SET IS ALPHABET1.
@@ -496,9 +496,9 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(USERDEFINEDWORD, "FD3");
 		matchToken(WS, "  ", HIDDEN);
 		matchToken(COPY, "COPY", COMPILER_CHANNEL);
-		matchToken(COMPILER_ID_MODE, COMPILER_ID_WS, " ", HIDDEN);
-		matchToken(COMPILER_ID_MODE, COMPILER_ID, "XZT0190", COMPILER_CHANNEL);
-		matchToken(COMPILER_MODE, COMPILER_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(COMPILER_ID_WS, " ", HIDDEN);
+		matchToken(COMPILER_ID, "XZT0190", COMPILER_CHANNEL);
+		matchToken(COMPILER_PERIOD, ".", COMPILER_CHANNEL);
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
 		//WORKING-STORAGE SECTION.
@@ -514,8 +514,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(USERDEFINEDWORD, "WS-DEBUG");
 		matchToken(WS, "             ", HIDDEN);
 		matchToken(PIC, "PIC");
-		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
-		matchToken(PICTURE_MODE, PICTURESTRING, "ZZZ.ZZZ.ZZZ.ZZ9,999999-");
+		matchToken(PIC_WS, " ", HIDDEN);
+		matchToken(PICTURESTRING, "ZZZ.ZZZ.ZZZ.ZZ9,999999-");
 		matchToken(PERIOD, ".");
 		matchToken(NEWLINE, "\n", HIDDEN);
 		
@@ -525,8 +525,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(USERDEFINEDWORD, "WS-DEBUG1");
 		matchToken(WS, "            ", HIDDEN);
 		matchToken(PIC, "PIC");
-		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
-		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
+		matchToken(PIC_WS, " ", HIDDEN);
+		matchToken(PICTURESTRING, "S9(8)");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(COMP, "COMP");
 		matchToken(WS, " ", HIDDEN);
@@ -589,8 +589,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(USERDEFINEDWORD, "DESL12V05");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(PIC, "PIC");
-		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
-		matchToken(PICTURE_MODE, PICTURESTRING, "S9(17)");
+		matchToken(PIC_WS, " ", HIDDEN);
+		matchToken(PICTURESTRING, "S9(17)");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(COMP_3, "COMP-3");
 		matchToken(PERIOD, ".");
@@ -608,8 +608,8 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(ZERO, "ZERO");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(PIC, "PIC");
-		matchToken(PICTURE_MODE, PIC_WS, " ", HIDDEN);
-		matchToken(PICTURE_MODE, PICTURESTRING, "S9(8)");
+		matchToken(PIC_WS, " ", HIDDEN);
+		matchToken(PICTURESTRING, "S9(8)");
 		matchToken(WS, " ", HIDDEN);
 		matchToken(COMP, "COMP");
 		matchToken(PERIOD, ".");
@@ -622,9 +622,9 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(WS, "            ", HIDDEN);
 		matchToken(COPY, "COPY", COMPILER_CHANNEL);
-		matchToken(COMPILER_ID_MODE, COMPILER_ID_WS, " ", HIDDEN);
-		matchToken(COMPILER_ID_MODE, COMPILER_ID, "XZT0100", COMPILER_CHANNEL);
-		matchToken(COMPILER_MODE, COMPILER_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(COMPILER_ID_WS, " ", HIDDEN);
+		matchToken(COMPILER_ID, "XZT0100", COMPILER_CHANNEL);
+		matchToken(COMPILER_PERIOD, ".", COMPILER_CHANNEL);
 		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//LINKAGE SECTION.
@@ -641,9 +641,9 @@ public class FreeFormatLexerUnitTest extends AbstractLexerUnitTest {
 		matchToken(PERIOD, ".");
 		matchToken(WS, "            ", HIDDEN);
 		matchToken(COPY, "COPY", COMPILER_CHANNEL);
-		matchToken(COMPILER_ID_MODE, COMPILER_ID_WS, " ", HIDDEN);
-		matchToken(COMPILER_ID_MODE, COMPILER_ID, "XZT0009", COMPILER_CHANNEL);
-		matchToken(COMPILER_MODE, COMPILER_PERIOD, ".", COMPILER_CHANNEL);
+		matchToken(COMPILER_ID_WS, " ", HIDDEN);
+		matchToken(COMPILER_ID, "XZT0009", COMPILER_CHANNEL);
+		matchToken(COMPILER_PERIOD, ".", COMPILER_CHANNEL);
 		matchToken(NEWLINE, "\n", HIDDEN);
 
 		//EJECT
