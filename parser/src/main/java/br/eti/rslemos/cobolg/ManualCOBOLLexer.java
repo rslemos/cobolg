@@ -45,6 +45,17 @@ public class ManualCOBOLLexer implements TokenSource {
 	
 	private int lineNumber = 1;
 	private int charsRead = 0;
+
+	private ChainedToken eof;
+
+	private String[] segments = new String[5];
+
+	private int lineType;
+	private int tokenCount;
+
+	private ChainedToken head;
+
+	private int position;
 	
 	public ManualCOBOLLexer(Readable source, SegmentationStrategy segmentationStrategy) {
 		this.source = new LineReaderWithEOL(source);
@@ -66,53 +77,162 @@ public class ManualCOBOLLexer implements TokenSource {
 	// only called when there is no token available
 	// don't return without appending at least one token to tokens
 	private void fillTokens0() throws IOException {
-		String line = source.readLine();
-		if (line == null) {
-			tokens.add(new ChainedToken(null, Token.EOF, lineNumber, charsRead, Token.HIDDEN_CHANNEL, 0, 0, 0, this, null));
-			return;
+		int state = 0;
+		
+		do {
+			String code = readNextLine();
+
+			if (lineType != INDICATOR_CONTINUATION) {
+				switch (state) {
+				case 0:
+					break;
+				case 1:
+					// impossible
+					break;
+				case 2:
+					System.err.printf("unterminated string\n");
+					break;
+				case 3:
+					head.type = figureWord(head.getText());
+					break;
+				}
+				
+				state = 0;
+			}
+			
+			if (code != null)
+				state = parseCode0(state, code);
+			
+		} while (state != 0);
+	}
+
+	private int parseCode0(int state, String code) {
+		int begin = -1;
+		
+		for (int i = 0; i < code.length(); i++) {
+			int la = code.charAt(i);
+
+			switch (state) {
+			case 0: // ground
+				begin = i;
+				if (la == ' ' || la == '\t')
+					state = 1;
+				if (la == '"' || la == '\'')
+					state = 2;
+				if (la >= 'A' && la <= 'Z')
+					state = 3;
+				if (la == '.')
+					newToken(code.substring(i, i+1), PERIOD, Token.DEFAULT_CHANNEL);
+				break;
+			case 1: // recognizing spaces
+				if (!(la == ' ' || la == '\t')) {
+					newToken(code.substring(begin, i), WS, Token.HIDDEN_CHANNEL);
+					i--; // reprocess
+					state = 0;
+				}
+				break;
+			case 2: // recognizing strings
+				if (!(la == '"' || la == '\'')) {
+					newToken(code.substring(begin, i), QUOTEDSTRING, Token.DEFAULT_CHANNEL);
+					i--; // reprocess
+					state = 0;
+				}
+				break;
+			case 3: // recognizing words
+				if (!(la >= 'A' && la <= 'Z')) {
+					String word = code.substring(begin, i);
+					int type = figureWord(word);
+					newToken(word, type, Token.DEFAULT_CHANNEL);
+					i--; // reprocess
+					state = 0;
+				}
+				break;
+			}
 		}
 		
-		String[] segments = segmentationStrategy.segment(line);
-		if (segments[0].length() > 0) {
-			tokens.add(new ChainedToken(segments[0], SEQUENCE_NUMBER, lineNumber, charsRead, Token.HIDDEN_CHANNEL, 0, 0, 0, this, null));
-			charsRead += segments[0].length();
+		switch (state) {
+		case 0:
+			head = null;
+			break;
+		case 1:
+			newToken(code.substring(begin, code.length()), WS, Token.HIDDEN_CHANNEL);
+			state = 0;
+			head = null;
+			break;
+		case 2:
+			head = newToken(code.substring(begin, code.length()), QUOTEDSTRING, Token.DEFAULT_CHANNEL);
+			break;
+		case 3:
+			String word = code.substring(begin, code.length());
+			head = newToken(word, USERDEFINEDWORD, Token.DEFAULT_CHANNEL);
 		}
 		
-		if (segments[1].length() > 0) {
-			int type = -2;
-			if (" ".equals(segments[1]))
-				type = INDICATOR_BLANK;
-			if ("-".equals(segments[1]))
-				type = INDICATOR_CONTINUATION;
-			if ("*".equals(segments[1]))
-				type = INDICATOR_COMMENT;
-			tokens.add(new ChainedToken(segments[1], type, lineNumber, charsRead, Token.HIDDEN_CHANNEL, 0, 0, 0, this, null));
-			charsRead += segments[1].length();
-		}
+		return state;
+	}
+
+	private int figureWord(String word) {
+		int type = -2;
+		if ("IDENTIFICATION".equals(word))
+			type = IDENTIFICATION;
+		if ("DIVISION".equals(word))
+			type = DIVISION;
+		return type;
+	}
+
+	private ChainedToken newToken(String text, int type, int channel) {
+		// refuse to create empty token
+		if (text != null && text.length() > 0) {
+			ChainedToken token = newToken0(text, type, channel);
+			charsRead += text.length();
+			position += text.length();
+			return token;
+		} else
+			return null;
+	}
+
+	private ChainedToken newToken0(String text, int type, int channel) {
+		ChainedToken token = new ChainedToken(text, type, lineNumber, charsRead, channel, ++tokenCount, position, 0, this, null);
+		tokens.add(token);
+		return token;
+	}
+	
+	private ChainedToken eof() {
+		if (eof == null)
+			eof = newToken0(null, Token.EOF, Token.HIDDEN_CHANNEL);
 		
-		if (segments[2].length() > 0) {
-			// do actual parsing
-			tokens.add(new ChainedToken("IDENTIFICATION", IDENTIFICATION, lineNumber, charsRead, Token.DEFAULT_CHANNEL, 0, 0, 0, this, null));
-			charsRead += "IDENTIFICATION".length();
-			tokens.add(new ChainedToken(" ", WS, lineNumber, charsRead, Token.HIDDEN_CHANNEL, 0, 0, 0, this, null));
-			charsRead += 1;
-			tokens.add(new ChainedToken("DIVISION", DIVISION, lineNumber, charsRead, Token.DEFAULT_CHANNEL, 0, 0, 0, this, null));
-			charsRead += "DIVISION".length();
-			tokens.add(new ChainedToken(".", PERIOD, lineNumber, charsRead, Token.DEFAULT_CHANNEL, 0, 0, 0, this, null));
-			charsRead += 1;
-		}
+		return eof;
+	}
+	
+	private String readNextLine() throws IOException {
+		newToken(segments[3], SKIP_TO_EOL, Token.HIDDEN_CHANNEL);
 		
-		if (segments[3].length() > 0) {
-			tokens.add(new ChainedToken(segments[3], SKIP_TO_EOL, lineNumber, charsRead, Token.HIDDEN_CHANNEL, 0, 0, 0, this, null));
-			charsRead += segments[3].length();
-		}
-		
-		if (segments[4].length() > 0) {
-			tokens.add(new ChainedToken(segments[4], NEWLINE, lineNumber, charsRead, Token.HIDDEN_CHANNEL, 0, 0, 0, this, null));
+		if (newToken(segments[4], NEWLINE, Token.HIDDEN_CHANNEL) != null) {
 			lineNumber++;
 			charsRead = 0;
+		}
+
+		lineType = -2;
+		String line = source.readLine();
+		
+		if (line == null) {
+			eof();
+			segments = null;
+			return null;
 		} else {
-			tokens.add(new ChainedToken(null, Token.EOF, lineNumber, charsRead, Token.HIDDEN_CHANNEL, 0, 0, 0, this, null));
+			segments = segmentationStrategy.segment(line);
+			
+			newToken(segments[0], SEQUENCE_NUMBER, Token.HIDDEN_CHANNEL);
+			
+			if (" ".equals(segments[1]))
+				lineType = INDICATOR_BLANK;
+			if ("-".equals(segments[1]))
+				lineType = INDICATOR_CONTINUATION;
+			if ("*".equals(segments[1]))
+				lineType = INDICATOR_COMMENT;
+			
+			newToken(segments[1], lineType, Token.HIDDEN_CHANNEL);
+			
+			return segments[2];
 		}
 	}
 

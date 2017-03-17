@@ -31,7 +31,7 @@ public class ChainedToken implements Token {
 	
 	// basic properties
 	private String text;
-	private int type;
+	int type;
 	private int line;
 	private int charPositionInLine;
 	private int channel;
